@@ -89,7 +89,7 @@ computed: {
 
 > npm install --save axios vue-axios 
 
-在main.js中添加
+### 在main.js中添加
 
 > import axios from 'axios'
 
@@ -97,7 +97,7 @@ computed: {
 
 > Vue.prototype.$http = axios
 
-使用示例：
+### 使用示例：
 
 ```javascript
 this.$http.get('/api/api/userlist.php')

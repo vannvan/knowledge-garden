@@ -15,3 +15,4 @@ vue项目完成打包上线的时候很多人都会碰到静态资源找不到�
 ![](http://www.ftc20.com/wordpress/wp-content/uploads/2017/11/20171102171215-1.png)
 
 原文：http://www.ftc20.com/wordpress/2017/11/vue-static-resource-route-question/d
+

@@ -91,5 +91,47 @@ console.log(formatterDate(myDate4));//--->Tue Sep 19 2017 08:00:00 GMT+0800 (中
 console.log(formatterDate(myDate5));//--->Tue Sep 19 2017 20:00:00 GMT+0800 (中国标准时间)
 ```
 
+### 补充示例
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date对象</title>
+    <style>
+        body {background-color: #333; color: white;}
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        /**** 3. 时间转换  */
+        var testDate = new Date();
+        var dateobj_toString = testDate.toString();           // toString() 把 Date 对象转换为字符串。
+        var dataobj_toTimeString = testDate.toTimeString();   // toTimeString()  把 Date 对象的时间部分转换为字符串。
+        var dateobj_toDateString = testDate.toDateString();   // toDateString()  把 Date 对象的日期部分转换为字符串。
+
+        var dateobj_toUTCString = testDate.toUTCString();     // toUTCString()   根据世界时，把 Date 对象转换为字符串。
+
+        var dateobj_toLocalString = testDate.toLocaleString(); // toLocaleString()  根据本地时间格式，把 Date 对象转换为字符串。
+        var dateobj_toLocalTimeString = testDate.toLocaleTimeString();   // toLocaleTimeString()   根据本地时间格式，把 Date 对象的时间部分转换为字符串。
+        var dateobj_toLocaleDateString = testDate.toLocaleDateString();   // toLocaleDateString()   根据本地时间格式，把 Date 对象的日期部分转换为字符串。
+        document.write("dateobj_toString===="+dateobj_toString+ '<br><br>');  
+        document.write("dataobj_toTimeString===="+dataobj_toTimeString+ '<br><br>');  
+        document.write("dateobj_toDateString===="+dateobj_toDateString+ '<br><br>');  
+
+        document.write("dateobj_toUTCString===="+dateobj_toUTCString+ '<br><br>');  
+        
+        document.write("dateobj_toLocalString===="+dateobj_toLocalString+ '<br><br>');  
+        document.write("dateobj_toLocalTimeString===="+dateobj_toLocalTimeString+ '<br><br>');  
+        document.write("dateobj_toLocaleDateString===="+dateobj_toLocaleDateString+ '<br><br>');  
+
+    </script>
+</body>
+</html>
+```
+
+输出结果：
+
+![](https://images2015.cnblogs.com/blog/734402/201704/734402-20170405122731597-991794882.png)
 

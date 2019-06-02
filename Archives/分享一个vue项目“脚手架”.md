@@ -16,21 +16,22 @@
 
 ## 必要的依赖项
 
->- node-sass sass sass-resources sass-loader sass-recources-loader 
+>- node-sass sass  sass-loader sass-resources-loader 
 >- vuex vuex-persistedstate
 >- axios
 >- babel-polyfill
 
 ## 项目目录如下
 
-![](https://ws3.sinaimg.cn/large/005BYqpggy1g3epc1pettj307l0fcq32.jpg)
+![](https://github.com/vannvan/wvue-cli/blob/master/src/assets/images/Catalog.png?raw=true)
 
 ## 配置公共sass
 
 目录assets>scss文件形式
 
-common.scss内容,mixin.scss内容详见[mixin公共sass函数](<https://github.com/vannvan/wvue-cli/blob/master/src/assets/scss/mixin.scss>)
+mixin.scss内容详见 [mixin公共sass函数](https://github.com/vannvan/wvue-cli/blob/master/src/assets/scss/mixin.scss)
 
+common.scss内容如下
  >@import './mixin.scss';   // 公共函数
  >@import './icomoon.css'; //字体图标
  >@import './wvue-cli.scss';  //项目公共样式
@@ -122,7 +123,7 @@ const mixin = {
       return {
         URL_CONFIG:URL_CONFIG
      },
-     methods: {
+     methods: {
      //像时间戳转换这种方法大多数项目都能用的到，可以写在filter里也可以写在computed里，取决于运用场景
       formatDate(date, fmt) {
           if (/(y+)/.test(fmt)) {
@@ -342,17 +343,20 @@ new Vue({
 
 - 步骤2：修改build>utils.js文件
 
-找到 fallback: 'vue-style-loader'，在其下假如下面这一行
+找到 fallback: 'vue-style-loader'，在其下加入下面这一行
 
 >publicPath: '../../'
 
 ## 结语
 
-至此，一个基本完备的vue项目“脚手架”就完成了，以后每次初始化项目都可以按照这套方案来进行，省去了很多协作开发的交流环节，形成了能够满足大多数项目的目录及文件构成形式，将此项目托管至私服每次初始化项目只需拉取这个“脚手架”便能省区不少初始化项目的时间，岂不美哉！
+至此，一个基本完备的vue项目脚手架就完成了，以后每次初始化项目都可以按照这套方案来进行，省去了很多协作开发的交流环节，形成了能够满足大多数项目的目录及文件构成形式，将此项目托管至私服每次初始化项目只需拉取这个脚手架便能省区不少初始化项目的时间，岂不美哉！
 
 
 
-此“脚手架”项目已开源至github，欢迎大家提出建议和互相交流，同时也可随意将项目拉下来进行使用。
+此脚手架项目已开源至github，欢迎大家提出建议和互相交流，同时也可随意将项目拉下来进行使用。
 
-[A scaffolding based on vue.js](<https://github.com/vannvan/wvue-cli>)
+>[A scaffolding based on vue.js](https://github.com/vannvan/wvue-cli)
 
+开箱即用操作方式
+> npm i wwvue-cli -g 
+> wwvue-cli init project-name

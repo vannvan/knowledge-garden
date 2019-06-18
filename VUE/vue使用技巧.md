@@ -8,3 +8,15 @@ filename: utils.assetsPath('js/[name].[chunkhash].' + Version + '.js'),
 chunkFilename: utils.assetsPath('js/[id].[chunkhash].' + Version + '.js')
 ```
 
+## 禁用生产环境中的console
+
+webpack.prod.conf.js找到 UglifyJsPlugin ({  })，改为如下
+
+```js
+compress: {
+          warnings: false,
+          drop_console: true,//console
+          pure_funcs: ['console.log']//移除console
+        }
+```
+

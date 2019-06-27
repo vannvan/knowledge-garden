@@ -74,6 +74,10 @@ $ npm install mavon-editor --save
 
  github地址：https://github.com/hinesboy/mavonEditor
 
+### lodash
+
+
+
 
 
  

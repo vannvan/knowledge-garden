@@ -50,5 +50,30 @@
 
 由于失误给远程仓库提交了很多不必要的文件，可以先整理好本地仓库文件确认无误后，覆盖远程仓库。
 
-> git push origin 分支名--force
+> git push origin 分支名 --force
 
+### 撤销操作
+
+##### 已修改，未暂存
+
+> git reset --hard
+
+##### 已暂存，未提交
+
+>git reset 
+>
+>git checkout .
+
+或者
+
+> git reset --hard
+
+已提交，未推送
+
+> git reset --hard master origin/master
+
+##### 已推送
+
+> git reset --hard HEAD^
+>
+> git push -f

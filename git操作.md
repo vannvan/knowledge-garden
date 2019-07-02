@@ -11,21 +11,13 @@
 方法2（假设当前位于test分支）
 
 > git checkout master                          *//将当前分支切换到主分支*
->
 > git reset -hard test                            *//将主分支重置为test分支*
->
 > git push origin master -force             *//将重置后的master分支强制推送到远程仓库*
 
 方法3
 
->git checkout test1
->
->\#把test1重置为test2
->
->git reset --hard orgin/test2
->
->\#这一步不要git pull 直接强推
->
+>git checkout test1     //把test1重置为test2
+>git reset --hard orgin/test2  //这一步不要git pull 直接强推
 >git push --force
 
 ### 场景2
@@ -33,11 +25,8 @@
 不想提交进行了一半的工作
 
 > git stash    储藏
-
 > git  stash list   查看储藏
-
 > git stash apply  使用最近的储藏
-
 > git stash apply stash@{2}    指定储藏
 
 ### 场景3
@@ -61,7 +50,6 @@
 ##### 已暂存，未提交
 
 >git reset 
->
 >git checkout .
 
 或者
@@ -75,5 +63,4 @@
 ##### 已推送
 
 > git reset --hard HEAD^
->
 > git push -f

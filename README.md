@@ -1,4 +1,5 @@
-# notepad
+### illustrate
 
-[![GitHub issues](https://img.shields.io/github/issues/vannvan/w-ui.svg)](https://github.com/vannvan/w-ui/issues)
+本仓库作为纯个人综合知识存档，部分知识素材、内容来自长时间以来借鉴或直接摘抄自他人博客，并未在任何平台进行分享或者盈利，如有路过的开发者在此看到他人原创作品请勿批判，如有影响任何原作的个人利益请联系我及时删除，谢谢！
 
+-----From a moral integrity programmer!

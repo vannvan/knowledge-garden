@@ -486,3 +486,4 @@ for (var value of myArray) {
 - 这个方法避开了for-in循环的所有缺陷
 - 与forEach()不同的是，它可以正确响应break、continue和return语句
 - 
+

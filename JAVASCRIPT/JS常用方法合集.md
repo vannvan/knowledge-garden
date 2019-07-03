@@ -1,10 +1,14 @@
-## number排序
+### JS的6个"假"值
+
+> `null`  `false`  `undefined`  `0`  `''(空字符串)`  `NaN`
+
+### number排序
 
 ```js
 const sortNumbers = (...numbers) => numbers.sort();   排序
 ```
 
-##  数组去重思路
+###  数组去重思路
 
 ```js
 const s = new Set();
@@ -80,7 +84,7 @@ q={};location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);q;
 
 随机更改数组元素顺序，混淆数组
 
-```
+```js
 // 随机更改数组元素顺序，混淆数组
 (arr) => arr.slice().sort(() => Math.random() - 0.5)
 /* 
@@ -90,22 +94,39 @@ console.log(b)
 */
 ```
 
+### 数组清空
+
+```js
+const arr = [0, 1, 2];
+arr.length = 2;
+// arr => [0, 1]
+```
+
+### 交换赋值
+
+```js
+let a = 0;
+let b = 1;
+[a, b] = [b, a];
+// a b => 1 0
+```
+
 ### 生成随机十六进制代码（生成随机颜色）
 
 使用JavaScript简洁代码生成随机十六进制代码
 
-```
+```js
 // 生成随机十六进制代码 如：'#c618b2'
-'#' + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, '0');
+const RandomColor = () => "#" + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0");
+const color = RandomColor();
+// color => "#f03665"
 ```
-
-
 
 ### 创建特定大小的数组
 
 方便快捷创建特定大小的数组
 
-```
+```js
 [...Array(3).keys()]
 // [0, 1, 2]
 ```
@@ -124,6 +145,13 @@ console.log(newArr)
 let arr = ['','1','2',undefined,'3.jpg',undefined]
 let newArr = arr.filter(item => item)
 console.log(newArr)
+```
+
+### filter 过滤空值：undefined、null、""、0、false、NaN
+
+```js
+const arr = [undefined, null, "", 0, false, NaN, 1, 2].filter(Boolean);
+// arr => [1, 2]
 ```
 
 ### filter() 数组去重
@@ -175,6 +203,14 @@ let obj = searchObj(search)
 }
 ```
 
+### 直接获取location.search某参数
+
+```js
+const params = new URLSearchParams(location.search.replace(/\?/ig, "")); // location.search = "?name=yajun&sex=female"
+params.has("yajun"); // true
+params.get("sex"); // "female"
+```
+
 ### JS 对象转 url 查询字符串
 
 ```js
@@ -190,7 +226,7 @@ const similarity = (arr, values) => arr.filter(v => values.includes(v));
 similarity([1, 2, 3], [1, 2, 4]); // [1,2]
 ```
 
-### 两日期时间差
+### 两（yyyy-MM-dd）日期时间差
 
 ```js
 const getDaysDiffBetweenDates = (dateInitial, dateFinal) => (dateFinal - dateInitial) / (1000 * 3600 * 24);
@@ -202,5 +238,131 @@ getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22'));
 
 ```js
 const  hasClass = (el, className) => new RegExp(`(^|\\s)${className}(\\s|$)`).test(el.className);
+```
+
+### 是否为空数组
+
+```js
+const arr = [];
+const flag = Array.isArray(arr) && !arr.length;
+// flag => true
+```
+
+### 是否为空对象
+
+```js
+const obj = {};
+const flag = DataType(obj, "object") && !Object.keys(obj).length;
+// flag => true
+```
+
+### 判断数据类型
+
+> undefined、null、string、number、boolean、array、object、symbol、date、regexp、function、asyncfunction、arguments、set、map、weakset、weakmap
+
+```js
+function DataType(tgt, type) {
+    const dataType = Object.prototype.toString.call(tgt).replace(/\[object /g, "").replace(/\]/g, "").toLowerCase();
+    return type ? dataType === type : dataType;
+}
+DataType("yajun"); // "string"
+DataType(19941112); // "number"
+DataType(true); // "boolean"
+DataType([], "array"); // true
+DataType({}, "array"); // false
+```
+
+### 对象字面量(获取环境变量时必用此方法)
+
+```js
+const env = "prod";
+const link = {
+    dev: "Development Address",
+    test: "Testing Address",
+    prod: "Production Address"
+}[env];
+// link => "Production Address"
+```
+
+### 对象变量属性(可变属性名1)
+
+```js
+const flag = false;
+const obj = {
+    a: 0,
+    b: 1,
+    [flag ? "c" : "d"]: 2
+};
+// obj => { a: 0, b: 1, d: 2 }
+```
+
+### 动态属性名(可变属性名2)
+
+```js
+const dynamic = 'email';
+let user = {
+    name: 'John',
+    [dynamic]: 'john@doe.com'
+}
+console.log(user); // outputs { name: "John", email: "john@doe.com" }
+```
+
+### 删除对象无用属性（扩展运算符）
+
+```js
+const obj = { a: 0, b: 1, c: 2 }; // 只想拿b和c
+const { a, ...rest } = obj;
+// rest => { b: 1, c: 2 }
+```
+
+### es6隐式返回值
+
+```js
+const Func = function(name) {
+    return "I Love " + name;
+};
+// 换成
+const Func = name => "I Love " + name;
+```
+
+### 检测非空参数
+
+创建方法时方式使用者忽略掉必要的参数
+
+```js
+function IsRequired() {
+    throw new Error("param is required");
+}
+function Func(name = IsRequired()) {
+    console.log("I Love " + name);
+}
+Func(); // "param is required"
+Func("雅君妹纸"); // "I Love 雅君妹纸"
+```
+
+### 优雅处理错误信息
+
+```js
+try {
+    Func();
+} catch (e) {
+    location.href = "https://stackoverflow.com/search?q=[js]+" + e.message;
+}
+```
+
+### 优雅处理Async/Await参数
+
+```js
+function AsyncTo(promise) {
+    return promise.then(data => [null, data]).catch(err => [err]);
+}
+const [err, res] = await AsyncTo(Func());
+```
+
+### 存取LocalStorage：反序列化取，序列化存(JSON)
+
+```js
+const love = JSON.parse(localStorage.getItem("love"));
+localStorage.setItem("love", JSON.stringify("I Love 雅君妹纸"));
 ```
 

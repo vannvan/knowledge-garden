@@ -51,3 +51,32 @@ $.each(data.comments, function(i, item) {
         });
 ```
 
+## 示例2
+
+```js
+
+function each(obj) {
+	if (obj.constructor==Array) {
+		var str = "<ul>";
+		for (var i = 0, len = obj.length; i < len; i++) {
+			str += "<li>"+each(obj[i])+"</li>";
+		}
+		str += "</ul>";
+		return str;
+	}
+	if (obj.constructor==Object) {
+		var str = "<ul>";
+		for (var i in obj) {
+			str += "<li>"+i+" : "+each(obj[i])+"</li>";
+		}
+		str += "</ul>";
+		return str;
+	}
+	return obj;
+}
+$.getJSON('ajax/test.json', function(obj) {
+	$("body").append(each(obj));
+});
+
+```
+

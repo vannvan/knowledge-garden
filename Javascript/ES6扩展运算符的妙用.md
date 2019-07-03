@@ -20,11 +20,9 @@ doStuff.apply(null, args);
 doStuff(...args);
 ```
 
-这段代码变得更短，更清晰，并且不需要使用多余的`null`!
+这段代码变得更短，更清晰，并且不需要使用多余的`null`
 
 ## 合并数组
-
-已经有[好多种合并数组的方法](https://link.jianshu.com?t=https://davidwalsh.name/combining-js-arrays)，但是展开运算符带来了一种全新的方式。
 
 ```javascript
 arr1.push(...arr2) // 将arr2 追加到数组的末尾
@@ -36,7 +34,6 @@ arr1.unshift(...arr2) // 将arr2 追加到数组的开头
 ```javascript
 var arr1 = ['two', 'three'];
 var arr2 = ['one', ...arr1, 'four', 'five'];
-
 // ["one", "two", "three", "four", "five"]
 ```
 
@@ -74,8 +71,6 @@ var myFn = function(...args) {
 
 ## 使用`Math`函数
 
-当然了，展开运算符将数组“展开”成为不同的参数，所以任何可接收任意数量的参数的函数，都能够使用展开运算符来传参。
-
 ```
 let numbers = [9, 4, 7, 1];
 Math.min(...numbers); // 1
@@ -83,9 +78,9 @@ Math.min(...numbers); // 1
 
 `Math`对象的一系列的方法，正是展开运算符作为唯一参数传递给函数的完美例子。
 
-## 解构的乐趣
+## 解构赋值
 
-解构是一项很棒的实践方法，我在自己的React项目中以及Node.js 程序中大量的使用到它。你能够使用解构和展开运算符将信息解压到你想要的变量中去：
+### 单层解构
 
 ```javascript
 let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
@@ -94,9 +89,15 @@ console.log(y); // 2
 console.log(z); // { a: 3, b: 4 }
 ```
 
-剩余的属性被分配到了展开运算符之后的z变量中。
+### 解构嵌套
 
-ES6不仅仅使JS变得更高效，也使其更有趣。现代浏览器都已支持ES6的新语句，所以如果你还没有花时间好好把玩一番的话，那你一定要试一下。如果你不想考虑太多的环境问题实验一下的话，确保你已查看了我的这篇文章 [Getting Started with ES6](https://link.jianshu.com?t=https://davidwalsh.name/es2015-babel)。无论如何，展开运算符，是你应该知道的一种在JS中超有用的功能！
+```js
+const obj = { a: 0, b: 1, c: { d: 2, e: 3 } };
+const { c: { d, e } } = obj;
+// d e => 2 3
+```
+
+
 
  
 

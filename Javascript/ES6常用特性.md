@@ -1,7 +1,6 @@
 # 最常用的ES6特性
 
 `let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments`
-这些是ES6最常用的几个语法，基本上学会它们，我们就可以走遍天下都不怕啦！我会用最通俗易懂的语言和例子来讲解它们，保证一看就懂，一学就会。
 
 ### let, const
 
@@ -10,13 +9,11 @@
 
 ```javascript
 var name = 'zach'
-
 while (true) {
     var name = 'obama'
     console.log(name)  //obama
     break
 }
-
 console.log(name)  //obama
 ```
 
@@ -24,13 +21,11 @@ console.log(name)  //obama
 
 ```javascript
 let name = 'zach'
-
 while (true) {
     let name = 'obama'
     console.log(name)  //obama
     break
 }
-
 console.log(name)  //zach
 ```
 
@@ -88,7 +83,6 @@ for (var i = 0; i < clickBoxs.length; i++){
 
 ```javascript
 const PI = Math.PI
-
 PI = 23 //Module build failed: SyntaxError: /es6/app.js: "PI" is read-only
 ```
 
@@ -485,5 +479,67 @@ for (var value of myArray) {
 - 这是最简洁、最直接的遍历数组元素的语法
 - 这个方法避开了for-in循环的所有缺陷
 - 与forEach()不同的是，它可以正确响应break、continue和return语句
-- 
+
+### Array.from 
+
+```js
+const cities = [
+    { name: 'Paris', visited: 'no' },
+    { name: 'Lyon', visited: 'no' },
+    { name: 'Marseille', visited: 'yes' },
+    { name: 'Rome', visited: 'yes' },
+    { name: 'Milan', visited: 'no' },
+    { name: 'Palermo', visited: 'yes' },
+    { name: 'Genoa', visited: 'yes' },
+    { name: 'Berlin', visited: 'no' },
+    { name: 'Hamburg', visited: 'yes' },
+    { name: 'New York', visited: 'yes' }
+];
+
+const cityNames = Array.from(cities, ({ name}) => name);
+console.log(cityNames);
+// outputs ["Paris", "Lyon", "Marseille", "Rome", "Milan", "Palermo", "Genoa", "Berlin", "Hamburg", "New York"]
+```
+
+### 数组解构(别名)
+
+```js
+const arr = [0, 1, 2];
+const { 0: a, 1: b, 2: c } = arr;
+// a b c => 0 1 2
+
+```
+
+## 补充、对象相关
+
+### 对象解构
+
+```js
+const rawUser = {
+   name: 'John',
+   surname: 'Doe',
+   email: 'john@doe.com',
+   displayName: 'SuperCoolJohn',
+   joined: '2016-05-05',
+   image: 'path-to-the-image',
+   followers: 45
+}
+//我们需要提取出两个部分，分别是用户及用户信息，这时可以这样做:
+let user = {}, userDetails = {};
+({ name: user.name, surname: user.surname, ...userDetails } = rawUser);
+
+console.log(user); // outputs { name: "John", surname: "Doe" }
+console.log(userDetails); // outputs { email: "john@doe.com", displayName: "SuperCoolJohn", joined: "2016-05-05", image: "path-to-the-image", followers: 45 }
+```
+
+### 动态属性名
+
+```js
+const dynamic = 'email';
+let user = {
+    name: 'John',
+    [dynamic]: 'john@doe.com'
+}
+console.log(user); // outputs { name: "John", email: "john@doe.com" }
+```
 

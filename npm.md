@@ -21,3 +21,36 @@
 ### 安装包查看
 
 > npm list -g --depth 0   //全局包
+
+### 控制应用程序版本
+
+> // 1.0.0
+>
+> npm version patch
+>
+> // 1.0.1
+>
+> npm version minor
+>
+> // 1.1.0
+>
+> npm version major
+> // 2.0.0
+
+根据部署的频率，可以通过每次部署时增加版本号节省时间，
+
+```json
+{
+    "predeploy": "npm version patch"
+}
+```
+
+### 设置默认npm init属性
+
+```js
+npm config set init.author.name "Joe Bloggs"
+npm config set init.author.email "JoebLoggs@gmail.com"
+npm config set init.author.url "Joebloggs.com"
+npm config set init.license "MIT"
+```
+

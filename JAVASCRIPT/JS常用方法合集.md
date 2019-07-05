@@ -170,9 +170,22 @@ let arr = [
 	    {a:'香蕉',b:'面包',c:'不吃'},
 	    {a:'香蕉',b:'苹果',c:'吃'},
 	    {a:'苹果',b:'香蕉',c:'不吃'},
-	  ]
+	  ]
 console.log(arr.filter(item => item.a=== '苹果' ))//[{a:'苹果',b:'面包',c:'吃'},{a:'苹果',b:'香蕉',c:'不吃'}]
 ```
+
+### map数组映射
+
+```js
+var users = [
+{ name : "Yagyu",weapon:"shuriken"},
+{ name : "Yoshi",weapon:"katana"},
+{ name : "Kuma",weapon:"wakizashi"}
+];
+const resUsers = users.map(obj => obj.name)
+```
+
+
 
 ### window.location.search 转 JS 对象
 

@@ -7,14 +7,9 @@
 ```js
 //点击button的方法
     function clickBtn(event){
-
-        //具体的事件内容。。。。。
-
-        
+        //具体的事件内容。。。。。   
         stopBubbling(event); 
     }
-
-
     function stopBubbling(e) {
         e = window.event || e;
         if (e.stopPropagation) {

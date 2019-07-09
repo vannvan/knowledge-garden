@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ```js
 class VNode {
     constructor(tagName, attrs, children) {

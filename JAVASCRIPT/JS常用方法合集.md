@@ -174,6 +174,15 @@ let newArr = arr.filter((x, index,self)=>self.indexOf(x)===index)
 console.log(newArr)
 ```
 
+### set数组去重
+
+```js
+function dedupe(array) {
+  return Array.from(new Set(array));
+}
+dedupe([1, 1, 2, 3]) // [1, 2, 3]
+```
+
 ### filter() 筛选数组对象
 
 ```js

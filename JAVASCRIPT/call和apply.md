@@ -29,12 +29,8 @@ Function.call(obj[, param1[, param2[, [,...paramN]]]]);
 Function.apply(obj[, argArray]);
 ```
 
-
-
 - `obj`：这个对象将代替`Function`类里`this`对象
 - `argArray`：这个是数组，它将作为参数传给`Function`
-
-
 
 ### 相同点
 

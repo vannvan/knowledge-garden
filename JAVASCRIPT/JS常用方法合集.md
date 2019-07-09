@@ -5,7 +5,7 @@
 ### number排序
 
 ```js
-const sortNumbers = (...numbers) => numbers.sort();   排序
+const sortNumbers = (...numbers) => numbers.sort();   //排序,只适合正数
 ```
 
 ###  数组去重思路
@@ -114,7 +114,7 @@ arr.length = 2;
 // arr => [0, 1]
 ```
 
-### 交换赋值
+### 解构交换赋值
 
 ```js
 let a = 0;
@@ -282,6 +282,14 @@ const flag = Array.isArray(arr) && !arr.length;
 // flag => true
 ```
 
+### 是否为数组
+
+```js
+function isArray(obj){
+    return Object.prototype.toString.call(obj) === '[object Array]' ;
+}
+```
+
 ### 是否为空对象
 
 ```js
@@ -398,5 +406,91 @@ const [err, res] = await AsyncTo(Func());
 ```js
 const love = JSON.parse(localStorage.getItem("love"));
 localStorage.setItem("love", JSON.stringify("I Love 雅君妹纸"));
+```
+
+### 自调用函数
+
+```js
+(function(){
+    // 置于此处的代码将自动执行
+})();  
+(function(a,b){
+    var result = a+b;
+    return result;
+})(10,20)
+```
+
+### 从数组种随机获取成员
+
+```js
+var items = [12, 548 , 'a' , 2 , 5478 , 'foo' , 8852, , 'Doe' , 2145 , 119];
+var randomItem = items[Math.floor(Math.random() * items.length)];
+```
+
+###  字符串去空格
+
+```js
+String.prototype.trim = function(){return this.replace(/^\s+|\s+$/g, "");};
+```
+
+### 获取数组最大/最小值
+
+```js
+var  numbers = [5, 458 , 120 , -215 , 228 , 400 , 122205, -85411]; 
+var maxInNumbers = Math.max.apply(Math, numbers); 
+var minInNumbers = Math.min.apply(Math, numbers);
+```
+
+### 不要直接从数组中delete或remove元素
+
+###  精确到指定位数的小数
+
+```js
+const round = (n, decimals = 0) => Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`)
+round(1.345, 2)                 // 1.35
+round(1.345, 1)                 // 1.3
+```
+
+### 数字补o操作
+
+```js
+const addZero1 = (num, len = 2) => (`0${num}`).slice(-len)
+const addZero2 = (num, len = 2) => (`${num}`).padStart( len   , '0')
+addZero1(3) // 03
+addZero2(32,4)  // 0032
+```
+
+### 统计数组中相同项的个数
+
+```js
+var cars = ['BMW','Benz', 'Benz', 'Tesla', 'BMW', 'Toyota'];
+var carsObj = cars.reduce(function (obj, name) {
+  obj[name] = obj[name] ? ++obj[name] : 1;
+  return obj;
+}, {});
+carsObj; // => { BMW: 2, Benz: 2, Tesla: 1, Toyota: 1 }
+```
+
+### 接收函数返回的多个结果
+
+```js
+async function getFullPost(){
+  return await Promise.all([
+     fetch('/post'),
+     fetch('/comments')
+  ]);
+}
+const [post, comments] = getFullPost();
+```
+
+### 将数组平铺到指定深度
+
+```js
+const flatten = (arr, depth = 1) =>
+  depth != 1
+    ? arr.reduce((a, v) => a.concat(Array.isArray(v) ? flatten(v, depth - 1) : v), [])
+    : arr.reduce((a, v) => a.concat(v), []);
+flatten([1, [2], 3, 4]);                             // [1, 2, 3, 4]
+flatten([1, [2, [3, [4, 5], 6], 7], 8], 2);           // [1, 2, 3, [4, 5], 6, 7, 8]
 ```
 

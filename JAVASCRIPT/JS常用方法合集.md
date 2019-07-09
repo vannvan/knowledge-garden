@@ -42,6 +42,18 @@ uniqueElementsBy([{id: 1, name: 'Jhon'}, {id: 2, name: 'sss'}, {id: 1, name: 'Jh
 // [{id: 1, name: 'Jhon'}, {id: 2, name: 'sss'}]
 ```
 
+### 删除数组一个元素
+
+```js
+const deleteFromArr = (arr, item) => {
+  let index = arr.indexOf(item);
+  return index !== -1 && arr.splice(index, 1);
+};
+deleteFromArr(arr, n);
+```
+
+
+
 ### 日历
 
 创建过去七天的数组，如果将代码中的减号换成加号，你将得到未来7天的数组集合

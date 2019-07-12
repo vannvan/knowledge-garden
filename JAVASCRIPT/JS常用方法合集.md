@@ -253,11 +253,58 @@ objectToQueryString({name: 'Jhon', age: 18, address: 'beijing'})
 // name=Jhon&age=18&address=beijing
 ```
 
-### 数组交集
+### 一维数组交集
 
 ```js
 const similarity = (arr, values) => arr.filter(v => values.includes(v));
 similarity([1, 2, 3], [1, 2, 4]); // [1,2]
+```
+
+### 二维对象数组交集/差集
+
+```js
+let a = [
+    { id: 1, name: '1' },
+    { id: 2, name: '2' },
+    { id: 3, name: '3' },
+    { id: 4, name: '4' },
+    { id: 5, name: '5' },
+    { id: 6, name: '6' },
+    { id: 7, name: '7' },
+    { id: 8, name: '8' },
+    { id: 9, name: '9' },
+    { id: 10, name: '10' }
+];
+ 
+let b = [
+    { id: 4, name: '4' },
+    { id: 5, name: '5' },
+    { id: 6, name: '6' },
+    { id: 7, name: '7' },
+    { id: 8, name: '8' }
+];
+ 
+const c = (arr1, arr2, id) => {
+    let arr = [];
+    for(let item of arr1){
+        if(arr2.find(v => v[id] === item[id])) {
+        	arr.push(item);
+        }
+    }
+    return arr;
+}
+const d = (arr1, arr2, id) => {
+    let arr = [];
+    for(let item of arr1){
+        if(arr2.find(v => v[id] === item[id])) {
+            continue;
+        }
+        	arr.push(item);
+    }
+    return arr;
+}
+console.log(c(a, b, 'id'));  //交集
+console.log(d(a, b, 'id'));  //差集
 ```
 
 ### 两（yyyy-MM-dd）日期时间差

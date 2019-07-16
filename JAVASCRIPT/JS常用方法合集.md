@@ -541,3 +541,22 @@ flatten([1, [2], 3, 4]);                             // [1, 2, 3, 4]
 flatten([1, [2, [3, [4, 5], 6], 7], 8], 2);           // [1, 2, 3, [4, 5], 6, 7, 8]
 ```
 
+### reduce求和
+
+```js
+result = [
+    {subject: 'math',score: 88},
+    {subject: 'chinese',score: 95},
+    {subject: 'english',score: 90}
+];
+var sum = result.reduce(function(prev, cur) {
+    return cur.score + prev;
+}, 0);
+```
+
+### eval对一维数组求和的骚操作
+
+```js
+eval(arr.join("+"))
+```
+

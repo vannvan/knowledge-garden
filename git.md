@@ -51,6 +51,8 @@
 
 >git reset 
 >git checkout .
+>
+>git reset HEAD .   //已经修改的仍能保留
 
 或者
 
@@ -134,4 +136,3 @@ https://www.cnblogs.com/xirongliu/p/4584653.html
 git config user.name “gitlab’s Name”
 $ git config user.email "gitlab@xx.com"
 $ git config --list
-

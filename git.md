@@ -126,3 +126,12 @@ continue new feature's development
 ## 一篇文章 ->深入理解学习Git工作流
 
 https://www.cnblogs.com/xirongliu/p/4584653.html
+
+
+
+
+
+git config user.name “gitlab’s Name”
+$ git config user.email "gitlab@xx.com"
+$ git config --list
+

@@ -58,9 +58,19 @@
 
 > git reset --hard
 
-已提交，未推送
+##### 已提交，未推送
 
 > git reset --hard master origin/master
+
+	> git reset --soft HEAD^      //撤销commit，不撤销git add . 仅仅是撤回commit操作，您写的代码仍然保留。
+	>
+	> git reset --mixed HEAD^  //不删除工作空间改动代码，撤销commit，并且撤销git add . 操作
+	>
+	> git reset --hard HEAD^   //删除工作空间改动代码，撤销commit，撤销git add . 
+	>
+	> 注意完成这个操作后，就恢复到了上一次的commit状态。
+	>
+	> git commit --amend     //如果commit注释写错了，只是想改一下注释
 
 ##### 已推送
 

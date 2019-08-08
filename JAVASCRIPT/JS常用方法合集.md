@@ -554,6 +554,21 @@ var sum = result.reduce(function(prev, cur) {
 }, 0);
 ```
 
+### reduce求和1
+
+```js
+let shoppingCart = [
+  { productTitle: "Product 1", amount: 10 },
+  { productTitle: "Product 2", amount: 30 },
+  { productTitle: "Product 3", amount: 20 },
+  { productTitle: "Product 4", amount: 60 }
+];
+
+const sumAmount = (currentTotalAmount, order) => currentTotalAmount + order.amount;
+const getTotalAmount = (shoppingCart) => shoppingCart.reduce(sumAmount, 0);
+getTotalAmount(shoppingCart); // 120
+```
+
 ### eval对一维数组求和的骚操作
 
 ```js

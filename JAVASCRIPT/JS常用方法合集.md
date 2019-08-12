@@ -575,3 +575,260 @@ getTotalAmount(shoppingCart); // 120
 eval(arr.join("+"))
 ```
 
+### 数组中某元素出现次数
+
+```js
+function countOccurrences(arr, value) {
+  return arr.reduce((a, v) => v === value ? a + 1 : a + 0, 0);
+}
+
+let arr = [1,2,3,4,1,2,4]
+countOccurrences(arr, 1) // 2
+```
+
+### 数组分页算法
+
+```js
+data.slice([每页数据量 *（当前页码 - 1）, 每页数据量 *（当前页码 - 1） + 每页数据量])
+```
+
+### 根据数组中某一属性排序
+
+```js
+// 本例根据publishTime排序
+let data = [
+{
+  id: 1,
+  publishTime: "2019-05-14 18:10:29"
+},
+{
+  id: 2,
+  publishTime: "2019-05-14 18:17:29"
+},
+{
+  id: 3,
+  publishTime: "2019-05-14 15:09:25"
+}]
+
+data.sort((a, b) => b.publishTime - a.publishTime);
+
+// 0: {id: 2, publishTime: "2019-05-14 18:17:29"}
+// 1: {id: 1, publishTime: "2019-05-14 18:10:29"}
+// 2: {id: 3, publishTime: "2019-05-14 15:09:25"}
+```
+
+### 对象合并
+
+```js
+//ES6方法
+let obj1 = {
+    a:1,
+    b:{
+        b1:2
+    }
+}
+
+let obj2 = {
+    c:3,
+    d:4
+}
+console.log({...obj1, ...obj2}) // {a: 1, b: {…}, c: 3, d: 4}
+// Obj.assign()：可以把任意多个的源对象自身的可枚举属性拷贝给目标对象，然后返回目标对象
+let o1 = { a: 1 };
+let o2 = { b: 2 };
+
+let obj = Object.assign(o1, o2);
+console.log(obj); // { a: 1, b: 2 }
+console.log(o1);  // { a: 1, b: 2 }, 且 **目标对象** 自身也会改变（也就是assign第一个对象）
+console.log(o2); // { b: 2 } 不改变
+
+// 备注：Object.assign() 拷贝的是属性值。假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值
+// 备注：数组合并用 concat() 方法
+```
+
+### 对象中属性个数
+
+```js
+let obj = {name: '朱昆鹏', age: 21}
+
+// ES6
+Object.keys(obj).length // 2
+
+// ES5
+let attributeCount = obj => {
+    let count = 0;
+    for(let i in obj) {
+        if(obj.hasOwnProperty(i)) {  // 建议加上判断,如果没有扩展对象属性可以不加
+            count++;
+        }
+    }
+    return count;
+}
+
+attributeCount(obj) // 2
+```
+
+### 全屏
+
+```js
+//进入全屏
+function launchFullscreen(element) {
+  if (element.requestFullscreen) {
+    element.requestFullscreen()
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen()
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen()
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullScreen()
+  }
+}
+
+launchFullscreen(document.documentElement) // 整个页面进入全屏
+launchFullscreen(document.getElementById("id")) //某个元素进入全屏
+//退出全屏
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen()
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen()
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen()
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen()
+  }
+}
+
+exitFullscreen()
+//全屏事件
+document.addEventListener("fullscreenchange", function (e) {
+  if (document.fullscreenElement) {
+    console.log('进入全屏')
+  } else {
+    console.log('退出全屏')
+  }
+})
+```
+
+### 获取滚动条位置
+
+```js
+function getScrollPosition(el = window) {
+  return {
+    x: (el.pageXOffset !== undefined) ? el.pageXOffset : el.scrollLeft,
+    y: (el.pageYOffset !== undefined) ? el.pageYOffset : el.scrollTop
+  }
+}
+
+getScrollPosition() // {x: 0, y: 692}
+```
+
+### 检测设备类型
+
+```js
+const detectDeviceType = () =>/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+
+detectDeviceType() // "Desktop"
+```
+
+### 防抖
+
+```js
+function debounce(fn) {
+  let timeout = null; // 创建一个标记用来存放定时器的返回值
+  return function () {
+    clearTimeout(timeout); // 每当用户输入的时候把前一个 setTimeout clear 掉
+    timeout = setTimeout(() => { // 然后又创建一个新的 setTimeout, 这样就能保证输入字符后的 interval 间隔内如果还有字符输入的话，就不会执行 fn 函数
+      fn.apply(this, arguments);
+    }, 500);
+  };
+}
+
+debounce(fn) // 使用
+```
+
+### 节流
+
+```js
+function throttle(fn) {
+  let canRun = true; // 通过闭包保存一个标记
+  return function () {
+    if (!canRun) return; // 在函数开头判断标记是否为true，不为true则return
+    canRun = false; // 立即设置为false
+    setTimeout(() => { // 将外部传入的函数的执行放在setTimeout中
+      fn.apply(this, arguments);
+      // 最后在setTimeout执行完毕后再把标记设置为true(关键)表示可以执行下一次循环了。当定时器没有执行的时候标记永远是false，在开头被return掉
+      canRun = true;
+    }, 500);
+  };
+}
+
+throttle(fn) // 使用
+```
+
+### 交换变量值
+
+```json
+let a = 1;
+let b = 2;
+[a, b] = [b, a] // a = 2 b = 1
+```
+
+### 去除空格
+
+```js
+/**
+ * trim 去除空格
+ * param1  string str 待处理字符串
+ * param2  number type 去除空格类型 1-所有空格  2-前后空格  3-前空格 4-后空格 默认为1
+ * return  string str 处理后的字符串
+ */
+function trim(str, type = 1) {
+    if (type && type !== 1 && type !== 2 && type !== 3 && type !== 4) return;
+    switch (type) {
+        case 1:
+            return str.replace(/\s/g, "");
+        case 2:
+            return str.replace(/(^\s)|(\s*$)/g, "");
+        case 3:
+            return str.replace(/(^\s)/g, "");
+        case 4:
+            return str.replace(/(\s$)/g, "");
+        default:
+            return str;
+    }
+}
+```
+
+### 随机16进制颜色
+
+```js
+function hexColor() {
+    let str = '#';
+    let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+    for (let i = 0; i < 6; i++) {
+        let index = Number.parseInt(Math.random() * 16);
+        str += arr[index]
+    }
+    return str;
+}
+```
+
+### 统计指定文字出现次数
+
+```js
+/**
+ * 关键词统计：统计一段文字中指定文字出现次数 keywordsCount
+ * param1 string text 进行统计的文本
+ * param2 string keywords 进行统计的关键词
+ * return number count 关键词出现次数
+ * tip:param1 document.body.innerText--全文统计
+ */
+
+function keywordsCount(text, keywords) {
+    return text.split(keywords).length - 1
+}
+```
+
+
+

@@ -25,7 +25,7 @@ console.log(dateToMs(myDate3));//--->1505779200000
 console.log(dateToMs(myDate4));//--->1505779400000
 ```
 
-###毫秒数或中国标准时间转日期：
+### 毫秒数或中国标准时间转日期：
 
 ```js
 //变量
@@ -91,6 +91,27 @@ console.log(formatterDate(myDate4));//--->Tue Sep 19 2017 08:00:00 GMT+0800 (中
 console.log(formatterDate(myDate5));//--->Tue Sep 19 2017 20:00:00 GMT+0800 (中国标准时间)
 ```
 
+### 格林尼治时间 转 北京时间
+
+```js
+function myTimeToLocal(inputTime){
+    if(!inputTime && typeof inputTime !== 'number'){
+        return '';
+    }
+    let localTime = '';
+    inputTime = new Date(inputTime).getTime();
+    const offset = (new Date()).getTimezoneOffset();
+    localTime = (new Date(inputTime - offset * 60000)).toISOString();
+    localTime = localTime.substr(0, localTime.lastIndexOf('.'));
+    localTime = localTime.replace('T', ' ');
+    return localTime;
+}
+
+console.log(myTimeToLocal(1530540726443)); // 2018-07-02 22:12:06
+console.log(myTimeToLocal('2017-11-16T05:23:20.000Z')); // 2017-11-16 13:23:20
+```
+
+
 ### 补充示例
 
 ```html
@@ -134,4 +155,34 @@ console.log(formatterDate(myDate5));//--->Tue Sep 19 2017 20:00:00 GMT+0800 (中
 输出结果：
 
 ![](https://images2015.cnblogs.com/blog/734402/201704/734402-20170405122731597-991794882.png)
+
+### Date常用Api
+
+```js
+new Date() // 创建一个时间对象 Fri Jul 12 2019 19:59:59 GMT+0800 (中国标准时间)
+
+// 返回自1970年1月1日 00:00:00 UTC到当前时间的毫秒数。
+Date.now(); // 1562932828164
+
+// 解析一个表示某个日期的字符串，并返回从1970-1-1 00:00:00 UTC 到该日期对象（该日期对象的UTC时间）的毫秒数
+Date.parse('2019.7.12') // 1562860800000
+
+// 年月日时分秒 获取
+let dateMe = new Date()
+
+dateMe.getFullYear() // 2019 | 根据本地时间返回指定日期的年份
+dateMe.getMonth() // 6 | 根据本地时间，返回一个指定的日期对象的月份，为基于0的值（0表示一年中的第一月）。
+dateMe.getDate() // 12 | 根据本地时间，返回一个指定的日期对象为一个月中的哪一日（从1--31）
+dateMe.getHours() // 20 |根据本地时间，返回一个指定的日期对象的小时。
+dateMe.getMinutes() // 11 | 根据本地时间，返回一个指定的日期对象的分钟数。
+dateMe.getSeconds() // 29 | 方法根据本地时间，返回一个指定的日期对象的秒数
+dateMe.getMilliseconds() // 363 | 根据本地时间，返回一个指定的日期对象的毫秒数。
+
+dateMe.toJSON() // 🔥 "2019-07-12T12:05:15.363Z" | 返回 Date 对象的字符串形式
+dateMe.getDay() // 5 | 根据本地时间，返回一个具体日期中一周的第几天，0 表示星期天（0 - 6）
+dateMe.getTime() // 1562933115363 | 方法返回一个时间的格林威治时间数值。
+dateMe.toString() // "Fri Jul 12 2019 20:05:15 GMT+0800 (中国标准时间)" | 返回一个字符串，表示该Date对象
+dateMe.getTimezoneOffset() // -480（说明比正常时区慢480分钟，所以要加480分钟才对） | 返回协调世界时（UTC）相对于当前时区的时间差值，单位为分钟。
+dateMe.toDateString() // "Fri Jul 12 2019" | 以美式英语和人类易读的形式返回一个日期对象日期部分的字符串。
+```
 

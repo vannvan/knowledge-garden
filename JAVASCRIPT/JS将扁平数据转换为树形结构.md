@@ -90,3 +90,26 @@ function buildTree(list){
 原文：https://blog.csdn.net/qq_37746973/article/details/78662177 
 ```
 
+### 实现算法2
+
+```js
+  buildTree(list){
+      let map = {};
+      list.forEach(item => {
+        if (!map[item.id]) {
+          map[item.id] = item;
+        }
+      });
+      list.forEach(item => {
+        if (item.parent_id !== 0) {
+          map[item.parent_id].children ? map[item.parent_id].children.push(item) : map[item.parent_id].children = [item];
+        }
+      });
+      return list.filter(item => {
+        if (item.parent_id === 0) {
+          return item;
+        }
+      })
+    }
+```
+

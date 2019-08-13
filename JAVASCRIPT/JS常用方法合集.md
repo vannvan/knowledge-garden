@@ -52,9 +52,32 @@ const deleteFromArr = (arr, item) => {
 deleteFromArr(arr, n);
 ```
 
+### 根据条件删除数组元素
 
+```js
+const dropElements = (arr, func) => {
+  while (arr.length > 0 && !func(arr[0])) arr = arr.slice(1);
+  return arr;
+};
+dropElements([1, 2, 3, 4], n => n >= 3); // [3,4]
+```
 
-### 日历
+### 删除数组指定值（改变原数组）
+
+使用 `Array.filter()` 和 `Array.includes()` 来剔除指定的值。使用 `Array.length = 0` 将数组中的长度重置为零，并且通过 `Array.push()` 只使用 pulled 值重新填充数组。
+
+```js
+const pull = (arr, ...args) => {
+  let argState = Array.isArray(args[0]) ? args[0] : args;
+  let pulled = arr.filter((v, i) => !argState.includes(v));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+};
+let myArray = ['a', 'b', 'c', 'a', 'b', 'c'];
+pull(myArray, 'a', 'c'); // myArray = [ 'b', 'b' ]
+```
+
+### 获取日期组合
 
 创建过去七天的数组，如果将代码中的减号换成加号，你将得到未来7天的数组集合
 
@@ -181,6 +204,9 @@ function dedupe(array) {
   return Array.from(new Set(array));
 }
 dedupe([1, 1, 2, 3]) // [1, 2, 3]
+
+const distinctValuesOfArray = arr => [...new Set(arr)];
+distinctValuesOfArray([1, 2, 2, 3, 4, 4, 5]); // [1,2,3,4,5]
 ```
 
 ### filter() 筛选数组对象
@@ -828,6 +854,14 @@ function hexColor() {
 function keywordsCount(text, keywords) {
     return text.split(keywords).length - 1
 }
+```
+
+### 获取数组第N个元素
+
+```js
+const nthElement = (arr, n = 0) => (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0];
+nthElement(['a', 'b', 'c'], 1); // 'b'
+nthElement(['a', 'b', 'b'], -3); // 'a'
 ```
 
 

@@ -864,5 +864,47 @@ nthElement(['a', 'b', 'c'], 1); // 'b'
 nthElement(['a', 'b', 'b'], -3); // 'a'
 ```
 
+### 设置CSS样式
+
+```js
+const setStyle = (el, ruleName, val) => (el.style[ruleName] = val);
+setStyle(document.querySelector('p'), 'font-size', '20px'); // The first <p> element on the page will have a font-size of 20px
+```
+
+### 获取CSS样式
+
+```js
+const getStyle = (el, ruleName) => getComputedStyle(el)[ruleName];
+getStyle(document.querySelector('p'), 'font-size'); // '16px'
+```
+
+### 切换元素样式类
+
+```js
+const toggleClass = (el, className) => el.classList.toggle(className);
+toggleClass(document.querySelector('p.special'), 'special');
+// The paragraph will not have the 'special' class anymore
+```
+
+### 确保函数只被调用一次
+
+使用一个闭包，使用一个成为 `called` 的标志，并在第一次调用该函数时将其设置为 `true` ，以防止它被再次调用。 为了允许函数改变它的 `this` 上下文（比如在一个事件监听器中），必须使用`function` 关键字，并且提供的函数必须应用上下文。 允许使用 rest（剩余）/spread（展开） (`...`) 运算符为函数提供任意数量的参数。
+
+```js
+const once = fn => {
+  let called = false;
+  return function(...args) {
+    if (called) return;
+    called = true;
+    return fn.apply(this, args);
+  };
+};
+//eg
+const startApp = function(event) {
+  console.log(this, event); // document.body, MouseEvent
+};
+document.body.addEventListener('click', once(startApp)); // only runs `startApp` once upon click
+```
+
 
 

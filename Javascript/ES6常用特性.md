@@ -410,6 +410,11 @@ import animal, { say, type } from './content'
 let says = say()
 console.log(`The ${type} says ${says} to ${animal}`)  
 //The dog says Hello to A cat
+
+import React, {Component} from 'react' 
+//相当于
+import React from 'react'
+const Component = React.Component
 ```
 
 ### 修改变量名

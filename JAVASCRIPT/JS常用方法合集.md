@@ -146,6 +146,17 @@ let b = 1;
 // a b => 1 0
 ```
 
+### 数组解构赋值
+
+```js
+var arr = ['bob',29,'student']
+
+const [name,age,type] = arr 
+
+// name => bob
+
+```
+
 ### 生成随机十六进制代码（生成随机颜色）
 
 使用JavaScript简洁代码生成随机十六进制代码

@@ -139,10 +139,18 @@ continue new feature's development
 
 https://www.cnblogs.com/xirongliu/p/4584653.html
 
+### git配置项目用户作者信息
 
-
-
-
+```bash
 git config user.name “gitlab’s Name”
-$ git config user.email "gitlab@xx.com"
-$ git config --list
+git config user.email "gitlab@xx.com"
+git config --list
+```
+
+### git修改分支名称
+
+```bash
+git branch -m old_branch new_branch # Rename branch locally 
+git push origin :old_branch # Delete the old branch 
+git push --set-upstream origin new_branch # Push the new branch, set local branch to track the new remote
+```

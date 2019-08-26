@@ -157,6 +157,31 @@ const [name,age,type] = arr
 
 ```
 
+### 解构赋值综合
+
+```js
+var a, b, rest;
+[a, b] = [10, 20];
+console.log(a); // 10
+console.log(b); // 20
+
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+console.log(a); // 10
+console.log(b); // 20
+console.log(rest); // [30, 40, 50]
+
+({ a, b } = { a: 10, b: 20 });
+console.log(a); // 10
+console.log(b); // 20
+
+
+// Stage 4（已完成）提案中的特性
+({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
+console.log(a); // 10
+console.log(b); // 20
+console.log(rest); // {c: 30, d: 40}
+```
+
 ### 生成随机十六进制代码（生成随机颜色）
 
 使用JavaScript简洁代码生成随机十六进制代码
@@ -535,7 +560,7 @@ round(1.345, 2)                 // 1.35
 round(1.345, 1)                 // 1.3
 ```
 
-### 数字补o操作
+### 数字补零操作
 
 ```js
 const addZero1 = (num, len = 2) => (`0${num}`).slice(-len)
@@ -803,15 +828,7 @@ function throttle(fn) {
 throttle(fn) // 使用
 ```
 
-### 交换变量值
-
-```json
-let a = 1;
-let b = 2;
-[a, b] = [b, a] // a = 2 b = 1
-```
-
-### 去除空格
+### 去除空格（多种形式）
 
 ```js
 /**
@@ -849,6 +866,18 @@ function hexColor() {
     }
     return str;
 }
+```
+
+### 随机RGB颜色
+
+```js
+function RandomColor() {
+           let r, g, b;
+           r = Math.floor(Math.random() * 256);
+           g = Math.floor(Math.random() * 256);
+           b = Math.floor(Math.random() * 256);
+           return "rgb(" +r + ',' +g+ ',' +b+ ")";
+    }
 ```
 
 ### 统计指定文字出现次数

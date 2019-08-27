@@ -34,7 +34,7 @@ var createServerConfig = function(compilation){
 Vue.prototype.getConfigJson=function(){
     this.$http.get("serverconfig.json").then((result)=>{
         //用一个全局字段保存ApiUrl  也可以用sessionStorage存储
-        Vue.prototype.ApiUrl=result.body.ApiUrl;
+        Vue.prototype.ApiUrl=result.data.ApiUrl;
     }).catch((error)=>{console.log(error)});
 }
 ```

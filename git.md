@@ -11,8 +11,8 @@
 方法2（假设当前位于test分支）
 
 > git checkout master                          *//将当前分支切换到主分支*
-> git reset -hard test                            *//将主分支重置为test分支*
-> git push origin master -force             *//将重置后的master分支强制推送到远程仓库*
+> git reset --hard test                            *//将主分支重置为test分支*
+> git push origin master --force             *//将重置后的master分支强制推送到远程仓库*
 
 方法3
 

@@ -17,7 +17,7 @@
 方法3
 
 >git checkout test1     //把test1重置为test2
->git reset --hard orgin/test2  //这一步不要git pull 直接强推
+>git reset --hard origin/test2  //这一步不要git pull 直接强推
 >git push --force
 
 ### 场景2
@@ -154,3 +154,11 @@ git branch -m old_branch new_branch # Rename branch locally
 git push origin :old_branch # Delete the old branch 
 git push --set-upstream origin new_branch # Push the new branch, set local branch to track the new remote
 ```
+
+### 删除分支
+
+```bash
+git push origin --delete dev   # 删除远程分支
+git branch -D dev  # 删除本地分支
+```
+

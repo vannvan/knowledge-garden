@@ -58,4 +58,27 @@ export default new Vue({
 });
 ```
 
+### 方案填坑
+
+由于以上方案生成骨架屏vue中的css并不能生效，所以还需要进行如下配置
+
+1.vue-loader.conf.js
+
+```js
+loaders: utils.cssLoaders({
+    sourceMap: sourceMapEnabled,
+    extract: true  // 原为isProduction
+ }),
+```
+
+2、webpack.dev.conf.js中添加
+
+```js
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+  new ExtractTextPlugin({
+      filename: utils.assetsPath('css/[name].[contenthash].css'),
+      allChunks: true,
+  }),
+```
+
 此方案属于简版骨架屏方案，可解决首屏加载白屏时间过长的情况

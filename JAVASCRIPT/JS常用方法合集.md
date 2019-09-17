@@ -946,5 +946,20 @@ const startApp = function(event) {
 document.body.addEventListener('click', once(startApp)); // only runs `startApp` once upon click
 ```
 
+### 初级表单验证
+
+```js
+[
+    { selector: '#type', msg: '请选择请假类别' },
+    { selector: '#start_datetime_picker', msg: '请选择开始日期' }
+    // ...
+].some(function (item) {
+    if ($(item.selector).val() == "") {
+        $.toast(item.msg)
+        return true;
+    }
+});
+```
+
 
 

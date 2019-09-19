@@ -961,5 +961,12 @@ document.body.addEventListener('click', once(startApp)); // only runs `startApp`
 });
 ```
 
+### 查看网页布局
+
+```js
+//控制台  
+$$('*').forEach(a=>{a.style.outline='1px solid red'})
+```
+
 
 

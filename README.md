@@ -11,3 +11,4 @@
 - [30-seconds-of-code中文](https://www.html.cn/30-seconds-of-code/#arraytohtmllist)
 - [前端面试与进阶指南](<https://www.cxymsg.com/>)  
 - [鼠标的11个事件](https://github.com/yaogengzhu/life-share#5)
+- [浏览器原生base64方案](<https://www.zhangxinxu.com/wordpress/2018/08/js-base64-atob-btoa-encode-decode/>)  

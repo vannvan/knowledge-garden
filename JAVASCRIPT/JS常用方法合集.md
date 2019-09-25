@@ -968,5 +968,52 @@ document.body.addEventListener('click', once(startApp)); // only runs `startApp`
 $$('*').forEach(a=>{a.style.outline='1px solid red'})
 ```
 
+### `find()`  `findIndex()`  `some()`  `includes()`
 
+```js
+const array = [{ id: 1, checked: true }, { id: 2 }];
+arr.find(item => item.id === 2) // { id: 2 }
+arr.findIndex(item => item.id === 2) // 1
+arr.some(item => item.checked) // true
+
+const numberArray = [1,2,3,4];
+numberArray.includes(2) // true
+```
+
+### `promise` and `await`
+
+```js
+async function getItems() {
+  try {
+    const user = await getUser();
+    const order = await getOrderByUser(user);
+    const items = await getOrderItemsByOrder(order);
+    return items;
+  } catch(err) {
+    // 在这里处理错误，建议返回某个值或者重新抛出错误
+  }
+}
+
+getItems().then(items => {
+  // 处理排序后的成员
+})
+```
+
+### `export` 模块
+
+```js
+// math.js
+
+export function add(a,b) { return a + b; }
+export function sub(a,b) { return a - b; }
+
+export default mult(a,b) => a * b;
+
+// main.js
+import mult, { add, sub } from './math';
+
+mult(2, 4) // 8
+add(1,1)   // 2
+sub(1,2)   // -1
+```
 

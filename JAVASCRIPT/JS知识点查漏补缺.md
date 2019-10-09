@@ -84,5 +84,118 @@ status：服务器的Http状态码，若是200，则表示OK，404，表示为�
 statusText：服务器http状态码的文本。比如OK，Not Found。
 ```
 
+### Array方法总结
 
+```js
+// 检测数值ES5方法
+Array.isArray(value)  // 检测值是否为数组
+// 转换方法
+toString() 将数组转化为以逗号分隔的字符串
+valueOf() 返回的还是数组
+// 栈方法
+push() 可以接收任意数量的参数，把他们逐个添加到数组的末尾，返回修改后数组的长度
+pop() 从数组末尾移除最后一项，返回移除的项
+// 队列方法
+shift() 移除数组的第一项并返回该项
+unshift() 向数组前端添加任意个项并返回新数组的长度
+// 排序
+sort(compare)
+compare函数接收两个参数,如果返回负数，则第一个参数位于第二个参数前面；如果返回零，则两个参数相等；如果返回正数，第一个参数位于第二个参数后面
+// 降序，升序相反
+(a,b) => (b-a)
+// 操作方法
+concat(数组 | 一个或多个元素) // 合并数组，返回新数组
+slice(起始位置 ，[结束位置]) // 切分数组，返回新数组，新数组不包含结束位置的项
+splice(起始位置，删除的个数，[插入的元素]) // 删除|插入|替换数组，返回删除的元素组成的数组，会修改原数组
+// 位置方法
+indexOf(查找的项，[查找起点位置]) // 使用全等操作符，严格相等
+lastIndexOf()
+// 迭代方法，都接收两个参数，一个是要在每一项上运行的函数，一个是作用域（可选）
+1.every 对数组中每一项运行给定函数，如果函数对每一项都返回true,则返回true
+        every(fn(value,index,array){return ...},[this])
+2.some 对数组中每一项运行给定函数，如果函数对任一项都返回true,则返回true
+3.filter 对数组中每一项运行给定函数，返回该函数会返回true的项组成的数组
+4.forEach 对数组每一项运行给定函数，无返回值
+5.map 对数组每一项运行给定函数，返回每次函数调用返回结果组成的数组
+// 归并方法 reduce和reduceRight(和前者遍历的方向相反),构建一个最终返回的值
+reduce(fn(prev,cur,index,array){ return ... },initValue)
+1.fn返回的值会作为第一个参数传递给下一项
+2.initValue做为归并基础的初始值
+```
+
+### String方法总结
+
+```js
+charAt(n) // 返回给定位置的字符
+charCodeAt(n) // 返回给定位置的字符编码
+"dddd"[n] // 访问字符串特定索引的字符
+concat() //用于将一个或多个字符串拼接起来
+slice(start, end) / substring(start, end)  // 返回一个新的从开始位置到结束位置的字符串，不包括结束位置
+substr(start, len) // 返回一个新的从开始位置到指定长度的字符串
+indexOf(str,[startIndex]) // 返回指定字符在字符串中的索引，第二个参数为从指定位置开始搜索，可选
+trim() // 该方法会创建一个字符串的副本，删除前置与后缀的所有空格，返回结果
+toLowerCase() / toUpperCase() // 小写大写转换
+// 字符串的模式匹配方法
+1.match(pattern) //本质上与RegExp的exec()方法相同，只接受一个参数，即正则表达式或RegExp对象
+2.search(pattern) // 参数与match参数相同，返回字符串中第一个匹配项的索引
+3.replace(str | pattern, text | fn)  //第一个参数为想要被替换的字符串或正则表达式，第二个参数为要替换的字符串或一个函数
+* 如果第二个参数是字符串，可以使用一些特殊的字符序列，将正则表达式操作得到的值插入到结果字符串中。
+    $' //匹配的子字符串之后的子字符串
+    $` //匹配的子字符串之前的子字符串
+    $n //匹配第n个捕获组的子字符串 
+* 如果第二个参数是函数，在只有一个匹配项时，会向函数传递3个参数，模式的匹配项，模式的匹配项在字符串中的位置，原始的字符串正则表达式中定义了多个捕获组的情况下，传递的参数依次是模式的匹配项，第一个捕获组的匹配项，第二个捕获组的匹配项...，最后两个参数和上者相同
+如：
+function htmlEscape(text){
+    return text.replace(/[<>&"]/g, (match, pos, originalText) => {
+        switch(match){
+            case "<":
+                return "&lt;";
+            case ">":
+                return "&gt;";
+            case "&":
+                return "&amp;";
+            case "\"":
+                return "&quot;"
+        }
+    })
+}
+
+4.split() // 第一个参数是需要指定分隔符匹配中的字符串或者正则表达式，也可以传递第二个参数，用来限制返回数组的长度
+例：
+let text = "xujaing,red,ddd";
+text.split(",")  // ["xujaing", "red", "ddd"]
+text.split(",", 2)  // ["xujaing", "red"]
+text.split(/[^\,]+/)  //*** 匹配非字母，用字符串的非字母分割字符串，返回数组
+
+* 5.localeCompare() // 比较两个字符串，如果字符串在字母表中排在字符串参数之前，返回负数，相等返回0，反之正数
+```
+
+### 单体内置对象
+
+```js
+Global对象
+1.URI编码方法
+    encodeURI()           // 除了空格之外其他字符都不编码
+    encodeURIComponent()  //会对它发现的任何非标准字符进行编码
+    decodeURI()           //只能对使用encodeURI的字符进行解码
+    decodeURIComponent()  // 原理同上
+    
+Math对象
+1.Math.max() / Math.min() // 接收任意多数值作为参数
+// 求数组中最大值 Math.max.apply(Math, arrValue)
+2.Math.ceil() / Math.floor() / Math.round()  //向上/下/四舍五入
+3.Math.random()  //返回大于等于0小于1的随机数
+4.Math.abs() //返回参数的绝对值
+5.Math.pow(num,power) // 返回num的power次幂
+6.Math.sqrt(num) // 返回num的平方根
+```
+
+### 离线检测
+
+```js
+// 离线检测属性
+navigator.onLine // true or false
+// 离线事件
+online,offline
+```
 

@@ -458,6 +458,28 @@ let user = {
 console.log(user); // outputs { name: "John", email: "john@doe.com" }
 ```
 
+### 对象匹配赋值 ，obj2属性值来自obj1相同属性的值
+
+```js
+var obj1 = {
+    name:'bob',
+    age:21,
+    gender:1,
+    hobby:'song'
+}
+var obj2 = {
+    name:'',
+    age:''
+}
+Object.keys(obj1).forEach((key) => {
+    if(key in obj2) {
+        obj2[key] = obj1[key]
+    }
+})
+console.log(obj2)
+//{ name: 'bob', age: 21 }
+```
+
 ### 删除对象无用属性（扩展运算符）
 
 ```js

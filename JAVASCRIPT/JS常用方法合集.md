@@ -478,6 +478,14 @@ Object.keys(obj1).forEach((key) => {
 })
 console.log(obj2)
 //{ name: 'bob', age: 21 }
+//在确定需要哪些属性值的情况下，针对属性值数量上的不同可以采取解构赋值的方法
+let obj3 = { name:userName,age } = obj1
+console.log(userName)  //bob
+console.log(age)  //21
+let obj4 = {...obj1,isLogin:false}  //浅拷贝并添加新属性 
+//{ name: 'bob', age: 21, gender: 1, hobby: 'song', isLogin: false }
+let {hobby,...filterInfo} = obj1 //去除hobby
+console.log(filterInfo)  //{ name: 'bob', age: 21, gender: 1 }
 ```
 
 ### 删除对象无用属性（扩展运算符）
@@ -1037,5 +1045,11 @@ import mult, { add, sub } from './math';
 mult(2, 4) // 8
 add(1,1)   // 2
 sub(1,2)   // -1
+```
+
+### 屏蔽生产环境的console.log
+
+```js
+console.log=function(){}
 ```
 

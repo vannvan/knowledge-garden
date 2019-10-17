@@ -81,7 +81,7 @@ pull(myArray, 'a', 'c'); // myArray = [ 'b', 'b' ]
 
 创建过去七天的数组，如果将代码中的减号换成加号，你将得到未来7天的数组集合
 
-```
+```js
 // 创建过去七天的数组
 [...Array(7).keys()].map(days => new Date(Date.now() - 86400000 * days));
 ```
@@ -90,7 +90,7 @@ pull(myArray, 'a', 'c'); // myArray = [ 'b', 'b' ]
 
 在原型设计时经常使用的创建ID功能。但是我在实际项目中看到有人使用它。其实这并不安全
 
-```
+```js
 // 生成长度为11的随机字母数字字符串
 Math.random().toString(36).substring(2);
 // hg7znok52x
@@ -100,7 +100,7 @@ Math.random().toString(36).substring(2);
 
 这个获取URL的查询参数代码，是我见过最精简的`QAQ`
 
-```
+```js
 ?foo=bar&baz=bing => {foo: bar, baz: bing}
 // 获取URL的查询参数
 q={};location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);q;
@@ -110,9 +110,18 @@ q={};location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);q;
 
 通过一堆HTML，您可以创建一个本地时间，其中包含您可以一口气读出的源代码，它每秒都会用当前时间更新页面
 
-```
+```js
 // 创建本地时间
 <body onload="setInterval(()=>document.body.innerHTML=new Date().toLocaleString().slice(10,19))"></body>
+```
+
+### 返回当前24小时制时间的字符串
+
+```js
+const getColonTimeFromDate = date => date.toTimeString().slice(0, 8);
+
+getColonTimeFromDate(new Date()); // "08:38:00"
+console.log(getColonTimeFromDate(new Date()).replace(/:/g,'-'))    // 10-12-13   替换：为 -
 ```
 
 ### 数组混淆
@@ -858,6 +867,20 @@ function throttle(fn) {
 throttle(fn) // 使用
 ```
 
+### 计算函数执行时间
+
+```js
+
+const timeTaken = callback => {
+  console.time('timeTaken');
+  const r = callback();
+  console.timeEnd('timeTaken');
+  return r;
+};
+
+timeTaken(() => Math.pow(2, 10)); // 1024, (logged): timeTaken: 0.02099609375ms
+```
+
 ### 去除空格（多种形式）
 
 ```js
@@ -932,6 +955,15 @@ function keywordsCount(text, keywords) {
 const nthElement = (arr, n = 0) => (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0];
 nthElement(['a', 'b', 'c'], 1); // 'b'
 nthElement(['a', 'b', 'b'], -3); // 'a'
+```
+
+### 返回数组指定元素的所有索引
+
+```js
+const indexOfAll = (arr, val) => arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
+
+indexOfAll([1, 2, 3, 1, 2, 3], 1); // [0,3]
+indexOfAll([1, 2, 3], 4); // []
 ```
 
 ### 设置CSS样式
@@ -1051,5 +1083,17 @@ sub(1,2)   // -1
 
 ```js
 console.log=function(){}
+```
+
+### 平滑滚动至页面指定位置
+
+```js
+const smoothScroll = element =>
+  document.querySelector(element).scrollIntoView({
+    behavior: 'smooth'
+  });
+  
+smoothScroll('#fooBar'); 
+smoothScroll('.fooBar'); 
 ```
 

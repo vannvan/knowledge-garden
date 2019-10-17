@@ -1,4 +1,4 @@
-### 扁平数组示例
+### 扁平数据示例1
 
 ```js
 var menu_list = [{
@@ -60,7 +60,7 @@ var menu_list = [{
 ]
 ```
 
-### 实现算法 buildTree
+#### 实现算法 buildTree
 
 ```js
 /**
@@ -90,7 +90,7 @@ function buildTree(list){
 原文：https://blog.csdn.net/qq_37746973/article/details/78662177 
 ```
 
-### 实现算法2
+#### 实现算法2
 
 ```js
   buildTree(list){
@@ -111,5 +111,27 @@ function buildTree(list){
         }
       })
     }
+```
+
+### 扁平数据示例2
+
+```js
+const comments = [
+  { id: 1, parent_id: null },
+  { id: 2, parent_id: 1 },
+  { id: 3, parent_id: 1 },
+  { id: 4, parent_id: 2 },
+  { id: 5, parent_id: 4 }
+];
+```
+
+#### 实现算法
+
+```js
+const nest = (items, id = null, link = 'parent_id') =>
+  items
+    .filter(item => item[link] === id)
+    .map(item => ({ ...item, children: nest(items, item.id) }));
+const nestedComments = nest(comments); // [{ id: 1, parent_id: null, children: [...] }]
 ```
 

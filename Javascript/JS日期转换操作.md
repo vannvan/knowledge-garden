@@ -186,3 +186,20 @@ dateMe.getTimezoneOffset() // -480（说明比正常时区慢480分钟，所以�
 dateMe.toDateString() // "Fri Jul 12 2019" | 以美式英语和人类易读的形式返回一个日期对象日期部分的字符串。
 ```
 
+### Date常用to...方法
+
+```js
+var timestamp = new Date()
+timestamp.toISOString()   //  "2019-10-17T02:22:44.009Z"   
+timestamp.toISOString().split("T")   // ["2019-10-17", "02:24:04.562Z"]   
+
+timestamp.toLocaleDateString()  // "2019/10/17"
+timestamp.toLocaleDateString().replace(/\//g,'-')   // 2019-10-17
+
+timestamp.toTimeString()    //"10:29:28 GMT+0800 (中国标准时间)"
+timestamp.toTimeString().substr(0,8).replace(/:/g,'-')  // "10-29-28" 
+
+timestamp.toLocaleTimeString()   // "上午10:33:02"
+timestamp.toLocaleTimeString().substr(2).replace(/:/g,'-')   // "10-22-02"
+```
+

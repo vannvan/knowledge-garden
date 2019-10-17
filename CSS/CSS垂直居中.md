@@ -111,8 +111,7 @@ justify-content center
 
 ### 2. margin+ position:absolute布局
 
-position: absolute布局的元素，通过设置top/bottom, left/right这两对属性，可以让元素在垂直方向和水平方向分别具有了自适应的特性。就像div在水平方向的默认表现一样!
- 上文中对于块级元素的水平居中，我们设置宽度然后配合以margin可以实现水平居中。而对于设置了top/bottom,left/right的absolute定位元素，我们设置宽高再配合margin就可以达到水平垂直居中：
+position: absolute布局的元素，**设置各个方向的距离都是0，再将margin设为auto，也可以实现，前提是content宽高已知**
 
 ```
 .container {
@@ -147,7 +146,7 @@ position: absolute布局的元素，通过设置top/bottom, left/right这两对�
 
 ### 3. transform + absolute
 
-absolute定位元素的left、top属性是子元素的左边界、上边界相对父元素进行定位；transform是CSS3中非常强大的一个属性，可以接收多个属性值，包括旋转、缩放、平移等多种功能。这里使用二者配合，先将子元素左上定点定位到父元素中心点，再使用transform将子元素中心点移动到父元素的中心点即可：
+**position + transform, content宽高未知**
 
 ```
 .container {

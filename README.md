@@ -15,4 +15,4 @@
 - [CSS-grid使用方法](https://www.jianshu.com/p/19a6fe54a5e3)  
 - [JS编码风格参考Airbnb](https://lin-123.github.io/javascript/)  
 - [html-webpack-plugin配置-简书](https://www.jianshu.com/p/08a60756ffda)  
-
+- [10个文字进入动画](http://www.jq22.com/yanshi18203)  

@@ -6,6 +6,8 @@
 
 ```js
 const sortNumbers = (...numbers) => numbers.sort();   //排序,只适合正数
+[1,2,3,4].sort((a, b) => a - b); // [1, 2,3,4],默认是升序
+[1,2,3,4].sort((a, b) => b - a); // [4,3,2,1] 降序
 ```
 
 ###  数组去重思路
@@ -189,6 +191,15 @@ console.log(b); // 20
 console.log(a); // 10
 console.log(b); // 20
 console.log(rest); // {c: 30, d: 40}
+```
+
+### 对象 和数组转换
+
+```js
+Object.keys({name:'张三',age:14}) //['name','age']
+Object.values({name:'张三',age:14}) //['张三',14]
+Object.entries({name:'张三',age:14}) //[[name,'张三'],[age,14]]
+Object.fromEntries([name,'张三'],[age,14]) //ES10的api,Chrome不支持 , firebox输出{name:'张三',age:14}
 ```
 
 ### 生成随机十六进制代码（生成随机颜色）
@@ -1037,7 +1048,7 @@ const array = [{ id: 1, checked: true }, { id: 2 }];
 arr.find(item => item.id === 2) // { id: 2 }
 arr.findIndex(item => item.id === 2) // 1
 arr.some(item => item.checked) // true
-
+[1,2,3,''].some(item => !item)   //true //用于查找数组中是否有空值
 const numberArray = [1,2,3,4];
 numberArray.includes(2) // true
 ```
@@ -1095,5 +1106,37 @@ const smoothScroll = element =>
   
 smoothScroll('#fooBar'); 
 smoothScroll('.fooBar'); 
+```
+
+### 访jquery链式操作css html
+
+```js
+function $ (option) {
+    var t = typeof(option)
+    if (t == 'function') {
+        window.onload = option
+    } else if (t.toLowerCase() == 'string') {
+        var ele = option.substring(1, option.length)
+        el = document.getElementById(ele)
+    }
+    var obj = {
+        css: function (attr, val) {
+            el.style[attr] = val
+            return obj;
+        },
+        html: function (val) {
+            el.innerHTML = val
+            return obj
+        }
+    }
+    return obj
+}
+$('#box').css('backgroundColor','red').html('hello');
+```
+
+### 一行代码获取当前 yyyy-MM-dd hh:mm:ss格式时间
+
+```js
+new Date().toJSON().split("T")[0] + ' ' + new Date().toJSON().split("T")[1].slice(0,-5)
 ```
 

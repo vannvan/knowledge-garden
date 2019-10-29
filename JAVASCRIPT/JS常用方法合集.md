@@ -174,23 +174,35 @@ const [name,age,type] = arr
 var a, b, rest;
 [a, b] = [10, 20];
 console.log(a); // 10
-console.log(b); // 20
 
 [a, b, ...rest] = [10, 20, 30, 40, 50];
 console.log(a); // 10
 console.log(b); // 20
 console.log(rest); // [30, 40, 50]
-
+//对象解构
 ({ a, b } = { a: 10, b: 20 });
 console.log(a); // 10
-console.log(b); // 20
-
-
+//结构别名
+const obj = {
+  name: '小智',
+  food: '鸡腿'
+}
+const { name: myName, food: myFood } = obj;
+console.log(myName, myFood); // 小智 鸡腿
 // Stage 4（已完成）提案中的特性
 ({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
 console.log(a); // 10
 console.log(b); // 20
 console.log(rest); // {c: 30, d: 40}
+//传给函数的参数
+const person = {
+  name: '小智',
+  age: 24
+}
+function introduce({ name, age }) {
+  console.log(`我是 ${name} ，今天 ${age} 岁了!`);
+}
+console.log(introduce(person));// 我是 小智 ，今天 24 岁了!
 ```
 
 ### 对象 和数组转换
@@ -277,7 +289,7 @@ let arr = [
 console.log(arr.filter(item => item.a=== '苹果' ))//[{a:'苹果',b:'面包',c:'吃'},{a:'苹果',b:'香蕉',c:'不吃'}]
 ```
 
-### map数组映射
+### map数组映射  // from 也可以
 
 ```js
 var users = [
@@ -285,10 +297,9 @@ var users = [
 { name : "Yoshi",weapon:"katana"},
 { name : "Kuma",weapon:"wakizashi"}
 ];
-const resUsers = users.map(obj => obj.name)
+const mapUsers = users.map(obj => obj.name)  // [ 'Yagyu', 'Yoshi', 'Kuma' ]
+const fromUsers = Array.from(users, ({name}) => name)  // [ 'Yagyu', 'Yoshi', 'Kuma' ]
 ```
-
-
 
 ### window.location.search 转 JS 对象
 
@@ -478,7 +489,26 @@ let user = {
 console.log(user); // outputs { name: "John", email: "john@doe.com" }
 ```
 
-### 对象匹配赋值 ，obj2属性值来自obj1相同属性的值
+### 有条件的对象属性
+
+```js
+nst getUser = (emailIncluded) => {
+  return {
+    name: 'John',
+    surname: 'Doe',
+    ...emailIncluded && { email : 'john@doe.com' }
+  }
+}
+
+const user = getUser(true);
+console.log(user); // outputs { name: "John", surname: "Doe", email: "john@doe.com" }
+
+const userWithoutEmail = getUser(false);
+console.log(userWithoutEmail); // outputs { name: "John", surname: "Doe" }
+
+```
+
+### 象匹配赋值 ，obj2属性值来自obj1相同属性的值
 
 ```js
 var obj1 = {

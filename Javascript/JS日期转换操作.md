@@ -201,5 +201,7 @@ timestamp.toTimeString().substr(0,8).replace(/:/g,'-')  // "10-29-28"
 
 timestamp.toLocaleTimeString()   // "上午10:33:02"
 timestamp.toLocaleTimeString().substr(2).replace(/:/g,'-')   // "10-22-02"
+
+timestamp.toJSON().replace("T",' ').substring(0,19)   //"2019-10-29 07:47:24"
 ```
 

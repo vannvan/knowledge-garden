@@ -16,3 +16,4 @@
 - [JS编码风格参考Airbnb](https://lin-123.github.io/javascript/)  
 - [html-webpack-plugin配置-简书](https://www.jianshu.com/p/08a60756ffda)  
 - [10个文字进入动画](http://www.jq22.com/yanshi18203)  
+- [es6数组方法及示例](https://www.cnblogs.com/sqh17/p/8529401.html)  

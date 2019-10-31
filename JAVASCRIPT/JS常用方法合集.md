@@ -430,6 +430,27 @@ function isArray(obj){
 }
 ```
 
+### 数组首部插入成员
+
+```js
+let arr = [1, 2]; // 以下方法任选一种
+arr.unshift(0);
+arr = [0].concat(arr);
+arr = [0, ...arr];
+// arr => [0, 1, 2]
+```
+
+### 统计数组成员个数
+
+```js
+const arr = [0, 1, 1, 2, 2, 2];
+const count = arr.reduce((t, c) => {
+    t[c] = t[c] ? ++ t[c] : 1;
+    return t;
+}, {});
+// count => { 0: 1, 1: 2, 2: 3 }
+```
+
 ### 是否为空对象
 
 ```js

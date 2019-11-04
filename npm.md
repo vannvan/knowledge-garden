@@ -54,3 +54,9 @@ npm config set init.author.url "Joebloggs.com"
 npm config set init.license "MIT"
 ```
 
+### 安装node-sass报错
+
+> ```
+> npm i node-sass --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+> ```
+

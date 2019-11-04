@@ -704,6 +704,19 @@ flatten([1, [2], 3, 4]);                             // [1, 2, 3, 4]
 flatten([1, [2, [3, [4, 5], 6], 7], 8], 2);           // [1, 2, 3, [4, 5], 6, 7, 8]
 ```
 
+### 数组扁平化
+
+```js
+let arr = [1,2,3,[4,5,6,[7,8]]]
+let arrStr  = JSON.stringgify(arr)
+arr.flat(Infinity)   //  [1, 2, 3, 4, 5, 6, 7, 8]
+arrStr.replace(/(\[|\])/g,'').split(',')  //  [1, 2, 3, 4, 5, 6, 7, 8]
+//只要有一个元素有数组，那么循环继续
+while (ary.some(Array.isArray())) {
+  ary = [].concat(...ary);
+}
+```
+
 ### reduce求和
 
 ```js
@@ -807,6 +820,37 @@ console.log(o2); // { b: 2 } 不改变
 
 // 备注：Object.assign() 拷贝的是属性值。假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值
 // 备注：数组合并用 concat() 方法
+```
+
+### 对象数组每一项添加新属性
+
+```js
+var arry= [{a:11,b:22,c:33,d:44},{a:11,b:0,c:0,d:44},{a:11,b:22,c:99,d:99}];
+var arry2=[];
+arry.map(((item, index)=> {
+arry2.push(Object.assign({},item,{mess1:item.c,mess2:item.d}))
+}))
+// arry2 -> [{"a":11,"b":22,"c":33,"d":44,"mess1":33,"mess2":44},{"a":11,"b":0,"c":0,"d":44,"mess1":0,"mess2":44},{"a":11,"b":22,"c":99,"d":99,"mess1":99,"mess2":99}]
+var users = [
+{ name : "Yagyu",weapon:"shuriken"},
+{ name : "Yoshi",weapon:"katana"},
+{ name : "Kuma",weapon:"wakizashi"}
+];
+const addNewArgs = users.map((el,index) => {
+	return Object.assign(el,{age:20})
+})
+//addNewArgs -> [{ name: 'Yagyu', weapon: 'shuriken', age: 20 },{ name: 'Yoshi', weapon: 'katana', age: 20 },{ name: 'Kuma', weapon: 'wakizashi', age: 20 }]
+```
+
+### 将一个对象数组数据拿出来变成另一个对象
+
+```js
+var arry= [{a:11,b:22,c:33,d:44},{a:11,b:0,c:0,d:44},{a:11,b:22,c:99,d:99}];
+var arry2=[];
+arry.map(((item, index)=> {
+arry2.push(Object.assign({},{mess1:item.c,mess2:item.d}))
+}))
+//  arry2 ->   [{"mess1":33,"mess2":44},{"mess1":0,"mess2":44},{"mess1":99,"mess2":99}]
 ```
 
 ### 对象中属性个数

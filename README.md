@@ -17,3 +17,36 @@
 - [html-webpack-plugin配置-简书](https://www.jianshu.com/p/08a60756ffda)  
 - [10个文字进入动画](http://www.jq22.com/yanshi18203)  
 - [es6数组方法及示例](https://www.cnblogs.com/sqh17/p/8529401.html)  
+
+### 前端项目方案
+
+- `vue`单页面骨架屏初级解决方案  
+[vue-skeleton-demo](https://github.com/vannvan/vue-skeleton-demo)
+
+- 一些有用的、有趣的demo,包含js操作、css动画技巧等  
+  [web-explore-demo 50+](https://github.com/vannvan/web-explore-demo)
+
+- webpack多页面打包方案   
+[webpack-front-MPA-scheme](https://github.com/vannvan/webpack-front-MPA-scheme)
+
+- vue vw移动端解决方案  
+[vue-vw-layout](https://github.com/vannvan/vue-vw-layout)
+
+- gulp多页面打包方案demo  
+[gulp-conf-demo](https://github.com/vannvan/gulp-conf-scheme)
+
+- node本地模拟数据方案  
+[node-mock-api](https://github.com/vannvan/node-mock-api)
+
+
+### 个人综合
+- 我的导航站点  
+[adoerww-nav](https://vannvan.github.io/adoerww/nav/)   
+
+![](https://vannvan.github.io/adoerww/images/adoerww_nav.png)
+
+- node本地启动静态网站服务  
+[set-node-server](https://github.com/vannvan/set-node-server)
+
+- vue-cli3.0强化版，模块封装、常用依赖预装、命令行工具、axios、vuex、mixins、derective配置一应俱全  
+[wwvue-cli](https://github.com.vannvan/wwvue-cli)

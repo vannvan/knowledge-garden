@@ -20,7 +20,7 @@
 
 ### 前端项目方案
 
-- `vue`单页面骨架屏初级解决方案  
+- vue单页面骨架屏初级解决方案  
 [vue-skeleton-demo](https://github.com/vannvan/vue-skeleton-demo)
 
 - 一些有用的、有趣的demo,包含js操作、css动画技巧等  

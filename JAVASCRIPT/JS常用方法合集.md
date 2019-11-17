@@ -1235,3 +1235,13 @@ $('#box').css('backgroundColor','red').html('hello');
 new Date().toJSON().split("T")[0] + ' ' + new Date().toJSON().split("T")[1].slice(0,-5)
 ```
 
+### 什么是 IIFE（立即调用的函数表达式）
+
+```js
+(function IIFE(){
+    console.log( "Hello!" );
+})();
+// "Hello!"
+//常常使用此模式来避免污染全局命名空间，因为在IIFE中使用的所有变量(与任何其他普通函数一样)在其作用域之外都是不可见的。
+```
+

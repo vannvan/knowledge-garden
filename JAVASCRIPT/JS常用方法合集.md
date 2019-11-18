@@ -1270,3 +1270,16 @@ new Date().toJSON().split("T")[0] + ' ' + new Date().toJSON().split("T")[1].slic
       action.call(this)
     }
 ```
+### 上述方法的另一种玩法
+```js
+    const actions = newMap([
+      [{identity:'guest',status:1},()=>{/*do sth*/}],
+      [{identity:'guest',status:2},()=>{/*do sth*/}],
+      //...
+    ])
+    
+    const onButtonClick = (identity,status)=>{
+      let action = [...actions].filter(([key,value])=>(key.identity == identity && key.status == status))
+      action.forEach(([key,value])=>value.call(this))
+    }
+```

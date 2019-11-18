@@ -1245,7 +1245,7 @@ new Date().toJSON().split("T")[0] + ' ' + new Date().toJSON().split("T")[1].slic
 //常常使用此模式来避免污染全局命名空间，因为在IIFE中使用的所有变量(与任何其他普通函数一样)在其作用域之外都是不可见的。
 ```
 
-###复杂判断优雅解决方式1
+### 复杂判断优雅解决方式1
 ```js
     const actions = newMap([
       ['guest_1', ()=>{/*do sth*/}],

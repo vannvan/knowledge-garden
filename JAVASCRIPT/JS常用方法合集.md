@@ -1283,3 +1283,11 @@ new Date().toJSON().split("T")[0] + ' ' + new Date().toJSON().split("T")[1].slic
       action.forEach(([key,value])=>value.call(this))
     }
 ```
+
+### console.table
+
+```js
+//console.table第一个参数为想要打印的对象，数组，类数组，第二个参数为需要的列名
+console.table(JSON.parse(JSON.stringify(this.tableData)), ["personnel"]);   //此方法打印vue变量没有省略号
+```
+

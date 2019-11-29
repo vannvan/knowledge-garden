@@ -112,7 +112,7 @@ db.col.find({"title" : {$type : 'string'}})
 >db.COLLECTION_NAME.find().limit(NUMBER)
 ```
 
-### skip()方法
+#### skip()方法
 
 使用skip()方法来跳过指定数量的数据，skip方法同样接受一个数字参数作为跳过的记录条数。
 

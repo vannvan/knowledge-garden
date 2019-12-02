@@ -24,3 +24,22 @@ module.exports = override(
 )
 ```
 
+### 暴露配置
+
+> ```bash
+> yarn run eject
+> ```
+
+在config/webpack.config.js中搜索`alias`,然后添加一些常用的别名配置，例如：
+
+```js
+//config/webpack.config.js
+
+alias: {
+    'react-native': 'react-native-web',
+    '@pages':path.resolve(__dirname,'../src/pages'),   //页面组件目录
+    '@assets':path.resolve(__dirname,'../src/assets'),    //静态资源=目录
+}
+
+```
+

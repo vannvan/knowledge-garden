@@ -459,6 +459,19 @@ const flag = DataType(obj, "object") && !Object.keys(obj).length;
 // flag => true
 ```
 
+### isType
+
+```js
+let isType = type => obj => {
+  return Object.prototype.toString.call( obj ) === '[object ' + type + ']';
+}
+
+isType('String')('123');		// true
+isType('Array')([1, 2, 3]);	// true
+isType('Number')(123);			// true
+
+```
+
 ### 判断数据类型
 
 > undefined、null、string、number、boolean、array、object、symbol、date、regexp、function、asyncfunction、arguments、set、map、weakset、weakmap
@@ -709,8 +722,8 @@ flatten([1, [2, [3, [4, 5], 6], 7], 8], 2);           // [1, 2, 3, [4, 5], 6, 7,
 ```js
 let arr = [1,2,3,[4,5,6,[7,8]]]
 let arrStr  = JSON.stringgify(arr)
-arr.flat(Infinity)   //  [1, 2, 3, 4, 5, 6, 7, 8]
-arrStr.replace(/(\[|\])/g,'').split(',')  //  [1, 2, 3, 4, 5, 6, 7, 8]
+arr.flat(Infinity)   //  [1, 2, 3, 4, 5, 6, 7, 8]
+arrStr.replace(/(\[|\])/g,'').split(',')  //  [1, 2, 3, 4, 5, 6, 7, 8]
 //只要有一个元素有数组，那么循环继续
 while (ary.some(Array.isArray())) {
   ary = [].concat(...ary);
@@ -941,6 +954,7 @@ detectDeviceType() // "Desktop"
 ### 防抖
 
 ```js
+//适应大部分场景普通防抖
 function debounce(fn) {
   let timeout = null; // 创建一个标记用来存放定时器的返回值
   return function () {
@@ -952,11 +966,54 @@ function debounce(fn) {
 }
 
 debounce(fn) // 使用
+
+//可配置时间防抖
+function debounce(fn, wait = 50) {
+    // 通过闭包缓存一个定时器 id
+    let timer = null
+    // 将 debounce 处理结果当作函数返回
+    // 触发事件回调时执行这个返回函数
+    return function(...args) {
+      	// 如果已经设定过定时器就清空上一次的定时器
+        if (timer) clearTimeout(timer)
+      
+      	// 开始设定一个新的定时器，定时器结束后执行传入的函数 fn
+        timer = setTimeout(() => {
+            fn.apply(this, args)
+        }, wait)
+    }
+}
+
+//第一次立即执行，之后开始防抖
+// immediate 表示第一次是否立即执行
+function debounce(fn, wait = 50, immediate) {
+    let timer = null
+    return function(...args) {
+        if (timer) clearTimeout(timer)
+      
+      	// ------ 新增部分 start ------ 
+      	// immediate 为 true 表示第一次触发后执行
+      	// timer 为空表示首次触发
+        if (immediate && !timer) {
+            fn.apply(this, args)
+        }
+      	// ------ 新增部分 end ------ 
+      	
+        timer = setTimeout(() => {
+            fn.apply(this, args)
+        }, wait)
+    }
+}
+// 执行 debounce 函数返回新函数
+const betterFn = debounce(() => console.log('fn 防抖执行了'), 1000, true)
+// 第一次触发 scroll 执行一次 fn，后续只有在停止滑动 1 秒后才执行函数 fn
+document.addEventListener('scroll', betterFn)
 ```
 
 ### 节流
 
 ```js
+//适应大部分场景普通节流
 function throttle(fn) {
   let canRun = true; // 通过闭包保存一个标记
   return function () {
@@ -971,6 +1028,23 @@ function throttle(fn) {
 }
 
 throttle(fn) // 使用
+
+//可配置时间节流
+const throttle = (fn, wait = 50) => {
+  // 上一次执行 fn 的时间
+  let previous = 0
+  // 将 throttle 处理结果当作函数返回
+  return function(...args) {
+    // 获取当前时间，转换成时间戳，单位毫秒
+    let now = +new Date()
+    // 将当前时间和上一次执行函数的时间进行对比
+    // 大于等待时间就把 previous 设置为当前时间并执行函数 fn
+    if (now - previous > wait) {
+      previous = now
+      fn.apply(this, args)
+    }
+  }
+}
 ```
 
 ### 计算函数执行时间

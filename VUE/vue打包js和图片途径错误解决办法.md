@@ -6,13 +6,11 @@ vue项目完成打包上线的时候很多人都会碰到静态资源找不到�
 
 解决办法：打开config/index.js，将build下的其中的assetsPublicPath值改为’./’
 
-![](http://www.ftc20.com/wordpress/wp-content/uploads/2017/11/20171102171215.png)
+![](https://img-blog.csdn.net/20180321150503347?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3hpZWNoZW5namlhbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 2、css中引用的图片资源找不到 
 
 打开“build/utils.js”，增加一行代码即可 
 
-![](http://www.ftc20.com/wordpress/wp-content/uploads/2017/11/20171102171215-1.png)
-
-原文：http://www.ftc20.com/wordpress/2017/11/vue-static-resource-route-question/d
+![](https://img-blog.csdn.net/20180321150552569?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3hpZWNoZW5namlhbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 

@@ -400,6 +400,35 @@ console.log(c(a, b, 'id'));  //交集
 console.log(d(a, b, 'id'));  //差集
 ```
 
+### 二维纯数组交集
+
+```js
+//方法1
+const similar = function(arrs) {
+	  var arr = arrs.shift(); 
+	  for(var i=arrs.length;i--;){
+	     var p = {"boolean":{}, "number":{}, "string":{}}, obj = [];
+	     arr = arr.concat(arrs[i]).filter(function (x) {
+	       var t = typeof x;
+	       return !((t in p) ? !p[t][x] && (p[t][x] = 1) : obj.indexOf(x) < 0 && obj.push(x));
+	     });
+	     if(!arr.length) return null; 
+	  }
+	  return arr;
+}
+//方法2
+const similar = function getTheSame(arr) {
+  return arr.reduce(function(a, b) {
+    return a.filter(function(item) {
+      return b.includes(item);
+    });
+  });
+}
+
+console.log(similar([[1,2,3,5], [2,3,4], [2,3], [2,3,6,7]]))  //[2,3]
+console.log(similar([[0,1,2,3,5],[-1,1,4,5,6,7],[1,2,3,5,6]])) //[1,5]
+```
+
 ### 两（yyyy-MM-dd）日期时间差
 
 ```js

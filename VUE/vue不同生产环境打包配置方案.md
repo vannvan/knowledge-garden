@@ -81,3 +81,77 @@ export{
 > npm run build--test
 >
 > npm run build-prod
+
+### API接口配置改造方法2，不用动原有的config配置
+
+1.在config目录新建env.conf.js，内容如下：
+
+```js
+'use strict'
+module.exports = {
+  'test': {
+     NODE_ENV: '"testing"',
+     ENV_CONFIG:'"test"'
+  },
+  'prod': {
+     NODE_ENV: '"production"',
+     ENV_CONFIG:'"prod"'
+  },
+  'prepro': {
+    NODE_ENV: '"preproduction"',
+    ENV_CONFIG:'"prepro"'
+  }
+}
+```
+
+2.在prod.conf.js中引入并修改env变量值来源
+
+```js
+const currentEnv = process.argv[2] || 'prod'  //如果命令行没有输入env将按prod进行打包
+const env = envConfig[currentEnv]
+//注：process.argv[2]中的值需要env.conf中存在
+```
+
+3.同样对build.js做如下修改
+
+```js
+//非常重要，注释以下
+// process.env.NODE_ENV = 'production'
+const envConfig = require('../config/env.conf')
+if(process.argv[2] in envConfig == false) {
+  console.log(chalk.red('检测到命令行env为空或无对应配置，将以prod环境配置进行打包'))
+  process.env.ENV_CONFIG = 'prod'
+//   process.exit(1)
+}
+
+const currentEnv = process.argv[2] || process.env.ENV_CONFIG
+const spinner = ora('building for ' + currentEnv + ' of production...')
+```
+
+PS:build和prod.conf这样配置的原因是不能影响原有npm run build的执行逻辑，
+
+4.项目中关于api的配置如urlConfig配置如下：
+
+```js
+//API_CONFIG的属性值需要和env.conf的NODE_ENV一一对应，除development之外
+const API_CONFIG = {
+  'development':'http:127.0.0.1:8088',
+  'testing':'https://10.248.65.150/GetTravelMethod',
+  'production':"https://10.248.65.200/GetTravelMethod",
+  'preproduction':"https://10.248.65.300/GetTravelMethod"
+}
+let baseUrl = API_CONFIG[process.env.NODE_ENV]
+export {
+   baseUrl
+}
+```
+
+5.package.json中新增script
+
+```js
+"build--env":"node build/build.js",
+```
+
+6.使用
+
+> npm run build--env test/prepro/prod

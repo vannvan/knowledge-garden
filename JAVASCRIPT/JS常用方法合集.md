@@ -44,6 +44,18 @@ uniqueElementsBy([{id: 1, name: 'Jhon'}, {id: 2, name: 'sss'}, {id: 1, name: 'Jh
 // [{id: 1, name: 'Jhon'}, {id: 2, name: 'sss'}]
 ```
 
+### 生成连续数组
+
+```js
+//有起始
+function generateArray (start, end) {
+      return Array.from(new Array(end + 1).keys()).slice(start)
+}
+//有最大值
+[...new Array(10).keys()]    //[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Array.from({length:10},(item, index)=> index+1)  //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
 ### 删除数组一个元素
 
 ```js
@@ -884,6 +896,41 @@ const addNewArgs = users.map((el,index) => {
 //addNewArgs -> [{ name: 'Yagyu', weapon: 'shuriken', age: 20 },{ name: 'Yoshi', weapon: 'katana', age: 20 },{ name: 'Kuma', weapon: 'wakizashi', age: 20 }]
 ```
 
+### 根据键值将一个对象的值映射到另一个数组对象中
+
+```js
+var obj ={
+  apple: 1,
+  banana:2,
+  li:30
+}
+var arr = [
+  {id:'1',text:'苹果',key:'apple', value:''},
+  {id:'2',text:'梨', key:'li',value:''},
+  {id:'3',text:'香蕉', key:'banana', value:''}
+]
+
+const newArr = arr.map(o => {
+  o.value = obj[o.key]
+  return o
+})
+```
+
+### 根据索引将一个数组的值映射到另一个数组对象中
+
+```js
+var arr = [
+  {id:'1',text:'苹果',key:'apple', value:''},
+  {id:'2',text:'梨', key:'li',value:''},
+  {id:'3',text:'香蕉', key:'banana', value:''}
+]
+
+var arr1 = [1,2,1]
+arr.map((el,index)=>{
+	el.value = arr1[index]
+})
+```
+
 ### 将一个对象数组数据拿出来变成另一个对象
 
 ```js
@@ -1139,7 +1186,7 @@ function RandomColor() {
            g = Math.floor(Math.random() * 256);
            b = Math.floor(Math.random() * 256);
            return "rgb(" +r + ',' +g+ ',' +b+ ")";
-    }
+}
 ```
 
 ### 统计指定文字出现次数

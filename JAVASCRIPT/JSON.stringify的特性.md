@@ -35,3 +35,63 @@
 - 如果是一个字符串，则每一级别会比上一级别多缩进该字符串（或该字符串的前10个字符）
 
 [原文](https://juejin.im/post/5decf09de51d45584d238319)
+
+```js
+Uncaught TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at <anonymous>:1:6
+//报错解决
+```
+
+```js
+var o = {};
+o.o = o;
+
+// 声明cache变量，便于匹配是否有循环引用的情况
+var cache = [];
+var str = JSON.stringify(o, function(key, value) {
+    if (typeof value === 'object' && value !== null) {
+        if (cache.indexOf(value) !== -1) {
+            // 移除
+            return;
+        }
+        // 收集所有的值
+        cache.push(value);
+    }
+    return value;
+});
+cache = null; // 清空变量，便于垃圾回收机制回收
+```
+
+### 替换对象多个属性值
+
+```js
+const mapObj = {
+  _id: "id",
+  created_at: "createdAt",
+  updated_at: "updatedAt"
+};
+const todayILearn = {
+  id: 1,
+  content: '今天学习 JSON.stringify()，我很开心！',
+  createdAt: 'Mon Nov 25 2019 14:03:55 GMT+0800 (中国标准时间)',
+  updatedAt: 'Mon Nov 25 2019 16:03:55 GMT+0800 (中国标准时间)'
+}
+
+  JSON.parse(JSON.stringify(todayILearn).replace(
+    /_id|created_at|updated_at/gi,
+    matched => mapObj[matched])
+  )
+
+
+console.log(todayILearn)
+/*
+{
+  id: 1,
+  content: '今天学习 JSON.stringify()，我很开心！',
+  createdAt: 'Mon Nov 25 2019 14:03:55 GMT+0800 (中国标准时间)',
+  updatedAt: 'Mon Nov 25 2019 16:03:55 GMT+0800 (中国标准时间)'
+}
+*/
+```
+

@@ -72,11 +72,12 @@ const mapObj = {
   updated_at: "updatedAt"
 };
 const todayILearn = {
-  id: 1,
+  _id: 1,
   content: '今天学习 JSON.stringify()，我很开心！',
-  createdAt: 'Mon Nov 25 2019 14:03:55 GMT+0800 (中国标准时间)',
-  updatedAt: 'Mon Nov 25 2019 16:03:55 GMT+0800 (中国标准时间)'
+  created_at: 'Mon Nov 25 2019 14:03:55 GMT+0800 (中国标准时间)',
+  updated_at: 'Mon Nov 25 2019 16:03:55 GMT+0800 (中国标准时间)'
 }
+
 
   JSON.parse(JSON.stringify(todayILearn).replace(
     /_id|created_at|updated_at/gi,
@@ -84,7 +85,6 @@ const todayILearn = {
   )
 
 
-console.log(todayILearn)
 /*
 {
   id: 1,

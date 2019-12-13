@@ -1441,3 +1441,23 @@ new Date().toJSON().split("T")[0] + ' ' + new Date().toJSON().split("T")[1].slic
 console.table(JSON.parse(JSON.stringify(this.tableData)), ["personnel"]);   //此方法打印vue变量没有省略号
 ```
 
+### 根据某属性过滤树形数据
+
+```js
+/*
+arr 需要被过滤的数组
+selectedKey 满足条件的树形值
+ieCheck  用于限定条件的属性
+*/
+filterCheck(arr, selectedKey) {
+      return arr.filter(item => item.isCheck !== selectedKey).map(item => {
+        item = Object.assign({}, item)
+        if (item.children) {
+          item.children = this.filterCheck(item.children, selectedKey)
+        }
+        return item
+      })
+},
+    
+```
+

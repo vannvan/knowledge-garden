@@ -107,7 +107,8 @@ module.exports = {
 2.在prod.conf.js中引入并修改env变量值来源
 
 ```js
-const currentEnv = process.argv[2] || 'prod'  //如果命令行没有输入env将按prod进行打包
+const envConfig = require('../config/env.conf')
+const currentEnv = process.argv[2] || 'prod'  //如果命令行没有输入env将按prod进行打包  
 const env = envConfig[currentEnv]
 //注：process.argv[2]中的值需要env.conf中存在
 ```

@@ -1461,3 +1461,9 @@ filterCheck(arr, selectedKey) {
     
 ```
 
+### 是否全部验证通过every
+
+```js
+[true,true,false].every(el=>el==true)  //false
+```
+

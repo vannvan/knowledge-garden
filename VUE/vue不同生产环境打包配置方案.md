@@ -156,3 +156,19 @@ export {
 6.使用
 
 > npm run build--env test/prepro/prod
+
+### PS很重要填坑步骤
+
+由于多了几种NODE_ENV，导致原有的项目assetsPublicPath在除production之外的环境下不生效，具体配置在原来webpack.base.conf.js中
+
+```js
+//原
+  publicPath: process.env.NODE_ENV === 'production'
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath
+//改
+publicPath: process.env.NODE_ENV === 'development'
+      ?config.dev.assetsPublicPath
+      :config.build.assetsPublicPath
+```
+

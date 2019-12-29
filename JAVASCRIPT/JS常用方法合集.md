@@ -100,9 +100,9 @@ pull(myArray, 'a', 'c'); // myArray = [ 'b', 'b' ]
 [...Array(7).keys()].map(days => new Date(Date.now() - 86400000 * days));
 ```
 
-### 生成随机ID
+### 生成随机ID，随机字符串
 
-在原型设计时经常使用的创建ID功能。但是我在实际项目中看到有人使用它。其实这并不安全
+substring() 的第二个参数控制取多少位 (最多可取13位)
 
 ```js
 // 生成长度为11的随机字母数字字符串
@@ -112,8 +112,6 @@ Math.random().toString(36).substring(2);
 
 ### 获取URL的查询参数
 
-这个获取URL的查询参数代码，是我见过最精简的`QAQ`
-
 ```js
 ?foo=bar&baz=bing => {foo: bar, baz: bing}
 // 获取URL的查询参数
@@ -121,8 +119,6 @@ q={};location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);q;
 ```
 
 ### 本地时间
-
-通过一堆HTML，您可以创建一个本地时间，其中包含您可以一口气读出的源代码，它每秒都会用当前时间更新页面
 
 ```js
 // 创建本地时间

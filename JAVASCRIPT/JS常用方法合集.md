@@ -1454,3 +1454,45 @@ filterCheck(arr, selectedKey) {
 [true,true,false].every(el=>el==true)  //false
 ```
 
+### 递归搜索
+
+```js
+function find(arr, fn, result) {
+  arr.forEach(item => {
+    if (item.children) {
+      find(item.children, fn, result)
+    } else {
+      if (fn(item)) {
+        result.push(item)
+      }
+    }
+  })
+}
+
+var result = []
+find(carr, item => {
+  return item.name === '啦啦啦'
+}, result)
+
+```
+
+### 生成n个和为sum的数
+
+```js
+function randGenerator(n, sum) {
+  var aryRet = [];
+  var fSumTmp = sum;
+  var iAcc = 0;
+  for (var i = 0; i < (n -1); i++) {
+    var iTmp = Math.ceil(Math.random() * (fSumTmp / 2));
+    aryRet.push(iTmp);
+    fSumTmp -= iTmp;
+    iAcc += iTmp;
+  }
+  aryRet.push(sum-iAcc);
+  return aryRet;
+}
+ 
+console.log(randGenerator(7, 100)); 
+```
+

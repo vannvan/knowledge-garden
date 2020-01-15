@@ -11,12 +11,13 @@
 - [30-seconds-of-code中文](https://www.html.cn/30-seconds-of-code/#arraytohtmllist)
 - [前端面试与进阶指南](<https://www.cxymsg.com/>)  
 - [鼠标的11个事件](https://github.com/yaogengzhu/life-share#5)
-- [浏览器原生base64方案](<https://www.zhangxinxu.com/wordpress/2018/08/js-base64-atob-btoa-encode-decode/>)  
+- [浏览器原生base64方案](<https://www.zhangxinxu.com/wordpress/2018/08/js-base64-atob-btoa-encode-decode/>)  
 - [CSS-grid使用方法](https://www.jianshu.com/p/19a6fe54a5e3)  
 - [JS编码风格参考Airbnb](https://lin-123.github.io/javascript/)  
 - [html-webpack-plugin配置-简书](https://www.jianshu.com/p/08a60756ffda)  
 - [10个文字进入动画](http://www.jq22.com/yanshi18203)  
-- [es6数组方法及示例](https://www.cnblogs.com/sqh17/p/8529401.html)  
+- [es6数组方法及示例](https://www.cnblogs.com/sqh17/p/8529401.html) 
+- [前端知识体系精简](<https://www.cnblogs.com/onepixel/p/7021506.html>) 
 
 ### 前端项目方案
 

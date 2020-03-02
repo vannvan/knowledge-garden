@@ -135,3 +135,13 @@ const nest = (items, id = null, link = 'parent_id') =>
 const nestedComments = nest(comments); // [{ id: 1, parent_id: null, children: [...] }]
 ```
 
+```js
+buildTree = (source, id, parentId, children) => {
+  let cloneData = JSON.parse(JSON.stringify(source))
+  return cloneData.filter(father => {
+    let branchArr = cloneData.filter(child => father[id] == child[parentId]);
+    branchArr.length > 0 ? father[children] = branchArr : ''
+    return father[parentId] == 0        // 如果第一层不是parentId=0，请自行修改
+  })
+}
+```

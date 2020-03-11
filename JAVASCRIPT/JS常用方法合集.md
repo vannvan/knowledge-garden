@@ -525,6 +525,19 @@ isNil(null); // true
 isNil(undefined); // true
 ```
 
+### 验证是否json字符串
+
+```js
+const isValidJSON = str => {
+  try {
+    JSON.parse(str);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+```
+
 ### 对象字面量(获取环境变量时必用此方法)
 
 ```js

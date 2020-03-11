@@ -516,6 +516,15 @@ DataType([], "array"); // true
 DataType({}, "array"); // false
 ```
 
+### 判断是否null或undefined
+
+```js
+const isNil = val => val === undefined || val === null;
+
+isNil(null); // true
+isNil(undefined); // true
+```
+
 ### 对象字面量(获取环境变量时必用此方法)
 
 ```js

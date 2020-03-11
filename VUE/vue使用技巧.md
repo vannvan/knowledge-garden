@@ -20,3 +20,23 @@ compress: {
         }
 ```
 
+
+## vue arrow按钮点击旋转，用在伸缩类型组件中
+
+```scss
+
+//arrow旋转
+    .arrow-rotate-back {
+      transition: all .5s;
+    }
+    
+    .arrow-rotate {
+      transform: rotate(180deg);
+      transition: all .5s;
+    }
+```
+
+```vue
+   <img src="@/assets/images/temperature/arrow-up1.png" :class="[item.expand?'arrow-rotate':'arrow-rotate-back']">
+```
+

@@ -40,3 +40,15 @@ compress: {
    <img src="@/assets/images/temperature/arrow-up1.png" :class="[item.expand?'arrow-rotate':'arrow-rotate-back']">
 ```
 
+###  事件方法传入当前dom和其他参数
+
+```vue
+ <div
+        class="province-item"
+        v-for="(item,index) in provinceData"
+        :key="index"
+        @mouseover="mouseOver(item,$event)"
+        @mouseleave="mouseLeave(item,$event)"
+  >
+```
+

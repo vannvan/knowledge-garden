@@ -268,6 +268,13 @@ const arr = [undefined, null, "", 0, false, NaN, 1, 2].filter(Boolean);
 // arr => [1, 2]
 ```
 
+filter过滤数组空位
+
+```js
+[1,2,3,4,5,,6,,7].length //9
+[1,2,3,4,5,,6,,7].filter(el=> el).length //7
+```
+
 ### filter() 数组去重
 
 ```js

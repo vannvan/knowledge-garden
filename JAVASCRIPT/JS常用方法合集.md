@@ -712,6 +712,13 @@ String.prototype.trim = function(){return this.replace(/^\s+|\s+$/g, "");};
 var  numbers = [5, 458 , 120 , -215 , 228 , 400 , 122205, -85411]; 
 var maxInNumbers = Math.max.apply(Math, numbers); 
 var minInNumbers = Math.min.apply(Math, numbers);
+
+const maxElementsFromArray = (array, number = 1) => [...array].sort((x, y) => y -x).slice(0, number)
+
+// 事例
+maxElementsFromArray([1, 2, 3, 4, 5]) // [5]
+
+maxElementsFromArray([7, 8, 9, 10, 10], 2) // [10, 10]
 ```
 
 ### 不要直接从数组中delete或remove元素

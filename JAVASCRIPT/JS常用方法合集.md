@@ -110,6 +110,18 @@ Math.random().toString(36).substring(2);
 // hg7znok52x
 ```
 
+### 生成指定范围随机数
+
+```js
+/**
+ * @param { number } min 
+ * @param { number } max 
+ */
+export const RandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+```
+
+
+
 ### 获取URL的查询参数
 
 ```js
@@ -254,6 +266,13 @@ console.log(newArr)
 ```js
 const arr = [undefined, null, "", 0, false, NaN, 1, 2].filter(Boolean);
 // arr => [1, 2]
+```
+
+filter过滤数组空位
+
+```js
+[1,2,3,4,5,,6,,7].length //9
+[1,2,3,4,5,,6,,7].filter(el=> el).length //7
 ```
 
 ### filter() 数组去重
@@ -1523,5 +1542,80 @@ function randGenerator(n, sum) {
 }
  
 console.log(randGenerator(7, 100)); 
+```
+
+### 加法函数（精度丢失问题）
+
+```js
+/**
+ * @param { number } arg1
+ * @param { number } arg2
+ */
+export function add(arg1, arg2) {
+    let r1, r2, m;
+    try { r1 = arg1.toString().split(".")[1].length } catch (e) { r1 = 0 }
+    try { r2 = arg2.toString().split(".")[1].length } catch (e) { r2 = 0 }
+    m = Math.pow(10, Math.max(r1, r2));
+    return (arg1 * m + arg2 * m) / m
+}
+```
+
+### 减法函数（精度丢失问题）
+
+```js
+/**
+ * @param { number } arg1
+ * @param { number } arg2
+ */
+export function sub(arg1, arg2) {
+    let r1, r2, m, n;
+    try { r1 = arg1.toString().split(".")[1].length } catch (e) { r1 = 0 }
+    try { r2 = arg2.toString().split(".")[1].length } catch (e) { r2 = 0 }
+    m = Math.pow(10, Math.max(r1, r2));
+    n = (r1 >= r2) ? r1 : r2;
+    return Number(((arg1 * m - arg2 * m) / m).toFixed(n));
+}
+
+```
+
+###  除法函数（精度丢失问题）
+
+```js
+/**
+ * @param { number } num1
+ * @param { number } num2
+ */
+export function division(num1,num2){
+    let t1,t2,r1,r2;
+    try{
+        t1 = num1.toString().split('.')[1].length;
+    }catch(e){
+        t1 = 0;
+    }
+    try{
+        t2=num2.toString().split(".")[1].length;
+    }catch(e){
+        t2=0;
+    }
+    r1=Number(num1.toString().replace(".",""));
+    r2=Number(num2.toString().replace(".",""));
+    return (r1/r2)*Math.pow(10,t2-t1);
+}
+
+```
+
+### 乘法函数（精度丢失问题）
+
+```js
+/**
+ * @param { number } num1
+ * @param { number } num2
+ */
+export function mcl(num1,num2){
+    let m=0,s1=num1.toString(),s2=num2.toString();
+    try{m+=s1.split(".")[1].length}catch(e){}
+    try{m+=s2.split(".")[1].length}catch(e){}
+    return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m);
+}
 ```
 

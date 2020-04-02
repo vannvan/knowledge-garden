@@ -1619,3 +1619,23 @@ export function mcl(num1,num2){
 }
 ```
 
+### JSON数据分类
+
+```js
+function groupBy(array, f) {
+  const groups = {};
+  array.forEach(function(o) {
+    const group = JSON.stringify(f(o));
+    groups[group] = groups[group] || [];
+    groups[group].push(o);
+  });
+  return Object.keys(groups).map(function(group) {
+    return groups[group];
+  });
+}
+
+ groupBy(this.frsSSOInfo.user_list, el => {
+        return [el.user_type];
+ });
+```
+

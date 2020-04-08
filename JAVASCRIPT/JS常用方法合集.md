@@ -1639,3 +1639,20 @@ function groupBy(array, f) {
  });
 ```
 
+### 找出对象中属性值匹配的key
+
+```js
+const findKey = (obj, value, compare = (a, b) => a === b) => {
+  return Object.keys(obj).find(k => compare(obj[k], value));
+};
+let { user_type, role_type, agency_code, agency_type } = this.currentUser;
+
+ const conditionOpt = {
+        1: user_type == 1 && role_type == 4, //校长
+        2: user_type == 1 && role_type == 5, //班主任
+        3: agency_code && agency_type == 3, //县级
+        4: agency_code && agency_type == 2 //州级
+      };
+ return findKey(conditionOpt,true)
+```
+

@@ -198,3 +198,25 @@ export default {
 
 ```
 
+#### vue 遮罩层滚动禁止body滚动
+
+```js
+handleOpenPopup() {
+      this.userListVisible = true;
+      let scrollTop =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      document.body.style.cssText +=
+        "position:fixed;width:100%;top:-" + scrollTop + "px;";
+},
+handleClosePopup() {
+    this.userListVisible = false;
+    let body = document.body;
+    body.style.position = "";
+    let top = body.style.top;
+    document.body.scrollTop = document.documentElement.scrollTop = -parseInt(
+        top
+    );
+    body.style.top = "";
+},
+```
+

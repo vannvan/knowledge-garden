@@ -519,6 +519,29 @@ isType('Number')(123);			// true
 
 ```
 
+### Object.is()判断两个值是否相等
+
+```js
+Object.is('foo', 'foo');     // true
+Object.is(window, window);   // true
+
+Object.is('foo', 'bar');     // false
+Object.is([], []);           // false
+
+var foo = { a: 1 };
+var bar = { a: 1 };
+Object.is(foo, foo);         // true
+Object.is(foo, bar);         // false
+
+Object.is(null, null);       // true
+
+// 特例
+Object.is(0, -0);            // false
+Object.is(0, +0);            // true
+Object.is(-0, -0);           // true
+Object.is(NaN, 0/0);         // true
+```
+
 ### 判断数据类型
 
 > undefined、null、string、number、boolean、array、object、symbol、date、regexp、function、asyncfunction、arguments、set、map、weakset、weakmap

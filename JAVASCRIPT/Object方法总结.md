@@ -243,6 +243,12 @@ NaN === NaN                     // false
 
 Object.is(+0, -0)           // false
 Object.is(NaN, NaN)         // true
+
+// 特例
+Object.is(0, -0);            // false
+Object.is(0, +0);            // true
+Object.is(-0, -0);           // true
+Object.is(NaN, 0/0);         // true
 ```
 
 ### preventExtensions 让一个对象变的不可扩展，也就是永远不能再添加新的属性&isExtensible 判断一个对象是否可扩展

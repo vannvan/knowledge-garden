@@ -519,6 +519,27 @@ isType('Number')(123);			// true
 
 ```
 
+### 多重三元
+
+```js
+export function toString (val: any): string {
+  return val == null
+    ? ''
+    : typeof val === 'object'
+      ? JSON.stringify(val, null, 2)
+      : String(val)
+}
+
+//解析
+export function toString (val: any): string {
+  return 当变量值为 null 时
+    ? 返回空字符串
+    : 否则，判断当变量类型为 object时
+      ? 返回 JSON.stringify(val, null, 2)
+      : 否则 String(val)
+}
+```
+
 ### Object.is()判断两个值是否相等
 
 ```js
@@ -634,7 +655,7 @@ console.log(userWithoutEmail); // outputs { name: "John", surname: "Doe" }
 
 ```
 
-### 象匹配赋值 ，obj2属性值来自obj1相同属性的值
+### 对象匹配赋值 ，obj2属性值来自obj1相同属性的值
 
 ```js
 var obj1 = {
@@ -1219,6 +1240,22 @@ function trim(str, type = 1) {
             return str;
     }
 }
+```
+
+### 连字符/驼峰互转
+
+```js
+const camelizeRE = /-(\w)/g
+export const camelize = cached((str: string): string => {
+  return str.replace(camelizeRE, (_, c) => c ? c.toUpperCase() : '')
+})
+//camelize('aa-bb') // aaBb
+
+const hyphenateRE = /\B([A-Z])/g
+export const hyphenate = cached((str: string): string => {
+  return str.replace(hyphenateRE, '-$1').toLowerCase()
+})
+
 ```
 
 ### 随机16进制颜色

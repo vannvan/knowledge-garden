@@ -1255,7 +1255,7 @@ const hyphenateRE = /\B([A-Z])/g
 export const hyphenate = cached((str: string): string => {
   return str.replace(hyphenateRE, '-$1').toLowerCase()
 })
-
+	
 ```
 
 ### 随机16进制颜色

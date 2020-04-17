@@ -57,3 +57,48 @@ obj.time // 35
 // 上面代码中，proxy对象是obj对象的原型，obj对象本身并没有time属性，所以根据原型链，会在proxy对象上读取该属性，导致被拦截。
 ```
 
+### proxy 实现优雅的校验器
+
+```js
+const formData = {
+   name: 'xuxi',
+   age: 120,
+   label: ['react', 'vue', 'node', 'javascript']
+ }
+ // 校验器
+ const validators = {
+   name(v) {
+     // 检验name是否为字符串并且长度是否大于3
+     return typeof v === 'string' && v.length > 3
+   },
+   age(v) {
+     // 检验age是否为数值
+     return typeof v === 'number'
+   },
+   label(v) {
+     // 检验label是否为数组并且长度是否大于0
+     return Array.isArray(v) && v.length > 0
+   }
+ }
+ // 代理校验对象
+ function proxyValidator(target, validator) {
+  return new Proxy(target, {
+    set(target, propKey, value, receiver) {
+      if(target.hasOwnProperty(propKey)) {
+        let valid = validator[propKey]
+        if(!!valid(value)) {
+          return Reflect.set(target, propKey, value, receiver) //这里可以针对验证通过的值再做其他操作
+        }else {
+          // 一些其他错误业务...
+          // throw Error(`值验证错误${propKey}:${value}`)
+          console.log(`值验证错误${propKey}:${value}`)
+        }
+      }
+    }
+  })
+ }
+let formObj = proxyValidator(formData, validators)
+formObj.name = 333;   // Uncaught Error: 值验证错误name:f
+formObj.age = 'ddd'   // Uncaught Error: 值验证错误age:f
+```
+

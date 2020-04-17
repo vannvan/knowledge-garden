@@ -1448,6 +1448,18 @@ smoothScroll('#fooBar');
 smoothScroll('.fooBar'); 
 ```
 
+### h5 滚动至页面顶部，全面兼容
+
+```js
+const scrollToTop = () => {
+    let scrollTop = document.documentElement.scrollTo || document.body.scrollTop
+    if (scrollTop > 0) {
+        window.requestAnimationFrame(scrollTop)
+        window.scrollTop(0, scrollTop - scrollTo / 8)
+    }
+}
+```
+
 ### 访jquery链式操作css html
 
 ```js

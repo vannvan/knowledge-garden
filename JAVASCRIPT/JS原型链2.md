@@ -22,6 +22,14 @@
 
 - 当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它的’_ _ proto_ _'属性(也就是它的构造函数的’prototype’属性)中去寻找。
 
+- 所有的引用类型都是构造函数
+
+  var a={}  是 var a=new Object() 的语法糖
+
+  var a=[] 是 var a=new Array() 的语法糖
+
+  function Foo()  是var Foo=new Function() 的语法糖
+
 ## 原型
 
 ```js
@@ -67,6 +75,51 @@ function Foo(name,age){
 那么我们创建出来的每一个对象，里面都有showName和showAge方法，这样就会占用很多的资源。
 
 而通过原型来实现的话，只需要在构造函数里面给属性赋值，而把方法写在Foo.prototype属性(这个属性是唯一的)里面。这样每个对象都可以使用prototype属性里面的showName、showAge方法，并且节省了不少的资源。
+
+### 封装DOM查询
+
+```js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,min-width=1.0,max-width=1.0,initial-scale=1.0,user-scalable=no">
+    <title>demo</title>
+</head>
+<body>
+    <div id="text">这是一段长长的文本</div>
+
+    <script>
+        function Ele(id){
+            this.elem=document.getElementById(id);
+        }
+
+        Ele.prototype.html=function(val){
+            var elem=this.elem;
+            if(val){
+                //设置innerHTML
+                elem.innerHTML=val;
+                return this;
+            }else{
+                //获取innerHTML
+                return elem.innerHTML;
+            }
+        }
+
+        Ele.prototype.on=function(type,fn){
+            this.elem.addEventListener(type,fn);
+　　　　　　　return this;
+        }
+
+        var text=new Ele('text');
+        console.log(text.html());
+        text.html('设置了新的html').on('click',function(){
+            console.log('clicked');
+        });
+    </script>
+</body>
+</html>
+```
 
 
 

@@ -1,4 +1,4 @@
-### 一题
+### 一题 [Promise 链式调用顺序](<https://juejin.im/post/5dabf847e51d4524d674881c>)
 
 ```js
 new Promise((resolve, reject) => {

@@ -141,7 +141,7 @@ export default {
 </script>
 ```
 
-### 用hook监听自组件生命周期
+### 用hook监听子组件生命周期
 
 ```vue
 <List @hook:mounted="listenMounted"></List>
@@ -198,7 +198,7 @@ export default {
 
 ```
 
-#### vue 遮罩层滚动禁止body滚动
+### vue 遮罩层滚动禁止body滚动
 
 ```js
 handleOpenPopup() {
@@ -218,5 +218,87 @@ handleClosePopup() {
     );
     body.style.top = "";
 },
+```
+
+### vue 中的$listeners与$attrs
+
+在涉及层级嵌套的组件时，如：
+
+```vue
+<component-a>
+	<component-b>
+  	<component-c></component-c>
+  </component-b>
+</component-a>
+```
+
+如果这时想将数据从 a 传到 c，或者在 a 上监听 c 的事件。普通的写法我们需要通过 props 由 a 传到 b，再由 b 传到 c。想想也还能忍受，但是如果需要传的 props 比较多，或者层级再多一点那就是灾难了。
+
+使用 $listeners 与 $attrs 可以简化：
+
+```vue
+<!-- component-a -->
+<template>
+	<component-b :data1="xx" :data2="xx" @event1="yy" @event2="yy" />
+</template>
+```
+
+```vue
+<!-- component-b -->
+<template>
+	<component-c v-bind="$attrs" v-on="$listeners" />
+</template>
+```
+
+```vue
+<!-- component-c -->
+<template>
+	<div>data1: {{ data1 }} data2: {{ data2 }}</div>
+</template>
+```
+
+### 模拟dispatch,找到父组件并且触发父组件方法
+
+```js
+  // dispatch.js
+export default {
+  methods: {
+    dispatch (componentName, eventName, params = []) {
+      let parent = this.$parent || this.$root
+      let name = parent.$options._componentTag
+
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent
+        if (parent) {
+          name = parent.$options._componentTag
+        }
+      }
+      if (parent) {
+        parent.$emit(eventName, params)
+      }
+    }
+  }
+}
+```
+
+```js
+import dispatch from '../../utils/dispatch'
+export default {
+  name: 'menu-item',
+  mixins: [dispatch],
+  props: {
+    route: {
+      type: String,
+      default: ' '
+    }
+  },
+  methods: {
+    handleRoute () {
+      if (this.route) {
+        this.dispatch('my-menu', 'closeByRoute')
+      }
+    }
+  }
+}
 ```
 

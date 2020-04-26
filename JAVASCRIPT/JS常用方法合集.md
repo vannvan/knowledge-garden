@@ -1728,3 +1728,60 @@ let { user_type, role_type, agency_code, agency_type } = this.currentUser;
  return findKey(conditionOpt,true)
 ```
 
+### 使用两个非
+
+两个感叹号会确保参数为非值时只能为false，不会是0、空字符串、undefined等非值
+
+```js
+//在vue里
+if (options) {
+    this.deep = !!options.deep;
+    this.user = !!options.user;
+    this.lazy = !!options.lazy;
+    this.sync = !!options.sync;
+  } else {
+    this.deep = this.user = this.lazy = this.sync = false;
+  }
+```
+
+### async 返回值
+
+`async`函数内部`return`语句返回的值，会成为`then`方法回调函数的参数。
+
+```js
+async function f() {
+  return 'hello world';
+}
+
+f().then(v => console.log(v))
+// "hello world"
+```
+
+`async`函数内部抛出错误，会导致返回的 Promise 对象变为`reject`状态。抛出的错误对象会被`catch`方法回调函数接收到。
+
+```js
+async function f() {
+  throw new Error('出错了');
+}
+
+f().then(
+  v => console.log(v),
+  e => console.log(e)
+)
+// Error: 出错了
+```
+
+### 浏览器停止滚动后执行操作
+
+```js
+var scrollTimer
+const timeout = 400
+function handler () {
+  // ...
+}
+document.addEventListener('scroll', () => {
+  clearTimeout(scrollTimer)
+  scrollTimer = setTimeout(handler, timeout)
+})
+```
+

@@ -177,3 +177,5 @@ Foo.prototype._ _ proto _ _=== Object.prototype
 
 ##### 当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
 
+![](https://user-gold-cdn.xitu.io/2020/4/21/1719d5061a3d5f66?imageslim)
+

@@ -220,7 +220,7 @@ handleClosePopup() {
 },
 ```
 
-### vue 中的$listeners与$attrs
+### vue 中的$listeners与$attrs,批量传递属性和方法
 
 在涉及层级嵌套的组件时，如：
 
@@ -300,5 +300,111 @@ export default {
     }
   }
 }
+```
+
+### 组件向上派发
+
+```js
+Vue.prototype.$dispatch = function $dispatch(eventName, data) {
+  let parent = this.$parent;
+  while (parent) {
+    parent.$emit(eventName, data);
+    parent = parent.$parent;
+  }
+};
+```
+
+### 组件向下派发
+
+```js
+Vue.prototype.$broadcast = function $broadcast(eventName, data) {
+  const broadcast = function () {
+    this.$children.forEach((child) => {
+      child.$emit(eventName, data);
+      if (child.$children) {
+        $broadcast.call(child, eventName, data);
+      }
+    });
+  };
+  broadcast.call(this, eventName, data);
+};
+```
+
+### 自组件注入父组件数据
+
+### Provide  
+
+在父级中注入数据
+
+```js
+provide() {
+  return { parentMsg: "父亲" };
+},
+```
+
+### Inject
+
+在任意子组件中可以注入父级数据
+
+```js
+inject: ["parentMsg"] // 会将数据挂载在当前实例上
+```
+
+### render订制组件
+
+通过render方法来订制组件,在父组件中传入render方法
+
+```vue
+<List :data="data" :render="render"></List>
+render(h, name) {
+   return <span>{name}</span>;
+ }
+```
+
+我们需要createElement方法，就会想到可以编写个函数组件，将createElement方法传递出来
+
+```vue
+<template>
+ <div class="list">
+  <div v-for="(item,index) in data" :key="index">
+   <li v-if="!render">{{item}}</li>
+   <!-- 将render方法传到函数组件中，将渲染项传入到组件中，在内部回调这个render方法 -->
+   <ListItem v-else :item="item" :render="render"></ListItem>
+  </div>
+ </div>
+</template>
+<script>
+import ListItem from "./ListItem";
+export default {
+ components: {
+  ListItem
+ },
+ props: {
+  render: {
+   type: Function
+  },
+  data: Array,
+  default: () => []
+ }
+};
+</script>
+```
+
+ListItem.vue调用最外层的render方法，将createElement和当前项传递出来
+
+```html
+<script>
+export default {
+ props: {
+  render: {
+   type: Function
+  },
+  item: {}
+ },
+ render(h) {
+  return this.render(h, this.item);
+ }
+};
+</script>
 ```
 

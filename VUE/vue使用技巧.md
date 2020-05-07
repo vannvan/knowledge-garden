@@ -408,3 +408,21 @@ export default {
 </script>
 ```
 
+### v-for事件委托以增加性能
+
+```vue
+<div @click="handleClick">
+      <div
+        class="item"
+        v-for="i in 10"
+        :key="i"
+        :data-id="i"
+        style="width:120px;height:35px;border-bottom:1px solid #ccc"
+      >{{i}}
+	</div>
+ </div>
+ handleClick(e) {
+      console.log(e.target.dataset.id);
+ }
+```
+

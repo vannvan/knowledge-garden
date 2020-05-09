@@ -1025,3 +1025,74 @@ Vuex和全局对象主要有两大区别：
 - 检查是否有`Web Worker`任务，有则执行
 
 - 执行完本轮的宏任务，回到2，依此循环，直到宏任务和微任务队列都为空
+
+#### 冒泡和捕获的过程
+
+冒泡指的是：当给某个目标元素绑定了事件之后，这个事件会依次在它的父级元素中被触发(当然前提是这个父级元素也有这个同名称的事件，比如子元素和父元素都绑定了`click`事件就触发父元素的`click`)。
+
+捕获则是从上层向下层传递，与冒泡相反。
+
+```html
+<!-- 会依次执行 button li ul -->
+<ul onclick="alert('ul')">
+  <li onclick="alert('li')">
+    <button onclick="alert('button')">点击</button>
+  </li>
+</ul>
+<script>
+  window.addEventListener('click', function (e) {
+    alert('window')
+  })
+  document.addEventListener('click', function (e) {
+    alert('document')
+  })
+</script>
+
+//冒泡结果：button > li > ul > document > window
+//捕获结果：window > document > ul > li > button
+```
+
+以下事件不冒泡：
+
+- `onblur`
+- `onfocus`
+- `onmouseenter`
+- `onmouseleave`
+
+#### 手写new
+
+```js
+function myNew (fn, ...args) {
+  let instance = Object.create(fn.prototype);
+  let result = fn.call(instance, ...args)
+  return typeof result === 'object' ? result : instance;
+}
+```
+
+#### typeof 和instanceof的区别
+
+`typeof`表示是对某个变量类型的检测，基本数据类型除了`null`都能正常的显示为对应的类型，引用类型除了函数会显示为`'function'`，其它都显示为`object`。
+
+而`instanceof`它主要是**用于检测某个构造函数的原型对象在不在某个对象的原型链上**。
+
+#### **为什么浏览器会禁止跨域？**
+
+**简答**：
+
+首先，跨域只存在于浏览器端，因为我们知道浏览器的形态是很开放的，所以我们需要对它有所限制。
+
+其次，同源策略主要是为了保证用户信息的安全，可分为两种：`Ajax`同源策略和`DOM`同源策略。
+
+`Ajax`同源策略主要是使得不同源的页面不能获取`cookie`且不能发起`Ajax`请求，这样在一定层度上防止了`CSRF`攻击。
+
+`DOM`同源策略也一样，它限制了不同源页面不能获取`DOM`，这样可以防止一些恶意网站在自己的网站中利用`iframe`嵌入正规的网站并迷惑用户，以此来达到窃取用户信息。
+
+#### meta标签把http换成https
+
+```html
+<meta http-equiv ="Content-Security-Policy" content="upgrade-insecure-requests">
+```
+
+#### script为什么阻塞页面？
+
+JS属于单线程，当我们在加载`script`标签内容的时候，渲染线程会被暂停，因为`script`标签里可能会操作`DOM`的，所以如果你加载`script`标签又同时渲染页面肯定就冲突了，因此说渲染线程(`GUI`)和js引擎线程互斥。

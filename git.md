@@ -164,3 +164,9 @@ git push origin --delete dev   # 删除远程分支
 git branch -D dev  # 删除本地分支
 ```
 
+### git 区分文件大小写
+
+```bash
+git config core.ignorecase false
+```
+

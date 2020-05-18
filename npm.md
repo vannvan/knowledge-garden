@@ -60,3 +60,8 @@ npm config set init.license "MIT"
 > npm i node-sass --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
 > ```
 
+### 临时使用淘宝镜像
+
+> ```
+> npm --registry https://registry.npm.taobao.org install
+> ```

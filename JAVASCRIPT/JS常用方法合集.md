@@ -2,6 +2,21 @@
 
 > `null`  `false`  `undefined`  `0`  `''(空字符串)`  `NaN`
 
+### typeof的结果
+
+```js
+typeof(null) //"object"
+typeof(undefined) //"undefined"
+typeof(NaN) //"number"
+typeof(0) // "number"
+typeof('aaa') //"string"
+typeof(function fn(){}) //"function"
+typeof(false) //"boolean"
+typeof({}) //"object"
+typeof(new Date()) //"object"
+typeof(new String('a')) //"object"
+```
+
 ### number排序
 
 ```js

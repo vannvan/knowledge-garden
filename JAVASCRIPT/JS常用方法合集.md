@@ -2,6 +2,21 @@
 
 > `null`  `false`  `undefined`  `0`  `''(空字符串)`  `NaN`
 
+### typeof的结果
+
+```js
+typeof(null) //"object"
+typeof(undefined) //"undefined"
+typeof(NaN) //"number"
+typeof(0) // "number"
+typeof('aaa') //"string"
+typeof(function fn(){}) //"function"
+typeof(false) //"boolean"
+typeof({}) //"object"
+typeof(new Date()) //"object"
+typeof(new String('a')) //"object"
+```
+
 ### number排序
 
 ```js
@@ -1594,6 +1609,23 @@ find(carr, item => {
   return item.name === '啦啦啦'
 }, result)
 
+```
+
+### 四则运算符
+
+只有当加法运算时，其中一方是字符串类型，就会把另一个也转为字符串类型。其他运算只要其中一方是数字，那么另一方就转为数字。并且加法运算会触发三种类型转换：将值转换为原始值，转换为数字，转换为字符串。
+
+```js
+1 + '1' // '11'
+2 * '2' // 4
+[1, 2] + [2, 1] // '1,22,1'
+// [1, 2].toString() -> '1,2'
+// [2, 1].toString() -> '2,1'
+// '1,2' + '2,1' = '1,22,1'
+对于加号需要注意这个表达式 'a' + + 'b'
+'a' + + 'b' // -> "aNaN"
+// 因为 + 'b' -> NaN
+// 你也许在一些代码中看到过 + '1' -> 1
 ```
 
 ### 生成n个和为sum的数

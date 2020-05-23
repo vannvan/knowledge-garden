@@ -106,7 +106,7 @@ substring() 的第二个参数控制取多少位 (最多可取13位)
 
 ```js
 // 生成长度为11的随机字母数字字符串
-Math.random().toString(36).substring(2);
+    Math.random().toString(36).substring(2);
 // hg7znok52x
 ```
 

@@ -3,7 +3,7 @@
 - [Vue如何用虚拟dom进行渲染view的](https://www.cnblogs.com/xujiazheng/p/12101764.html)
 - [vue 计算属性的实现](https://zhuanlan.zhihu.com/p/66140667?from_voters_page=true)
 - [沈十二 vue源码笔记系列](https://www.yuque.com/chenshier/chuyi/bw27on) 
-- 
+- [Vue中文社区-vue源码系列](<https://vue-js.com/learn-vue/start/>)
 
 ### nextick
 

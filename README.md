@@ -18,6 +18,8 @@
 - [10个文字进入动画](http://www.jq22.com/yanshi18203)  
 - [es6数组方法及示例](https://www.cnblogs.com/sqh17/p/8529401.html) 
 - [前端知识体系精简](<https://www.cnblogs.com/onepixel/p/7021506.html>) 
+- [陈十二-vue源码笔记系列](<https://www.yuque.com/chenshier/chuyi/fagxrq>)
+- [vue中文社区源码解读](<https://vue-js.com/learn-vue/start/>)
 
 ### 前端项目方案
 

@@ -145,9 +145,9 @@ function Foo(name,age){
 	fn.toString(); //I'm 小明 And I'm 19
 	console.log(fn.toString===Foo.prototype.__proto__.toString); //true
 	
-	console.log(fn.__proto__ ===Foo.prototype)//true
-	console.log(Foo.prototype.__proto__===Object.prototype)//true
-	console.log(Object.prototype.__proto__===null)//true
+	console.log(fn.__proto__ ===Foo.prototype)  //true
+	console.log(Foo.prototype.__proto__===Object.prototype)  //true
+	console.log(Object.prototype.__proto__===null)  //true
 ```
 ### 图例
 

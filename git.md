@@ -170,3 +170,26 @@ git branch -D dev  # 删除本地分支
 git config core.ignorecase false
 ```
 
+### git 查看某个文件的修改历史
+
+先切换到该文件目录下
+
+```bash
+git log --pretty=oneline 文件名
+```
+
+ 会有如下信息
+
+> bf0e7ceb5fadbdaa7b69c9a1b10861b32d347ef4 修改设备场景参数名称
+> 65a2f774cd04fa9208636d2d55b55989fc6739ac 功能迁移完毕
+> 1ebc1ac6d71e0c3f1b619311634abe78251160f4 新增场景的分省判断
+> e92e48581a01ed3e8a617329bae1081a328d4417 根据地区区分部分操作上的不同
+> 30027e6d15d0f5bba36747dbd53f5ef0cf206196 设备更新参数修改，开启gzip
+> f5fca91cb4e62a1058d2e1f970852c4e127076de 同步历史记录时间转换iebug
+> a5b37b5c13ff6c66396505ecd9c7b4f19754547f 修改设备场景显示及操作规则
+> 89241fa600824c4d164d3401162e1dce4d378552 修改设备管理
+
+```js
+git show 1ebc1ac6d71e0c3f1b619311634abe78251160f4 
+```
+

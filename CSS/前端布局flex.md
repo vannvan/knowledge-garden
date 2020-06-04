@@ -270,7 +270,7 @@ flex属性是flex-grow，flex-shrink和flex-basis的简写
 
 可以用flex: none;代替flex: 0 0 auto；
 
-\####align-self属性：允许单个项目与其他项目有不一样的对齐方式>默认值为auto，表示继承父元素的align-items属性，并可以覆盖align-items属性。
+#### align-self属性：允许单个项目与其他项目有不一样的对齐方式>默认值为auto，表示继承父元素的align-items属性，并可以覆盖align-items属性。
 
 .item{
 

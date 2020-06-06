@@ -148,3 +148,23 @@ const p = Promise.race([p1, p2, p3]);
 
 该方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例。只有等到所有这些参数实例都返回结果，不管是`fulfilled`还是`rejected`，包装实例才会结束
 
+[Promise面试题](<https://juejin.im/post/5e58c618e51d4526ed66b5cf>)
+
+```js
+Promise.resolve().then(() => {
+  console.log('promise1');
+  const timer2 = setTimeout(() => {
+    console.log('timer2')
+  }, 0)
+});
+const timer1 = setTimeout(() => {
+  console.log('timer1')
+  Promise.resolve().then(() => {
+    console.log('promise2')
+  })
+}, 0
+console.log('start');
+```
+
+![](https://user-gold-cdn.xitu.io/2020/2/28/1708b0d8489e5732?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+

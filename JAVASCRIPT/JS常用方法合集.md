@@ -25,7 +25,7 @@ const sortNumbers = (...numbers) => numbers.sort();   //排序,只适合正数
 [1,2,3,4].sort((a, b) => b - a); // [4,3,2,1] 降序
 ```
 
-###  数组去重思路
+###  一维数组去重思路
 
 ```js
 const s = new Set();
@@ -135,8 +135,6 @@ substring() 的第二个参数控制取多少位 (最多可取13位)
 export const RandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 ```
 
-
-
 ### 获取URL的查询参数
 
 ```js
@@ -200,7 +198,6 @@ var arr = ['bob',29,'student']
 const [name,age,type] = arr 
 
 // name => bob
-
 ```
 
 ### 解构赋值综合
@@ -219,11 +216,11 @@ console.log(rest); // [30, 40, 50]
 console.log(a); // 10
 //结构别名
 const obj = {
-  name: '小智',
-  food: '鸡腿'
+  name: 'bob',
+  age: 22
 }
-const { name: myName, food: myFood } = obj;
-console.log(myName, myFood); // 小智 鸡腿
+const { name: userName, age: userAge } = obj;
+console.log(userName, userAge); // bob 22
 // Stage 4（已完成）提案中的特性
 ({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
 console.log(a); // 10
@@ -231,13 +228,13 @@ console.log(b); // 20
 console.log(rest); // {c: 30, d: 40}
 //传给函数的参数
 const person = {
-  name: '小智',
-  age: 24
+  name: 'bob',
+  age: 22
 }
 function introduce({ name, age }) {
   console.log(`我是 ${name} ，今天 ${age} 岁了!`);
 }
-console.log(introduce(person));// 我是 小智 ，今天 24 岁了!
+console.log(introduce(person));// 我是 bob ，今天 22 岁了!
 ```
 
 ### 对象 和数组转换
@@ -283,7 +280,7 @@ const arr = [undefined, null, "", 0, false, NaN, 1, 2].filter(Boolean);
 // arr => [1, 2]
 ```
 
-filter过滤数组空位
+### filter过滤数组空位
 
 ```js
 [1,2,3,4,5,,6,,7].length //9
@@ -814,8 +811,8 @@ round(1.345, 1)                 // 1.3
 ```js
 const addZero1 = (num, len = 2) => (`0${num}`).slice(-len)
 const addZero2 = (num, len = 2) => (`${num}`).padStart( len   , '0')
-addZero1(3) // 03
-addZero2(32,4)  // 0032
+addZero1(3) // '03'
+addZero2(32,4)  // '0032'
 ```
 
 ### 统计数组中相同项的个数

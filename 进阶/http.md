@@ -82,8 +82,9 @@
   `服务器端接收到这个确认包之后，关闭连接，进入 `CLOSED` 状态。`
   客户端等待了某个固定时间（两个最大段生命周期，2MSL，2 Maximum Segment Lifetime）之后，没有收到服务器端的 ACK ，认为服务器端已经正常关闭连接，于是自己也关闭连接，进入 `CLOSED` 状态。
 
-
 ### **HTTP请求码及其作用？**
+
+[http状态码详解](<https://tool.oschina.net/commons?type=5>)
 
 HTTP状态码：当用户访问一个网页时，浏览器会向网页所在的服务器出请求，当浏览器接收并显示网页前，此网页所在服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求，HTTP状态码用于描述服务器对请求的处理结果。
 
@@ -112,7 +113,39 @@ HTTP状态码分类：
 - 502——Bad Gateway，充当网关或代理的服务器从远端服务器接收到了一个无效的请求
 - 504——Gateway Time-out，充当网关或代理的服务器，未及时从远端服务器获取请求
 
-### **浏览器解析渲染过程？**
+### 重定向 3XX详解
+
+**301永久性转移**
+
+搜索引擎在抓取新内容的同时也将旧的网址替换为重定向之后的网址。
+
+sample.com/a 301 到 sample.com/b 
+
+因为是 301 永久重定向，这个意思就是 a 链接已经没有存在的意义了，他所有的价值都会导向给 b。
+
+所以对于搜索引擎来说 b 链接就是 a 链接了现在。所以 a 链接的权重会直接传递给 b 链接。这也就是常说的 301 对 SEO 有好处的原因。
+
+而且 301 也是谷歌官方认为是将[网站地址由 HTTP 迁移到 HTTPS 的最佳方法](https://support.google.com/webmasters/answer/6073543)。
+
+**302临时性转移**
+
+搜索引擎会抓取新的内容而保留旧的网址。因为服务器返回302代码，搜索引擎认为新的网址只是暂时的。
+
+规定 302 重定向不允许修改请求方式。也就是当一个 POST 请求返回了 302 时，按照规范仍然应该使用 POST 请求打开响应头中 Location 中的 URl。
+
+但各家浏览器厂商在实现的时候并没有遵守这个规范，而是使用 GET 方式访问服务端响应头中的 Location 中的 URI。
+
+只有在Cache-Control或Expires中进行了指定的情况下，这个响应才是可缓存的。
+
+**304 未修改**
+
+所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源
+
+**总结**
+
+301比较常用的场景是使用域名跳转。302用来做临时跳转 比如未登陆的用户访问用户中心重定向到登录页面。
+
+### 浏览器解析渲染过程？
 
 （1）浏览器解析HTML源码，然后创建一个DOM树。
 
@@ -395,6 +428,18 @@ HTTPS（Hyper Text Transfer Protocol over Secure Socket Layer，安全套接字�
 ![](https://user-images.githubusercontent.com/25027560/38223505-d8ab53da-371d-11e8-9263-79814b6971a5.png)
 
 
+
+### HTTP哪些请求头跟缓存相关
+
+缓存分为两种：强缓存和协商缓存，根据响应的header内容来决定。
+
+强缓存相关字段有expires，cache-control。如果cache-control与expires同时存在的话，cache-control的优先级高于expires。
+
+协商缓存相关字段有Last-Modified/If-Modified-Since，Etag/If-None-Match
+
+### cache-control的值有哪些
+
+常见的取值有private、no-cache、max-age、must-revalidate等，默认为private。
 
 ### 关于http中的keep-alive	
 

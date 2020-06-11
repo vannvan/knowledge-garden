@@ -87,6 +87,18 @@ obj.func1()//>> setTimeout:0　  输出的是window.num
 obj.func2()//>> 0 0 0 0 ……　    输出的是window.num
 ```
 
+```js
+let a = 10
+const b = 20
+
+function foo () {
+  console.log(this.a) //undefined
+  console.log(this.b) //undefined
+}
+foo();
+console.log(window.a) //undefined
+```
+
 #### 2.隐式绑定
 
 隐式绑定是当调用位置周围含有上下文对象时需要考虑的

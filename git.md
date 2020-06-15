@@ -193,3 +193,18 @@ git log --pretty=oneline 文件名
 git show 1ebc1ac6d71e0c3f1b619311634abe78251160f4 
 ```
 
+### 分支
+
+```bash
+# 查看本地分支
+$ git branch | git branch -l 
+# 查看远程分支
+$ git branch -r 
+# 查看所有分支（本地分支+远程分支）
+$ git branch -a 
+# 查看所有分支并带上最新的提交信息
+$ git branch -av 
+# 查看本地分支对应的远程分支
+$ git branch -vv 
+```
+

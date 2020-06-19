@@ -863,6 +863,24 @@ new Vue({
 
 所以，v-if 适用于在运行时很少改变条件，不需要频繁切换条件的场景；v-show 则适用于需要非常频繁切换条件的场景。
 
+#### 父子组件生命周期
+
+**子组件同步加载渲染过程**
+
+父组件的`beforeCreate`、`created`、`beforeMount`、-->子组件`beforeCreate`、`created`、`beforeMount`、`mounted`、父组件`mounted`
+
+**子组件异步加载渲染过程**
+
+父组件的`beforeCreate、created、beforeMount、mounted` --> 子组件的`beforeCreate、created、beforeMount、mounted`
+
+**子组件更新过程**
+
+父beforeUpdate=>子beforeUpdate=>子updated=>父updated
+
+**销毁过程**
+
+父beforeDestroy=>子beforeDestroy=>子destoryed=>父destoryed
+
 #### 在哪个生命周期内调用异步请求？
 
 可以在钩子函数 created、beforeMount、mounted 中进行调用，因为在这三个钩子函数中，data 已经创建，可以将服务端端返回的数据进行赋值。但是本人推荐在 created 钩子函数中调用异步请求，因为在 created 钩子函数中调用异步请求有以下优点：

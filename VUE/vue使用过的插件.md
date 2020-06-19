@@ -87,7 +87,7 @@ $ npm install mavon-editor --save
              image/gif image/png;
 ```
 
-
+[vue-cli webpack打包开启Gzip 报错—— Cannot find module 'compression-webpack-plugin](<https://www.cnblogs.com/xyyt/p/11384818.html>)
 
 
 

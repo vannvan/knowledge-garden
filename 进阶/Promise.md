@@ -10,7 +10,7 @@
 
 > `catch`不管被连接到哪里，都能捕获到上层未捕获的错误
 
-> 再`Promise`中返回任意一个非`Promise`的值都会被包裹成`Promise`对象，例如`return 2`会被包裹成`return Promise.resolve(2)`
+> 在`Promise`中返回任意一个非`Promise`的值都会被包裹成`Promise`对象，例如`return 2`会被包裹成`return Promise.resolve(2)`
 
 > `.then`或`.catch`中`return`一个`error`对象并不会抛出错误，所以不会后续的`.catch`捕获
 

@@ -79,7 +79,7 @@ call、apply、bind可以改变函数的this指向
 
 #### 原型
 
-所有的函数数据类型都天生自带一个prototype属性，该属性的属性值是一个对象 prototype的属性值中天生自带一个constructor属性，其constructor属性值指向当前原型所属的类 所有的对象数据类型，都天生自带一个_proto_属性，该属性的属性值指向当前实例所属类的原型
+所有的函数数据类型都天生自带一个prototype属性，该属性的属性值是一个对象， prototype的属性值中天生自带一个constructor属性，其constructor属性值指向当前原型所属的类 ，所有的对象数据类型，都天生自带一个_proto_属性，该属性的属性值指向当前实例所属类的原型
 
 #### 作用域链
 

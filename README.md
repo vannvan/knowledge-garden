@@ -20,6 +20,7 @@
 - [前端知识体系精简](<https://www.cnblogs.com/onepixel/p/7021506.html>) 
 - [陈十二-vue源码笔记系列](<https://www.yuque.com/chenshier/chuyi/fagxrq>)
 - [vue中文社区源码解读](<https://vue-js.com/learn-vue/start/>)
+- [史上最全前端学习路线](https://www.cnblogs.com/onesea/p/13055617.html)
 
 ### 前端项目方案
 

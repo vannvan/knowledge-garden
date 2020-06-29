@@ -69,3 +69,14 @@ npm config set init.license "MIT"
 > `nvm use v10.3.0`：切换node的版本，这个是全局的
 > `nvm current`：当前node版本
 > `nvm ls`：列出所有已经安装的node版本
+
+### 一些报错解决方案
+
+> stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
+
+.npmrc
+
+```js
+sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+```
+

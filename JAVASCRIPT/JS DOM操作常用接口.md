@@ -97,3 +97,43 @@ element是要获取的元素，pseudoElt指定一个伪元素进行匹配。
 -  `Element.addEventListener()`：添加事件的回调函数
 -  `Element.removeEventListener()`：移除事件监听函数
 -  `Element.dispatchEvent()`：触发事件
+
+### 类型方法速记
+
+#### 创建新节点
+
+```js
+  createDocumentFragment()    //创建一个DOM片段
+  createElement()   //创建一个具体的元素
+  createTextNode()   //创建一个文本节点
+```
+
+#### 添加、移除、替换、插入
+
+```js
+appendChild(node)
+removeChild(node)
+replaceChild(new,old)
+insertBefore(new,old)
+```
+
+#### 查找
+
+```js
+getElementById();
+getElementsByName();
+getElementsByTagName();
+getElementsByClassName();
+querySelector();
+querySelectorAll();
+```
+
+#### 属性操作
+
+```js
+getAttribute(key);
+setAttribute(key, value);
+hasAttribute(key);
+removeAttribute(key);
+```
+

@@ -301,3 +301,7 @@ console.log('srcipt end')
 //'async1 end'
 ```
 
+### 文章
+
+- [45道Promise面试题](https://juejin.im/post/5e58c618e51d4526ed66b5cf)
+

@@ -1812,3 +1812,34 @@ document.addEventListener('scroll', () => {
 })
 ```
 
+#### 优化if场景1
+
+```js
+
+if(status===1&&type===1){
+    console.log('普通用户在预售中参与活动，赠送700积分')
+}
+else if(status===1&&type===2){
+    console.log('vip用户在预售中参与活动，赠送1000积分')
+}
+else if(status===2&&type===1){
+    console.log('普通用户在进行中参与活动，赠送300积分')
+}
+else if(status===2&&type===2){
+    console.log('vip用户在进行中参与活动，赠送800积分')
+}
+
+================================================>
+
+let obj={
+   'status=1&type=1':'普通用户在预售中参与活动，赠送700积分',
+   'status=1&type=2':'vip用户在预售中参与活动，赠送1000积分',
+   'status=2&type=1':'普通用户在进行中参与活动，赠送300积分',
+   'status=2&type=2':'普通用户在进行中参与活动，赠送800积分'
+}
+
+console.log(obj[`status=${status}&type=${type}`])
+```
+
+
+

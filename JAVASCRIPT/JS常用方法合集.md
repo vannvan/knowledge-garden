@@ -1841,5 +1841,33 @@ let obj={
 console.log(obj[`status=${status}&type=${type}`])
 ```
 
+### 解决各种运算精度丢失
+
+```js
+Math.signFigures = function(num, rank = 6) {
+  if (!num) return 0;
+  const sign = num / Math.abs(num);
+  const number = num * sign;
+  const temp = rank - 1 - Math.floor(Math.log10(number));
+  let ans;
+  if (temp > 0) {
+    ans = parseFloat(number.toFixed(temp));
+  } else if (temp < 0) {
+    ans = Math.round(number / Math.pow(10, temp)) * temp;
+  } else {
+    ans = Math.round(number);
+  }
+  return ans * sign;
+};
+0.56 * 100;                    //56.00000000000001
+Math.signFigures(0.56 * 100);  //56
+
+0.2 + 0.1;                     //0.30000000000000004
+Math.signFigures(0.2 + 0.1);   //0.3
+
+1.09 * 100;                    //109.00000000000001
+Math.signFigures(1.09 * 100);  //109
+```
+
 
 

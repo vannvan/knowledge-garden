@@ -1869,5 +1869,27 @@ Math.signFigures(0.2 + 0.1);   //0.3
 Math.signFigures(1.09 * 100);  //109
 ```
 
+#### storage封装
 
+```js
+export default {
+  setItem(key, value) {
+    value = JSON.stringify(value);
+    window.localStorage.setItem(key, value)
+  },
+  getItem(key, defaultValue) {
+    let value = window.localStorage.getItem(key)
+    try {
+      value = JSON.parse(value);
+    } catch {}
+    return value || defaultValue
+  },
+  removeItem(key) {
+    window.localStorage.removeItem(key)
+  },
+  clear() {
+    window.localStorage.clear()
+  },
+}
+```
 

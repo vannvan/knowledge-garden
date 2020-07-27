@@ -172,3 +172,32 @@ publicPath: process.env.NODE_ENV === 'development'
       :config.build.assetsPublicPath
 ```
 
+### cli-3.0配置方案
+
+```js
+//api.conf.js
+export const API_CONFIG = {
+    'development': '/api/v1',
+    'testing': 'http://test-tpb.ikjzd.com/',
+    'production': 'http://tpb.ikjzd.com/'
+}
+```
+
+在文件根目录新建`.env.production`、`.env.testing`
+
+```js
+//.env.production
+NODE_ENV = 'production'
+VUE_APP_MODE = 'prod'
+//.env.testing
+NODE_ENV = 'testing'
+VUE_APP_MODE = 'test'
+```
+
+package.json配置打包脚本
+
+```js
+"build": "vue-cli-service build --mode production",
+"build--test": "vue-cli-service build --mode testing",
+```
+

@@ -80,3 +80,8 @@ npm config set init.license "MIT"
 sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
 ```
 
+### npm当前项目使用淘宝镜像
+
+> 在当前项目下新建 `.npmrc`文件
+>
+> 内容 `registry=https://registry.npm.taobao.org`

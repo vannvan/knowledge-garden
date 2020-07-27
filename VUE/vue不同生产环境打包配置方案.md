@@ -201,3 +201,4 @@ package.json配置打包脚本
 "build--test": "vue-cli-service build --mode testing",
 ```
 
+具体接口使用方式与初级方案相同

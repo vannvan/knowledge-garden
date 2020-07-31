@@ -467,3 +467,15 @@ export default {
 
 ```
 
+### input为file的@change选择同一个文件第二次不生效
+
+```vue
+ <input
+    type="file"
+    @change="changeFile($event)"
+    ref="file"
+  />
+
+this.$refs.file.value = null;
+```
+

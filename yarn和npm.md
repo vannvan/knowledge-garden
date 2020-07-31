@@ -22,3 +22,14 @@
 | `npm cache clean`                       | `yarn cache clean [package]`    |
 | `rm -rf node_modules && npm install`    | `yarn upgrade`                  |
 
+## 设置为淘宝镜像
+
+```shell
+yarn config set registry https://registry.npm.taobao.org/
+```
+
+## 设置为官方镜像
+
+```shell
+yarn config set registry https://registry.yarnpkg.com
+```

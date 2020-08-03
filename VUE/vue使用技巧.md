@@ -570,3 +570,40 @@ export default {
 }
 ```
 
+### 普通按钮触发input file事件
+
+```vue
+<div class="upload-btn-box">
+　　<Button @click="choiceImg" icon="ios-cloud-upload-outline" type="primary">点击上传</Button>
+    <input ref="filElem" type="file" class="upload-file" @change="getFile">
+</div>
+```
+
+```js
+choiceImg(){
+    this.$refs.filElem.dispatchEvent(new MouseEvent('click')) 
+},
+getFile(){
+    var that = this;
+    const inputFile = this.$refs.filElem.files[0];
+    if(inputFile){
+        if(inputFile.type !== 'image/jpeg' && inputFile.type !== 'image/png' && inputFile.type !== 'image/gif'){
+            alert('不是有效的图片文件！');
+            return;
+        }
+        this.imgInfo = Object.assign({}, this.imgInfo, {
+            name: inputFile.name,
+            size: inputFile.size,
+            lastModifiedDate: inputFile.lastModifiedDate.toLocaleString()
+        })
+        const reader = new FileReader();
+        reader.readAsDataURL(inputFile);
+        reader.onload = function (e) {
+            that.imgSrc = this.result;
+        }
+    } else {
+        return;
+    }
+}
+```
+

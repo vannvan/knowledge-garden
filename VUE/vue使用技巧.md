@@ -479,3 +479,94 @@ export default {
 this.$refs.file.value = null;
 ```
 
+### 使用装饰器
+
+`eslint`配置
+
+```json
+  "parserOptions": {
+    "ecmaFeatures":{
+      // 支持装饰器
+      "legacyDecorators": true
+    }
+  }
+
+```
+
+组件内使用
+
+```js
+function log() {
+  /**
+   * @param target 对应 methods 这个对象
+   * @param name 对应属性方法的名称
+   * @param descriptor 对应属性方法的修饰符
+   */
+  return function(target, name, descriptor) {
+    console.log(target, name, descriptor)
+    const fn = descriptor.value
+    descriptor.value = function(...rest) {
+      console.log(`这是调用方法【${name}】前打印的日志`)
+      fn.call(this, ...rest)
+      console.log(`这是调用方法【${name}】后打印的日志`)
+    }
+  }
+}
+
+export default {
+  created() {
+    this.getData()
+  },
+  methods: {
+    @log()
+    getData() {
+      console.log('获取数据')
+    }
+  }
+}
+
+```
+
+确认框装饰器
+
+```js
+import { Dialog } from 'vant'
+
+/**
+ * 确认提示框装饰器
+ * @param {*} message 提示信息
+ * @param {*} title 标题
+ * @param {*} cancelFn 取消回调函数
+ */
+export function confirm(
+  message = '确定要删除数据，此操作不可回退。',
+  title = '提示',
+  cancelFn = function() {}
+) {
+  return function(target, name, descriptor) {
+    const originFn = descriptor.value
+    descriptor.value = async function(...rest) {
+      try {
+        await Dialog.confirm({
+          message,
+          title: title
+        })
+        originFn.apply(this, rest)
+      } catch (error) {
+        cancelFn && cancelFn(error)
+      }
+    }
+  }
+}
+//使用示例
+export default {
+  methods: {
+    // 可以不传参，使用默认参数
+    @confirm()
+    deleteData() {
+      console.log('在这里做删除操作')
+    }
+  }
+}
+```
+

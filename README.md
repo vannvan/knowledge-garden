@@ -22,6 +22,7 @@
 - [vue中文社区源码解读](<https://vue-js.com/learn-vue/start/>)
 - [史上最全前端学习路线](https://www.cnblogs.com/onesea/p/13055617.html)
 - [Yeoman初体验](https://www.jianshu.com/p/038c6b91f667)
+- [前端业务开发的通用经验](https://juejin.im/post/6856375724979257352)
 
 ### 前端项目方案
 

@@ -249,3 +249,49 @@ function formser(form){
  }
 ```
 
+### closest的妙用
+
+ `Element.closest`API是什么检测之外点击 
+
+```html
+<body>
+    <ul class="menu-dropdown">
+        <span class="menu-title" data-dropdown-trigger>菜单</span>
+        <div class="menu-wrap">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+        </div>
+    </ul>
+    <script type="text/javascript">
+        var navigation = document.querySelector(".menu-wrap");
+
+        function handleClick(evt) {
+            if (evt.target.hasAttribute("data-dropdown-trigger")) {
+                console.log('在下拉菜单区域内点击')
+            }
+
+            if (!evt.target.closest(".menu-dropdown")) {
+                console.log('在下拉菜单区域外点击');
+            }
+        }
+        window.addEventListener("click", handleClick);
+    </script>
+</body>
+```
+
+另一个很常见的场景，点击modal之外的区域关闭modal
+
+```html
+<div class="modal">
+</div>
+<script type="text/javascript">
+    window.addEventListener('click',function(e) {
+        if(!e.target.closest('.modal')) {
+            console.log('关闭modal')
+        }
+    })
+</script>
+```
+

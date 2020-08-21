@@ -598,6 +598,12 @@ isNil(null); // true
 isNil(undefined); // true
 ```
 
+### 验证是否有效数字
+
+```js
+const isValidNumber = n => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) === n;
+```
+
 ### 验证是否json字符串
 
 ```js

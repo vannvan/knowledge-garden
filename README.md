@@ -47,6 +47,7 @@
 ### JS干货
 
 - [浅色背景和浅色文字友好搭配的解决方案]( https://css-tricks.com/nailing-the-perfect-contrast-between-light-text-and-a-background-image/ )
+- [ES6 的解构赋值前每次都创建一个对象吗？会加重 GC 的负担吗？]( https://mp.weixin.qq.com/s/cZsyuo9nq4AdXQtmckuFMQ )
 
 ### 周边
 

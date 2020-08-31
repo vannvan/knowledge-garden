@@ -60,7 +60,7 @@ export function traceChildNode(id, data, pidName = 'parentId', idName = 'id', ch
 }
 ```
 
-### 根据pid生成树形结构
+### 根据`pid`生成树形结构
 
 ```js
 /**
@@ -71,5 +71,18 @@ export function traceChildNode(id, data, pidName = 'parentId', idName = 'id', ch
 export const createTree = (items, id = null, link = 'pid') =>{
     items.filter(item => item[link] === id).map(item => ({ ...item, children: createTree(items, item.id) }));
 };
+```
+
+###  树形数据扁平化
+
+```js
+export const flatData = (arr, result = []) => {
+    arr.forEach(item => {
+        result.push(item)
+        item.children && item.children.length > 0 ? flatData(item.children, result) : ""
+        item.children = '' //如果扁平化后的数组需要显示父子层级，可以把这一项删除
+    })
+    return result
+}
 ```
 

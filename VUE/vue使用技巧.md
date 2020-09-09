@@ -607,7 +607,7 @@ getFile(){
 }
 ```
 
-#### vue-cli 3以上的版本默认的 prefetch 配置会影响懒加载效果
+### vue-cli 3以上的版本默认的 prefetch 配置会影响懒加载效果
 
 需要关闭prefetch
 

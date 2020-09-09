@@ -270,10 +270,41 @@ flex属性是flex-grow，flex-shrink和flex-basis的简写
 
 可以用flex: none;代替flex: 0 0 auto；
 
-#### align-self属性：允许单个项目与其他项目有不一样的对齐方式>默认值为auto，表示继承父元素的align-items属性，并可以覆盖align-items属性。
+#### align-self属性：
+
+#### 允许单个项目与其他项目有不一样的对齐方式>默认值为auto，表示继承父元素的align-items属性，并可以覆盖align-items属性。
 
 .item{
 
 align-self: auto | flex-start | flex-end | center | baseline | stretch;
 
 }
+
+
+
+### 场景：
+
+容器为`justify-content: flex-start`,子级都是居左排列了，但是假如最后一项需要居右，才采取将最后一项左边距`margin-left`设置为`auto`
+
+```css
+.header-wrapper {
+    background: #fff;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+    padding: 0 23px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .trigger-icon {
+     // 菜单折叠按钮
+    }
+    .bread-crumbs {
+      margin-left: 40px;
+     //面包屑
+    }
+    .avatar {
+      margin-left: auto;
+        //头像
+    }
+  }
+```
+

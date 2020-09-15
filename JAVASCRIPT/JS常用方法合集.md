@@ -1899,3 +1899,17 @@ export default {
 }
 ```
 
+###  indexOf() 不需要再比较数字 
+
+```js
+// 原
+const arr = [1,2,4,5]
+if(arr.indexOf(1)>-1) {   // -1
+	//TODO
+}
+//现
+if(~arr.indexOf(1)) {  // false
+	//TODO
+}
+```
+

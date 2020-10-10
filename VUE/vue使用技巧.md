@@ -630,7 +630,7 @@ module.exports = {
 
 ```
 
-
+### [VUE/H5】H5调起数字键盘的坑，及手写移动端键盘代码](https://blog.csdn.net/LuviaWu/article/details/89927370)
 
 
 

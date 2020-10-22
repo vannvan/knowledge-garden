@@ -57,6 +57,12 @@
 
 - [从前端角度看企业软件的研发过程](https://github.com/xufei/blog/issues/51 )
 
+### 开发干货
+
+> https://v-cdn.zjol.com.cn/276100.mp4  //测试视频地址数字编号可随意换
+>
+> https://blog.csdn.net/qq_17497931/article/details/80824328
+
 ### 前端项目方案
 
 - vue单页面骨架屏初级解决方案  

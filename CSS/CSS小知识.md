@@ -112,3 +112,60 @@ input:focus::-webkit-input-placeholder{ color:#999; }
 }
 ```
 
+### 根据像素密度匹配最佳显示照片
+
+```html
+<img src="conardLi_1x.png"
+     srcset=" conardLi_2x.png 2x, conardLi_3x.png 3x">
+```
+
+### iOS滑动不流畅
+
+```css
+-webkit-overflow-scrolling: touch; /* 当手指从触摸屏上移开，会保持一段时间的滚动 */
+-webkit-overflow-scrolling: auto; /* 当手指从触摸屏上移开，滚动会立即停止 */
+```
+
+### iOS上下拉边界出现空白
+
+##### 产生原因
+
+在 iOS 中，手指按住屏幕上下拖动，会触发 `touchmove` 事件。这个事件触发的对象是整个 `webview` 容器，容器自然会被拖动，剩下的部分会成空白。
+
+##### 解决方案
+
+##### 1. 监听事件禁止滑动
+
+移动端触摸事件有三个，分别定义为
+
+```css
+1. touchstart ：手指放在一个DOM元素上。
+2. touchmove ：手指拖曳一个DOM元素。
+3. touchend ：手指从一个DOM元素上移开。
+复制代码
+```
+
+显然我们需要控制的是 `touchmove` 事件
+
+**`touchmove` 事件的速度是可以实现定义的，取决于硬件性能和其他实现细节**
+
+**`preventDefault` 方法，阻止同一触点上所有默认行为，比如滚动。**
+
+由此我们找到解决方案，通过监听 `touchmove`，让需要滑动的地方滑动，不需要滑动的地方禁止滑动。
+
+> 值得注意的是我们要过滤掉具有滚动容器的元素。
+
+**实现如下：**
+
+```js
+document.body.addEventListener('touchmove', function(e) {
+    if(e._isScroller) return;
+    // 阻止默认事件
+    e.preventDefault();
+}, {
+    passive: false	
+});
+```
+
+
+

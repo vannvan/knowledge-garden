@@ -147,6 +147,8 @@ https://www.cnblogs.com/xirongliu/p/4584653.html
 git config user.name “gitlab’s Name”
 git config user.email "gitlab@xx.com"
 git config --list
+//全局
+git config --global user.name “gitlab’s Name”
 ```
 
 ### git修改分支名称

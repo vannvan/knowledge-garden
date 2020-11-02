@@ -1,4 +1,4 @@
-**css选择器种类有：**
+### **css选择器种类有：**
 
 通用选择器：*
 
@@ -22,7 +22,7 @@ class选择器：.header{}
 
 层次选择器：p~ul    选择前面有p元素的每个ul元素
 
-**css选择器优先级：**
+### **css选择器优先级：**
 
 - 选择器优先级由高到低分别为：
   !important > 作为style属性写在元素标签上的内联样式 >id选择器>类选择器>伪类选择器>属性选择器>标签选择器> 通配符选择器（* 应少用）>浏览器自定义；
@@ -40,7 +40,8 @@ class选择器：.header{}
 - class使用场景：需要某些特定样式的标签则放在同一个class中，需要此样式的标签可再添加此类。（class不可被javascript中的GetElementByID函数所调用）
 - id使用场景：1、根据提供的唯一id号快速获取标签对象，如：document.getElementById(id) ；2、用于充当label标签for属性的值：示例：<label for='userid'>用户名：</label>，表示单击此label标签时，id为userid的标签获得焦点
 
-**CSS哪些属性可以继承？** 
+### **CSS哪些属性可以继承？** 
+
 css继承特性主要是指文本方面的继承(比如字体、颜色、字体大小等)，盒模型相关的属性基本没有继承特性。 
 
 不可继承的： 
@@ -57,6 +58,29 @@ letter-spacing、word-spacing、white-space、line-height、color、font、font-
 
 列表元素可继承的： 
 list-style、list-style-type、list-style-position、list-style-image
+
+### 继承属性
+
+- `inherit`: 被应用属性继承父级的该属性（默认就是该值）
+
+- `initial`初始化，把应用属性初始为它默认的样式，并且排除继承的干扰（默认会继承的属性也不在默认继承，而是表现出没有任何设置时候的默认样式）
+
+- `unset`：意思是恢复其原本的继承方式。对`color`属性而言，就相当于`inherit`；而对于诸如`border`这样默认不继承的属性，就相当于`initial`。
+
+- `revert`: 效果等同于`unset`且浏览器支持有限，这里不做演示   
+
+  ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/999e5024d8aa4df8afd87d3b7a5063f3~tplv-k3u1fbpfcp-watermark.image)
+
+  ```html
+  <ul style="color: green;">
+      <li class="default">Default <a href="#">link</a> color</li>
+      <li class="inherit">Inherit the <a style="color: inherit;" href="#">link</a> color</li>
+      <li class="initial">Reset the <a style="color: initial;" href="#">link</a> color</li>
+      <li class="unset">Unset the <a style="color: unset;" href="#">link</a> color</li>
+  </ul>
+  ```
+  
+  
 
 ### 常用at规则及使用示例：
 
@@ -80,8 +104,17 @@ list-style、list-style-type、list-style-position、list-style-image
 /*声明CSS3 animation动画关键帧*/
 @keyframes fadeIn {}
 /*媒体查询*/
-@media{}复制代码
+@media{}
 ```
 
 [原文](<https://juejin.im/post/5d8336d2f265da03df5f4a06#heading-6>)
 
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbcde264c5fe4e998b5bdca43bdc1b2a~tplv-k3u1fbpfcp-watermark.image)
+
+```css
+#a:hover > #b{....}    
+#a:hover ~ div{....} // 鼠标停留在a元素的时候让所有同层级元素有某某样式
+// 防止选择器层级替换了下面的样式
+#a:hover + #c{....} // 鼠标停留在a元素的时候让同层级中的c元素有某某样式
+#a:hover + #c > #b{....} //  鼠标停留在a元素的时候让同层级中的c元素下的b元素有某某样式
+```

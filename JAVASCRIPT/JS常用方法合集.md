@@ -1059,6 +1059,18 @@ let attributeCount = obj => {
 attributeCount(obj) // 2
 ```
 
+### ob j?.attribute判断对象及对象属性有效性
+
+```js
+let obj = {
+  name:"bob",
+  age:22
+}
+obj?.name //bob
+let obj1 = null //假设obj1是对象之外的其他任何类型
+obj1?.name // undefined 	而直接使用obj1.name 会报错
+```
+
 ### 全屏
 
 ```js

@@ -63,6 +63,10 @@
 >
 > https://blog.csdn.net/qq_17497931/article/details/80824328
 
+### 工具文档
+
+[chrome插件开发文档](http://chrome.cenchy.com/getstarted.html)
+
 ### 前端项目方案
 
 - vue单页面骨架屏初级解决方案  

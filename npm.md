@@ -84,7 +84,7 @@ sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
 
 > 在当前项目下新建 `.npmrc`文件
 >
-> 内容 `registry=https://registry.npm.taobao.org`
+> 内容  `
 
 ### node查看全局模块查找路径列表
 

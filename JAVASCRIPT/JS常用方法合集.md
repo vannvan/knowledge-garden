@@ -1,3 +1,5 @@
+
+
 ### JS的6个"假"值
 
 > `null`  `false`  `undefined`  `0`  `''(空字符串)`  `NaN`
@@ -1923,5 +1925,19 @@ if(arr.indexOf(1)>-1) {   // -1
 if(~arr.indexOf(1)) {  // false
 	//TODO
 }
+```
+
+### input限制数字并且限制长度
+
+```js
+ <input
+        type="text"
+        placeholder="手机号"
+        onfocus="this.placeholder = '' "
+        onblur="this.placeholder = '手机号'"
+        @focus="isFocus('phone')"
+        oninput="value=value.replace(/[^\d]/g,'')"
+        maxlength="11"
+      />
 ```
 

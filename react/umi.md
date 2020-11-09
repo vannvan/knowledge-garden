@@ -10,3 +10,11 @@
 
 
 
+ 安装umi时报错 `'E:\Program' 不是内部或外部命令，也不是可运行的程序` 
+
+> yarn global bin  //查看yarn安装插件的路径
+>
+> 假设路径是C:\Program Files (x86)\Yarn\bin
+>
+> yarn global add create-umi --prefix "C:\Program Files (x86)\Yarn\bin"
+

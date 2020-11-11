@@ -210,3 +210,61 @@ $ git branch -av
 $ git branch -vv 
 ```
 
+### git规范   来源[掘金](https://juejin.im/post/6892003555818143752#heading-2)
+
+> - feat: 新功能、新特性
+> - fix: 修改 bug
+> - perf: 更改代码，以提高性能
+> - refactor: 代码重构（重构，在不影响代码内部行为、功能下的代码修改）
+> - docs: 文档修改
+> - style: 代码格式修改, 注意不是 css 修改（例如分号修改）
+> - test: 测试用例新增、修改
+> - build: 影响项目构建或依赖项修改
+> - revert: 恢复上一次提交
+> - ci: 持续集成相关文件修改
+> - chore: 其他修改（不在上述类型中的修改）
+> - release: 发布新版本
+> - workflow: 工作流相关文件修改
+>
+> 1. scope: commit 影响的范围, 比如: route, component, utils, build...
+> 2. subject: commit 的概述
+> 3. body: commit 具体修改内容, 可以分为多行.
+> 4. footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.
+
+### 辅助工具
+
+> husky
+
+```json
+"husky": {
+  "hooks": {
+    "pre-commit": "npm run lint",
+    "commit-msg": "node script/verify-commit.js",
+    "pre-push": "npm test"
+  }
+}
+```
+
+```js
+const msgPath = process.env.HUSKY_GIT_PARAMS
+const msg = require('fs')
+.readFileSync(msgPath, 'utf-8')
+.trim()
+
+const commitRE = /^(feat|fix|docs|style|refactor|perf|test|workflow|build|ci|chore|release|workflow)(\(.+\))?: .{1,50}/
+// 这条正则表达式要求符合示例：
+// fix(common): 修复字体过小的BUG，将通用管理下所有页面的默认字体大小修改为 14px    //半角冒号后面有空格
+if (!commitRE.test(msg)) {
+    console.log()
+    console.error(`
+        不合法的 commit 消息格式。
+        请查看 git commit 提交规范：https://github.com/woai3c/Front-end-articles/blob/master/git%20commit%20style.md
+    `)
+
+    process.exit(1)
+}
+```
+
+- `"pre-commit": "npm run lint"`，在 `git commit` 前执行 `npm run lint` 检查代码格式。
+- `"commit-msg": "node script/verify-commit.js"`，在 `git commit` 时执行脚本 `verify-commit.js` 验证 commit 消息。如果不符合脚本中定义的格式，将会报错。
+- `"pre-push": "npm test"`，在你执行 `git push` 将代码推送到远程仓库前，执行 `npm test` 进行测试。如果测试失败，将不会执行这次推送.

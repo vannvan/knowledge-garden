@@ -1,0 +1,31 @@
+{
+    "name": "archives",
+    "version": "1.0.0",
+    "description": "----",
+    "main": "filelist.js",
+    "dependencies": {
+        "shelljs": "^0.8.4"
+    },
+    "devDependencies": {
+        "husky": "^4.3.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "node verify-commit.js"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vannvan/archives.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/vannvan/archives/issues"
+    },
+    "homepage": "https://github.com/vannvan/archives#readme"
+}

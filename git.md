@@ -210,7 +210,21 @@ $ git branch -av
 $ git branch -vv 
 ```
 
-### git规范   来源[掘金](https://juejin.im/post/6892003555818143752#heading-2)
+### git commit规范   来源[掘金](https://juejin.im/post/6892003555818143752#heading-2)
+
+```git
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+大致分为三个部分(使用空行分割):
+
+1. 标题行: 必填, 描述主要修改类型和内容
+2. 主题内容: 描述为什么修改, 做了什么样的修改, 以及开发的思路等等
+3. 页脚注释: 可以写注释，BUG 号链接
 
 > - feat: 新功能、新特性
 > - fix: 修改 bug

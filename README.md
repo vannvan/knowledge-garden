@@ -42,6 +42,8 @@
 
 - [前端业务开发的通用经验](https://juejin.im/post/6856375724979257352)
 
+- [你需要知道的CSS](https://lhammer.cn/You-need-to-know-css/#/)
+
   
 
 ### JS干货
@@ -62,6 +64,8 @@
 > https://v-cdn.zjol.com.cn/276100.mp4  //测试视频地址数字编号可随意换
 >
 > https://blog.csdn.net/qq_17497931/article/details/80824328
+>
+> https://github.com/chokcoco/CSS-Inspiration  (CSS灵感)
 
 ### 工具文档
 
@@ -92,7 +96,7 @@
 - 我的导航站点  
 [adoerww-nav](https://vannvan.github.io/adoerww/nav/)   
 
-![](https://vannvan.github.io/adoerww/images/adoerww_nav.png)
+![](https://s3.ax1x.com/2020/11/12/BxCrdS.png)
 
 - node本地启动静态网站服务  
 [set-node-server](https://github.com/vannvan/set-node-server)

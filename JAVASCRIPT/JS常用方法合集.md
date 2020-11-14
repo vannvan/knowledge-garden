@@ -1061,7 +1061,7 @@ let attributeCount = obj => {
 attributeCount(obj) // 2
 ```
 
-### ob j?.attribute判断对象及对象属性有效性
+### ob j?.attribute判断对象及对象属性有效性 (可选链)
 
 ```js
 let obj = {
@@ -1071,6 +1071,43 @@ let obj = {
 obj?.name //bob
 let obj1 = null //假设obj1是对象之外的其他任何类型
 obj1?.name // undefined 	而直接使用obj1.name 会报错
+
+
+
+// 变体 ?.() ?.[]
+let user1 = {
+  admin() {
+    alert("I am admin");
+  }
+}
+
+let user2 = {};
+
+user1.admin?.(); // I am admin
+user2.admin?.();
+
+----------------------
+let user1 = {
+  firstName: "John"
+};
+
+let user2 = null; // 假设，我们不能授权此用户
+
+let key = "firstName";
+
+alert( user1?.[key] ); // John
+alert( user2?.[key] ); // undefined
+
+alert( user1?.[key]?.something?.not?.existing); // undefined
+
+//还可以将?.和delete一起使用
+delete user?.name; // 如果 user 存在，则删除 user.name
+
+//可选链可以安全的读取和删除属性，但是不能写入
+let user = null;
+
+user?.name = "John"; // Error，不起作用
+// 因为它在计算的是 undefined = "John"
 ```
 
 ### 全屏

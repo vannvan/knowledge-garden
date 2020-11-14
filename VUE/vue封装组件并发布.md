@@ -2,7 +2,7 @@ webpack版本：4.17.1 （比较新的版本）
 
 webpack.config.js
 
-```
+```js
 var path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 var webpack = require('webpack')
@@ -69,7 +69,7 @@ module.exports = {
 
 ### 入口文件
 
-```
+```js
     entry: {
         'index': './src/index.js'
     },
@@ -89,7 +89,7 @@ export {default as MButton}  from './MButton.vue'
 
 ### 输出配置
 
-```
+```js
     output: {
         path: path.resolve(__dirname, './dist'), //输出目录
         filename: '[name].js', //输出文件名
@@ -130,7 +130,7 @@ webpack4 新增的配置参数，意为webpack将认为该打包是为了生产�
 
 1. 使用babel处理js，这样你就可以在vue单文件组件中的`script`标签内放心使用es6语法
 
-   ```
+   ```js
     {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -160,7 +160,7 @@ webpack4 新增的配置参数，意为webpack将认为该打包是为了生产�
 
 3. 使用css-loader处理和vue-style-loader处理单文件组件内`style`便签内的css样式
 
-   ```
+   ```js
     {
         test: /\.css$/,
         use: [
@@ -187,7 +187,7 @@ webpack4 新增的配置参数，意为webpack将认为该打包是为了生产�
 
 # 2. 发布到npm上
 
-## 修改你的`package.json`文件
+## 修改你的package.json文件
 
 ```
    {

@@ -8,7 +8,7 @@ $ npm install mavon-editor --save
 
 ### Use (如何引入)
 
-###全局引入
+### 全局引入
 
 `main.js`:
 

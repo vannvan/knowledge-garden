@@ -1,6 +1,6 @@
 
 
-一、UI组件及框架
+## UI组件及框架
 
 element - 饿了么出品的Vue2的web UI工具套件
 mint-ui - Vue 2的移动UI元素
@@ -24,7 +24,7 @@ vue-ztree - 用 vue 写的树层级组件
 vue-tree - vue树视图组件
 vue-tabs - 多tab页轻型框架
 
-二、滚动scroll组件
+## 滚动scroll组件
 
 vue-scroller - Vonic UI的功能性组件
 vue-mugen-scroll - 无限滚动组件
@@ -37,7 +37,7 @@ vue-pull-to-refresh - Vue2的上拉下拉
 mint-loadmore - VueJS的双向下拉刷新组件
 vue-smoothscroll - smoothscroll的VueJS版本
 
-三、slider组件
+## slider组件
 
 vue-awesome-swiper - vue.js触摸滑动组件
 vue-slick - 实现流畅轮播框的vue组件
@@ -50,7 +50,8 @@ vue-slider - vue 滑动组件
 vue-m-carousel - vue 移动端轮播组件
 dd-vue-component - 订单来了的公共组件库
 vue-easy-slider - Vue 2.x的滑块组件
-四、编辑器
+
+## 编辑器
 
 markcook - 好看的markdown编辑器
 eme - 优雅的Markdown编辑器
@@ -61,7 +62,8 @@ vue-html5-editor - html5所见即所得编辑器
 vue2-editor - HTML编辑器
 vue-simplemde - VueJS的Markdown编辑器组件
 vue-quill - vue组件构建quill编辑器
-五、图表
+
+## 图表
 
 vue-table - 简化数据表格
 vue-chartjs - vue中的Chartjs的封装
@@ -70,7 +72,8 @@ vue-chart - 强大的高速的vue图表解析
 vue-highcharts - HighCharts组件
 chartjs - Vue Bulma的chartjs组件
 vue-chartkick - VueJS一行代码实现优美图表
-六、日历
+
+## 日历
 
 vue-calendar - 日期选择插件
 vue-datepicker - 日历和日期选择组件
@@ -82,27 +85,32 @@ datepicker - 基于flatpickr的时间选择组件
 vue2-timepicker - 下拉时间选择器
 vue-date-picker - VueJS日期选择器组件
 vue-datepicker-simple - 基于vue的日期选择器
-七、地址选择
+
+## 地址选择
 
 vue-city - 城市选择器
 vue-region-picker - 选择中国的省份市和地区
-八、地图
+
+## 地图
 
 vue-amap - 基于Vue 2和高德地图的地图组件
 vue-google-maps - 带有双向数据绑定Google地图组件
 vue-baidu-map- 基于 Vue 2的百度地图组件库
 vue-cmap - Vue China map可视化组件
-九、播放器
+
+## 播放器
 
 vue-video-player - VueJS视频及直播播放器
 vue-video - Vue.js的HTML5视频播放器
 vue-music-master - vue手机端网页音乐播放器
-十、文件上传
+
+## 文件上传
 
 vue-upload-component - Vuejs文件上传组件
 vue-core-image-upload - 轻量级的vue上传插件
 vue-dropzone - 用于文件上传的Vue组件
-十一、图片处理
+
+## 图片处理
 
 vue-lazyload-img - 移动优化的vue图片懒加载插件
 vue-image-crop-upload - vue图片剪裁上传组件
@@ -110,18 +118,21 @@ vue-svgicon - 创建svg图标组件的工具
 vue-img-loader - 图片加载UI组件
 vue-image-clip- 基于vue的图像剪辑组件
 vue-progressive-image - Vue的渐进图像加载插件
-十二、提示
+
+## 提示
 
 vue-toast-mobile - VueJS的toast插件
 vue-msgbox - vuejs的消息框
 vue-tooltip - 带绑定信息提示的提示工具
 vue-verify-pop - 带气泡提示的vue校验插件
-十三、进度条
+
+## 进度条
 
 vue-radial-progress - Vue.js放射性进度条组件
 vue-progressbar - vue轻量级进度条
 vue2-loading-bar - 最简单的仿Youtube加载条视图
-十四、开发框架汇总
+
+## 开发框架汇总
 
 vue-admin - Vue管理面板框架
 electron-vue - Electron及VueJS快速启动样板
@@ -131,7 +142,8 @@ vue-bulma - 轻量级高性能MVVM Admin UI框架
 vue-spa-template - 前后端分离后的单页应用开发
 Framework7-Vue - VueJS与Framework7结合
 vue-element-starter - vue启动页
-十五、实用库汇总
+
+## 实用库汇总
 
 vuelidate - 简单轻量级的基于模块的Vue.js验证
 qingcheng - qingcheng主题
@@ -181,14 +193,16 @@ vue-input-autosize - 基于内容自动调整文本输入的大小
 vue-file-base64 - 将文件转换为Base64的vue组件
 Vue-Easy-Validator - 简单的表单验证
 vue-truncate-filter - 截断字符串的VueJS过滤器
-十六、服务端
+
+## 服务端
 
 vue-ssr - 结合Express使用Vue2服务端渲染
 nuxt.js - 用于服务器渲染Vue app的最小化框架
 vue-ssr - 非常简单的VueJS服务器端渲染模板
 vue-easy-renderer - Nodejs服务端渲染
 express-vue - 简单的使用服务器端渲染vue.js
-十七、辅助工具
+
+## 辅助工具
 
 DejaVue - Vuejs可视化及压力测试
 vue-generate-component - 轻松生成Vue js组件的CLI工具
@@ -196,7 +210,8 @@ vscode-VueHelper - 目前vscode最好的vue代码提示插件
 vue-play - 展示Vue组件的最小化框架
 VuejsStarterKit - vuejs starter套件
 vue-multipage-cli - 简单的多页CLI
-十八、应用实例
+
+## 应用实例
 
 pagekit - 轻量级的CMS建站系统
 vuedo - 博客平台

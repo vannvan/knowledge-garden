@@ -61,7 +61,7 @@ a {
 
 使用`#{}`符号可以将变量查到属性名，或者选择器中
 
-```js
+```scss
 $side: top;
 $radius: 10px;
 .round-#{$side} {

@@ -10,7 +10,7 @@ const debounce = function(fn, wait) {
 }
 
 
-const thtottle = function(fn, wait) {
+const throttle = function(fn, wait) {
     let flag = true
     return (...args) => {
         if (!flag) return

@@ -1999,3 +1999,30 @@ function IsPC() {
 var flag = IsPC(); //true为PC端，false为手机端
 ```
 
+### cssHelper
+
+```js
+function cssHelper(el, prototype) {
+  for (let i in prototype) {
+    el.style[i] = prototype[i]
+  }
+}
+const item = document.createElement('div')
+item.innerHTML = 'ahaha'
+cssHelper(item, {
+  position: 'absolute',
+  top: `50px`,
+  left: `50px`,
+  fontSize: `16px`,
+  color: '#000',
+  lineHeight: 1.5,
+  opacity: 0.1,
+  transform: `rotate(-15deg)`,
+  transformOrigin: '0 0',
+  userSelect: 'none',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+})
+
+```
+

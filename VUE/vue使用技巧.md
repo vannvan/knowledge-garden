@@ -632,6 +632,95 @@ module.exports = {
 
 ### [VUE/H5】H5调起数字键盘的坑，及手写移动端键盘代码](https://blog.csdn.net/LuviaWu/article/details/89927370)
 
+### 数字输入指令
+
+```js
+//限制正整数
+  Vue.directive('enterIntNumber', {
+    inserted: function(el) {
+      let trigger = (el, type) => {
+        const e = document.createEvent('HTMLEvents')
+        e.initEvent(type, true, true)
+        el.dispatchEvent(e)
+      }
+      el.addEventListener('keyup', function(e) {
+        let input = e.target
+        let reg = new RegExp('^\\d{1}\\d*$') //正则验证是否是数字
+        let correctReg = new RegExp('\\d{1}\\d*') //正则获取是数字的部分
+        let matchRes = input.value.match(reg)
+        if (matchRes === null) {
+          //若不是纯数字 把纯数字部分用正则获取出来替换掉
+          let correctMatchRes = input.value.match(correctReg)
+          if (correctMatchRes) {
+            input.value = correctMatchRes[0]
+          } else {
+            input.value = ''
+          }
+        }
+        trigger(input, 'input')
+      })
+    }
+  })
+  //输入数字限制最大值
+  Vue.directive('enterNumberMax', {
+    inserted: function(el, binding) {
+      // binding.value
+      let trigger = (el, type) => {
+        const e = document.createEvent('HTMLEvents')
+        e.initEvent(type, true, true)
+        el.dispatchEvent(e)
+      }
+
+      el.addEventListener('keyup', function(e) {
+        let input = e.target
+        let value = input.value
+        if (parseFloat(value) > parseFloat(binding.value)) {
+          input.value = binding.value
+        }
+        trigger(input, 'input')
+      })
+    }
+  })
+
+
+//只能输入两位小数
+Vue.directive('enterNumberPoint2', {
+  inserted: function (el) {
+    let trigger = (el, type) => {
+      const e = document.createEvent('HTMLEvents')
+      e.initEvent(type, true, true)
+      el.dispatchEvent(e)
+    }
+
+    el.addEventListener("keyup", function (e) {
+      let input = e.target;
+      let reg = new RegExp('^((?:(?:[1-9]{1}\\d*)|(?:[0]{1}))(?:\\.(?:\\d){0,2})?)(?:\\d*)?$'); //正则验证是否是数字(小数整数均可)
+      let matchRes = input.value.match(reg);
+      if (matchRes === null) {
+        input.value = "";
+      } else {
+        //matchRes[0]是匹配的无限位的小数
+        //matchRes[1]是小数点后两位前面符合的数值  
+        //如输入12.223 matchRes[0]是12.223 matchRes[1]12.22 此时input值改为matchRes[1]的值即可
+        if (matchRes[1] !== matchRes[0]) {
+          input.value = matchRes[1];
+        }
+      }
+      trigger(input, 'input')
+    });
+  }
+});
+
+
+使用方式:
+<!--限制两位小数和最大输入10000-->
+<input v-enterNumberPoint2 v-enterNumberMax="10000" placeholder="0.00" type="number">
+
+<!--限制输入正整数-->
+<input v-enterIntNumber placeholder="0" type="number">
+ 
+```
+
 
 
 

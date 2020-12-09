@@ -83,3 +83,4 @@ LRUCache.prototype.put = function(key, value) {
 }
 ```
 
+ 最近最久未使用法 

@@ -282,3 +282,14 @@ if (!commitRE.test(msg)) {
 - `"pre-commit": "npm run lint"`，在 `git commit` 前执行 `npm run lint` 检查代码格式。
 - `"commit-msg": "node script/verify-commit.js"`，在 `git commit` 时执行脚本 `verify-commit.js` 验证 commit 消息。如果不符合脚本中定义的格式，将会报错。
 - `"pre-push": "npm test"`，在你执行 `git push` 将代码推送到远程仓库前，执行 `npm test` 进行测试。如果测试失败，将不会执行这次推送.
+
+### vscode手动忽略本地文件
+
+```js
+"files.exclude": {
+  ".env.development": true,
+  ".nuxt/": true,
+  "dist/": true
+}
+```
+

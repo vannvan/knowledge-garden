@@ -2,7 +2,7 @@
 
 ```scss
 word-spacing==>单词间隔
-letter-spacing==>字母/汉子间隔
+letter-spacing==>字母/汉字间隔
 ```
 
 ### 鼠标禁用

@@ -155,6 +155,16 @@ module.exports = {
 
 ##### 拆分css extract-text-webpack-plugin@next
 
+##### 压缩css
+
+```js
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+
+plugins:[
+      new OptimizeCSSAssetsPlugin(), //压缩css
+]
+```
+
 ##### 打包图片，字体，媒体等 file-loader url-loader
 
 ```js

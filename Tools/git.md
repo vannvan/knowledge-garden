@@ -283,13 +283,35 @@ if (!commitRE.test(msg)) {
 - `"commit-msg": "node script/verify-commit.js"`，在 `git commit` 时执行脚本 `verify-commit.js` 验证 commit 消息。如果不符合脚本中定义的格式，将会报错。
 - `"pre-push": "npm test"`，在你执行 `git push` 将代码推送到远程仓库前，执行 `npm test` 进行测试。如果测试失败，将不会执行这次推送.
 
-### vscode手动忽略本地文件
+### .gitignore
 
 ```js
-"files.exclude": {
-  ".env.development": true,
-  ".nuxt/": true,
-  "dist/": true
-}
+.DS_Store
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn.lock
+yarn-error.log*
+/test/unit/coverage/
+/test/e2e/reports/
+selenium-debug.log
+node_modules
+release
+
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.env
+*.env.development
+
+
+dist/
+
+.aliossrc
 ```
 

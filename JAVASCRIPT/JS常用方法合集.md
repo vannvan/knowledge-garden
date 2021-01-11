@@ -142,9 +142,11 @@ export const RandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1
 ### 获取URL的查询参数
 
 ```js
-?foo=bar&baz=bing => {foo: bar, baz: bing}
+?foo=bar&baz=bing 
 // 获取URL的查询参数
-q={};location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);q;
+q={};
+window.location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);
+q;  //  {foo: bar, baz: bing}
 ```
 
 ### 本地时间
@@ -360,6 +362,13 @@ let obj = searchObj(search)
   rsv_sug2: '0',
   rsv_sug4: '1907'
 }
+```
+
+### 另一种
+
+```js
+Object.fromEntries(new URLSearchParams('a=1&b=2'))
+// {a:"1",b:"2"}
 ```
 
 ### 直接获取location.search某参数

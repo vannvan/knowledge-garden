@@ -9,3 +9,12 @@
 
 - canvas画圆操作arc(cx,cy,r,startAng,endAng,false),cx、cy表示圆心坐标，r表示半径，startAng、endAng表示起始角度和结束角度（弧度制），最后一个参数false表示是否逆时针。
 
+
+
+
+
+[HTML5 canvas drawImage() 方法](https://www.w3school.com.cn/html5/canvas_drawimage.asp)
+
+[使用canvas进行图像编辑](https://www.cnblogs.com/xiaohuochai/p/7442290.html)
+
+[canvas图形编辑器](http://02s949.coding-pages.com/2017/11/02/drawboard/)

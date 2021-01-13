@@ -1204,6 +1204,41 @@ function myNew (fn, ...args) {
 <meta http-equiv ="Content-Security-Policy" content="upgrade-insecure-requests">
 ```
 
+### neta相关属性
+
+```html
+<!DOCTYPE html> <!--H5标准声明，使用 HTML5 doctype，不区分大小写-->
+<head lang=”en”> <!--标准的 lang 属性写法-->
+<meta charset=’utf-8′> <!--声明文档使用的字符编码-->
+<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/> <!--优先使用指定浏览器使用特定的文档模式-->
+<meta name=”description” content=”不超过150个字符”/> <!--页面描述-->
+<meta name=”keywords” content=””/> <!-- 页面关键词-->
+<meta name=”author” content=”name, email@gmail.com”/> <!--网页作者-->
+<meta name=”robots” content=”index,follow”/> <!--搜索引擎抓取-->
+<meta name=”viewport” content=”initial-scale=1, maximum-scale=3, minimum-sc
+<meta name=”apple-mobile-web-app-title” content=”标题”> <!--iOS 设备 begin-->
+<meta name=”apple-mobile-web-app-capable” content=”yes”/> <!--添加到主屏后的标
+是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏-->
+<meta name=”apple-mobile-web-app-status-bar-style” content=”black”/>
+<meta name=”renderer” content=”webkit”> <!-- 启用360浏览器的极速模式(webkit)-->
+<meta http-equiv=”X-UA-Compatible” content=”IE=edge”> <!--避免IE使用兼容模式-->
+<meta http-equiv=”Cache-Control” content=”no-siteapp” /> <!--不让百度转码-->
+<meta name=”HandheldFriendly” content=”true”> <!--针对手持设备优化，主要是针对一些老的不识别viewport的浏览器-->
+<meta name=”MobileOptimized” content=”320″> <!--微软的老式浏览器-->
+<meta name=”screen-orientation” content=”portrait”> <!--uc强制竖屏-->
+<meta name=”x5-orientation” content=”portrait”> <!--QQ强制竖屏-->
+<meta name=”full-screen” content=”yes”> <!--UC强制全屏-->
+<meta name=”x5-fullscreen” content=”true”> <!--QQ强制全屏-->
+<meta name=”browsermode” content=”application”> <!--UC应用模式-->
+<meta name=”x5-page-mode” content=”app”> <!-- QQ应用模式-->
+<meta name=”msapplication-tap-highlight” content=”no”> <!--windows phone
+设置页面不缓存-->
+<meta http-equiv=”pragma” content=”no-cache”>
+<meta http-equiv=”cache-control” content=”no-cache”>
+<meta http-equiv=”expires” content=”0″>
+
+```
+
 #### script为什么阻塞页面？
 
 JS属于单线程，当我们在加载`script`标签内容的时候，渲染线程会被暂停，因为`script`标签里可能会操作`DOM`的，所以如果你加载`script`标签又同时渲染页面肯定就冲突了，因此说渲染线程(`GUI`)和js引擎线程互斥。

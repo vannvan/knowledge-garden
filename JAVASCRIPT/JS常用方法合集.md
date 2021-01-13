@@ -907,7 +907,39 @@ const getTotalAmount = (shoppingCart) => shoppingCart.reduce(sumAmount, 0);
 getTotalAmount(shoppingCart); // 120
 ```
 
-### eval对一维数组求和的骚操作
+### reduce按属性给数组分类
+
+```js
+const bills = [
+  { type: 'shop', momey: 223 },
+  { type: 'study', momey: 341 },
+  { type: 'shop', momey: 821 },
+  { type: 'transfer', momey: 821 },
+  { type: 'study', momey: 821 }
+];
+bills.reduce((acc, cur) => {
+  // 如果不存在这个键，则设置它赋值 [] 空数组
+  if (!acc[cur.type]) {
+    acc[cur.type] = [];
+  }
+  acc[cur.type].push(cur)
+  return acc
+}, {})
+//
+{
+    shop:[
+        {type:'shop',money:223},
+        {type:'shop',money:821}
+    ],
+    study:[
+        ...
+    ]
+}
+```
+
+
+
+eval对一维数组求和的骚操作
 
 ```js
 eval(arr.join("+"))

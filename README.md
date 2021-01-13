@@ -71,6 +71,8 @@
 
 [chrome插件开发文档](http://chrome.cenchy.com/getstarted.html)
 
+[wangeditor富文本编辑器](https://www.wangeditor.com/)
+
 ### 前端项目方案
 
 - vue单页面骨架屏初级解决方案  

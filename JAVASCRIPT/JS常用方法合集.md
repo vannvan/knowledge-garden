@@ -1941,6 +1941,30 @@ let obj={
 console.log(obj[`status=${status}&type=${type}`])
 ```
 
+### 优化if场景2，策略模式，极其好用
+
+```js
+const ROLES = {
+  GUEST: 0,
+  USER: 1,
+  ADMIN: 2
+};
+const ROLE_METHODS = {
+  [ROLES.GUEST]() {
+    console.log('GUEST')
+  },
+  [ROLES.USER]() {
+    console.log('USER')
+  },
+  [ROLES.ADMIN]() {
+    console.log('ADMIN')
+  },
+};
+// const userRole = await getUserRole();
+const userRole = ROLES.GUEST
+ROLE_METHODS[userRole]();
+```
+
 ### 解决各种运算精度丢失
 
 ```js

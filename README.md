@@ -63,6 +63,8 @@
 
 > https://v-cdn.zjol.com.cn/276100.mp4  //测试视频地址数字编号可随意换
 >
+> https://www.sample-videos.com/index.php#sample-mp4-video  //各种视频格式
+>
 > https://blog.csdn.net/qq_17497931/article/details/80824328
 >
 > https://github.com/chokcoco/CSS-Inspiration  (CSS灵感)

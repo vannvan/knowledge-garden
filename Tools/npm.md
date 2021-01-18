@@ -56,6 +56,8 @@ npm config set init.license "MIT"
 
 ### 安装node-sass报错
 
+[安装 node-sass 的正确姿势](https://github.com/lmk123/blog/issues/28)
+
 > npm i node-sass --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
 
 ### 临时使用淘宝镜像
@@ -78,6 +80,9 @@ npm config set init.license "MIT"
 
 ```js
 sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs/
+electron_mirror=https://npm.taobao.org/mirrors/electron/
+registry=https://registry.npm.taobao.org
 ```
 
 ### npm当前项目使用淘宝镜像

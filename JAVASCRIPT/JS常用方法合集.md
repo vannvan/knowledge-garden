@@ -611,6 +611,31 @@ isNil(null); // true
 isNil(undefined); // true
 ```
 
+###  零合并操作符 ?? 相比于 ||
+
+空值合并操作符一般用来为常量提供默认值，保证常量不为 `null` 或者 `undefined`，以前一般使用 `||` 来做这件事 `variable = variable || 'bar'`。然而，由于 `||` 是一个布尔逻辑运算符，左侧的操作数会被强制转换成布尔值用于求值。任何假值（`0`， `''`， `NaN`， `null`， `undefined`）都不会被返回。这导致如果你使用 `0`、`''`、`NaN` 作为有效值，就会出现不可预料的后果
+
+```js
+undefined || 'default' // 'default'
+null || 'default'      // 'default'
+false || 'default'     // 'default'
+0 || 'default'         // 'default'
+
+undefined ?? 'default' // 'default'
+null ?? 'default'      // 'default'
+false ?? 'default'     // 'false'
+0 ?? 'default'         // 0
+```
+
+ 另外在赋值的时候，可以运用赋值运算符的简写 `??=` 
+
+```js
+let a = {b: null, c: 10}
+a.b ??= 20
+a.c ??= 20
+console.log(a)     // 输出 { b: 20, c: 10 }
+```
+
 ### 验证是否有效数字
 
 ```js

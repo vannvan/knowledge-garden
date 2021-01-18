@@ -27,7 +27,7 @@
 不想提交进行了一半的工作
 
 > git stash    储藏
-> git  stash list   查看储藏
+> git stash list   查看储藏
 > git stash apply  使用最近的储藏
 > git stash apply stash@{2}    指定储藏
 

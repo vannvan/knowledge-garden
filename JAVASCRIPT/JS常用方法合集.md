@@ -2118,3 +2118,11 @@ cssHelper(item, {
 
 ```
 
+### 关闭当前页面
+
+```js
+window.opener = null
+window.open('', '_self')
+window.close()
+```
+

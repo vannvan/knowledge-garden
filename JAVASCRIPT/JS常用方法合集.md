@@ -2145,3 +2145,30 @@ function decodeUnicode(str) {
 }
 ```
 
+### 原生监听href变化
+
+```js
+// 监听页面链接更新，加载不同的侧栏工具
+var oldHref = document.location.href
+
+window.onload = function() {
+  console.warn('first load', oldHref)
+  var bodyList = document.querySelector('body'),
+    observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (oldHref != document.location.href) {
+          oldHref = document.location.href
+          console.warn('update', document.location.href)
+          getPageType()
+          /* Changed ! your code here */
+        }
+      })
+    })
+  var config = {
+    childList: true,
+    subtree: true
+  }
+  observer.observe(bodyList, config)
+}
+```
+

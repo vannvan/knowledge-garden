@@ -383,3 +383,17 @@ stats: 'errors-only'  //附加的一项配置
 
 > [理解webpack之process.env.NODE_ENV详解(十八)](https://www.cnblogs.com/tugenhua0707/p/9780621.html)
 
+
+
+###  Webpack library 打包方式有 5 种。
+
+变量：作为一个全局变量，通过 `script` 标签来访问（`libraryTarget:'var'`）。
+
+this：通过 `this` 对象访问（`libraryTarget:'this'`）。
+
+window：通过 `window` 对象访问，在浏览器中（`libraryTarget:'window'`）。
+
+UMD：在 AMD 或 CommonJS 的 `require` 之后可访问（`libraryTarget:'umd'`）。
+
+AMD：基于 AMD 规范的打包方式（`libraryTarget:'amd'`）。
+

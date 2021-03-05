@@ -37,7 +37,7 @@
 
 > git commit --amend
 
-### 场景三
+### 场景4
 
 由于失误给远程仓库提交了很多不必要的文件，可以先整理好本地仓库文件确认无误后，覆盖远程仓库。
 
@@ -78,6 +78,12 @@
 
 > git reset --hard HEAD^
 > git push -f
+
+### 强行拉取远程覆盖本地
+
+```bash
+git fetch --all && git reset --hard origin/master && git pull
+```
 
 ### git基本命令合集
 

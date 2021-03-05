@@ -1,7 +1,3 @@
-娶l
-
-
-
 ### JS的6个"假"值
 
 > `null`  `false`  `undefined`  `0`  `''(空字符串)`  `NaN`
@@ -127,6 +123,20 @@ substring() 的第二个参数控制取多少位 (最多可取13位)
 // 生成长度为11的随机字母数字字符串
     Math.random().toString(36).substring(2);
 // hg7znok52x
+```
+
+### 生成guid
+
+```js
+function guid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0,
+            v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+guid() // "a1ca0f7b-51bd-4bf3-a5d5-6a74f6adc1c7"
+// 其他方法  https://www.cnblogs.com/goloving/p/13853524.html
 ```
 
 ### 生成指定范围随机数

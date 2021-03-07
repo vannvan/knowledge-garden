@@ -148,3 +148,10 @@
 "error"或者2    //把规则作为一个错误（退出代码触发时为1）
 ```
 
+
+
+### ESLint fix自动修复所有格式问题
+
+```
+"lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/ test/unit test/e2e/specs",
+```

@@ -68,6 +68,8 @@
 > https://blog.csdn.net/qq_17497931/article/details/80824328
 >
 > https://github.com/chokcoco/CSS-Inspiration  (CSS灵感)
+>
+> https://www.npmjs.com/package/dom7 （比jq轻量的dom操作）
 
 ### 工具文档
 

@@ -94,3 +94,6 @@ module.exports = {
 }
 ```
 
+### 一些代码格式化问题
+
+- [eslint和prettier冲突](https://zhuanlan.zhihu.com/p/101241781?from_voters_page=true)

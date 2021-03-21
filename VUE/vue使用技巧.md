@@ -773,6 +773,46 @@ Vue.directive('copy', {
     })
 ```
 
+###  指令
+
+```vue
+<!-- 方法处理器 -->
+<button v-on:click="doThis"></button>
+
+<!-- 动态事件 -->
+<button v-on:[event]="doThis"></button>
+
+<!-- 内联语句 -->
+<button v-on:click="doThat('hello', $event)"></button>
+
+<!-- 缩写 -->
+<button @click="doThis"></button>
+
+<!-- 动态事件缩写 -->
+<button @[event]="doThis"></button>
+
+<!-- 停止冒泡 -->
+<button @click.stop="doThis"></button>
+
+<!-- 阻止默认行为 -->
+<button @click.prevent="doThis"></button>
+
+<!-- 阻止默认行为，没有表达式 -->
+<form @submit.prevent></form>
+
+<!-- 串联修饰符 -->
+<button @click.stop.prevent="doThis"></button>
+
+<!-- 键修饰符，键别名 -->
+<input @keyup.enter="onEnter" />
+
+<!-- 点击回调只会触发一次 -->
+<button v-on:click.once="doThis"></button>
+
+<!-- 对象语法 -->
+<button v-on="{ mousedown: doThis, mouseup: doThat }"></button>
+```
+
 
 
 

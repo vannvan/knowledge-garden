@@ -301,7 +301,13 @@ console.log('srcipt end')
 //'async1 end'
 ```
 
+
+
+
+
 ### 文章
 
 - [45道Promise面试题](https://juejin.im/post/5e58c618e51d4526ed66b5cf)
+
+- [解决map(), forEach()里面使用异步函数，使用await接收无效时](https://www.cnblogs.com/Jennyishere/p/12928654.html)
 

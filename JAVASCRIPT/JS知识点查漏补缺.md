@@ -295,3 +295,19 @@ function formser(form){
 </script>
 ```
 
+### 模拟input输入
+
+```js
+window.inputValue = function (dom, st) {
+  var evt = new InputEvent('input', {
+    inputType: 'insertText',
+    data: st,
+    dataTransfer: null,
+    isComposing: false,
+  })
+  dom.value = st
+  dom.dispatchEvent(evt)
+}
+```
+
+[jquery 获取textarea文本值详解](https://blog.csdn.net/huanghanqian/article/details/78819598)

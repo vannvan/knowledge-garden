@@ -2182,3 +2182,14 @@ window.onload = function() {
 }
 ```
 
+### 模拟键盘输入
+
+```js
+let t = document.querySelector('input')
+let evt = document.createEvent('HTMLEvents')
+evt.initEvent('input', true, true)
+t.value = location.search.split(/=/)[1]
+t.dispatchEvent(evt)
+//模拟登录React的页面https://www.jianshu.com/p/78f5a4baf88c
+```
+

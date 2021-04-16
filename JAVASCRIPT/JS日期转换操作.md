@@ -73,7 +73,7 @@ console.log(msToDate(myTime2).withoutTime);//--->2017-09-19
 
 ```
 
-###标准日期转中国标准时间
+### 标准日期转中国标准时间
 
 ```js
 //变量

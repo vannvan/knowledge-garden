@@ -44,14 +44,16 @@
 
 - [你需要知道的CSS](https://lhammer.cn/You-need-to-know-css/#/)
 
-  
+- [浏览器的工作原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
+
+  ****
 
 ### JS干货
 
 - [浅色背景和浅色文字友好搭配的解决方案]( https://css-tricks.com/nailing-the-perfect-contrast-between-light-text-and-a-background-image/ )
 - [ES6 的解构赋值前每次都创建一个对象吗？会加重 GC 的负担吗？]( https://mp.weixin.qq.com/s/cZsyuo9nq4AdXQtmckuFMQ )
 
-### CSSS干货
+### CSS干货
 
 - [css3中filter的各种特效](https://www.cnblogs.com/wangxiaosan/p/5933670.html)
 
@@ -63,19 +65,21 @@
 
 > https://v-cdn.zjol.com.cn/276100.mp4  //测试视频地址数字编号可随意换
 >
-> https://www.sample-videos.com/index.php#sample-mp4-video  //各种视频格式
+> [各种视频格式](https://www.sample-videos.com/index.php#sample-mp4-video)
 >
-> https://blog.csdn.net/qq_17497931/article/details/80824328
+> [用来测试的在线小视频url地址](https://blog.csdn.net/qq_17497931/article/details/80824328)
 >
-> https://github.com/chokcoco/CSS-Inspiration  (CSS灵感)
+> [CSS灵感](https://github.com/chokcoco/CSS-Inspiration)
 >
-> https://www.npmjs.com/package/dom7 （比jq轻量的dom操作）
+> [比jq轻量的dom操作](https://www.npmjs.com/package/dom7)
+>
+> [mdbook使用](https://zhuanlan.zhihu.com/p/126202965 )
 
 ### 工具文档
 
-[chrome插件开发文档](http://chrome.cenchy.com/getstarted.html)
-
-[wangeditor富文本编辑器](https://www.wangeditor.com/)
+> [chrome插件开发文档](http://chrome.cenchy.com/getstarted.html)
+> 
+> [wangeditor富文本编辑器](https://www.wangeditor.com/)
 
 ### 前端项目方案
 

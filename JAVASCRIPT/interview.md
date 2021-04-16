@@ -1215,7 +1215,7 @@ function myNew (fn, ...args) {
 <meta name=”keywords” content=””/> <!-- 页面关键词-->
 <meta name=”author” content=”name, email@gmail.com”/> <!--网页作者-->
 <meta name=”robots” content=”index,follow”/> <!--搜索引擎抓取-->
-<meta name=”viewport” content=”initial-scale=1, maximum-scale=3, minimum-sc
+<meta name=”viewport” content=”initial-scale=1, maximum-scale=3, minimum-sc>s
 <meta name=”apple-mobile-web-app-title” content=”标题”> <!--iOS 设备 begin-->
 <meta name=”apple-mobile-web-app-capable” content=”yes”/> <!--添加到主屏后的标
 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏-->

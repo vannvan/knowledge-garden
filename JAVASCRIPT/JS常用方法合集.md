@@ -1936,7 +1936,7 @@ document.addEventListener('scroll', () => {
 })
 ```
 
-#### 优化if场景1
+### 优化if场景1
 
 ```js
 
@@ -2017,7 +2017,7 @@ Math.signFigures(0.2 + 0.1);   //0.3
 Math.signFigures(1.09 * 100);  //109
 ```
 
-#### storage封装
+###  storage封装
 
 ```js
 export default {

@@ -391,3 +391,4 @@ setup (props, { emit }) {
 - [带你体验Vue2和Vue3开发组件有什么区别](https://zhuanlan.zhihu.com/p/139590941)
 - [尝鲜vue3.0](https://juejin.im/post/6870091402630397959)
 - [Vue3.0来袭，你想学的都在这里](https://juejin.im/post/6872113750636232712)
+- [Vue3 新特性初体验](https://zhuanlan.zhihu.com/p/266732086)

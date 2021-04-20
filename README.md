@@ -56,6 +56,7 @@
 ### CSS干货
 
 - [css3中filter的各种特效](https://www.cnblogs.com/wangxiaosan/p/5933670.html)
+- [24种表单input输入框聚焦动画特效](http://www.htmleaf.com/Demo/201604253389.html)
 
 ### 周边
 

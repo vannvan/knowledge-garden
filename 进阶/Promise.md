@@ -150,7 +150,30 @@ const p = Promise.all([p1, p2, p3]);
 
 （2）只要`p1`、`p2`、`p3`之中有一个被`rejected`，`p`的状态就变成`rejected`，此时第一个被`reject`的实例的返回值，会传递给`p`的回调函数。
 
+```js
+let wake = (time) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`${time / 1000}秒后醒来`)
+    }, time)
+  })
+}
+
+let p1 = wake(3000)
+let p2 = wake(2000)
+
+Promise.all([p1, p2]).then((result) => {
+  console.log(result)       // [ '3秒后醒来', '2秒后醒来' ]
+}).catch((error) => {
+  console.log(error)
+})
+```
+
+需要特别注意的是，Promise.all获得的成功结果的数组里面的数据顺序和Promise.all接收到的数组顺序是一致的，即p1的结果在前，即便p1的结果获取的比p2要晚。这带来了一个绝大的好处：在前端开发请求数据的过程中，偶尔会遇到发送多个请求并根据请求顺序获取和使用数据的场景，使用Promise.all毫无疑问可以解决这个问题。
+
 [阮一峰](https://es6.ruanyifeng.com/#docs/promise#Promise-all)
+
+[总结一下Promise.all()和Promise.race()](https://zhuanlan.zhihu.com/p/66119015)
 
 ### race
 
@@ -158,9 +181,7 @@ const p = Promise.all([p1, p2, p3]);
 const p = Promise.race([p1, p2, p3]);
 ```
 
-上面代码中，只要`p1`、`p2`、`p3`之中有一个实例率先改变状态，`p`的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给`p`的回调函数。
-
-### all和race总结
+###  all和race总结
 
 - `Promise.all()`的作用是接收一组异步任务，然后并行执行异步任务，并且在所有异步操作执行完后才执行回调。
 

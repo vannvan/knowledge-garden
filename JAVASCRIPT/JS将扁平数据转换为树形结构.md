@@ -145,3 +145,76 @@ buildTree = (source, id, parentId, children) => {
   })
 }
 ```
+
+
+#### 实现算法3
+```js
+const buildTree = (data, config = {}) => {
+  if (!data || !Array.isArray(data)) return '错误的数据类型'
+  const len = data.length
+  if (!len) return '空数组'
+  const id = (config && config.id) || 'id'
+  const pid = (config && config.pid) || 'parentId'
+  const children = (config && config.children) || 'children'
+
+  // 把所有的ID映射为一个map 方便查询
+  const idMap = {}
+  // 找到父节点的放入 treeData
+  const treeData = []
+  // 节点包含 pid 属性, 并且父节点不存在的放入 errorData
+  const errorData = []
+
+  data.forEach((v) => {
+    v && (idMap[v[id]] = v)
+  })
+
+  data.forEach((v) => {
+    if (v) {
+      let parent = idMap[v[pid]]
+      if (parent) {
+        !parent[children] && (parent[children] = [])
+        parent[children].push(v || [])
+      } else if (!parent && v.hasOwnProperty(pid)) {
+        errorData.push(v)
+      } else {
+        treeData.push(v)
+      }
+    }
+  })
+  // 树结构 错误数据同时返回
+  // return {
+  //   treeData,
+  //   errorData
+  // }
+  // 只返回树结构
+  return treeData
+}
+
+// 适用数据格式
+
+const arr = [
+  {
+    department: '开发部',
+    id: 1, //
+  },
+  {
+    department: '开发一部',
+    id: 11,
+    parentId: 1,
+  },
+  {
+    department: '开发二部',
+    id: 12,
+    parentId: 1,
+  },
+  {
+    department: '市场部',
+    id: 2,
+  },
+  {
+    department: '渠道部',
+    id: 21,
+    parentId: 2,
+  },
+]
+```

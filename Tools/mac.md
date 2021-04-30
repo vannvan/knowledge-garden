@@ -52,3 +52,12 @@ sudo vim /etc/zshrc
 sudo scutil --set HostName 自定义主机名
 ```
 
+
+
+
+
+
+
+### nginx 安装使用
+
+https://www.cnblogs.com/tandaxia/p/8810648.html

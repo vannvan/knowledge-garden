@@ -105,7 +105,7 @@
 
 ### 个人综合
 - 我的导航站点  
-[adoerww-nav](https://vannvan.github.io/adoerww/nav/)   
+[adoerww-nav](https://adoerww.vercel.app/nav/)   
 
 ![](https://s3.ax1x.com/2020/11/12/BxCrdS.png)
 

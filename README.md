@@ -75,6 +75,8 @@
 > [比jq轻量的dom操作](https://www.npmjs.com/package/dom7)
 >
 > [mdbook使用](https://zhuanlan.zhihu.com/p/126202965 )
+>
+> [可用来提取源码的富文本编辑器](http://kindeditor.net/demo.php)
 
 ### 工具文档
 

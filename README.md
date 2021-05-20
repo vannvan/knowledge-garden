@@ -81,8 +81,10 @@
 ### 工具文档
 
 > [chrome插件开发文档](http://chrome.cenchy.com/getstarted.html)
-> 
+>
 > [wangeditor富文本编辑器](https://www.wangeditor.com/)
+>
+> [intro引导插件](https://introjs.com/)
 
 ### 前端项目方案
 

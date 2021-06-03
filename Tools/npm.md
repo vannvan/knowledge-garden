@@ -96,3 +96,32 @@ registry=https://registry.npm.taobao.org
 ### node查看全局模块查找路径列表
 
 > console.log(module.paths)
+
+### pm2用于部署node服务
+
+https://www.jianshu.com/p/7b7378deb3e5?utm_source=oschina-app
+
+常用命令
+
+```bash
+ pm2 start app.js --name my-api # 命名进程
+```
+
+```css
+ pm2 start app.js -i max  # 根据有效CPU数目启动最大进程数目
+ pm2 start app.js -i 3      # 启动3个进程
+ pm2 start app.js -x        #用fork模式启动 app.js 而不是使用 cluster
+ pm2 start app.js -x -- -a 23   # 用fork模式启动 app.js 并且传递参数 (-a 23)
+ pm2 start app.js --name serverone  # 启动一个进程并把它命名为 serverone
+ pm2 stop serverone       # 停止 serverone 进程
+ pm2 start app.json        # 启动进程, 在 app.json里设置选项
+ pm2 start app.js -i max -- -a 23                   #在--之后给 app.js 传递参数
+ pm2 start app.js -i max -e err.log -o out.log  # 启动 并 生成一个配置文件，你也可以执行用其他语言编写的app  ( fork 模式):
+ pm2 start my-bash-script.sh    -x --interpreter bash
+ pm2 start my-python-script.py -x --interpreter python
+
+```
+
+### npx 命令可用于运行项目局部脚本命令
+
+> npm run pm2 list 对应安装在全局的命令 pm2 li s t s

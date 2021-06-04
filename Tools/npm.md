@@ -107,7 +107,7 @@ https://www.jianshu.com/p/7b7378deb3e5?utm_source=oschina-app
  pm2 start app.js --name my-api # 命名进程
 ```
 
-```css
+```bash
  pm2 start app.js -i max  # 根据有效CPU数目启动最大进程数目
  pm2 start app.js -i 3      # 启动3个进程
  pm2 start app.js -x        #用fork模式启动 app.js 而不是使用 cluster
@@ -122,6 +122,26 @@ https://www.jianshu.com/p/7b7378deb3e5?utm_source=oschina-app
 
 ```
 
+```bash
+ npm install pm2 -g     # 命令行安装 pm2 
+ pm2 start app.js -i 4 #后台运行pm2，启动4个app.js 
+                               # 也可以把'max' 参数传递给 start
+                               # 正确的进程数目依赖于Cpu的核心数目
+ pm2 start app.js --name my-api # 命名进程
+ pm2 list               # 显示所有进程状态
+ pm2 monit              # 监视所有进程
+ pm2 logs               #  显示所有进程日志
+ pm2 stop all           # 停止所有进程
+ pm2 restart all        # 重启所有进程
+ pm2 reload all         # 0秒停机重载进程 (用于 NETWORKED 进程)
+ pm2 stop 0             # 停止指定的进程
+ pm2 restart 0          # 重启指定的进程
+ pm2 startup            # 产生 init 脚本 保持进程活着
+ pm2 web                # 运行健壮的 computer API endpoint (http://localhost:9615)
+ pm2 delete 0           # 杀死指定的进程
+ pm2 delete all         # 杀死全部进程
+```
+
 ### npx 命令可用于运行项目局部脚本命令
 
-> npm run pm2 list 对应安装在全局的命令 pm2 li s t s
+> npx pm2 list 对应安装在全局的命令 pm2 list

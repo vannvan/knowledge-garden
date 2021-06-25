@@ -145,3 +145,9 @@ https://www.jianshu.com/p/7b7378deb3e5?utm_source=oschina-app
 ### npx 命令可用于运行项目局部脚本命令
 
 > npx pm2 list 对应安装在全局的命令 pm2 list
+
+### npm搭建私服过程
+
+> https://www.cnblogs.com/dearxinli/p/11170359.html
+>
+> [史上最贴心NPM私服搭建辅导](https://www.codenong.com/j5dfa13f16fb9a016077/)

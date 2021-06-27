@@ -319,3 +319,10 @@ dist/
 .aliossrc
 ```
 
+### rebase
+
+[rebase使用的四个场景](https://blog.csdn.net/mulinsen77/article/details/106221457)
+
+### 命令行提交记录图
+
+> git log --graph --pretty=oneline --abbrev-commit

@@ -323,6 +323,22 @@ dist/
 
 [rebase使用的四个场景](https://blog.csdn.net/mulinsen77/article/details/106221457)
 
+[git合并提交记录](https://www.jianshu.com/p/922b161591a0)
+
+pick是rebase时的指令，具体我们还可以使用如下指令：
+
+```bash
+
+选择pick指令，git会应用这个提交，以同样的提交信息（commit message）保存提交
+选择reword指令，git会应用这个提交，但需要重新编辑提交信息
+选择edit指令，git会应用这个提交，但会因为amending而终止
+选择squash指令，git会应用这个提交，但会与之前的提交合并
+选择fixup指令，git会应用这个提交，但会丢掉提交日志
+选择exec指令，git会在shell中运行这个命令
+```
+
+
+
 ### 命令行提交记录图
 
 > git log --graph --pretty=oneline --abbrev-commit

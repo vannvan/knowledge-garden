@@ -146,6 +146,15 @@ https://www.jianshu.com/p/7b7378deb3e5?utm_source=oschina-app
 
 > npx pm2 list 对应安装在全局的命令 pm2 list
 
+### yarn
+
+设置镜像源：
+1、查看当前镜像源：yarn config get registry
+
+2、切换淘宝镜像源：yarn config set registry https://registry.npm.taobao.org
+
+3、切换为yarn自带的镜像源：yarn config set registry https://registry.yarnpkg.com
+
 ### npm搭建私服过程
 
 > https://www.cnblogs.com/dearxinli/p/11170359.html

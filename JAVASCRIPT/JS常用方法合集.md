@@ -2169,3 +2169,18 @@ t.dispatchEvent(evt)
 //模拟登录React的页面https://www.jianshu.com/p/78f5a4baf88c
 ```
 
+### 获取url参数2
+
+```JS
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+```
+

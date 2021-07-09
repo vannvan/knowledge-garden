@@ -1,8 +1,8 @@
 ## 插件集合
 
+使用`npx eslint --init`可以在项目定制配置文件`.eslintrc.json`
 
-
-
+> npx eslint --init
 
 ## 好文
 

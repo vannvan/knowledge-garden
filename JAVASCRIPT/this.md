@@ -186,3 +186,8 @@ console.log(baz.a); // 3
 
 当我们创建baz时，实际上是创建了一个新对象，新对象的this指向函数调用的this，因此虽然前面`bar(..)`被硬绑定到了obj1上，但是new绑定修改了`bar(..)`中的this，该this最终指向`foo(..)`函数，所以obj1中的a并没有被修改，同时在baz中创建了一个新的属性。从上面这个例子我们可以看出new绑定的优先级要高于显式绑定，因为在显式绑定之后我仍可以用new绑定。
 
+
+
+### 文章
+
+[解决js类定义里面绑定事件this指向问题](https://blog.csdn.net/iamlujingtao/article/details/104647356)

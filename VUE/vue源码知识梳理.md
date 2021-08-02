@@ -36,7 +36,7 @@ document.getElementById("button").addEventListener("click",function() {
 
 > 为了精准的更新视图，而不是数据一变化就更新全部视图
 >
-> getter收集依赖，setter通知y依赖更新
+> getter收集依赖，setter通知依赖更新
 >
 > 依赖管理主要是`Dep`类的功能
 

@@ -81,6 +81,7 @@ app listening on port 8081!
 - [docker命令](https://blog.csdn.net/weixin_30603633/article/details/96260662)
 - [docker mac本地镜像地址](https://www.cnblogs.com/cag2050/p/10100899.html)
 - [docker部署前端](http://www.dockone.io/article/8834)
+- [Macos下的docker安装目录在哪？](https://blog.csdn.net/yjk13703623757/article/details/100900945)
 
 
 
@@ -103,4 +104,12 @@ OPTIONS说明（常用）：有些是一个减号，有些是两个减号
         hostPort:containerPort
         containerPort
 ```
+
+## 命令简写
+
+- 容器的创建：docker container run nginx 简写方法 docker run nginx
+- 容器的列出(up): docker container ls 简写方法 docker ps
+- 容器的列出（up和exit）：docker container ls -a 简写方法 docker ps -a
+- 容器的停止 ： docker container stop 简写方法 docker stop
+- 容器的删除：docker container rm 简写方法 docker rm
 

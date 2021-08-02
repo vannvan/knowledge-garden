@@ -198,3 +198,27 @@ logpath=D:\Mongo\data\log\mongod.log
 7.打开电脑查看服务是否已改为自启动
 ```
 
+### mac安装方法
+
+https://learnku.com/articles/48547
+
+需要注意的地方，编辑全变量应该是如下方式
+
+> vim ~/.bash_profile
+
+mongod --dbpath ~/Local/mogodb-macos-5.0.0/data/db --logpath ~/Local/mogodb-macos-5.0.0/log/mongo.log --fork
+
+默认端口
+
+http://127.0.0.1:27017/
+
+
+
+adminMongo链接 mongodb://127.0.0.1:27017/
+
+
+
+## 文章
+
+- [Node+Vue3.0+Mongodb实现完美解决高并发的购物平台管理系统](https://blog.csdn.net/weixin_43742274/article/details/114967596)
+- [Mongoose各类用法示例-实用](https://vimsky.com/examples/usage/mongoose-where-function.html)

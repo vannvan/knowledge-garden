@@ -521,5 +521,7 @@ export declare interface AppProps {
 
 ### 参考链接
 
-- https://juejin.im/post/5edd8ad8f265da76fc45362c
-- https://juejin.cn/post/6910863689260204039
+- [TypeScript 入门教程](https://juejin.im/post/5edd8ad8f265da76fc45362c)
+- [如何在 React 中完美运用？](https://juejin.cn/post/6910863689260204039)
+- [ts高级开发技巧](https://www.nblogs.com/archives/518/)
+- [TypeScript 错误property does not exist on type Object](https://www.cnblogs.com/limbobark/p/10043769.html)

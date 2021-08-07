@@ -395,6 +395,21 @@ params.get("sex"); // "female"
 const objectToQueryString = (obj) => Object.keys(obj).map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`).join('&');
 objectToQueryString({name: 'Jhon', age: 18, address: 'beijing'})
 // name=Jhon&age=18&address=beijing
+
+// ts版本
+export function isValidKey(key: string | number | symbol, object: object): key is keyof typeof object {
+  return key in object;
+}
+
+// 序列化json数据
+export const objectToQueryString = <T extends object>(obj: T) =>
+  Object.keys(obj)
+    .map((key: any) => {
+      if (isValidKey(key, obj)) {
+        return `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`;
+      }
+    })
+    .join("&");
 ```
 
 ### 一维数组交集

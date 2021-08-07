@@ -426,6 +426,35 @@ myGenericNumber.add = function (x, y) {
 - V（Value）：表示对象中的值类型
 - E（Element）：表示元素类型
 
+```typescript
+function get<T extends object, K extends keyof T>(o: T, name: K): T[K] {
+  return o[name]
+}
+```
+
+**范型应用**
+
+写一个函数，接受两个参数，一个为object，另一个为object中的一个key。函数返回类型指定为obj[key]的类型。
+
+```js
+interface Person{
+	name:string,
+	age:number
+}
+
+function demo<T extends object, K extends keyof T>(obj:T, key:K){
+	return obj[key]
+}
+
+//测试
+let obj:Person={
+ 	 name:"tea",
+ 	 age:23
+}
+let age = demo(obj, "age")   // number类型
+let name = demo(obj, "name")   // string类型
+```
+
 #### 泛型工具类型
 
 //
@@ -525,3 +554,6 @@ export declare interface AppProps {
 - [如何在 React 中完美运用？](https://juejin.cn/post/6910863689260204039)
 - [ts高级开发技巧](https://www.nblogs.com/archives/518/)
 - [TypeScript 错误property does not exist on type Object](https://www.cnblogs.com/limbobark/p/10043769.html)
+- [TS错误代码大全](https://blog.csdn.net/u010785091/article/details/103123696/)
+- [ts中泛型、泛型方法、泛型类、泛型接口](https://www.cnblogs.com/plBlog/p/12365627.html)
+- [ts(7053)错误解决方法](https://blog.csdn.net/qq_41411483/article/details/111458367)

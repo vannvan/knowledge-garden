@@ -274,3 +274,5 @@ export const qiankun = {
 - [lerna 中文文档](http://www.febeacon.com/lerna-docs-zh-cn/)
 - [@umi/plugin-qiankun](https://umijs.org/zh-CN/plugins/plugin-qiankun)
 - [umi](https://umijs.org/zh-CN/docs)
+- [qiankun船只的三种结局方案](https://blog.csdn.net/weixin_45507571/article/details/113761342)
+

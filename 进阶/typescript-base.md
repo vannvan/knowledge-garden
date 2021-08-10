@@ -363,7 +363,7 @@ push(a, 1, 2, 3);
 
 ### 接口
 
-#### 对象的形状
+#### 对象的type
 
 ```typescript
 interface Person {
@@ -385,6 +385,25 @@ interface Person {
   age?: number;
 }
 ```
+
+#### 任意属性
+
+```typescript
+interface Person {
+    name: string;
+    age?: number;
+    [propName: string]: any;
+}
+
+let tom: Person = {
+    name: 'Tom',
+    gender: 'male'
+};
+```
+
+
+
+
 
 ### 类
 
@@ -548,6 +567,28 @@ export declare interface AppProps {
 
 
 
+
+
+### 外部类型继承或重写
+
+不能在项目的`typings.d.ts`直接进行导入导出操作，因为当文件具有顶级`import`或`export`语句时，它被视为模块。
+
+`typings.d.ts`中定义的type和interface不用手动导入，而去给它植入了`import`或`export`操作时会影响其他全局的类型声明。
+
+所以可以将采用自定义全局type的方法对第三方类型进行调整,
+
+```typescript
+import { MicroAppStateActions } from 'qiankun';
+
+// 给MicroAppStateActions添加方法
+export interface _MicroAppStateActions extends MicroAppStateActions {
+  getGlobalState?: (key: any) => any;
+}
+
+```
+
+
+
 ### 参考链接
 
 - [TypeScript 入门教程](https://juejin.im/post/5edd8ad8f265da76fc45362c)
@@ -557,3 +598,4 @@ export declare interface AppProps {
 - [TS错误代码大全](https://blog.csdn.net/u010785091/article/details/103123696/)
 - [ts中泛型、泛型方法、泛型类、泛型接口](https://www.cnblogs.com/plBlog/p/12365627.html)
 - [ts(7053)错误解决方法](https://blog.csdn.net/qq_41411483/article/details/111458367)
+- [快速编写第三方包.d.ts](https://zhuanlan.zhihu.com/p/58123993)

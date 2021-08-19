@@ -149,11 +149,17 @@ https://www.jianshu.com/p/7b7378deb3e5?utm_source=oschina-app
 ### yarn
 
 设置镜像源：
-1、查看当前镜像源：yarn config get registry
+1、查看当前镜像源：
 
-2、切换淘宝镜像源：yarn config set registry https://registry.npm.taobao.org
+> yarn config get registry
 
-3、切换为yarn自带的镜像源：yarn config set registry https://registry.yarnpkg.com
+2、切换淘宝镜像源：
+
+> yarn config set registry https://registry.npm.taobao.org
+
+3、切换为yarn自带的镜像源：
+
+> yarn config set registry https://registry.yarnpkg.com
 
 ### npm搭建私服过程
 

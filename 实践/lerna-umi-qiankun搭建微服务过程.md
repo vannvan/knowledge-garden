@@ -276,3 +276,27 @@ export const qiankun = {
 - [umi](https://umijs.org/zh-CN/docs)
 - [qiankun船只的三种结局方案](https://blog.csdn.net/weixin_45507571/article/details/113761342)
 
+## 注意
+
+lerna 可以将子项目包安装在根目录而不用子项目分别安装的前提
+
+- 子项目不能有package-lock.json,yarn.lock
+- 子项目package.json必须有name和version属性
+- lerna clean 删除所有包中的`node_modules`目录
+
+lerna 将默认npm安装包改为yarn
+
+```json
+{
+  "packages": [
+    "project/*"
+  ],
+  "workspaces": [
+    "project/*"
+  ],
+  "version": "0.0.0",
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}
+```
+

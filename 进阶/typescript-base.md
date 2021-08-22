@@ -599,3 +599,4 @@ export interface _MicroAppStateActions extends MicroAppStateActions {
 - [ts中泛型、泛型方法、泛型类、泛型接口](https://www.cnblogs.com/plBlog/p/12365627.html)
 - [ts(7053)错误解决方法](https://blog.csdn.net/qq_41411483/article/details/111458367)
 - [快速编写第三方包.d.ts](https://zhuanlan.zhihu.com/p/58123993)
+- [你不知道的 TypeScript 泛型（万字长文，建议收藏）](https://segmentfault.com/a/1190000022993503)

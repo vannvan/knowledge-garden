@@ -1,8 +1,8 @@
-### 知识框架
+## 知识框架
 
 ![](https://user-gold-cdn.xitu.io/2020/6/8/172916652ec072e3?imageslim)
 
-### 基础类型
+## 基础类型
 
 #### Boolean
 
@@ -167,9 +167,7 @@ function infiniteLoop(): never {
 
 ```
 
-
-
-### 断言
+## 断言
 
 有时候会遇到一种情况，已经确切的了解了某个值的详细信息，清楚的知道一个实体具有比它现有类型更确切的类型。
 
@@ -189,9 +187,7 @@ let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 ```
 
-
-
-### 类型守卫
+## 类型守卫
 
 用于确保该类型再一定的范围内，l类型保护可以保证一个字符串是一个字符串，尽管他的值也可能是一个数值。其主要思想是尝试检测属性、方法或类型，以确定如何处理值。
 
@@ -219,7 +215,7 @@ function isString(x: any): x is string {
 }
 ```
 
-### 联合类型和类型别名
+## 联合类型和类型别名
 
 #### 联合类型
 
@@ -264,7 +260,7 @@ let greet = (message: Message) => {
 
 //
 
-### 函数
+## 函数
 
 #### TypeScript 函数与 JavaScript 函数的区别
 
@@ -361,7 +357,7 @@ push(a, 1, 2, 3);
 
 //
 
-### 接口
+## 接口
 
 #### 对象的type
 
@@ -401,15 +397,11 @@ let tom: Person = {
 };
 ```
 
-
-
-
-
-### 类
+## 类
 
 //
 
-### 泛型
+## 泛型
 
 设计泛型的关键目的是在成员之间提供有意义的约束，这些成员可以是：类的实例成员、类的方法、函数参数和函数返回值。
 
@@ -478,17 +470,11 @@ let name = demo(obj, "name")   // string类型
 
 //
 
-### 装饰器
+## 装饰器
 
 
 
-
-
-
-
-
-
-### 综合运用
+## 综合运用
 
 **基础类型**
 
@@ -565,11 +551,7 @@ export declare interface AppProps {
 }
 ```
 
-
-
-
-
-### 外部类型继承或重写
+## 外部类型继承或重写
 
 不能在项目的`typings.d.ts`直接进行导入导出操作，因为当文件具有顶级`import`或`export`语句时，它被视为模块。
 
@@ -587,9 +569,7 @@ export interface _MicroAppStateActions extends MicroAppStateActions {
 
 ```
 
-
-
-### 参考链接
+## 参考链接
 
 - [TypeScript 入门教程](https://juejin.im/post/5edd8ad8f265da76fc45362c)
 - [如何在 React 中完美运用？](https://juejin.cn/post/6910863689260204039)
@@ -600,3 +580,4 @@ export interface _MicroAppStateActions extends MicroAppStateActions {
 - [ts(7053)错误解决方法](https://blog.csdn.net/qq_41411483/article/details/111458367)
 - [快速编写第三方包.d.ts](https://zhuanlan.zhihu.com/p/58123993)
 - [你不知道的 TypeScript 泛型（万字长文，建议收藏）](https://segmentfault.com/a/1190000022993503)
+- [typescript 代码风格规范](https://www.jianshu.com/p/aae93fe0e84a)

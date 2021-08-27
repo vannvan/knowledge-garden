@@ -1,6 +1,7 @@
+### 命名
 ```css
  1. 内容优先,表现为辅
-  2. css命名中英文对照
+ 2. css命名中英文对照
   current 当前    hover 悬停    selected 挑选   disabled 禁用   focus 得到焦点    blur 失去焦点   checked 勾选    success 成功    error 出错
 
   header(hd) 头部   content(cnt) 内容   title(tit) 标题   item 项目（条）    cell 单元   image/pic(img) 图片   text(txt) 文字    top 顶部    scrubber 时序菜单
@@ -39,4 +40,8 @@
 
   count 总数/计数   plus 加号/正   minus 减号/负    controlgroup 控制组
 ```
+
+### 声明应该按照下表的顺序
+
+![image-20210827145923408](/Users/vannvan/Library/Application Support/typora-user-images/image-20210827145923408.png)
 

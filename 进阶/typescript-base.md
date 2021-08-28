@@ -581,3 +581,5 @@ export interface _MicroAppStateActions extends MicroAppStateActions {
 - [快速编写第三方包.d.ts](https://zhuanlan.zhihu.com/p/58123993)
 - [你不知道的 TypeScript 泛型（万字长文，建议收藏）](https://segmentfault.com/a/1190000022993503)
 - [typescript 代码风格规范](https://www.jianshu.com/p/aae93fe0e84a)
+- [漫谈 Typescript 研发体系建设](https://zhuanlan.zhihu.com/p/86276764)
+- [](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/tutorials/)

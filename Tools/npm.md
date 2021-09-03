@@ -78,7 +78,7 @@ npm config set init.license "MIT"
 
 > stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
 
-.npmrc
+### .npmrc
 
 ```js
 sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
@@ -160,6 +160,20 @@ https://www.jianshu.com/p/7b7378deb3e5?utm_source=oschina-app
 3、切换为yarn自带的镜像源：
 
 > yarn config set registry https://registry.yarnpkg.com
+
+### nrm
+
+全局安装
+
+> npm install -g nrm
+
+```bash
+nrm ls //  查看镜像
+nrm use // 使用镜像
+nrm add <镜像名> <镜像地址> // 添加镜像
+nrm del <镜像名> // 删除镜像
+nrm test npm    // 测试镜像响应时间
+```
 
 ### npm搭建私服过程
 

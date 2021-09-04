@@ -1,7 +1,7 @@
 ## 适用于公司
 
 ```json
-// .vscode/setting.json
+// .vscode/settings.json
 {
   "psi-header.config": {
     "forceToTop": true,

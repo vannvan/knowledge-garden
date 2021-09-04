@@ -19,3 +19,26 @@
 
 上面那段代码的解释：用绿底（42）黑字（30）显示“DONE”，然后使用黑底（40）绿字（32）显示余下的信息，最后还原属性`\033[0m`
 
+
+
+## 插件
+
+[color](http://www.ptbird.cn/nodejs-colorsjs-terminal-console.html)
+
+```javascript
+const logger = {
+  info(msg){
+    console.log(`[Info] ${colors.green(msg)}`);
+  },
+  warn(msg){
+    console.log(`[Warn] ${colors.yellow(msg)}`);
+  },
+  error(msg){
+    console.log(`[Error] ${colors.red(msg)}`);
+  }
+};
+
+logger.info('info message');
+logger.warn('warn message');
+logger.error('error message');
+```

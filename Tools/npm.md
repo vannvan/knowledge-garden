@@ -91,7 +91,7 @@ registry=https://registry.npm.taobao.org
 
 > 在当前项目下新建 `.npmrc`文件
 >
-> 内容    `registry=https://registry.npm.taobao.org`  
+> 内容 `registry=https://registry.npm.taobao.org`  
 
 ### node查看全局模块查找路径列表
 
@@ -175,6 +175,42 @@ nrm del <镜像名> // 删除镜像
 nrm test npm    // 测试镜像响应时间
 ```
 
+### npm的script详细用法
+
+[npm scripts 使用指南-阮一峰](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html)
+
+### script脚本的钩子
+
+npm 脚本有`pre`和`post`两个钩子。举例来说，`build`脚本命令的钩子就是`prebuild`和`postbuild`。
+
+```json	
+"prebuild": "echo I run before the build script",
+"build": "cross-env NODE_ENV=production webpack",
+"postbuild": "echo I run after the build script"
+```
+用户执行npm run build的时候，会自动按照下面的顺序执行。
+
+>  npm run prebuild && npm run build && npm run postbuild
+
+### 拿package.json中变量的方法
+
+假设有以下配置
+
+```javascript
+{
+  "name": "foo", 
+  "version": "1.2.5",
+  "scripts": {
+    "view": "node view.js"
+  }
+}
+```
+某个脚本中可以使用以下方式获取变量,使用`npm_package_`前缀即可获取
+```js
+// script.js
+console.log(process.env.npm_package_name); // foo
+console.log(process.env.npm_package_version); // 1.2.5
+```
 ### npm搭建私服过程
 
 > https://www.cnblogs.com/dearxinli/p/11170359.html

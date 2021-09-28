@@ -24,7 +24,12 @@ hot = new Handsontable(container, {
 
 ```
 
+## 工具栏操作方法对应style属性
 
+| 文字颜色 | 水平对齐          | 垂直对齐          | 下划线          | 加粗        | 斜体       | 文字大小  | 填充颜色         |      |      |
+| -------- | ----------------- | ----------------- | --------------- | ----------- | ---------- | --------- | ---------------- | ---- | ---- |
+| color    | text-align        | vertical-align    | text-decoration | font-weight | font-style | font-size | background-color |      |      |
+| rgb      | left/center/right | top/middle/bottom | underline       | bold        | italic     | 默认12pt  | rgb              |      |      |
 
 
 
@@ -32,4 +37,8 @@ hot = new Handsontable(container, {
 
 - [Handsontable属性、常用配置汇总](https://blog.csdn.net/qq_41483673/article/details/103488838)
 - [属性汇总](https://www.cnblogs.com/QiuJL/p/6956771.html)
+- [方法汇总-很全](https://www.cnblogs.com/tangle5500/p/11406026.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BE%B9%E6%A1%86)
+- [一个完整使用教程-很不错](https://segmentfault.com/a/1190000010296353?utm_source=sf-similar-article)
+- [](https://www.cnblogs.com/cosyer/p/6741546.html)
+- [别人的资料](https://www.jianshu.com/p/924481947c30)
 

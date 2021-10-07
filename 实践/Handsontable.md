@@ -31,6 +31,37 @@ hot = new Handsontable(container, {
 | color    | text-align        | vertical-align    | text-decoration | font-weight | font-style | font-size | background-color |      |      |
 | rgb      | left/center/right | top/middle/bottom | underline       | bold        | italic     | 默认12pt  | rgb              |      |      |
 
+## 操作单元格样式的大体过程
+
+```js
+// 传入hot实例 
+const setAlign = (hot: any) => {
+    console.log('selected:', hot.getSelected())
+    const align = 'center'
+    let selected = hot.getSelected() // 这里拿到选中的单元格
+    let [startRow, startCol, endRow, endCol] = selected[0]
+    // 这里要做交换的原因是因为可能是从右下往左上选的
+    if (startRow > endRow) {
+      ;[startRow, endRow] = [endRow, startRow]
+    }
+    if (startCol > endCol) {
+      ;[startCol, endCol] = [endCol, startCol]
+    }
+    console.log(startRow, startCol, endRow, endCol)
+  	// 二维表格需要两次遍历
+    for (let i = startRow; i <= endRow; i++) {
+      for (let j = startCol; j <= endCol; j++) {
+        let cellDef = hot.getCell(i, j)
+        let td = hot.getCell(i, j)
+        if (!cellDef) {
+          continue
+        }
+        $(td).css('text-align', align)
+      }
+    }
+  }
+```
+
 
 
 ## 有用的文章

@@ -2212,3 +2212,27 @@ function getQueryVariable(variable)
 }
 ```
 
+### 点击DOM以外的事件
+
+```js
+$(document).mouseup(function (e: ) {
+    let child = $('.select-option-wrap'); // 设置目标区域
+    if (!child.is(e.target) && child.has(e.target).length === 0) {
+      //TODO
+    }
+});
+```
+
+### 生成大写字母数组列表
+
+```js
+//生成大写字母  A的Unicode值为65
+function generateBig_1(){
+    var str = [];
+    for(var i=65;i<91;i++){
+        str.push(String.fromCharCode(i));
+    }
+    return str;
+}
+```
+

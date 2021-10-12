@@ -1,4 +1,4 @@
-## 常用配置
+## 	常用配置
 
 ```js
 // 模拟数据 100行 50列
@@ -72,4 +72,5 @@ const setAlign = (hot: any) => {
 - [一个完整使用教程-很不错](https://segmentfault.com/a/1190000010296353?utm_source=sf-similar-article)
 - [](https://www.cnblogs.com/cosyer/p/6741546.html)
 - [别人的资料](https://www.jianshu.com/p/924481947c30)
+- [常用配置项笔记-详细](http://t.zoukankan.com/daowangzhizhu-pt-p-7702019.html)
 

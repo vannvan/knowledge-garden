@@ -569,6 +569,34 @@ export interface _MicroAppStateActions extends MicroAppStateActions {
 
 ```
 
+## 子类调用基类构造函数
+
+```ts
+
+class Animal {
+  name: string;
+  constructor(theName: string) {
+    this.name = theName;
+  }
+  move(distanceInMeters: number = 0) {
+    console.log(`${this.name} moved ${distanceInMeters}m.`);
+  }
+}
+class Snake extends Animal {
+  constructor(name: string) {
+    super(name);
+  }
+  move(distanceInMeters = 5) {
+    console.log("Slithering...");
+    super.move(distanceInMeters);
+  }
+}
+```
+
+
+
+
+
 ## 参考链接
 
 - [TypeScript 入门教程](https://juejin.im/post/5edd8ad8f265da76fc45362c)

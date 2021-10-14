@@ -139,6 +139,24 @@ guid() // "a1ca0f7b-51bd-4bf3-a5d5-6a74f6adc1c7"
 // 其他方法  https://www.cnblogs.com/goloving/p/13853524.html
 ```
 
+### 包含大小写字母和数字的随记字符串
+
+```js
+/**
+ * 生成长度为len的包含a-z、A-Z、0-9的随机字符串
+ */
+function generateStr(len = 18) {
+  // 一行代码生成0-9、A-Z、a-z、总长度为62的字符数组
+  var arr = [...new Array(62)].map((item, i) =>
+    String.fromCharCode(i + (i < 10 ? 0 : i < 36 ? 7 : 13) + 48)
+  );
+  return [...new Array(len)]
+    .map(() => arr[Math.floor(Math.random() * arr.length)])
+    .join('');
+}
+generateStr(18);
+```
+
 ### 生成指定范围随机数
 
 ```js
@@ -2234,5 +2252,32 @@ function generateBig_1(){
     }
     return str;
 }
+```
+
+### 监听打开开发者工具
+
+```js
+const im = new Image();
+Object.defineProperty(im, 'id', {
+  get: function () {
+    // 在这里放入你的代码，比如我这里会让他跳到百度
+    console.log('Console is opened');
+    window.location.href = 'http://www.baidu.com';
+  },
+});
+console.log(im); //谷歌最新版失效
+
+let num = 0; //谷歌最新版有效
+const devtools = new Date();
+devtools.toString = function () {
+  num++;
+  if (num > 1) {
+    // 在这里放入你的代码，比如我这里会让他跳到百度
+    console.log('Console is opened');
+    // window.location.href = "http://www.baidu.com";
+    return Date.prototype.toString.call(devtools); // 返回devtools结果（这一步不是必须的）
+  }
+};
+console.log(devtools);
 ```
 

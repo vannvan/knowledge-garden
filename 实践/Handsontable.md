@@ -31,5 +31,8 @@ hot = new Handsontable(container, {
 ## 有用的文章
 
 - [Handsontable属性、常用配置汇总](https://blog.csdn.net/qq_41483673/article/details/103488838)
+
 - [属性汇总](https://www.cnblogs.com/QiuJL/p/6956771.html)
+
+- [handsontable 方法汇总](https://www.cnblogs.com/QiuJL/p/6956704.html)
 

@@ -593,9 +593,11 @@ class Snake extends Animal {
 }
 ```
 
+### react event类型
 
-
-
+```js
+onChange={(e: React.ChangeEvent<HTMLInputElement>)}  // HTMLInputElement视情况而定
+```
 
 ## 参考链接
 

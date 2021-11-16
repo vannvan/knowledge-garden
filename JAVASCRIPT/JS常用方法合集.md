@@ -1,4 +1,4 @@
-### JS的6个"假"值
+###  JS的6个"假"值
 
 > `null`  `false`  `undefined`  `0`  `''(空字符串)`  `NaN`
 

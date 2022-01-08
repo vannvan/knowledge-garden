@@ -613,4 +613,4 @@ onChange={(e: React.ChangeEvent<HTMLInputElement>)}  // HTMLInputElement视情�
 - [typescript 代码风格规范](https://www.jianshu.com/p/aae93fe0e84a)
 - [漫谈 Typescript 研发体系建设](https://zhuanlan.zhihu.com/p/86276764)
 - [ts文档](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/tutorials/)
-- 
+- [typescript 中的keyof、 in](https://blog.csdn.net/lhjuejiang/article/details/119038312)

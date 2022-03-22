@@ -167,6 +167,62 @@ function infiniteLoop(): never {
 
 ```
 
+#### object, Object 和 {} 类型
+
+##### 1.object 类型
+
+它用于表示非原始类型。
+
+```typescript
+// node_modules/typescript/lib/lib.es5.d.ts
+interface ObjectConstructor {
+  create(o: object | null): any;
+  // ...
+}
+
+const proto = {};
+
+Object.create(proto);     // OK
+Object.create(null);      // OK
+Object.create(undefined); // Error
+Object.create(1337);      // Error
+Object.create(true);      // Error
+Object.create("oops");    // Error
+
+```
+
+##### 2.Object 类型
+
+它是所有 Object 类的实例的类型，它由以下两个接口来定义
+
+```ty
+```
+
+##### 3.{} 类型
+
+{} 类型描述了一个没有成员的对象。当你试图访问这样一个对象的任意属性时，TypeScript 会产生一个编译时错误。
+
+```typescript
+// Type {}
+const obj = {};
+
+// Error: Property 'prop' does not exist on type '{}'.
+obj.prop = "semlinker";
+```
+
+但是，你仍然可以使用在 Object 类型上定义的所有属性和方法，这些属性和方法可通过 JavaScript 的原型链隐式地使用
+
+```typescript
+// Type {}
+const obj = {};
+
+// "[object Object]"
+obj.toString();
+
+```
+
+
+
 ## 断言
 
 有时候会遇到一种情况，已经确切的了解了某个值的详细信息，清楚的知道一个实体具有比它现有类型更确切的类型。
@@ -602,6 +658,7 @@ onChange={(e: React.ChangeEvent<HTMLInputElement>)}  // HTMLInputElement视情�
 ## 参考链接
 
 - [TypeScript 入门教程](https://juejin.im/post/5edd8ad8f265da76fc45362c)
+- [一份不可多得的 TS 学习指南-阿宝哥](https://juejin.cn/post/6872111128135073806#heading-16)
 - [如何在 React 中完美运用？](https://juejin.cn/post/6910863689260204039)
 - [ts高级开发技巧](https://www.nblogs.com/archives/518/)
 - [TypeScript 错误property does not exist on type Object](https://www.cnblogs.com/limbobark/p/10043769.html)
@@ -610,11 +667,10 @@ onChange={(e: React.ChangeEvent<HTMLInputElement>)}  // HTMLInputElement视情�
 - [ts(7053)错误解决方法](https://blog.csdn.net/qq_41411483/article/details/111458367)
 - [快速编写第三方包.d.ts](https://zhuanlan.zhihu.com/p/58123993)
 - [你不知道的 TypeScript 泛型（万字长文，建议收藏）](https://segmentfault.com/a/1190000022993503)
-- [typescript 代码风格规范](https://www.jianshu.com/p/aae93fe0e84a)
+
 - [漫谈 Typescript 研发体系建设](https://zhuanlan.zhihu.com/p/86276764)
 - [ts文档](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/tutorials/)
-
 - [typescript 中的keyof、 in](https://blog.csdn.net/lhjuejiang/article/details/119038312)
-=======
 - [配置详解和常见错误](https://juejin.cn/post/6985808225044004894#heading-42)
->>>>>>> bba90e2ba777efd1c21fde45ae7789c21c51621a
+- [typescript 代码风格规范](https://www.jianshu.com/p/aae93fe0e84a)
+

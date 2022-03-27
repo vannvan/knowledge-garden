@@ -667,10 +667,10 @@ onChange={(e: React.ChangeEvent<HTMLInputElement>)}  // HTMLInputElement视情�
 - [ts(7053)错误解决方法](https://blog.csdn.net/qq_41411483/article/details/111458367)
 - [快速编写第三方包.d.ts](https://zhuanlan.zhihu.com/p/58123993)
 - [你不知道的 TypeScript 泛型（万字长文，建议收藏）](https://segmentfault.com/a/1190000022993503)
-
 - [漫谈 Typescript 研发体系建设](https://zhuanlan.zhihu.com/p/86276764)
 - [ts文档](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/tutorials/)
 - [typescript 中的keyof、 in](https://blog.csdn.net/lhjuejiang/article/details/119038312)
 - [配置详解和常见错误](https://juejin.cn/post/6985808225044004894#heading-42)
 - [typescript 代码风格规范](https://www.jianshu.com/p/aae93fe0e84a)
+- [错误信息列表](https://www.tslang.cn/docs/handbook/error.html)
 

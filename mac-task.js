@@ -35,6 +35,6 @@ exec('node push')
 
 
 
-const now = new Date();const currentTime = `${now.getHours()}:${now.getMinutes()}`;console.log(`The time is ${currentTime}`);
+// const now = new Date();const currentTime = `${now.getHours()}:${now.getMinutes()}`;console.log(`The time is ${currentTime}`);
 
 

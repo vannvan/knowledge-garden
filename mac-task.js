@@ -2,21 +2,21 @@
 
 // const fs = require("fs");
 
-// function dateToStr(datetime) {
-//   var dateTime = new Date(datetime);
-//   var year = dateTime.getFullYear();
-//   var month = dateTime.getMonth() + 1; //js从0开始取
-//   var date = dateTime.getDate();
-//   var hour = dateTime.getHours();
-//   var minutes = dateTime.getMinutes();
-//   var second = dateTime.getSeconds();
-//   month = month < 10 ? '0' + month : month;
-//   date = date < 10 ? '0' + date : date;
-//   hour = hour < 10 ? '0' + hour : hour;
-//   minutes = minutes < 10 ? '0' + minutes : minutes;
-//   second = second < 10 ? '0' + second : second;
-//   return year + "/" + month + "/" + date + " " + hour + ":" + minutes + ":" + second;
-// }
+function dateToStr(datetime) {
+  var dateTime = new Date(datetime);
+  var year = dateTime.getFullYear();
+  var month = dateTime.getMonth() + 1; //js从0开始取
+  var date = dateTime.getDate();
+  var hour = dateTime.getHours();
+  var minutes = dateTime.getMinutes();
+  var second = dateTime.getSeconds();
+  month = month < 10 ? '0' + month : month;
+  date = date < 10 ? '0' + date : date;
+  hour = hour < 10 ? '0' + hour : hour;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  second = second < 10 ? '0' + second : second;
+  return year + "/" + month + "/" + date + " " + hour + ":" + minutes + ":" + second;
+}
 
 // let commitMessage = dateToStr(new Date())
 
@@ -33,6 +33,6 @@ const {exec} = require('shelljs')
 exec('node push')
 
 
-const now = new Date();const currentTime = `${now.getHours()}:${now.getMinutes()}`;console.log(`推送时间: ${currentTime}`);
+const now = new Date();const currentTime = `${now.getHours()}:${now.getMinutes()}`;console.log(`推送时间: ${dateToStr(new Date())}`);
 
 

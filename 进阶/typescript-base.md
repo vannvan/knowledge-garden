@@ -526,6 +526,28 @@ let name = demo(obj, "name")   // string类型
 
 //
 
+
+
+
+
+#### 泛型约束
+
+```js
+interface Length {
+	langth:number
+} 
+
+function log<T extends Length>(value:T):T {
+  console.log(value,value.length)
+  return value
+}
+
+log('sshshs')
+log([1,2,3])
+log({length:1})
+log(1) // 不行
+```
+
 ## 装饰器
 
 

@@ -52,3 +52,9 @@ remote:      https://github.com/vannvan/archives/security/dependabot
 remote: 
 To github.com:vannvan/archives.git
    dffd3d8..cc68d08  master -> master
+remote: 
+remote: GitHub found 4 vulnerabilities on vannvan/archives's default branch (2 high, 2 moderate). To find out more, visit:        
+remote:      https://github.com/vannvan/archives/security/dependabot        
+remote: 
+To github.com:vannvan/archives.git
+   cc68d08..d3d8552  master -> master

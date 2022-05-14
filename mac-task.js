@@ -28,7 +28,8 @@ function dateToStr(datetime) {
 //   }
 // });
 
-const {exec} = require('shelljs')
+// const {exec} = require('shelljs')
+const exec = require('child_process').exec
 
 exec('node push')
 

@@ -61,6 +61,7 @@
 ### 周边
 
 - [从前端角度看企业软件的研发过程](https://github.com/xufei/blog/issues/51 )
+- [高级简历](https://resume.io/resume-templates)
 
 ### 开发干货
 

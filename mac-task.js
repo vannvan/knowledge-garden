@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
-
+// const fs = require("fs");
 
 function dateToStr(datetime) {
   var dateTime = new Date(datetime);
@@ -19,12 +18,22 @@ function dateToStr(datetime) {
   return year + "/" + month + "/" + date + " " + hour + ":" + minutes + ":" + second;
 }
 
-let commitMessage = dateToStr(new Date())
+// let commitMessage = dateToStr(new Date())
 
-fs.appendFile("commit-log.txt", `${commitMessage} \n`, err => {
-  if (!err) {
-    fs.readFile("commit-log.txt", "utf8", (err, data) => {
-      console.log(data); // Hello world
-    });
-  }
-});
+// fs.appendFile("commit-log.txt", `${commitMessage} \n`, err => {
+//   if (!err) {
+//     fs.readFile("commit-log.txt", "utf8", (err, data) => {
+//       console.log(data); // Hello world
+//     });
+//   }
+// });
+
+// const {exec} = require('shelljs')
+const exec = require('child_process').exec
+
+exec('node push')
+
+
+const now = new Date();const currentTime = `${now.getHours()}:${now.getMinutes()}`;console.log(`推送时间: ${dateToStr(new Date())}`);
+
+

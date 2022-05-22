@@ -56,7 +56,9 @@ sudo scutil --set HostName 自定义主机名
 
 
 
+### mac 自动定时执行任务
 
+https://www.jianshu.com/p/4fbad2909a21
 
 ### nginx 安装使用
 

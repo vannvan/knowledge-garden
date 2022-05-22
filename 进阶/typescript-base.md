@@ -413,6 +413,70 @@ push(a, 1, 2, 3);
 
 //
 
+
+
+#### 为对象动态分配属性
+
+在 JavaScript 中，我们可以很容易地为对象动态分配属性，比如：
+
+```js
+let developer = {};
+developer.name = "semlinker";
+```
+
+但是在ts中会提示以下异常信息
+
+> Property 'name' does not exist on type '{}'.(2339)
+
+`{}` 类型表示一个没有包含成员的对象，所以该类型没有包含 `name` 属性。为了解决这个问题，我们可以声明一个 `LooseObject` 类型
+
+```typescript
+interface LooseObject {
+  [key: string]: any
+}
+```
+
+该类型使用 **索引签名** 的形式描述 `LooseObject` 类型可以接受 key 类型是字符串，值的类型是 any 类型的字段。有了 `LooseObject` 类型之后，我们就可以通过以下方式来解决上述问题：
+
+```typescript
+interface LooseObject {
+  [key: string]: any
+}
+
+let developer: LooseObject = {};
+developer.name = "semlinker";
+```
+
+另外一种场景
+
+```typescript
+interface Developer {
+  name: string;
+  age?: number;
+  [key: string]: any
+}
+
+let developer: Developer = { name: "semlinker" };
+developer.age = 30;
+developer.city = "XiaMen";
+```
+
+除了使用`索引签名`之外，也可以使用ts内置的工具类型`Record`来定义以上接口 
+
+```typescript
+// type Record<K extends string | number | symbol, T> = { [P in K]: T; }
+interface Developer extends Record<string, any> {
+  name: string;
+  age?: number;
+}
+
+let developer: Developer = { name: "semlinker" };
+developer.age = 30;
+developer.city = "XiaMen";
+```
+
+
+
 ## 接口
 
 #### 对象的type

@@ -468,3 +468,23 @@ remote:      https://github.com/vannvan/archives/security/dependabot
 remote: 
 To github.com:vannvan/archives.git
    27af503..670caa5  master -> master
+To github.com:vannvan/archives.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'github.com:vannvan/archives.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+/Users/vannvan/Documents/vannvan@github/archives/push.js:39
+  exit(1);
+  ^
+
+ReferenceError: exit is not defined
+    at Object.<anonymous> (/Users/vannvan/Documents/vannvan@github/archives/push.js:39:3)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:79:12)
+    at node:internal/main/run_main_module:17:47

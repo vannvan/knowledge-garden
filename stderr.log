@@ -531,3 +531,18 @@ ReferenceError: exit is not defined
 From github.com:vannvan/archives
    670caa5..211892d  master     -> origin/master
 fatal: Not possible to fast-forward, aborting.
+To github.com:vannvan/archives.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'github.com:vannvan/archives.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+/Users/vannvan/Documents/vannvan@github/archives/push.js:44
+    exit(1);
+    ^
+
+ReferenceError: exit is not defined
+    at Timeout._onTimeout (/Users/vannvan/Documents/vannvan@github/archives/push.js:44:5)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)

@@ -1139,6 +1139,116 @@ arr.map((el,index)=>{
 })
 ```
 
+### 对象深度赋值/取值
+
+```js
+// 根据路径创建对象
+export const createObject = (path, value) => {
+  let keyPath = [];
+  if (isArray(path)) keyPath = [...path];
+  if (keyPath.length) {
+    const key = keyPath.shift();
+    if (isNumber(key)) {
+      const object = new Array(key + 1);
+      object[key] = createObject(keyPath, value);
+      return object;
+    } else return { [key]: createObject(keyPath, value) };
+  } else return value;
+};
+export const setPathValue = (object, path, value) => {
+  let keyPath = [];
+  if (isArray(path)) keyPath = [...path];
+  if (keyPath.length) {
+    const key = keyPath.shift();
+    if (object && object[key])
+      object[key] = setPathValue(object[key], keyPath, value);
+    else object[key] = createObject(keyPath, value);
+  } else object = value;
+  return object;
+};
+export const getPathValue = (object, path) => {
+  let keyPath = [];
+  if (isArray(path)) keyPath = [...path];
+  else if (isString(path) || isNumber(path)) keyPath = [path];
+  if (keyPath.length) {
+    const key = keyPath.shift();
+    if (object && !isUndefined(object[key]))
+      return getPathValue(object[key], keyPath);
+    else return undefined;
+  } else return object;
+};
+
+
+// 赋值2，已有的属性赋值
+const setDeepValue = (object: any, path: string[], value: any) => {
+  let fieldPath = [...path];
+  if (fieldPath.length) {
+    const key = fieldPath.shift();
+    if (object && key && object[key]) {
+      object[key] = setDeepValue(object[key], fieldPath, value);
+    }
+    console.log('object', object);
+  } else {
+    object = value;
+  }
+  return object;
+};
+
+
+/**
+ * 设置深层对象属性，没有的属性赋值
+ * @param object
+ * @param field
+ * @param val
+ */
+const setDeepValue = (object: any, field: string, val: any) => {
+  const newObj = object;
+  let arr = field.split('.');
+  let str = 'newObj';
+  for (var i = 0; i < arr.length; i++) {
+    str += '.' + arr[i];
+    if (eval(str) == undefined) {
+      eval(str + '={}');
+    }
+  }
+  eval(str + '=' + val);
+};
+
+
+
+// 示例
+const object = createObject(["aaa", "bbb", 3, "ccc"], {ddd: "初始值"});
+setPathValue(object, ["aaa", "bbb", 3], {eee: "新赋值"});
+const value = getPathValue(object, ["aaa", "bbb", 3, "eee"]);
+
+
+// 实际应用
+
+/**
+ * 给Mesh扩展一个u方法用来操作userData
+ * @param model
+ */
+export const assginUserDataFuncForModel = (model: THREE.Mesh) => {
+  model.u = function (key, value) {
+    if (isString(key)) {
+      if (/./.test(key)) {
+        let keyArr = key.split('.');
+        setDeepValue(this.userData, keyArr, value);
+        return getPathValue(this.userData, keyArr);
+      } else {
+        this.userData = {
+          ...this.userData,
+          [key]: value,
+        };
+        return this.userData[key];
+      }
+    } else {
+      throw Error('invalid key');
+    }
+  };
+};
+```
+
 ### 将一个对象数组数据拿出来变成另一个对象
 
 ```js

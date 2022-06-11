@@ -2435,5 +2435,55 @@ export const importScript = (() => {
 })();
 ```
 
+### 深度遍历
+
+```js
+// 不用递归实现深度遍历优先  
+const depthFirstSearchWithoutRecursive = source => {
+    const result = []; // 存放结果的数组
+    // 当前栈内为全部数组
+    const stack = JSON.parse(JSON.stringify(source));
+    // 循环条件，栈不为空
+    while (stack.length !== 0) {
+      // 最上层节点出栈
+      const node = stack.shift();
+      // 存放节点
+      result.push(node.id);
+      // 如果该节点有子节点，将子节点存入栈中，继续下一次循环
+      const len = node.children && node.children.length;
+      for (let i = len - 1; i >= 0; i -= 1) {
+        stack.unshift(node.children[i]);
+      }
+    }
+    return result;
+  };
+
+depthFirstSearchWithoutRecursive([{id:1,children:[{id:3}]},{id:2}]) // [1, 3, 2]
+```
+
+### 广度遍历
+
+```js
+const breadthFirstSearch = source => {
+    const result = []; // 存放结果的数组
+    // 当前队列为全部数据
+    const queue = JSON.parse(JSON.stringify(source));
+    // 循环条件，队列不为空
+    while (queue.length > 0) {
+      // 第一个节点出队列
+      const node = queue.shift();
+      // 存放结果数组
+      result.push(node.id);
+      // 当前节点有子节点则将子节点存入队列，继续下一次的循环
+      const len = node.children && node.children.length;
+      for (let i = 0; i < len; i += 1) {
+        queue.push(node.children[i]);
+      }
+    }
+    return result;
+  };
+breadthFirstSearch([{id:1,children:[{id:3}]},{id:2}]) // [1, 2, 3]
+```
+
 
 

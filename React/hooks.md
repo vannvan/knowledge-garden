@@ -109,6 +109,43 @@ const FunctionComponent = props => {
 
 
 
+## 解决使用 useCallback 时，回调函数每次只能访问到初始值的问题
+
+```ts
+import { useCallback, useEffect, useRef } from 'react';
+
+/**
+ * 解决使用 useCallback 时，回调函数每次只能访问到初始值的问题
+ * @param fn
+ * @param dependencies
+ * @returns
+ */
+const useEffectCallback = (fn: any, dependencies: Array<any>) => {
+  const ref: any = useRef(null);
+
+  useEffect(() => {
+    ref.current = fn;
+  }, [fn, ...dependencies]);
+
+  return useCallback(
+    (...rest) => {
+      // 通过 ref.current 访问最新的回调函数
+      ref.current && ref.current(...rest);
+    },
+    [ref],
+  );
+};
+
+export default useEffectCallback;
+
+```
+
+
+
+
+
+
+
 
 
 ## 文章

@@ -462,3 +462,87 @@ remote:      https://github.com/vannvan/archives/security/dependabot
 remote: 
 To github.com:vannvan/archives.git
    5f446cf..27af503  master -> master
+remote: 
+remote: GitHub found 4 vulnerabilities on vannvan/archives's default branch (2 high, 2 moderate). To find out more, visit:        
+remote:      https://github.com/vannvan/archives/security/dependabot        
+remote: 
+To github.com:vannvan/archives.git
+   27af503..670caa5  master -> master
+To github.com:vannvan/archives.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'github.com:vannvan/archives.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+/Users/vannvan/Documents/vannvan@github/archives/push.js:39
+  exit(1);
+  ^
+
+ReferenceError: exit is not defined
+    at Object.<anonymous> (/Users/vannvan/Documents/vannvan@github/archives/push.js:39:3)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:79:12)
+    at node:internal/main/run_main_module:17:47
+To github.com:vannvan/archives.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'github.com:vannvan/archives.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+/Users/vannvan/Documents/vannvan@github/archives/push.js:39
+  exit(1);
+  ^
+
+ReferenceError: exit is not defined
+    at Object.<anonymous> (/Users/vannvan/Documents/vannvan@github/archives/push.js:39:3)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:79:12)
+    at node:internal/main/run_main_module:17:47
+To github.com:vannvan/archives.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'github.com:vannvan/archives.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+/Users/vannvan/Documents/vannvan@github/archives/push.js:39
+  exit(1);
+  ^
+
+ReferenceError: exit is not defined
+    at Object.<anonymous> (/Users/vannvan/Documents/vannvan@github/archives/push.js:39:3)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:79:12)
+    at node:internal/main/run_main_module:17:47
+From github.com:vannvan/archives
+   670caa5..211892d  master     -> origin/master
+fatal: Not possible to fast-forward, aborting.
+To github.com:vannvan/archives.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'github.com:vannvan/archives.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+/Users/vannvan/Documents/vannvan@github/archives/push.js:44
+    exit(1);
+    ^
+
+ReferenceError: exit is not defined
+    at Timeout._onTimeout (/Users/vannvan/Documents/vannvan@github/archives/push.js:44:5)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)

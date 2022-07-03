@@ -188,6 +188,21 @@ npm 脚本有`pre`和`post`两个钩子。举例来说，`build`脚本命令的�
 "build": "cross-env NODE_ENV=production webpack",
 "postbuild": "echo I run after the build script"
 ```
+```
+prepublish: 在包发布之前运行，也会在npm install安装到本地时运行
+publish,postpublish: 包被发布之后运行
+preinstall: 包被安装前运行
+install,postinstall: 包被安装后运行
+preuninstall,uninstall: 包被卸载前运行
+postuninstall: 包被卸载后运行
+preversion: bump包版本前运行
+postversion: bump包版本后运行
+pretest,test,posttest: 通过npm test命令运行
+prestop,stop,poststop: 通过npm stop命令运行
+prestart,start,poststart: 通过npm start命令运行
+prerestart,restart,postrestart: 通过npm restart运行
+```
+
 用户执行npm run build的时候，会自动按照下面的顺序执行。
 
 >  npm run prebuild && npm run build && npm run postbuild
@@ -211,6 +226,8 @@ npm 脚本有`pre`和`post`两个钩子。举例来说，`build`脚本命令的�
 console.log(process.env.npm_package_name); // foo
 console.log(process.env.npm_package_version); // 1.2.5
 ```
+
+
 ### npm搭建私服过程
 
 > https://www.cnblogs.com/dearxinli/p/11170359.html

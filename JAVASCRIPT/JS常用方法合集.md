@@ -1139,6 +1139,116 @@ arr.map((el,index)=>{
 })
 ```
 
+### 对象深度赋值/取值
+
+```js
+// 根据路径创建对象
+export const createObject = (path, value) => {
+  let keyPath = [];
+  if (isArray(path)) keyPath = [...path];
+  if (keyPath.length) {
+    const key = keyPath.shift();
+    if (isNumber(key)) {
+      const object = new Array(key + 1);
+      object[key] = createObject(keyPath, value);
+      return object;
+    } else return { [key]: createObject(keyPath, value) };
+  } else return value;
+};
+export const setPathValue = (object, path, value) => {
+  let keyPath = [];
+  if (isArray(path)) keyPath = [...path];
+  if (keyPath.length) {
+    const key = keyPath.shift();
+    if (object && object[key])
+      object[key] = setPathValue(object[key], keyPath, value);
+    else object[key] = createObject(keyPath, value);
+  } else object = value;
+  return object;
+};
+export const getPathValue = (object, path) => {
+  let keyPath = [];
+  if (isArray(path)) keyPath = [...path];
+  else if (isString(path) || isNumber(path)) keyPath = [path];
+  if (keyPath.length) {
+    const key = keyPath.shift();
+    if (object && !isUndefined(object[key]))
+      return getPathValue(object[key], keyPath);
+    else return undefined;
+  } else return object;
+};
+
+
+// 赋值2，已有的属性赋值
+const setDeepValue = (object: any, path: string[], value: any) => {
+  let fieldPath = [...path];
+  if (fieldPath.length) {
+    const key = fieldPath.shift();
+    if (object && key && object[key]) {
+      object[key] = setDeepValue(object[key], fieldPath, value);
+    }
+    console.log('object', object);
+  } else {
+    object = value;
+  }
+  return object;
+};
+
+
+/**
+ * 设置深层对象属性，没有的属性赋值
+ * @param object
+ * @param field
+ * @param val
+ */
+const setDeepValue = (object: any, field: string, val: any) => {
+  const newObj = object;
+  let arr = field.split('.');
+  let str = 'newObj';
+  for (var i = 0; i < arr.length; i++) {
+    str += '.' + arr[i];
+    if (eval(str) == undefined) {
+      eval(str + '={}');
+    }
+  }
+  eval(str + '=' + val);
+};
+
+
+
+// 示例
+const object = createObject(["aaa", "bbb", 3, "ccc"], {ddd: "初始值"});
+setPathValue(object, ["aaa", "bbb", 3], {eee: "新赋值"});
+const value = getPathValue(object, ["aaa", "bbb", 3, "eee"]);
+
+
+// 实际应用
+
+/**
+ * 给Mesh扩展一个u方法用来操作userData
+ * @param model
+ */
+export const assginUserDataFuncForModel = (model: THREE.Mesh) => {
+  model.u = function (key, value) {
+    if (isString(key)) {
+      if (/./.test(key)) {
+        let keyArr = key.split('.');
+        setDeepValue(this.userData, keyArr, value);
+        return getPathValue(this.userData, keyArr);
+      } else {
+        this.userData = {
+          ...this.userData,
+          [key]: value,
+        };
+        return this.userData[key];
+      }
+    } else {
+      throw Error('invalid key');
+    }
+  };
+};
+```
+
 ### 将一个对象数组数据拿出来变成另一个对象
 
 ```js
@@ -2323,6 +2433,56 @@ export const importScript = (() => {
     });
   };
 })();
+```
+
+### 深度遍历
+
+```js
+// 不用递归实现深度遍历优先  
+const depthFirstSearchWithoutRecursive = source => {
+    const result = []; // 存放结果的数组
+    // 当前栈内为全部数组
+    const stack = JSON.parse(JSON.stringify(source));
+    // 循环条件，栈不为空
+    while (stack.length !== 0) {
+      // 最上层节点出栈
+      const node = stack.shift();
+      // 存放节点
+      result.push(node.id);
+      // 如果该节点有子节点，将子节点存入栈中，继续下一次循环
+      const len = node.children && node.children.length;
+      for (let i = len - 1; i >= 0; i -= 1) {
+        stack.unshift(node.children[i]);
+      }
+    }
+    return result;
+  };
+
+depthFirstSearchWithoutRecursive([{id:1,children:[{id:3}]},{id:2}]) // [1, 3, 2]
+```
+
+### 广度遍历
+
+```js
+const breadthFirstSearch = source => {
+    const result = []; // 存放结果的数组
+    // 当前队列为全部数据
+    const queue = JSON.parse(JSON.stringify(source));
+    // 循环条件，队列不为空
+    while (queue.length > 0) {
+      // 第一个节点出队列
+      const node = queue.shift();
+      // 存放结果数组
+      result.push(node.id);
+      // 当前节点有子节点则将子节点存入队列，继续下一次的循环
+      const len = node.children && node.children.length;
+      for (let i = 0; i < len; i += 1) {
+        queue.push(node.children[i]);
+      }
+    }
+    return result;
+  };
+breadthFirstSearch([{id:1,children:[{id:3}]},{id:2}]) // [1, 2, 3]
 ```
 
 

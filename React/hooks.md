@@ -93,6 +93,45 @@ userRef只能在子组件是class组件和原生DOM中使用，子组件是函�
 
 如果你子组件使用的是hooks函数式写的话父组件是用不了useRef来获取dom的，只有把子组件换成class才能使用
 
+```ts
+
+import React, { useState, useCallback, useRef } from "react";
+
+export default function Timer() {
+  // 定义 time state 用于保存计时的累积时间
+  const [time, setTime] = useState(0);
+
+  // 定义 timer 这样一个容器用于在跨组件渲染之间保存一个变量
+  const timer = useRef(null);
+
+  // 开始计时的事件处理函数
+  const handleStart = useCallback(() => {
+    // 使用 current 属性设置 ref 的值
+    timer.current = window.setInterval(() => {
+      setTime((time) => time + 1);
+    }, 100);
+  }, []);
+
+  // 暂停计时的事件处理函数
+  const handlePause = useCallback(() => {
+    // 使用 clearInterval 来停止计时
+    window.clearInterval(timer.current);
+    timer.current = null;
+  }, []);
+
+  return (
+    <div>
+      {time / 10} seconds.
+      <br />
+      <button onClick={handleStart}>Start</button>
+      <button onClick={handlePause}>Pause</button>
+    </div>
+  );
+}
+```
+
+
+
 ## 开发风格
 
 一个函数组件在使用`Hooks`时应该遵循将Hooks的调用放在函数的开头部分，随后紧跟一个纯函数组件渲染逻辑
@@ -106,6 +145,8 @@ const FunctionComponent = props => {
     // 将数据转变为JSX并返回
 };
 ```
+
+
 
 
 

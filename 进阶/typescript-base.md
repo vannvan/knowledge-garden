@@ -565,6 +565,8 @@ function get<T extends object, K extends keyof T>(o: T, name: K): T[K] {
 
 **范型应用**
 
+Eg1
+
 写一个函数，接受两个参数，一个为object，另一个为object中的一个key。函数返回类型指定为obj[key]的类型。
 
 ```js
@@ -585,6 +587,25 @@ let obj:Person={
 let age = demo(obj, "age")   // number类型
 let name = demo(obj, "name")   // string类型
 ```
+
+Eg2
+
+```ts
+interface API {
+    '/user': { name: string },
+    '/menu': { foods: string[] }
+}
+const get = <URL extends keyof API>(url: URL): Promise<API[URL]> => {
+    return fetch(url).then(res => res.json());
+}
+
+get('');
+get('/menu').then(user => user.foods);
+```
+
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50d21166be6e4192af3508cfea2d045a~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" alt="img" style="zoom:50%;" />
+
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c3144b5a04054b0f87bff7f76e12cecc~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" alt="img" style="zoom: 50%;" />
 
 #### 泛型工具类型
 

@@ -249,15 +249,57 @@ let strLength: number = (someValue as string).length;
 
 #### in关键字
 
-//
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+const sem: Person = { name: "semlinker", age: 30 };
+type Sem = typeof sem; // type Sem = Person
+```
 
 #### typeof 关键字
 
-//
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+const sem: Person = { name: "semlinker", age: 30 };
+type Sem = typeof sem; // type Sem = Person
+```
+
+#### keyof
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+type K1 = keyof Person; // "name" | "age"
+type K2 = keyof Person[]; // "length" | "toString" | "pop" | "push" | "concat" | "join" 
+type K3 = keyof { [x: string]: Person };  // string | number
+```
+
+在 TypeScript 中支持两种索引签名，数字索引和字符串索引：
+
+```typescript
+interface StringArray {
+  // 字符串索引 -> keyof StringArray => string | number
+  [index: string]: string; 
+}
+
+interface StringArray1 {
+  // 数字索引 -> keyof StringArray1 => number
+  [index: number]: string;
+}
+```
 
 #### instanceof  关键字
 
-//
+```ts
+```
 
 #### 自定义类型保护的类型谓词
 
@@ -315,6 +357,135 @@ let greet = (message: Message) => {
 ### 交叉类型
 
 //
+
+## 内置工具方法
+
+### Pick
+
+Pick 的作用就是从一个对象中，挑选需要的字段出来，比如从 TODO 里面只取出 `title` 和 `completed`
+
+```typescript
+interface Todo {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+
+type TodoPreview = Pick<Todo, "title" | "completed">;
+
+const todo: TodoPreview = {
+  title: "Clean room",
+  completed: false,
+};
+```
+
+### Partial
+
+`Partial<T>` 将类型的属性变成可选
+
+```ty
+type Partial<T> = {
+  [P in keyof T]?: T[P];
+};
+```
+
+在以上代码中，首先通过 `keyof T` 拿到 `T` 的所有属性名，然后使用 `in` 进行遍历，将值赋给 `P`，最后通过 `T[P]` 取得相应的属性值的类。中间的 `?` 号，用于将所有属性变为可选。
+
+```typescript
+interface UserInfo {
+    id: string;
+    name: string;
+}
+// error：Property 'id' is missing in type '{ name: string; }' but required in type 'UserInfo'
+const xiaoming: UserInfo = {
+    name: 'xiaoming'
+}
+
+type NewUserInfo = Partial<UserInfo>;
+const xiaoming: NewUserInfo = {
+    name: 'xiaoming'
+}
+
+//相当于
+interface NewUserInfo {
+    id?: string;
+    name?: string;
+}
+```
+
+### Required
+
+Required将类型的属性变成必选
+
+```typescript
+type Required<T> = { 
+    [P in keyof T]-?: T[P] 
+};
+```
+
+其中 `-?` 是代表移除 `?` 这个 modifier 的标识。再拓展一下，除了可以应用于 `?` 这个 modifiers ，还有应用在 `readonly` ，比如 `Readonly<T>` 这个类型
+
+### Readonly
+
+--
+
+### Record
+
+`Record<K extends keyof any, T>` 的作用是将 `K` 中所有的属性的值转化为 `T` 类型。
+
+```typescript
+interface PageInfo {
+  title: string;
+}
+
+type Page = "home" | "about" | "contact";
+
+const x: Record<Page, PageInfo> = {
+  about: { title: "about" },
+  contact: { title: "contact" },
+  home: { title: "home" },
+};
+```
+
+### Exclude
+
+`Exclude<T, U>` 的作用是将某个类型中属于另一个的类型移除掉。
+
+```typescript
+type T0 = Exclude<"a" | "b" | "c", "a">; // "b" | "c"
+type T1 = Exclude<"a" | "b" | "c", "a" | "b">; // "c"
+type T2 = Exclude<string | number | (() => void), Function>; // string | number
+```
+
+### Omit
+
+`Omit<T, K extends keyof any>` 的作用是使用 `T` 类型中除了 `K` 类型的所有属性，来构造一个新的类型。
+
+```typescript
+interface Todo {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+
+type TodoPreview = Omit<Todo, "description">;
+
+const todo: TodoPreview = {
+  title: "Clean room",
+  completed: false,
+};
+```
+
+### NonNullable
+
+`NonNullable<T>` 的作用是用来过滤类型中的 `null` 及 `undefined` 类型。
+
+```typescript
+type T0 = NonNullable<string | number | undefined>; // string | number
+type T1 = NonNullable<string[] | null | undefined>; // string[]
+```
+
+
 
 ## 函数
 
@@ -563,7 +734,7 @@ function get<T extends object, K extends keyof T>(o: T, name: K): T[K] {
 }
 ```
 
-**范型应用**
+**泛型应用**
 
 Eg1
 

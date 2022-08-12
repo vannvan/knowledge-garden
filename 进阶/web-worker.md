@@ -88,6 +88,7 @@ function c() {
 ## 文章
 
 - [web worker](https://mp.weixin.qq.com/s/OLUN9mHw3S3oBsfd6SONcw)
+- [浅谈HTML5 Web Worker](https://juejin.cn/post/6844903496550989837)
 
 
 

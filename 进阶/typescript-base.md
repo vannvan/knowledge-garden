@@ -933,7 +933,7 @@ class Snake extends Animal {
 onChange={(e: React.ChangeEvent<HTMLInputElement>)}  // HTMLInputElement视情况而定
 ```
 
-## 参考链接
+## 文章
 
 - [TypeScript 入门教程](https://juejin.im/post/5edd8ad8f265da76fc45362c)
 - [一份不可多得的 TS 学习指南-阿宝哥](https://juejin.cn/post/6872111128135073806#heading-16)
@@ -951,4 +951,5 @@ onChange={(e: React.ChangeEvent<HTMLInputElement>)}  // HTMLInputElement视情�
 - [配置详解和常见错误](https://juejin.cn/post/6985808225044004894#heading-42)
 - [typescript 代码风格规范](https://www.jianshu.com/p/aae93fe0e84a)
 - [错误信息列表](https://www.tslang.cn/docs/handbook/error.html)
+- [never 和 unknown 的优雅之道](https://mp.weixin.qq.com/s/rZ96wy8xUrx4T1qG5OKS0w)
 

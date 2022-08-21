@@ -2485,5 +2485,17 @@ const breadthFirstSearch = source => {
 breadthFirstSearch([{id:1,children:[{id:3}]},{id:2}]) // [1, 2, 3]
 ```
 
+### 判断是否弱网环境
+
+```js
+// 判断是否为弱网环境
+const isSlowNetwork = navigator.connection
+  ? navigator.connection.saveData ||
+    (navigator.connection.type !== 'wifi' &&
+      navigator.connection.type !== 'ethernet' &&
+      /(2|3)g/.test(navigator.connection.effectiveType))
+  : false;
+```
+
 
 

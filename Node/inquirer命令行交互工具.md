@@ -121,3 +121,10 @@ program.version('1.0.6', '-v, --version')
 program.parse(process.argv);
 ```
 
+
+
+
+
+[prompts](https://www.npmjs.com/package/prompt)
+
+![image-20220804165043214](https://tva1.sinaimg.cn/large/e6c9d24egy1h4utzu3xdxj21k40u0442.jpg)

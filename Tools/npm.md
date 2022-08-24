@@ -233,3 +233,24 @@ console.log(process.env.npm_package_version); // 1.2.5
 > https://www.cnblogs.com/dearxinli/p/11170359.html
 >
 > [史上最贴心NPM私服搭建辅导](https://www.codenong.com/j5dfa13f16fb9a016077/)
+
+### npm link
+
+> 模块和项目在同一目录下
+> $ npm link ../module
+>
+> 
+>
+> 模块和项目不在同一目录下
+> $ # 先去到模块目录，把它 link 到全局
+> $ cd ../npm-link-test
+> $ npm link
+> $
+> $ # 再去项目目录通过包名来 link
+> $ cd ../my-project-link
+> $ npm link test-npm-link(模块包名，即：package.json中name)
+> $
+> $ # 解除link
+> $ 解除项目与模块的link，在项目目录下，npm unlink 模块名
+> $ 解除模块全局的link，在模块目录下，npm unlink 模块名
+

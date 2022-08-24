@@ -86,6 +86,8 @@
 > [wangeditor富文本编辑器](https://www.wangeditor.com/)
 >
 > [intro引导插件](https://introjs.com/)
+>
+> [solidjs](https://www.solidjs.com/docs/latest)
 
 ### 前端项目方案
 
@@ -120,7 +122,17 @@
 - vue-cli3.0强化版，模块封装、常用依赖预装、命令行工具、axios、vuex、mixins、derective配置一应俱全  
   [wwvue-cli](https://github.com/vannvan/wwvue-cli)
 
-- react初体验  
+- qiankun微服务真实实践方案，开箱即用
 
-  [learn-react-spa](https://github.com/vannvan/learn-react-spa)  
+  [umi-qiankun-explore](https://github.com/vannvan/umi-qiankun-explore)
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 

@@ -341,6 +341,25 @@ const distinctValuesOfArray = arr => [...new Set(arr)];
 distinctValuesOfArray([1, 2, 2, 3, 4, 4, 5]); // [1,2,3,4,5]
 ```
 
+### 一行数组对象去重
+
+```js
+const sourceData = [
+  {name: 'xiaoming', time1: 100, time2: 200},
+  {name: 'xiaoming', time1: 100, time2: 200},
+  {name: 'li', time1: 100, time2: 200},
+  {name: 'zi', time1: 100, time2: 200}
+]
+const tmp = new Map(sourceData.map(item=>([`${item.name}-${item.time1+item.time2}`, item])))
+const newData = [...tmp.values()]
+
+console.log(newData)
+// (3) [{…}, {…}, {…}]
+// 0: {name: 'xiaoming', time1: 100, time2: 200}
+// 1: {name: 'li', time1: 100, time2: 200}
+// 2: {name: 'zi', time1: 100, time2: 200}
+```
+
 ### filter() 筛选数组对象
 
 ```js

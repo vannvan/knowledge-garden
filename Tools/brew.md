@@ -26,3 +26,6 @@
 ## 国内镜像
 
 > /bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+
+[替换各种镜像](https://blog.csdn.net/CaptainJava/article/details/109132783)
+

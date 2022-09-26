@@ -111,8 +111,8 @@
 
 
 ### 个人综合
-- 我的导航站点  
-[adoerww-nav](https://adoerww.vercel.app/nav/)   
+- 前端导航站点  
+[adoerww-nav](https://adoerww.netlify.app/)   
 
 ![](https://s3.ax1x.com/2020/11/12/BxCrdS.png)
 

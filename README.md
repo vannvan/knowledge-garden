@@ -110,7 +110,7 @@
 [node-mock-api](https://github.com/vannvan/node-mock-api)
 
 
-### 个人综合
+### 倾情推荐
 - 前端导航站点  
 [adoerww-nav](https://adoerww.netlify.app/)   
 
@@ -125,6 +125,14 @@
 - qiankun微服务真实实践方案，开箱即用
 
   [umi-qiankun-explore](https://github.com/vannvan/umi-qiankun-explore)
+  
+- [一起学习-语雀](https://www.yuque.com/vannvan/)
+  
+  
+  
+  
+  
+  
   
   
   

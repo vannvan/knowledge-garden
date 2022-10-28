@@ -77,6 +77,10 @@
 > git reset --hard HEAD^
 > git push -f
 
+##### 回退到指定版本
+
+> git reset --hard 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96
+
 ### 强行拉取远程覆盖本地
 
 ```bash

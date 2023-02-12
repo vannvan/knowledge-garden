@@ -12,3 +12,9 @@
 - [Chrome Extension 的 webRequest模块的解读](https://www.cnblogs.com/devcjq/articles/4232029.html)
 - [[一起来做chrome扩展《可配置的代理》](https://www.cnblogs.com/onlyfu/p/5808591.html)]
 
+
+
+
+
+[Chrome扩展manifest V3变化、升级迁移指南](https://blog.csdn.net/ZK645968/article/details/126288400)
+

@@ -116,8 +116,6 @@
 
   ![image-20230213184819075](https://p.ipic.vip/luhvcv.png)
 
-![](https://s3.ax1x.com/2020/11/12/BxCrdS.png
-
 - node本地启动静态网站服务  
 [set-node-server](https://github.com/vannvan/set-node-server)
 

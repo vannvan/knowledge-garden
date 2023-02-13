@@ -94,5 +94,7 @@
 
 [全栈项目搭建](https://www.cnblogs.com/fengluzheweb/p/13550752.html)
 
-[关于Node进程管理器PM2使用技巧和需要注意的地方](https://github.com/jawil/blog/issues/7
+[关于Node进程管理器PM2使用技巧和需要注意的地方](https://github.com/jawil/blog/issues/7)
+
+[PM2用环境变量隔离Node.js项目的开发与生产环境](https://learn-anything.cn/pm2-nodejs-env)
 

@@ -952,4 +952,13 @@ onChange={(e: React.ChangeEvent<HTMLInputElement>)}  // HTMLInputElement视情�
 - [typescript 代码风格规范](https://www.jianshu.com/p/aae93fe0e84a)
 - [错误信息列表](https://www.tslang.cn/docs/handbook/error.html)
 - [never 和 unknown 的优雅之道](https://mp.weixin.qq.com/s/rZ96wy8xUrx4T1qG5OKS0w)
+- [12个 Typescript 开发实用技巧清单](https://mp.weixin.qq.com/s/vsA0PJWkcAgaoisTDiLmfA)
+
+
+
+
+
+
+
+
 

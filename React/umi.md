@@ -21,8 +21,8 @@
 ## 文章
 
 - [umi3.0基础配置文件（.umirc.ts配置文件试玩](https://www.cnblogs.com/lhl66/p/12972445.html)
-
 - [tsconfig.json配置详解](https://segmentfault.com/a/1190000021749847)
+- [umi工程的打包优化](https://developer.aliyun.com/article/1050878)
 
 
 

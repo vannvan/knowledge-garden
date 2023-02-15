@@ -29,7 +29,7 @@ class DoublyLinkedList {
       this.head = node
       this.tail = node
     } else {
-      // 首位相接
+      // 前后项关联起来
       this.tail.next = node
       node.prev = this.tail
       this.tail = node

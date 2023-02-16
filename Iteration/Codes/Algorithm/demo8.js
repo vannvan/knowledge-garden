@@ -14,10 +14,10 @@ const selectorSort = (arr) => {
         minIndex = j
       }
     }
-
-    let tmp = arr[i]
-    arr[i] = arr[minIndex]
-    arr[minIndex] = tmp
+    // let tmp = arr[i]
+    // arr[i] = arr[minIndex]
+    // arr[minIndex] = tmp
+    ;[arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
 
     console.log('minIndex', minIndex)
   }

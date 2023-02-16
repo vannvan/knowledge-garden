@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-16 22:35:24
+ * Last Modified: 2023-02-16 23:31:42
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -147,6 +147,41 @@ class BST {
     }
     return findNode(this.root, data)
   }
+  /**
+   * 移除节点
+   * @param {*} data
+   * @returns
+   */
+  remove(data) {
+    const removeNode = (node, data) => {
+      if (node === null) return null
+      if (node.data === data) {
+        // 没有左右子节点，指向null移除它
+        if (node.left === null && node.right === null) return null
+        // 它没有左节点，需要把它的引用改为右节点
+        if (node.left === null) return node.right
+        // 他没有右节点，需要把它的引用改为左节点
+        if (node.right === null) return node.left
+        // 有左右节点，当找到了要移除的节点后,需要找到它右边子树最小的节点,即它的继承者
+        if (node.left !== null && node.right !== null) {
+          let _node = this.minNode(node.right)
+          node.data = _node.data // 用右侧子树最小的节点的键去更新node的键
+          node.right = removeNode(node.right, data) // 更新完node的键后，树中存在了两个相同的键，因此需要移除多余的键
+          return node
+        }
+      } else if (data < node.data) {
+        // 目标key小于当前节点的值则沿着树的左边找
+        node.left = removeNode(node.left, data)
+        return node
+      } else {
+        // 目标key大于当前节点的值则沿着树的右边找
+        node.right = removeNode(node.right, data)
+        return node
+      }
+    }
+    // 返回已处理完的树
+    return removeNode(this.root, data)
+  }
 }
 
 const datas = [11, 7, 5, 3, 6, 9, 8, 10, 20, 14, 12, 25, 18]
@@ -165,10 +200,14 @@ datas.forEach((value) => {
 // console.log(d)
 // console.log(k)
 
-console.log('min', bst.min())
+// console.log('min', bst.min())
 
-console.log('max', bst.max())
+// console.log('max', bst.max())
 
-console.log('find 8', bst.find(8))
+// console.log('find 8', bst.find(8))
 
-console.log('find 21', bst.find(21))
+// console.log('find 21', bst.find(21))
+
+const s = bst.remove(7)
+
+console.dir(s)

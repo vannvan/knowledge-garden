@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-17 21:05:32
+ * Last Modified: 2023-02-17 22:28:22
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -22,10 +22,10 @@ const BalanceFactor = {
 
 class Node {
   constructor(data) {
-    this.root = this
+    // this.root = this
     this.data = data
-    this.left = null
-    this.right = null
+    this.left = undefined
+    this.right = undefined
   }
 }
 class AVLTree {
@@ -51,6 +51,7 @@ class AVLTree {
     } else {
       return node
     }
+    // 判断是否需要平衡，只需要处理已经打破平衡的情况
     const balanceFactor = this.getBalance(node)
     // 左边高度差过大 5
     if (balanceFactor === BalanceFactor.UNBALANCED_LEFT) {
@@ -87,20 +88,20 @@ class AVLTree {
     console.log('删除完的平衡因子', balanceFactor)
 
     if (balanceFactor === BalanceFactor.UNBALANCED_LEFT) {
-      // Left left case
       if (
         this.getBalance(node.left) === BalanceFactor.BALANCED ||
         this.getBalance(node.left) === BalanceFactor.SLIGHTLY_UNBALANCED_LEFT
       ) {
         return this.rotationLL(node)
       }
-      if (this.getBalance(node.left) === BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT) {
+      if (
+        this.getBalance(node.left) === BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT
+      ) {
         return this.rotationLR(node)
       }
     }
 
     if (balanceFactor === BalanceFactor.UNBALANCED_RIGHT) {
-      // Right right case
       if (
         this.getBalance(node.right) === BalanceFactor.BALANCED ||
         this.getBalance(node.right) === BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT
@@ -108,7 +109,9 @@ class AVLTree {
         return this.rotationRR(node)
       }
 
-      if (this.getBalance(node.right) === BalanceFactor.SLIGHTLY_UNBALANCED_LEFT) {
+      if (
+        this.getBalance(node.right) === BalanceFactor.SLIGHTLY_UNBALANCED_LEFT
+      ) {
         return this.rotationRL(node)
       }
     }
@@ -122,7 +125,8 @@ class AVLTree {
    */
   remove(data) {
     const removeNode = (node, data) => {
-      if (node === null) return null
+      if (!node) return null
+      console.log('node', node)
       if (node.data === data) {
         // 没有左右子节点，指向null移除它
         if (node.left === null && node.right === null) return null
@@ -164,14 +168,18 @@ class AVLTree {
    * @returns
    */
   getNodeHeight(node) {
-    if (node == null) {
+    if (!node) {
       return -1
     }
-    return Math.max(this.getNodeHeight(node.left), this.getNodeHeight(node.right)) + 1
+    return (
+      Math.max(this.getNodeHeight(node.left), this.getNodeHeight(node.right)) +
+      1
+    )
   }
 
   getBalance(node) {
-    const heightDifference = this.getNodeHeight(node.left) - this.getNodeHeight(node.right)
+    const heightDifference =
+      this.getNodeHeight(node.left) - this.getNodeHeight(node.right)
     console.log(`${node.data}的平衡因子为:`, heightDifference)
     switch (heightDifference) {
       case -2:
@@ -198,14 +206,12 @@ class AVLTree {
     tmp.right = node
     return tmp
   }
-
   /**
    * 右旋
    * 它出现于右侧子节点的高度大于左侧子节点的高度，并且右侧子节点也是平衡或右侧较重的
    * @param {*} node
    */
   rotationRR(node) {
-    console.log('右旋', node.data)
     const tmp = node.right
     node.right = tmp.left
     tmp.left = node
@@ -234,12 +240,16 @@ class AVLTree {
 
 const avl = new AVLTree()
 
-const datas = [3, 5, 7, 15, 24, 56, 11, 33, 42, 2, 4, 6, 12]
+// const datas = [3, 5, 7, 15, 24, 56, 11, 33, 42, 2, 4, 6, 12] // 这个会报错
+
+// const datas = [1, 2, 3, 4, 5, 6, 7, 14, 15, 13, 12, 11] //这个会报错
+
+const datas = [30, 27, 60, 12, 10]
 
 datas.forEach((item) => {
   avl.insert(item)
 })
 
-// avl.removeNode(12)
+// avl.removeNode(30)
 
 console.dir(avl)

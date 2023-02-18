@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-18 16:50:02
+ * Last Modified: 2023-02-18 18:06:42
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -28,7 +28,7 @@ class MinHeap {
   siftUp(index) {
     let parent = this.getParentIndex(index)
     while (index > 0 && this.compare(this.heap[parent], this.heap[index])) {
-      this.swap(this.heap, parent, index)
+      this.swap(this.heap, index, parent)
       index = parent
       parent = this.getParentIndex(index)
     }
@@ -123,7 +123,7 @@ class MinHeap {
   }
 }
 
-const mh = new MinHeap()
+// const mh = new MinHeap()
 
 // mh.insert(1)
 // mh.insert(13)
@@ -134,13 +134,54 @@ const mh = new MinHeap()
 // // mh.insert(5)
 // mh.insert(2)
 
-const arr = Array.from({ length: 10 }, (v, k) => k + 1)
+// const arr = Array.from({ length: 10 }, (v, k) => k + 1)
 
-arr.forEach((value) => {
-  mh.insert(value)
-})
-console.log(arr)
+// arr.forEach((value) => {
+//   mh.insert(value)
+// })
 
-mh.extract()
+// mh.extract()
 
-console.log(mh)
+// console.log(mh)
+
+class MaxHeap extends MinHeap {
+  constructor() {
+    super()
+  }
+  compare(a, b) {
+    return a < b
+  }
+}
+
+function firstHeapSort(arr, options) {
+  let res = []
+  //创建一个堆
+  let Heap = new MinHeap()
+  if (options === -1) {
+    Heap = new MaxHeap()
+  }
+  //将数组插到堆里
+  arr.forEach((el) => Heap.insert(el))
+
+  //每次取出最值 push进去即可
+  for (let i = 0, j = Heap.size(); i < j; i++) {
+    res.push(Heap.extract())
+  }
+  return res
+}
+
+const maxHeap = new MaxHeap()
+
+maxHeap.insert(2)
+maxHeap.insert(1)
+maxHeap.insert(5)
+maxHeap.insert(4)
+maxHeap.insert(6)
+maxHeap.insert(3)
+maxHeap.insert(0)
+maxHeap.insert(2)
+
+console.log(maxHeap)
+
+console.log('堆排序', firstHeapSort([3, 5, 1, 6, 4, 7, 2], 1))
+console.log('堆排序', firstHeapSort([3, 5, 1, 6, 4, 7, 2], -1))

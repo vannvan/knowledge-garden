@@ -51,3 +51,5 @@ class Queue {
     return this.count - this.lowestCount
   }
 }
+
+module.exports = Queue

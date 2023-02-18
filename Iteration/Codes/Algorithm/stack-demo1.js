@@ -33,7 +33,7 @@ class Stack {
    * 是否为空
    */
   isEmpty() {
-    this.items.length === 0
+    return this.items.length === 0
   }
 
   /**
@@ -52,18 +52,20 @@ class Stack {
   }
 }
 
-const s = new Stack()
+// const s = new Stack()
 
-s.push(2)
-s.push(1)
-s.push(3)
+// s.push(2)
+// s.push(1)
+// s.push(3)
 
-s.pop()
-console.log('size', s.size())
+// s.pop()
+// console.log('size', s.size())
 
-console.log('stack top', s.peek())
-console.log('isEmpty', s.isEmpty())
+// console.log('stack top', s.peek())
+// console.log('isEmpty', s.isEmpty())
 
-s.clear()
+// s.clear()
 
-console.log('size', s.size())
+// console.log('size', s.size())
+
+module.exports = Stack

@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-18 11:51:30
+ * Last Modified: 2023-02-18 11:57:12
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -95,6 +95,22 @@ class Set {
     })
     return differenceSet
   }
+
+  isSubSetOf(otherSet) {
+    if (this.size() > otherSet.size()) {
+      return false
+    }
+    let isSubSet = true
+    this.values().every((item) => {
+      if (!otherSet.has(item)) {
+        isSubSet = false
+        return false
+      }
+      return true
+    })
+
+    return isSubSet
+  }
 }
 
 const set = new Set()
@@ -123,6 +139,12 @@ setD.add(1)
 setD.add(2)
 setD.add(3)
 
+// 用来验证子集
+const setE = new Set()
+setE.add(1)
+setE.add(3)
+setE.add(5)
+
 console.log('values', set.values())
 
 console.log(set)
@@ -132,3 +154,5 @@ console.log('unionSet', set.union(setB))
 console.log('intersectionSet', set.intersection(setC))
 
 console.log('differenceSet', set.difference(setD))
+
+console.log('isSubSetOf', set.isSubSetOf(setE))

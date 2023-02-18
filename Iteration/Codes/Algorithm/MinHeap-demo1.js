@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-18 18:06:42
+ * Last Modified: 2023-02-18 18:11:40
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -108,7 +108,7 @@ class MinHeap {
   }
 
   getLeftIndex(index) {
-    return 2 * index - 1
+    return 2 * index + 1
   }
 
   getRightIndex(index) {
@@ -119,7 +119,7 @@ class MinHeap {
     if (index == 0) {
       return undefined
     }
-    return Math.floor(index - 1) / 2
+    return Math.floor((index - 1) / 2) // 注意
   }
 }
 

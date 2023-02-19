@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-16 23:31:42
+ * Last Modified: 2023-02-19 13:19:27
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -182,6 +182,34 @@ class BST {
     // 返回已处理完的树
     return removeNode(this.root, data)
   }
+
+  /**
+   * 广度
+   * @returns
+   */
+  bfs() {
+    if (!this.root) return
+    const queue = [this.root]
+    while (queue.length) {
+      const node = queue.shift()
+      console.log('data', node.data)
+      node.left && queue.push(node.left)
+      node.right && queue.push(node.right)
+    }
+  }
+
+  /**
+   * 深度
+   */
+  dfs() {
+    const deep = (root) => {
+      if (!root) return
+      console.log(root.data)
+      root.left && deep(root.left)
+      root.right && deep(root.right)
+    }
+    deep(this.root)
+  }
 }
 
 const datas = [11, 7, 5, 3, 6, 9, 8, 10, 20, 14, 12, 25, 18]
@@ -208,6 +236,8 @@ datas.forEach((value) => {
 
 // console.log('find 21', bst.find(21))
 
-const s = bst.remove(7)
+// const s = bst.remove(7)
 
-console.dir(s)
+// console.dir(s)
+
+bst.dfs()

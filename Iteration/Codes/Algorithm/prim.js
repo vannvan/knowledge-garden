@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-19 21:12:16
+ * Last Modified: 2023-02-19 21:16:44
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -58,7 +58,7 @@ const prim = (graph) => {
       }
     }
   }
-
+  console.log('key', key)
   return parent
 }
 

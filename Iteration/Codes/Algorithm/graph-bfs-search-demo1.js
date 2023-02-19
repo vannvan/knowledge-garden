@@ -1,10 +1,10 @@
 /*
- * Description: 图的遍历
+ * Description: 图的遍历,广度遍历
  * Created: 2023-02-18 21:07:56
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-18 22:40:34
+ * Last Modified: 2023-02-19 11:32:03
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -106,8 +106,8 @@ const BFS = (graph, startVertex) => {
 
 const { distances, predecessors } = BFS(graph, 'A')
 
-// console.log('distances', distances)
-// console.log('predecessors', predecessors)
+console.log('distances', distances)
+console.log('predecessors', predecessors)
 
 // 由以上的每个节点到起始点的距离和前溯节点计算最短距离
 
@@ -120,14 +120,19 @@ for (let i = 1; i < vertices.length; i++) {
   const path = new Stack()
   for (let v = toVertex; v !== fromVertex; v = predecessors[v]) {
     path.push(v)
+    // 说明中断了，不可到达
     if (!v) {
+      path.clear()
       break
     }
   }
-  path.push(fromVertex)
-  let s = !path.isEmpty() ? path.pop() : ''
-  while (!path.isEmpty()) {
-    s += ' - ' + path.pop()
+  // 存在有效路径
+  if (path.size() > 0) {
+    path.push(fromVertex)
+    let s = !path.isEmpty() ? path.pop() : ''
+    while (!path.isEmpty()) {
+      s += ' - ' + path.pop()
+    }
+    console.log(s)
   }
-  console.log(s)
 }

@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-18 22:08:20
+ * Last Modified: 2023-02-19 11:33:01
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -103,7 +103,7 @@ gh.addEdge('D', 'H')
 gh.addEdge('B', 'E')
 gh.addEdge('B', 'F')
 gh.addEdge('E', 'I')
-
+gh.addEdge('I', 'J')
 // console.dir(gh)
 // console.log(gh.toString())
 

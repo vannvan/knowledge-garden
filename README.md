@@ -88,6 +88,8 @@
 > [intro引导插件](https://introjs.com/)
 >
 > [solidjs](https://www.solidjs.com/docs/latest)
+>
+> [github packages](https://docs.github.com/zh/packages/quickstart#introduction)
 
 ### 前端项目方案
 

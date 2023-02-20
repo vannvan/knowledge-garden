@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-20 20:09:57
+ * Last Modified: 2023-02-20 22:35:35
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -21,12 +21,12 @@ const find = (nums: number[], target: number) => {
   let right = nums.length - 1
   while (left <= right) {
     let mid = left + Math.floor((right - left) / 2)
-    if (nums[mid] < target) {
-      left = mid + 1 // 向右移动，缩小边界
+    if (nums[mid] === target) {
+      return mid
+    } else if (nums[mid] < target) {
+      left = mid + 1
     } else if (nums[mid] > target) {
-      right = mid - 1 // 向左移动，缩小边界
-    } else {
-      return mid // 此时nums[mid] = target 了，直接返回
+      right = mid - 1
     }
   }
   return -1
@@ -40,17 +40,21 @@ const find = (nums: number[], target: number) => {
 const left_bound_find = (nums: number[], target: number) => {
   let left = 0
   let right = nums.length - 1
+  // 搜索区间为 [left, right]
   while (left <= right) {
     let mid = Math.floor(left + (right - left) / 2)
-    if (nums[mid] == target) {
-      right = mid - 1 //收缩右侧边界
-    } else if (nums[mid] < target) {
+    if (nums[mid] < target) {
+      // 搜索区间变为 [mid+1, right]
       left = mid + 1
     } else if (nums[mid] > target) {
-      left = mid + 1
+      // 搜索区间变为 [left, mid-1]
+      right = mid - 1
+    } else if (nums[mid] == target) {
+      // 收缩右侧边界
+      right = mid - 1
     }
   }
-  // 检查出界情况
+  // 检查出界情况
   if (left >= nums.length || nums[left] != target) return -1
   return left
 }
@@ -62,19 +66,20 @@ const left_bound_find = (nums: number[], target: number) => {
  * @returns
  */
 const right_bound_find = (nums: number[], target: number) => {
-  let left = 0
-  let right = nums.length - 1
+  let left = 0,
+    right = nums.length - 1
   while (left <= right) {
-    let mid = left + (right - left) / 2
-    if (nums[mid] == target) {
-      left = mid + 1 //只有这里需要改
+    let mid = Math.floor(left + (right - left) / 2)
+    if (nums[mid] < target) {
+      left = mid + 1
     } else if (nums[mid] > target) {
       right = mid - 1
-    } else {
+    } else if (nums[mid] == target) {
+      // 这里改成收缩左侧边界即可
       left = mid + 1
     }
   }
-  // 这里改为检查 right 越界的情况
+  // 这里改为检查 right 越界的情况，见下图
   if (right < 0 || nums[right] != target) return -1
   return right
 }

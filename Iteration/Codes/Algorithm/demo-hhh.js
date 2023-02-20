@@ -1,19 +1,24 @@
 var search = function (nums, target) {
   let left = 0
   let right = nums.length - 1
+  // 搜索区间为 [left, right]
   while (left <= right) {
     let mid = Math.floor(left + (right - left) / 2)
-    if (nums[mid] == target) {
-      left = mid + 1 //只有这里需要改
-    } else if (nums[mid] > target) {
-      right = mid - 1
-    } else {
+    console.log('mid', mid)
+    if (nums[mid] < target) {
+      // 搜索区间变为 [mid+1, right]
       left = mid + 1
+    } else if (nums[mid] > target) {
+      // 搜索区间变为 [left, mid-1]
+      right = mid - 1
+    } else if (nums[mid] == target) {
+      // 收缩右侧边界
+      right = mid - 1
     }
   }
-  // 这里改为检查 right 越界的情况
-  if (right < 0 || nums[right] != target) return -1
-  return right
+  // 检查出界情况
+  if (left >= nums.length || nums[left] != target) return -1
+  return left
 }
 
-console.log(search([1, 2, 5, 4, 2], 4))
+console.log(search([1, 2, 5, 4, 5, 6], 3))

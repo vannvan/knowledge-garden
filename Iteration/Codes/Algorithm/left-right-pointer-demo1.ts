@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-20 20:08:40
+ * Last Modified: 2023-02-20 20:09:57
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -55,6 +55,12 @@ const left_bound_find = (nums: number[], target: number) => {
   return left
 }
 
+/**
+ * 寻找右侧边界的二分搜索
+ * @param nums
+ * @param target
+ * @returns
+ */
 const right_bound_find = (nums: number[], target: number) => {
   let left = 0
   let right = nums.length - 1

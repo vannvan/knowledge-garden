@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-21 23:28:35
+ * Last Modified: 2023-02-21 23:38:46
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -17,7 +17,6 @@ const randomUniqueNumber = (len: number, min?: number, max?: number) => {
   const hash: number[] = []
   while (hash.length < len) {
     const num = Math.floor(Math.random() * (_max - _min)) + _min
-    console.log(num)
     if (!hash.includes(num)) {
       hash.push(num)
     }

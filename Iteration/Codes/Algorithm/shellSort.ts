@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-21 23:11:19
+ * Last Modified: 2023-02-21 23:43:56
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -15,16 +15,18 @@ const shellSort = (nums: number[]) => {
   let gap = Math.floor(nums.length / 2)
   while (gap >= 1) {
     for (let i = 0; i < length; i++) {
-      for (let j = i; j >= gap; j -= gap) {
+      for (let j = i; j >= gap; j = j - gap) {
+        console.log(`第${i}轮`, j)
         // 若待插入值较小，则换位
         if (nums[j] < nums[j - gap]) {
           ;[nums[j], nums[j - gap]] = [nums[j - gap], nums[j]]
         }
       }
     }
+    console.log('---------gap减半前-------')
     gap = Math.floor(gap / 2)
   }
-  console.log('nums', nums)
+  // console.log('nums', nums)
   return nums
 }
 

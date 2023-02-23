@@ -8,12 +8,17 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-23 21:30:04
+ * Last Modified: 2023-02-23 21:39:16
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
+/**
+ * 切绳子，返回最大乘积
+ * @param length
+ * @returns number
+ */
 const cutTheRope = (length: number) => {
   // 不能切
   if (length < 2) {

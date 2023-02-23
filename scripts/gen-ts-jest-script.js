@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-23 10:23:46
+ * Last Modified: 2023-02-23 23:05:55
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -70,8 +70,6 @@ inquirer
       /createTime|functionName/gi,
       (matched) => map[matched]
     )
-
-    console.log('testsContent', testsContent)
 
     F.touch(`${_targetDir}/tests`, `${fileName}.test.ts`, testsContent)
 

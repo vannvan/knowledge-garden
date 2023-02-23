@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-22 23:16:24
+ * Last Modified: 2023-02-23 09:02:29
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -33,7 +33,7 @@ const minCoinChange = (coins: number[], amount: number) => {
       if (newAmount >= 0) {
         preMin = makeChange(newAmount) // 在coins没用完之前，对剩余的钱找最小的结果
       }
-      // 当到36的时候，此时coins第一项 1元的时候 preMin 已经从 16元拿到了 [1,5,10](preMin.length || !newAmount)成立,同时min为空(preMin.length < lastMin.length - 1 || !lastMin.length)成立 newAmount 为35成立
+      // 当到36的时候，此时coins[i] 20元的时候 preMin 已经从 16元拿到了 [1,5,10](preMin.length || !newAmount)成立,同时min为空(preMin.length < lastMin.length - 1 || !lastMin.length)成立 newAmount 为35成立
       if (
         newAmount >= 0 &&
         (preMin.length < lastMin.length - 1 || !lastMin.length) &&

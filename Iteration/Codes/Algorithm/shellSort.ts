@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-21 23:43:56
+ * Last Modified: 2023-02-22 09:25:23
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -23,7 +23,7 @@ const shellSort = (nums: number[]) => {
         }
       }
     }
-    console.log('---------gap减半前-------')
+    // console.log('---------gap减半前-------')
     gap = Math.floor(gap / 2)
   }
   // console.log('nums', nums)

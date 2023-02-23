@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-23 23:43:52
+ * Last Modified: 2023-02-23 23:46:53
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -77,7 +77,7 @@ const knapSack = (weights: number[], values: number[], capacity: number, n: numb
 
   findMaxValue(n, capacity, KW, weights, values)
   // console.log(KW)
-  console.log('最佳组合的最大容量为', KW[n][capacity])
+  console.log('最佳组合的最大价值为', KW[n][capacity])
   return KW[n][capacity]
 }
 

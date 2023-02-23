@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-23 09:02:29
+ * Last Modified: 2023-02-23 09:15:24
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -33,7 +33,9 @@ const minCoinChange = (coins: number[], amount: number) => {
       if (newAmount >= 0) {
         preMin = makeChange(newAmount) // 在coins没用完之前，对剩余的钱找最小的结果
       }
-      // 当到36的时候，此时coins[i] 20元的时候 preMin 已经从 16元拿到了 [1,5,10](preMin.length || !newAmount)成立,同时min为空(preMin.length < lastMin.length - 1 || !lastMin.length)成立 newAmount 为35成立
+      // 当到36的时候，此时coins[i] 1元的时候 preMin 已经从 35元拿到了 [5,10,20] (preMin.length || !newAmount)成立,
+      // 同时preMin.length=3 lastMin.length - 1=0不成立  !lastMin.length成立
+      // newAmount 为35成立
       if (
         newAmount >= 0 &&
         (preMin.length < lastMin.length - 1 || !lastMin.length) &&
@@ -41,7 +43,7 @@ const minCoinChange = (coins: number[], amount: number) => {
       ) {
         // preMin的存在是用来存储每一轮使用coins[i]的时候，当前数额是否在 value-coins[i]的时候找到了最优解
         lastMin = [coin].concat(preMin)
-        console.log('new min for', lastMin, value)
+        console.log('new min for', lastMin, value, 'preMin', preMin)
       }
     }
     cache[value] = lastMin

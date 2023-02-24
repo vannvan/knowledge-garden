@@ -346,3 +346,5 @@ pick是rebase时的指令，具体我们还可以使用如下指令：
 ### 命令行提交记录图
 
 > git log --graph --pretty=oneline --abbrev-commit
+
+[git回退单个文件或文件夹版本](https://blog.51cto.com/u_15077552/4724642)

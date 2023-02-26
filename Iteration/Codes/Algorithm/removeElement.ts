@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 13:47:14
+ * Last Modified: 2023-02-26 13:50:45
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -21,8 +21,8 @@ const removeElement = (nums: number[], target: number) => {
 }
 
 const removeElement2 = (nums: number[], target: number) => {
-  let slow = 1
-  let fast = 1
+  let slow = 0
+  let fast = 0
   while (fast < nums.length) {
     if (nums[fast] != target) {
       nums[slow] = nums[fast]

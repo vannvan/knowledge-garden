@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 13:47:34
+ * Last Modified: 2023-02-26 13:51:19
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -18,6 +18,8 @@ describe('removeElement测试', () => {
   })
 
   it('removeElement2 function', () => {
-    expect(removeElement2([2, 3, 4, 9, 6], 4)).toEqual(4)
+    expect(removeElement2([2, 3, 4, 9, 6], 2)).toEqual(4)
+    expect(removeElement2([2, 3, 4, 9, 6], 3)).toEqual(4)
+    expect(removeElement2([2, 3, 4, 9, 6], 6)).toEqual(4)
   })
 })

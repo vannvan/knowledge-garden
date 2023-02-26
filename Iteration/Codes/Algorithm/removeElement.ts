@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 13:50:45
+ * Last Modified: 2023-02-26 13:55:00
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -33,4 +33,24 @@ const removeElement2 = (nums: number[], target: number) => {
   return slow
 }
 
-export { removeElement, removeElement2 }
+const removeElement3 = (nums: number[], target: number) => {
+  let leftIndex = 0
+  let rightIndex = nums.length - 1
+  while (leftIndex <= rightIndex) {
+    // 找左边不等于val的元素
+    while (leftIndex <= rightIndex && nums[leftIndex] != target) {
+      ++leftIndex
+    }
+    // 找右边不等于val的元素
+    while (leftIndex <= rightIndex && nums[rightIndex] == target) {
+      --rightIndex
+    }
+    // 将右边不等于val的元素覆盖左边等于val的元素
+    if (leftIndex < rightIndex) {
+      nums[leftIndex++] = nums[rightIndex--]
+    }
+  }
+  return leftIndex // leftIndex一定指向了最终数组末尾的下一个元素
+}
+
+export { removeElement, removeElement2, removeElement3 }

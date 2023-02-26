@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-20 22:35:35
+ * Last Modified: 2023-02-26 13:35:19
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -60,6 +60,49 @@ const left_bound_find = (nums: number[], target: number) => {
 }
 
 /**
+ * 左闭右开
+ * @param nums
+ * @param target
+ * @returns
+ */
+const left_bound_find_2 = (nums: number[], target: number) => {
+  if (nums.length == 0) return -1
+  let left = 0
+  let right = nums.length
+  while (left < right) {
+    // 注意
+    let mid = (left + right) / 2
+    if (nums[mid] == target) {
+      right = mid
+    } else if (nums[mid] < target) {
+      left = mid + 1
+    } else if (nums[mid] > target) {
+      right = mid // 注意
+    }
+  }
+
+  if (left == nums.length) return -1
+  return nums[left] == target ? left : -1
+}
+
+const left_bound_find_3 = (nums: number[], target: number) => {
+  let left = 0
+  let right = nums.length
+  while (left < right) {
+    let mid = Math.floor(left + (right - left) / 2)
+    if (nums[mid] > target) {
+      right = mid
+    } else if (nums[mid] < target) {
+      left = mid + 1
+    } else {
+      return mid
+    }
+  }
+
+  return -1
+}
+
+/**
  * 寻找右侧边界的二分搜索
  * @param nums
  * @param target
@@ -79,8 +122,33 @@ const right_bound_find = (nums: number[], target: number) => {
       left = mid + 1
     }
   }
-  // 这里改为检查 right 越界的情况，见下图
+  // 这里改为检查 right 越界的情况
   if (right < 0 || nums[right] != target) return -1
   return right
 }
-export { find, left_bound_find, right_bound_find }
+
+const right_bound_find_2 = (nums: number[], target: number) => {
+  let left = 0
+  let right = nums.length
+  while (left < right) {
+    let mid = Math.floor(left + (right - left) / 2)
+    if (nums[mid] === target) {
+      left = mid + 1
+    } else if (nums[mid] < target) {
+      left = mid + 1
+    } else if (nums[mid] > target) {
+      right = mid
+    }
+  }
+
+  return left - 1
+}
+
+export {
+  find,
+  left_bound_find,
+  right_bound_find,
+  left_bound_find_2,
+  left_bound_find_3,
+  right_bound_find_2,
+}

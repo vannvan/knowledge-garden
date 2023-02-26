@@ -1,10 +1,10 @@
 /*
- * Description:
+ * Description: 删除元素的多种方法
  * Created: 2023-02-26 13:40:29
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 13:52:43
+ * Last Modified: 2023-02-26 13:56:42
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -12,7 +12,7 @@
 
 import { removeElement, removeElement2, removeElement3 } from '../removeElement'
 
-describe('removeElement测试', () => {
+describe('原地删除元素测试', () => {
   it('removeElement function', () => {
     expect(removeElement([2, 3, 4, 9, 6], 4)).toEqual(4)
   })

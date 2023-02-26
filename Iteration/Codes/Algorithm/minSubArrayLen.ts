@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 17:21:37
+ * Last Modified: 2023-02-26 20:15:57
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -21,7 +21,10 @@ function minSubArrayLen(target: number, nums: number[]): number {
     while (sum >= target) {
       sublen = i - startIndex + 1 // 子序列长度
       result = result > sublen ? sublen : result
-      sum -= nums[startIndex++] // 一直从头找到尾，看后面是否有比前面更短的子数组
+      // sum -= nums[startIndex++] // 一直从头找到尾，看后面是否有比前面更短的子数组
+      // 更好理解的写法
+      sum = sum - nums[startIndex]
+      startIndex++
     }
   }
   return result === Number.MAX_SAFE_INTEGER ? 0 : result

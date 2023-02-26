@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 17:54:37
+ * Last Modified: 2023-02-26 20:21:37
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -17,7 +17,7 @@ const totalFruit = (fruits: number[]): number => {
   let startIndex = 0
   for (let right = 0; right < fruits.length; ++right) {
     map.set(fruits[right], (map.get(fruits[right]) || 0) + 1)
-    //如果哈希表大小大于2，那就移动startIndex将fruits[startIndex]从哈希表中移除，直到满足要求为止
+    //如果哈希表大小 大于2，那就移动startIndex将fruits[startIndex]从哈希表中移除，直到满足要求为止
     while (map.size > 2) {
       map.set(fruits[startIndex], map.get(fruits[startIndex]) - 1)
       if (map.get(fruits[startIndex]) == 0) {
@@ -25,7 +25,6 @@ const totalFruit = (fruits: number[]): number => {
       }
       startIndex++
     }
-
     res = Math.max(res, right - startIndex + 1)
   }
   return res

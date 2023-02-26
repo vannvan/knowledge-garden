@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 18:01:05
+ * Last Modified: 2023-02-26 20:45:28
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -49,6 +49,7 @@ inquirer
       type: 'input',
       message: '请输入方法名称',
       name: 'fileName',
+      default: process.argv[2],
     },
     {
       type: 'input',

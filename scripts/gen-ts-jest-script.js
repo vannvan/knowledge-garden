@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-23 23:05:55
+ * Last Modified: 2023-02-26 18:01:05
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -50,26 +50,32 @@ inquirer
       message: '请输入方法名称',
       name: 'fileName',
     },
+    {
+      type: 'input',
+      message: '请输入方法描述',
+      name: 'description',
+    },
   ])
   .then(async (answer) => {
     console.log(answer)
-    const { targetDir, fileName } = answer
+    const { targetDir, fileName, description } = answer
     const _targetDir = path.resolve(BASE_DIR, targetDir)
 
-    const map = {
+    const regMap = {
       createTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
       functionName: fileName,
+      description: description,
     }
 
-    // const _renderContent = F.read(renderFilePath).replace(/\${name}|\${version}/gi, (matched) => map[matched]);
+    const jestPath = path.resolve('./scripts/template/tests/functionName.test.ts')
 
-    const testsContent = F.read(
-      path.resolve('./scripts/template/tests/functionName.test.ts')
-    ).replace(/createTime|functionName/gi, (matched) => map[matched])
-    const functionContent = F.read(path.resolve('./scripts/template/functionName.ts')).replace(
-      /createTime|functionName/gi,
-      (matched) => map[matched]
-    )
+    const functionPath = path.resolve('./scripts/template/functionName.ts')
+
+    const regex = /createTime|functionName|description/gi
+
+    const testsContent = F.read(jestPath).replace(regex, (matched) => regMap[matched])
+
+    const functionContent = F.read(functionPath).replace(regex, (matched) => regMap[matched])
 
     F.touch(`${_targetDir}/tests`, `${fileName}.test.ts`, testsContent)
 

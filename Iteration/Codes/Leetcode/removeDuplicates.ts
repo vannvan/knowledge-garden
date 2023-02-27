@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-27 22:37:19
+ * Last Modified: 2023-02-27 22:51:49
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -13,16 +13,20 @@
 
 const removeDuplicates = (nums: number[]): number => {
   // TODO
-  let slow = 1
+  const n = nums.length
+  if (n === 0) {
+    return 0
+  }
   let fast = 1
-
-  while (fast < nums.length) {
-    if (nums[fast] != nums[fast - 1]) {
+  let slow = 1
+  while (fast < n) {
+    if (nums[fast] !== nums[fast - 1]) {
       nums[slow] = nums[fast]
       slow++
     }
-    fast++
+    ++fast
   }
+  console.log('nums', nums, 'slow', slow)
   return slow
 }
 

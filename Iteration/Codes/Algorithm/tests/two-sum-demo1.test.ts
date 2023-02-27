@@ -4,13 +4,13 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-20 23:40:34
+ * Last Modified: 2023-02-27 22:06:33
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-import { twoSum } from '../two-sum-demo1'
+import { twoSum, twoSumBetter } from '../two-sum-demo1'
 
 describe('两数之和', () => {
   it('twoSum function', () => {
@@ -18,6 +18,9 @@ describe('两数之和', () => {
   })
 
   it('twoSumBetter function', () => {
-    expect(twoSum([1, 2, 6, 4], 8)).toEqual(expect.arrayContaining([2, 1]))
+    twoSumBetter([2, 7, 11, 15], 9)
+    // return
+    expect(twoSumBetter([2, 7, 11, 15], 9)).toEqual(expect.arrayContaining([0, 1]))
+    expect(twoSumBetter([1, 2, 6, 4], 8)).toEqual(expect.arrayContaining([2, 1]))
   })
 })

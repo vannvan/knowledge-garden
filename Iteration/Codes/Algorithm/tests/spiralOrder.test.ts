@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-27 21:36:05
+ * Last Modified: 2023-02-27 21:49:14
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -40,11 +40,7 @@ describe('顺时针螺旋顺序输出 测试', () => {
     const target4 = [3, 2, 1]
 
     expect(spiralOrder(source)).toEqual(target)
-    // return
     expect(spiralOrder(source2)).toEqual(target2)
-    // expect(spiralOrder(source3)).toEqual(target3)
-    spiralOrder(source4)
-    // return
     expect(spiralOrder(source4)).toEqual(target4)
   })
 })

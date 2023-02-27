@@ -7,7 +7,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-20 23:43:28
+ * Last Modified: 2023-02-27 22:08:09
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -30,18 +30,14 @@ const twoSum = (nums: number[], target: number) => {
 }
 
 const twoSumBetter = (nums: number[], target: number) => {
-  const { length } = nums
-
-  const map = new Map()
-
-  for (let i = 0; i < length; i++) {
-    if (map.get(target - nums[i])) {
-      return [target - nums[i], i]
+  let map = new Map<number, number>()
+  for (let i = 0; i < nums.length; i++) {
+    if (map.has(target - nums[i])) {
+      return [map.get(target - nums[i]), i]
     }
-    map.set(i, nums[i])
+    map.set(nums[i], i)
   }
-
-  return [-1, 1]
+  return [-1, -1]
 }
 
 export { twoSum, twoSumBetter }

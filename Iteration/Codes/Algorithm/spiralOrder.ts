@@ -4,12 +4,17 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-27 21:38:24
+ * Last Modified: 2023-02-27 21:44:40
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
+/**
+ * 这个方法有遗漏
+ * @param matrix
+ * @returns
+ */
 const spiralOrder1 = (matrix: number[][]): number[] => {
   let ans: number[] = []
   let start = matrix[0][0] // 从第一个数开始
@@ -33,7 +38,11 @@ const spiralOrder1 = (matrix: number[][]): number[] => {
   console.log('ans', ans)
   return ans
 }
-
+/**
+ *
+ * @param matrix
+ * @returns
+ */
 const spiralOrder = (matrix: number[][]): number[] => {
   let res: number[] = []
   // let start = matrix[0][0] // 从第一个数开始

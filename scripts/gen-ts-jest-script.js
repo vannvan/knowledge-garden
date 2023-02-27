@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 20:45:28
+ * Last Modified: 2023-02-27 22:37:05
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -37,6 +37,10 @@ inquirer
         {
           value: 'DataStructure',
           name: 'DataStructure',
+        },
+        {
+          value: 'Leetcode',
+          name: 'Leetcode',
         },
         {
           value: 'JSFunction',

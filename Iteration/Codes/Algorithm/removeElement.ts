@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 13:55:00
+ * Last Modified: 2023-02-28 19:05:32
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -33,6 +33,7 @@ const removeElement2 = (nums: number[], target: number) => {
   return slow
 }
 
+// 不对
 const removeElement3 = (nums: number[], target: number) => {
   let leftIndex = 0
   let rightIndex = nums.length - 1

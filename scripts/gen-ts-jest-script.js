@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-28 09:50:44
+ * Last Modified: 2023-02-28 19:09:02
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -82,14 +82,14 @@ const genFile = (targetDir, fileName, description) => {
   const regMap = {
     createTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
     functionName: fileName,
-    description: description,
+    depict: description,
   }
 
   const jestPath = path.resolve('./scripts/template/tests/functionName.test.ts')
 
   const functionPath = path.resolve('./scripts/template/functionName.ts')
 
-  const regex = /createTime|functionName|description/gi
+  const regex = /createTime|functionName|depict/gi
 
   const testsContent = F.read(jestPath).replace(regex, (matched) => regMap[matched])
 

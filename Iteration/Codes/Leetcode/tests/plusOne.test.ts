@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-28 21:26:30
+ * Last Modified: 2023-02-28 21:33:25
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -17,7 +17,6 @@ describe('加一 测试', () => {
     plusOne([1, 9])
     expect(plusOne([9])).toEqual([1, 0])
     expect(plusOne([9, 9])).toEqual([1, 0, 0])
-
     expect(plusOne([1, 2, 3])).toEqual([1, 2, 4])
     expect(plusOne([1])).toEqual([2])
     expect(plusOne([0])).toEqual([1])

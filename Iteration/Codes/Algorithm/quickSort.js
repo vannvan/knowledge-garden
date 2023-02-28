@@ -1,5 +1,13 @@
-/**
- * 快速排序
+/*
+ * Description: 快速排序
+ * Created: 2023-02-20 09:07:02
+ * Author: van
+ * Email : adoerww@gamil.com
+ * -----
+ * Last Modified: 2023-02-28 09:07:19
+ * Modified By: van
+ * -----
+ * Copyright (c) 2023 https://github.com/vannvan
  */
 
 /**

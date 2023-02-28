@@ -1,3 +1,15 @@
+/*
+ * Description: 归并排序
+ * Created: 2023-02-20 09:07:02
+ * Author: van
+ * Email : adoerww@gamil.com
+ * -----
+ * Last Modified: 2023-02-28 09:09:08
+ * Modified By: van
+ * -----
+ * Copyright (c) 2023 https://github.com/vannvan
+ */
+
 const merge = function (nums1, m, nums2, n) {
   // 初始化两个指针的指向，初始化 nums1 尾部索引k
   let i = m - 1,

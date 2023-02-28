@@ -1,3 +1,15 @@
+/*
+ * Description: 冒泡排序
+ * Created: 2023-02-20 09:07:02
+ * Author: van
+ * Email : adoerww@gamil.com
+ * -----
+ * Last Modified: 2023-02-28 09:08:00
+ * Modified By: van
+ * -----
+ * Copyright (c) 2023 https://github.com/vannvan
+ */
+
 /**
  * 冒泡排序
  */

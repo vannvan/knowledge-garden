@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-27 23:17:44
+ * Last Modified: 2023-02-28 19:37:55
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -15,7 +15,6 @@ import searchInsert from '../searchInsert'
 describe('搜索插入位置 测试', () => {
   it('searchInsert function', () => {
     // searchInsert([1, 3, 5, 6], 5)
-    // return
     expect(searchInsert([1, 3, 5, 6], 5)).toEqual(2)
     expect(searchInsert([1, 3, 5, 6], 0)).toEqual(0)
     expect(searchInsert([1, 3, 5, 6], 0)).toEqual(0)

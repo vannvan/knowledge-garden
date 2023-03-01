@@ -15,7 +15,8 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "gents": "node scripts/gen-ts-jest-script.js"
+    "gents": "node scripts/gen-ts-jest-script.js",
+    "lc": "node scripts/gen-leetcode-function.js"
   },
   "repository": {
     "type": "git",

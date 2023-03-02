@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-23 09:34:36
+ * Last Modified: 2023-03-02 19:45:03
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -21,7 +21,7 @@ class File {
   mkdir(absolutePath) {
     const isExit = fs.existsSync(absolutePath)
     if (isExit) {
-      console.log(`${absolutePath}文件夹已存在`)
+      // console.log(`${absolutePath}文件夹已存在`)
     } else {
       exec(`mkdir ${absolutePath}`)
     }

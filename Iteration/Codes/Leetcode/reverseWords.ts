@@ -5,15 +5,15 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-02 21:29:33
+ * Last Modified: 2023-03-02 22:19:29
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
 function reverseWords(s: string): string {
+  // 反转指定区间的自负
   const reverse = (start: number, end: number) => {
-    // 2.全部反转
     while (start < end) {
       ;[strArr[start], strArr[end]] = [strArr[end], strArr[start]]
       end--
@@ -31,7 +31,7 @@ function reverseWords(s: string): string {
   //   }
   // }
 
-  // 1.去除多余空格
+  // 1.去除多余空格，连续超过一个的
   let index = 0
   while (index < strArr.length) {
     if (strArr[index] === ' ' && strArr[index + 1] === ' ') {
@@ -50,8 +50,7 @@ function reverseWords(s: string): string {
     strArr.splice(strArr.length - 1, 1)
   }
   console.log('strArr', strArr)
-  // return
-
+  // 2. 整体反转
   reverse(0, strArr.length - 1)
   // console.log('strArr', strArr)
 
@@ -64,7 +63,7 @@ function reverseWords(s: string): string {
       start = i + 1
     }
   }
-  // console.log('strArr', strArr)
+  // console.log('strArr', strArr.join(''))
 
   return strArr.join('')
 }

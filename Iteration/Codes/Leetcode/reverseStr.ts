@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-02 23:53:53
+ * Last Modified: 2023-03-03 00:12:35
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -25,7 +25,7 @@ function reverseStr(s: string, k: number): string {
   }
 
   let n = strArr.length
-  // 反转每个下标从2k的倍数开始的，长度为k的子串，若该子串不足k，则反转整个子串
+  // 版本1 反转每个下标从2k的倍数开始的，长度为k的子串，若该子串不足k，则反转整个子串
   // for (let i = 0; i < n; i += 2 * k) {
   //   if (i + k < n) {
   //     console.log('i+k', i + k)
@@ -37,7 +37,17 @@ function reverseStr(s: string, k: number): string {
   //   // reverse(i, Math.min(i + k, n) - 1)
   // }
 
-  // 更好理解的
+  // 版本2
+  // for (let i = 0; i < n; i += 2 * k) {
+  //   // 每隔 2k 个字符的前 k 个字符进行反转
+  //   let l = i - 1,
+  //     r = i + k > n ? n : i + k
+  //   while (++l < --r) {
+  //     ;[strArr[l], strArr[r]] = [strArr[r], strArr[l]]
+  //   }
+  // }
+
+  // 版本3 更好理解的
   for (let i = 0; i < n; ) {
     //如果剩下的长度大于2倍K，说明需要反转前k个字符（包括当前字符）
     if (n - i >= 2 * k) {

@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-02 19:48:18
+ * Last Modified: 2023-03-02 21:28:52
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -14,12 +14,13 @@
 import reverseWords from '../reverseWords'
 describe('反转字符串中的单词 测试', () => {
   it('reverseWords function', () => {
-    reverseWords('  hello world  ')
-    return
+    reverseWords('a good   example')
+    // return
+    // return
     expect(reverseWords('the sky is blue')).toEqual('blue is sky the')
 
     expect(reverseWords('  hello world  ')).toEqual('world hello')
 
-    expect(reverseWords('a good   example')).toEqual('a good   example')
+    expect(reverseWords('a good   example')).toEqual('example good a')
   })
 })

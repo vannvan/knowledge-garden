@@ -1,10 +1,10 @@
 /*
- * Description: 根据链接生成leetcode函数
+ * Description: 根据链接生成leetcode函数和jest脚本，query查询参数可调整
  * Created: 2023-03-01 09:25:16
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-03 11:38:00
+ * Last Modified: 2023-03-03 11:59:33
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -36,7 +36,7 @@ const urlArr = LEETCODE_URL.split('/').filter(Boolean)
 
 const titleSlug = urlArr[urlArr.length - 1]
 
-const data1 = JSON.stringify({
+const queryArgs = JSON.stringify({
   operationName: 'questionData',
   variables: {
     titleSlug: titleSlug,
@@ -51,7 +51,7 @@ const options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Content-Length': data1.length,
+    'Content-Length': queryArgs.length,
   },
 }
 
@@ -80,7 +80,7 @@ const req = https.request(options, (res) => {
     const tsCode = codeSnippets.find((item) => item.lang == 'TypeScript')
 
     // 测试用例
-    console.log('测试用例', jsonExampleTestcases)
+    // console.log('测试用例', jsonExampleTestcases)
 
     // 函数名称
     const functionName = JSON.parse(metaData).name
@@ -106,7 +106,12 @@ const req = https.request(options, (res) => {
 
     let jestContent = F.read(functionJestTemplatePath).replace(regex, (matched) => REG_MAP[matched])
 
-    functionContent += '\n  ' + tsCode.code + '\n ' + `export default ${functionName}`
+    // 匹配大括号内容
+    const bracketReg = /(?<=\{)(\n+|\s+)(?=\})/g // 匹配中间的换行符或空白符
+
+    let replacedCode = tsCode.code.replace(bracketReg, '\n // TODO \n')
+
+    functionContent += '\n  ' + replacedCode + '\n ' + `export default ${functionName}`
 
     let testExampleCases = `\t expect(${functionName}())`
 
@@ -115,14 +120,12 @@ const req = https.request(options, (res) => {
       testExampleCases = JSON.parse(jsonExampleTestcases)
         .map((el) => {
           const params = el.replace(/\n/, ',')
-          console.log('params', params)
           return `expect(${functionName}(${params}))`
         })
         .join('\n')
     }
 
     jestContent +=
-      '\n' +
       `import ${functionName} from '../${functionName}' \n` +
       `describe('${translatedTitle} 测试', () => { \n` +
       `\tit('${functionName} function', () => { \n` +
@@ -149,5 +152,5 @@ req.on('error', (error) => {
   console.error(error)
 })
 
-req.write(data1)
+req.write(queryArgs)
 req.end()

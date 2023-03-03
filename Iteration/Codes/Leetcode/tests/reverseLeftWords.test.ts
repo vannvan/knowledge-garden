@@ -1,7 +1,7 @@
 /*
  * Description: 左旋转字符串
  * Url: https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/
- * Created: 2023-03-03 11:37:30
+ * Created: 2023-03-03 11:59:37
  * Author: van
  * Email : adoerww@gamil.com
  * -----
@@ -10,7 +10,6 @@
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
-
 import reverseLeftWords from "../reverseLeftWords";
 describe("左旋转字符串 测试", () => {
   it("reverseLeftWords function", () => {

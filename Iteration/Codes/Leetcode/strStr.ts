@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-03 22:25:00
+ * Last Modified: 2023-03-03 23:54:26
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -48,8 +48,9 @@ function strStr(haystack: string, needle: string): number {
   let j: number = -1
   const n = haystack.length
   for (let i = 0; i < n; i++) {
+    // 当没有匹配上的时候，要去回退找前缀的位置了，将j定位到needle的第j号元素的前缀位置
     while (j > 0 && haystack[i] != needle[j + 1]) {
-      j = next[j]
+      j = next[j] // 第j号元素在needle里的前缀位置
     }
 
     if (haystack[i] === needle[j + 1]) {
@@ -88,6 +89,7 @@ function strStr2(haystack: string, needle: string): number {
       j = next[j - 1]
     }
     if (haystack[i] === needle[j]) {
+      // 这时候已经将needle找完了
       if (j === needle.length - 1) {
         return i - j
       }

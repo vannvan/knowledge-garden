@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-28 19:36:11
+ * Last Modified: 2023-03-03 11:10:55
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -79,7 +79,7 @@ const genFile = (targetDir, fileName, description) => {
 
   const _targetDir = path.resolve(BASE_DIR, targetDir)
 
-  const regMap = {
+  const REG_MAP = {
     createTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
     functionName: fileName,
     depict: description,
@@ -89,11 +89,12 @@ const genFile = (targetDir, fileName, description) => {
 
   const functionPath = path.resolve('./scripts/template/functionName.ts')
 
-  const regex = /createTime|functionName|depict/gi
+  // const regex = /createTime|functionName|depict/gi
+  const regex = new RegExp(Object.keys(REG_MAP).join('|'), 'g')
 
-  const testsContent = F.read(jestPath).replace(regex, (matched) => regMap[matched])
+  const testsContent = F.read(jestPath).replace(regex, (matched) => REG_MAP[matched])
 
-  const functionContent = F.read(functionPath).replace(regex, (matched) => regMap[matched])
+  const functionContent = F.read(functionPath).replace(regex, (matched) => REG_MAP[matched])
 
   F.touch(`${_targetDir}/tests`, `${fileName}.test.ts`, testsContent)
 

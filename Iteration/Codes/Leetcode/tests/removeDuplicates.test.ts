@@ -1,10 +1,10 @@
 /*
- * undefined: 删除有序数组中的重复项 测试
+ * Description: 删除有序数组中的重复项 测试
  * Created: 2023-02-27 22:28:20
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-27 22:55:38
+ * Last Modified: 2023-03-04 22:06:22
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan

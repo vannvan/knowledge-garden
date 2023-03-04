@@ -1,10 +1,11 @@
 /*
  * Description: 根据链接生成leetcode函数和jest脚本，query查询参数可调整
+ * 接受第一个参数为leetcode题目链接，第二个参数为函数后缀(可选)
  * Created: 2023-03-01 09:25:16
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-03 11:59:33
+ * Last Modified: 2023-03-04 15:34:32
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -15,15 +16,25 @@ const https = require('https')
 const path = require('path')
 const dayjs = require('dayjs')
 const log = console.log
-
 const F = require('./file')
+
 const { exec } = require('child_process')
+
+// 首字母大写
+function titleCase(str) {
+  newStr = str.slice(0, 1).toUpperCase() + str.slice(1).toLowerCase()
+  return newStr
+}
 
 // 查询参数
 const QUERY =
   'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    titleSlug\n     translatedTitle\n    translatedContent\n    isPaidOnly\n    difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n      topicTags {\n      name\n      slug\n      translatedName\n      __typename\n    }\n    codeSnippets {\n      lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n     solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    sampleTestCase\n  jsonExampleTestcases\n  metaData\n       }\n}'
 
+// leetcode链接
 const LEETCODE_URL = process.argv[2]
+
+// 自定义函数后缀
+const functionSuffix = process.argv[3] ? titleCase(process.argv[3]) : ''
 
 if (!LEETCODE_URL) {
   log(chalk.red('无效链接!!!'))
@@ -83,7 +94,7 @@ const req = https.request(options, (res) => {
     // console.log('测试用例', jsonExampleTestcases)
 
     // 函数名称
-    const functionName = JSON.parse(metaData).name
+    const functionName = JSON.parse(metaData).name + functionSuffix
 
     // 函数模版路径
     const functionTemplatePath = path.resolve('./scripts/template/leetcodeFunction.ts')
@@ -110,6 +121,10 @@ const req = https.request(options, (res) => {
     const bracketReg = /(?<=\{)(\n+|\s+)(?=\})/g // 匹配中间的换行符或空白符
 
     let replacedCode = tsCode.code.replace(bracketReg, '\n // TODO \n')
+
+    // 再将原函数名称替换为新的函数名称,因为可能有自定义后缀
+    let nameReg = new RegExp(JSON.parse(metaData).name)
+    replacedCode = replacedCode.replace(nameReg, functionName)
 
     functionContent += '\n  ' + replacedCode + '\n ' + `export default ${functionName}`
 

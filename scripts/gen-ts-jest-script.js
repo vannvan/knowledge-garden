@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-03 11:10:55
+ * Last Modified: 2023-03-05 17:58:08
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -67,7 +67,7 @@ const inquireHandler = () => {
     .then(async (answer) => {
       console.log(answer)
       const { targetDir, fileName, description } = answer
-      genFile(answer)
+      genFile(targetDir, fileName, description)
     })
 }
 
@@ -96,9 +96,13 @@ const genFile = (targetDir, fileName, description) => {
 
   const functionContent = F.read(functionPath).replace(regex, (matched) => REG_MAP[matched])
 
-  F.touch(`${_targetDir}/tests`, `${fileName}.test.ts`, testsContent)
-
-  F.touch(`${_targetDir}`, `${fileName}.ts`, functionContent)
+  // 如果是JSFunction 不用生成测试用例,同时文件后缀为js
+  if (targetDir === 'JSFunction') {
+    F.touch(`${_targetDir}`, `${fileName}.js`, functionContent)
+  } else {
+    F.touch(`${_targetDir}/tests`, `${fileName}.test.ts`, testsContent)
+    F.touch(`${_targetDir}`, `${fileName}.ts`, functionContent)
+  }
 }
 
 // 至少要有目录索引和名称

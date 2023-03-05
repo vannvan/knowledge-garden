@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-05 16:28:49
+ * Last Modified: 2023-03-05 21:47:01
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -120,7 +120,10 @@ const req = https.request(options, (res) => {
     // 匹配大括号内容
     const bracketReg = /(?<=\{)(\n+|\s+)(?=\})/g // 匹配中间的换行符或空白符
 
-    let replacedCode = tsCode.code.replace(bracketReg, '\n // TODO \n')
+    let replacedCode = tsCode.code.replace(
+      bracketReg,
+      '\n // Think for yourself for 5 minutes... \n'
+    )
 
     // 再将原函数名称替换为新的函数名称,因为可能有自定义后缀
     let nameReg = new RegExp(JSON.parse(metaData).name)

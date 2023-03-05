@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-04 15:34:32
+ * Last Modified: 2023-03-05 16:28:49
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -150,8 +150,12 @@ const req = https.request(options, (res) => {
 
     const _targetDir = path.resolve(BASE_DIR, 'Leetcode')
 
-    F.touch(`${_targetDir}`, `${functionName}.ts`, functionContent)
-    F.touch(`${_targetDir}/tests`, `${functionName}.test.ts`, jestContent)
+    const isExit = F.isExit(`${_targetDir}/${functionName}`)
+
+    // 如果方法已存在同名的加个_plus
+    const fileName = isExit ? functionName + '_plus' : functionName
+    F.touch(`${_targetDir}`, `${fileName}.ts`, functionContent)
+    F.touch(`${_targetDir}/tests`, `${fileName}.test.ts`, jestContent)
 
     setTimeout(() => {
       // 代码格式化

@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-02 19:45:03
+ * Last Modified: 2023-03-05 16:25:59
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -34,6 +34,11 @@ class File {
       if (error) return console.log(`${_fileName}写入文件失败,原因是` + error.message)
       log(chalk.green(`${_fileName}创建成功`))
     })
+  }
+
+  // 文件是否已存在，需要完整路径
+  isExit(fullPath) {
+    return fs.existsSync(fullPath)
   }
 
   read(fileAbsolutePath) {

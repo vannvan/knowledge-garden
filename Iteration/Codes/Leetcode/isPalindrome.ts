@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-05 17:47:41
+ * Last Modified: 2023-03-05 17:51:01
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -63,12 +63,12 @@ function isPalindrome(s: string): boolean {
   while (left < right) {
     if (!isValid(str[left])) {
       left++
-      continue
+      continue // continue之后右指针不会移动，直接进入下次循环
     }
 
     if (!isValid(str[right])) {
       right--
-      continue
+      continue //  continue之后左指针不会移动，直接进入下次循环
     }
 
     // 如果遇到不匹配的在这里就可以终止了，不用再移动指针

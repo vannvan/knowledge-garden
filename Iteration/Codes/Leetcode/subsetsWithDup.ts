@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-06 22:44:11
+ * Last Modified: 2023-03-06 23:17:07
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -36,7 +36,7 @@ function subsetsWithDup(nums: number[]): number[][] {
 
   backTrack(nums.sort(), 0)
 
-  console.log('res', res)
   return res
 }
+
 export default subsetsWithDup

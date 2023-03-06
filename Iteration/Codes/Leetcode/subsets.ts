@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-06 20:38:53
+ * Last Modified: 2023-03-06 22:22:57
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -15,14 +15,12 @@
 function subsets(nums: number[]): number[][] {
   // Think for yourself for 5 minutes...
 
-  const res: number[][] = [[]]
+  const res: number[][] = []
 
   const stack: number[] = []
 
   const backTrack = (startIndex: number) => {
-    if (stack.length) {
-      res.push([...stack])
-    }
+    res.push([...stack])
 
     for (let i = startIndex; i < nums.length; i++) {
       stack.push(nums[i])
@@ -32,6 +30,7 @@ function subsets(nums: number[]): number[][] {
   }
 
   backTrack(0)
+  console.log('res', res)
   return res
 }
 export default subsets

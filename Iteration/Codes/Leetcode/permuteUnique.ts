@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-06 23:11:01
+ * Last Modified: 2023-03-07 17:57:20
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -29,8 +29,9 @@ function permuteUnique(nums: number[]): number[][] {
 
     for (let i = 0; i < nums.length; i++) {
       if (used[i]) continue
+      // !used[i - 1] 和 used[i - 1] 都能获取到结果，但是used[i - 1]会经过多余的路径
+      if (nums[i] == nums[i - 1] && !used[i - 1]) continue
 
-      if (nums[i] == nums[i - 1] && used[i - 1]) continue
       used[i] = true
       track.push(nums[i])
       backTrack(nums)

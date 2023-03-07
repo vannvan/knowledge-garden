@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-07 19:48:08
+ * Last Modified: 2023-03-07 19:48:52
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -36,6 +36,7 @@ function letterCombinations(digits: string): string[] {
   // 空字符串
   if (!digits) return []
 
+  // 一个数字的情况
   if (k === 1) return arr[digits].split('')
 
   const backTrack = (str: string, startIndex: number) => {

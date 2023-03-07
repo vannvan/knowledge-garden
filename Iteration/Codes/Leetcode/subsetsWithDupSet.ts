@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-07 22:41:19
+ * Last Modified: 2023-03-07 22:50:07
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -27,9 +27,12 @@ function subsetsWithDupSet(nums: number[]): number[][] {
     for (let i = startIndex; i < nums.length; i++) {
       // 可以去掉这一行对比实际的效果
       if (usedSet.has(nums[i])) continue
+
       usedSet.add(nums[i])
       track.push(nums[i])
+
       backTrack(nums, i + 1)
+
       track.pop()
     }
   }

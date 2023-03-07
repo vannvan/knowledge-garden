@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-05 23:28:39
+ * Last Modified: 2023-03-07 17:36:29
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -17,28 +17,31 @@ function combine(n: number, k: number): number[][] {
 
   let resArr: number[][] = []
 
-  const backTracking = (n: number, k: number, startIndex: number, tmpArr: number[]): void => {
-    if (tmpArr.length === k) {
-      resArr.push(tmpArr.slice())
+  const track: number[] = []
+
+  const backTracking = (n: number, k: number, startIndex: number): void => {
+    if (track.length === k) {
+      resArr.push([...track])
       return
     }
     // 不剪枝的方式
     // for (let i = startIndex; i <= n; i++) {
-    //   tmpArr.push(i)
-    //   backTracking(n, k, i + 1, tmpArr)
+    //   track.push(i)
+    //   backTracking(n, k, i + 1, track)
     //   // 上一步return了之后才会执行这里的pop
-    //   tmpArr.pop()
+    //   track.pop()
     // }
 
     // 剪枝的方式
-    for (let i = startIndex; i <= n - k + tmpArr.length + 1; i++) {
-      tmpArr.push(i)
-      backTracking(n, k, i + 1, tmpArr)
-      tmpArr.pop()
+    for (let i = startIndex; i <= n - k + track.length + 1; i++) {
+      track.push(i)
+      //通过 startIndex 参数控制树枝的遍历，避免产生重复的子集
+      backTracking(n, k, i + 1)
+      track.pop()
     }
   }
 
-  backTracking(n, k, 1, [])
+  backTracking(n, k, 1)
   return resArr
 }
 export default combine

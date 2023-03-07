@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-06 23:31:19
+ * Last Modified: 2023-03-07 16:54:20
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -19,14 +19,14 @@ function combinationSum2(candidates: number[], target: number): number[][] {
 
   const track: number[] = []
 
-  let subNum: number = 0
+  let sumNum: number = 0
 
   const backTrack = (nums: number[], startIndex: number) => {
-    if (subNum === target) {
+    if (sumNum === target) {
       res.push([...track])
     }
 
-    if (subNum > target) {
+    if (sumNum > target) {
       return
     }
 
@@ -35,10 +35,10 @@ function combinationSum2(candidates: number[], target: number): number[][] {
 
       track.push(nums[i])
 
-      subNum += nums[i]
+      sumNum += nums[i]
       backTrack(nums, i + 1)
       track.pop()
-      subNum -= nums[i]
+      sumNum -= nums[i]
     }
   }
 

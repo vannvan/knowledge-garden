@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-07 23:40:25
+ * Last Modified: 2023-03-07 23:43:32
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -56,8 +56,10 @@ function solveNQueens(n: number): string[][] {
 
     for (let col = 0; col < n; col++) {
       if (isSafe(row, col, solution, n)) {
+        // 处理结果
         solution[row][col] = 'Q'
         backTrack(row + 1)
+        // 回溯
         solution[row][col] = '.'
       }
     }

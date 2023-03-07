@@ -6,13 +6,15 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-07 21:35:12
+ * Last Modified: 2023-03-07 22:02:50
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-function restoreIpAddresses(s: string): string[] {
+let count = 0
+
+function restoreIpAddresses1(s: string): string[] {
   // Think for yourself for 5 minutes...
 
   // 1. 不能多于4个整数
@@ -33,20 +35,61 @@ function restoreIpAddresses(s: string): string[] {
   const track: string[] = []
 
   const backTrack = (str: string, startIndex: number) => {
+    // console.log('track', track)
+    if (track.length > 4) return
     if (isValid(track)) {
       res.push(track.join('.'))
+      return
     }
+    count += 1
 
     for (let i = startIndex; i < str.length; i++) {
-      track.push(str.slice(startIndex, i + 1))
+      const nextStr = str.slice(startIndex, i + 1)
+      // 剪枝
+      // 如果当前数字长度大于3 且大于255 不满足条件
+      if (nextStr.length > 3 && +nextStr > 255) continue
+
+      // 如果当前长度大于1 且第一位是0 不满足条件
+      if (nextStr.length > 1 && nextStr[0] === '0') continue
+
+      track.push(nextStr)
       backTrack(str, i + 1)
       track.pop()
     }
   }
 
   backTrack(s, 0)
-  console.log('res', res)
-
+  console.log('res', res, `${count}次`)
   return res
 }
+
+//
+function restoreIpAddresses(s: string): string[] {
+  const res: string[] = []
+
+  const track: string[] = []
+
+  const backTrack = (str: string, startIndex: number) => {
+    if (track.length > 4) return
+    console.log('track', track)
+    if (track.length === 4 && startIndex == str.length) {
+      res.push(track.join('.'))
+      return
+    }
+    count += 1
+
+    for (let i = startIndex; i < str.length; i++) {
+      const nextStr = str.slice(startIndex, i + 1)
+      if (nextStr.length > 3 && +nextStr > 255) continue
+      if (nextStr.length > 1 && nextStr[0] === '0') continue
+      track.push(nextStr)
+      backTrack(str, i + 1)
+      track.pop()
+    }
+  }
+
+  backTrack(s, 0)
+  return res
+}
+
 export default restoreIpAddresses

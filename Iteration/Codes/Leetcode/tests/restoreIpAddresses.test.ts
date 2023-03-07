@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-07 21:23:08
+ * Last Modified: 2023-03-07 21:51:05
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -14,7 +14,7 @@ import restoreIpAddresses from '../restoreIpAddresses'
 describe('复原 IP 地址 测试', () => {
   it('restoreIpAddresses function', () => {
     restoreIpAddresses('25525511135')
-    // return
+    return
     expect(restoreIpAddresses('25525511135')).toEqual(
       expect.arrayContaining(['255.255.11.135', '255.255.111.35'])
     )

@@ -6,15 +6,12 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-08 22:04:04
+ * Last Modified: 2023-03-08 22:08:28
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-import isValid from './isValid'
-
-let count = 1
 function generateParenthesis(n: number): string[] {
   // Think for yourself for 5 minutes...
 

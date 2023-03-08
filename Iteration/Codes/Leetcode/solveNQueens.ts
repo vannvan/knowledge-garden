@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-07 23:43:32
+ * Last Modified: 2023-03-08 10:35:21
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -27,19 +27,20 @@ function solveNQueens(n: number): string[][] {
       }
     }
 
-    // 检查45度对角线
+    // 检查45度对角线,左上角
     for (let i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
       if (solution[i][j] == 'Q') {
         return false
       }
     }
 
-    // 检查135度对角线
+    // 检查135度对角线，右上角
     for (let i = row - 1, j = col + 1; i >= 0 && j <= n - 1; i--, j++) {
       if (solution[i][j] == 'Q') {
         return false
       }
     }
+
     return true
   }
 

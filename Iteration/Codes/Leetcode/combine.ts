@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-07 17:37:57
+ * Last Modified: 2023-03-08 09:55:03
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -32,7 +32,7 @@ function combine(n: number, k: number): number[][] {
     //   track.pop()
     // }
 
-    // 剪枝的操作，当前值和numSum如果已经大于总和了就没必要进入下一次递归了
+    // 剪枝的操作
     for (let i = startIndex; i <= n - k + track.length + 1; i++) {
       track.push(i)
       //通过 startIndex 参数控制树枝的遍历，避免产生重复的子集

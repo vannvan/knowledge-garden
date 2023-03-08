@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-05 21:47:01
+ * Last Modified: 2023-03-08 21:15:11
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -85,7 +85,7 @@ const req = https.request(options, (res) => {
       log(chalk.red('请确认链接是在做题页面获取的!!!'))
       process.exit(0)
     }
-    const { translatedTitle, topicTags, codeSnippets, metaData, jsonExampleTestcases } =
+    const { translatedTitle, topicTags, codeSnippets, metaData, jsonExampleTestcases, questionId } =
       data.question
 
     const tsCode = codeSnippets.find((item) => item.lang == 'TypeScript')
@@ -106,7 +106,7 @@ const req = https.request(options, (res) => {
     const REG_MAP = {
       CREATETIME: dayjs().format('YYYY-MM-DD HH:mm:ss'), // 创建时间
       FUNCTION_NAME: functionName, // 函数名称
-      DESCRIPTION: translatedTitle, // 描述
+      DESCRIPTION: `${questionId}：` + translatedTitle, // 描述
       LEETCODE_URL: LEETCODE_URL, // leetcode 链接
       TOPIC_TAGS: topicTags.map((el) => el.translatedName).join('  '), // 题目标签
     }

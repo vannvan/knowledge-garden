@@ -1,22 +1,25 @@
 /*
- * Description: 存在重复元素
- * https://leetcode.cn/problems/contains-duplicate-ii/
- * Created: 2023-02-28 21:34:47
+ * Description: 219：存在重复元素 II
+ * Url: https://leetcode.cn/problems/contains-duplicate-ii/
+ * Tags: 数组  哈希表  滑动窗口
+ * Created: 2023-03-09 20:54:24
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-28 21:48:17
+ * Last Modified: 2023-03-09 20:59:46
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-const containsNearbyDuplicate = (nums: number[], k: number): boolean => {
-  // TODO
-  let { length } = nums
-  let map = new Map()
-  for (let i = 0; i < length; i++) {
-    if (map.has(nums[i]) && Math.abs(i - map.get(nums[i])) <= k) {
+function containsNearbyDuplicate(nums: number[], k: number): boolean {
+  // Think for yourself for 5 minutes...
+
+  const map = new Map()
+
+  for (let i = 0; i < nums.length; i++) {
+    let a = map.get(nums[i])
+    if (map.has(nums[i]) && Math.abs(i - a) <= k) {
       return true
     }
     map.set(nums[i], i)
@@ -24,5 +27,4 @@ const containsNearbyDuplicate = (nums: number[], k: number): boolean => {
 
   return false
 }
-
 export default containsNearbyDuplicate

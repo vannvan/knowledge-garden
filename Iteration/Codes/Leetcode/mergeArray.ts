@@ -1,10 +1,11 @@
 /*
- * undefined: 合并两个有序数组
+ * Description: 合并两个有序数组
+ * Url: https://leetcode.cn/problems/merge-sorted-array/
  * Created: 2023-02-28 19:06:37
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-28 20:40:34
+ * Last Modified: 2023-03-10 22:06:11
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan

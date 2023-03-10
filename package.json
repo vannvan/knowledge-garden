@@ -20,7 +20,7 @@
   "scripts": {
     "gents": "node scripts/gen-ts-jest-script.js",
     "lc": "node scripts/gen-leetcode-function",
-    "lr": "node scripts/leetcode-analyse"
+    "lr": "node scripts/lc-analyse"
   },
   "repository": {
     "type": "git",

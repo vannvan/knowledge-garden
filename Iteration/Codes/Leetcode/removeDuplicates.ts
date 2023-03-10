@@ -1,11 +1,11 @@
 /*
  * Description: 删除有序数组中的重复项
- * https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
+ * Url: https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
  * Created: 2023-02-27 22:28:20
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-04 22:06:14
+ * Last Modified: 2023-03-10 22:06:31
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan

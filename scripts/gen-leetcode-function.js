@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 20:52:24
+ * Last Modified: 2023-03-10 21:59:59
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -19,6 +19,7 @@ const log = console.log
 const F = require('./utils/file')
 
 const Leetcode = require('./utils/leetcode')
+const Analyse = require('./leetcode-analyse')
 
 const { exec } = require('child_process')
 
@@ -121,8 +122,9 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
     exec(
       `npx prettier --write ${_targetDir}/${functionName}.ts  ${_targetDir}/tests/${functionName}.test.ts`
     )
-    exec(`npm run lr ${LEETCODE_URL}`)
-
+    // 更新纪录
+    const An = new Analyse()
+    An.do(LEETCODE_URL)
     log(chalk.green(`【${translatedTitle} 】方法已生成，开始做题吧！加油！！！`))
   }, 100)
 })()

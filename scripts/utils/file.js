@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 17:16:22
+ * Last Modified: 2023-03-10 22:01:18
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -33,7 +33,7 @@ class File {
     const _fileName = `${absolutePath}/${fileName}`
     fs.writeFile(`${_fileName}`, content, (error) => {
       if (error) return console.log(`${_fileName}写入文件失败,原因是` + error.message)
-      log(chalk.green(`${_fileName}创建成功`))
+      // log(chalk.green(`${_fileName}创建成功`))
     })
   }
 

@@ -1,11 +1,11 @@
 /*
- * undefined: 搜索插入位置
- * https://leetcode.cn/problems/search-insert-position/
+ * Description: 搜索插入位置
+ * Url: https://leetcode.cn/problems/search-insert-position/
  * Created: 2023-02-27 22:58:59
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-27 23:23:40
+ * Last Modified: 2023-03-10 22:06:45
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan

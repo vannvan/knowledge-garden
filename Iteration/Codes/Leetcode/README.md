@@ -55,3 +55,4 @@
 |45|171|[Excel 表列序号](https://leetcode.cn/problems/titleToNumber) | [titleToNumber](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/titleToNumber.ts)|简单 | 数学  字符串 |
 |46|347|[前 K 个高频元素](https://leetcode.cn/problems/topKFrequent) | [topKFrequent](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/topKFrequent.ts)|中等 | 数组  哈希表  分治  桶排序  计数  快速选择  排序  堆（优先队列） |
 |47|376|[摆动序列](https://leetcode.cn/problems/wiggleMaxLength) | [wiggleMaxLength](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/wiggleMaxLength.ts)|中等 | 贪心  数组  动态规划 |
+|48|1047|[K 次取反后最大化的数组和](https://leetcode.cn/problems/largestSumAfterKNegations) | [largestSumAfterKNegations](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/largestSumAfterKNegations.ts)|简单 | 贪心  数组  排序 |

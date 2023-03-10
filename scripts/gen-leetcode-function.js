@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 17:46:45
+ * Last Modified: 2023-03-10 20:52:24
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -28,10 +28,6 @@ function titleCase(str) {
   return newStr
 }
 
-// 查询参数
-const QUERY =
-  'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    titleSlug\n     translatedTitle\n    translatedContent\n    isPaidOnly\n    difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n      topicTags {\n      name\n      slug\n      translatedName\n      __typename\n    }\n    codeSnippets {\n      lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n     solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    sampleTestCase\n  jsonExampleTestcases\n  metaData\n       }\n}'
-
 // leetcode链接
 const LEETCODE_URL = process.argv[2]
 
@@ -46,12 +42,6 @@ if (!LEETCODE_URL) {
 const BASE_DIR = path.resolve('./Iteration/Codes')
 
 ;(async () => {
-  //
-  if (!LEETCODE_URL) {
-    log(chalk.red('无效链接!!!'))
-    process.exit(0)
-  }
-
   let LC = new Leetcode()
 
   const { data } = await LC.getQuestionInfo(LEETCODE_URL)
@@ -131,6 +121,8 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
     exec(
       `npx prettier --write ${_targetDir}/${functionName}.ts  ${_targetDir}/tests/${functionName}.test.ts`
     )
+    exec(`npm run lr ${LEETCODE_URL}`)
+
     log(chalk.green(`【${translatedTitle} 】方法已生成，开始做题吧！加油！！！`))
   }, 100)
 })()

@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 18:48:01
+ * Last Modified: 2023-03-10 20:58:55
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -13,56 +13,82 @@ const path = require('path')
 const fs = require('fs')
 const F = require('./utils/file')
 const Leetcode = require('./utils/leetcode')
+const log = console.log
+const chalk = require('chalk')
+
+const difficultyOpts = {
+  Easy: '简单',
+  Medium: '中等',
+  Hard: '困难',
+}
+
+const { uniqBy } = require('lodash')
 
 const targetDir = path.resolve('./Iteration/Codes/Leetcode')
 
-;(async () => {
+// leetcode 标签链接
+const leetcodeTagBaseUrl = 'https://leetcode.cn/tag'
+
+const leetcodeTopicBaseUrl = 'https://leetcode.cn/problems'
+
+// github 题目代码链接
+const githubTopicBaseUrl =
+  'https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode'
+
+const argUrl = process.argv[2]
+
+/**
+ * 生成题目信息
+ * @param {*} info
+ * @returns
+ */
+const genTopicInfo = (info) => {
+  const { translatedTitle, topicTags, metaData, questionId, difficulty } = info
+  const functionName = JSON.parse(metaData).name
+  return {
+    id: questionId,
+    cnName: translatedTitle,
+    functionName: functionName,
+    tags: topicTags,
+    difficulty: difficulty,
+  }
+}
+
+/**
+ * 批量任务
+ * @param {*} LC
+ */
+const batchTask = async (LC) => {
+  // 文件列表
   const files = await F.readDirectory(targetDir, (name) => !/test/.test(name) && /ts$/.test(name))
 
-  // const content = F.read(
-  //   '/Users/vannvan/Documents/vannvan@github/archives/Iteration/Codes/Leetcode/repeatedSubstringPattern.ts'
-  // )
-  const LC = new Leetcode()
+  // 题目信息
+  const topicInfo = {
+    tags: [],
+    topics: [],
+  }
 
+  const MAX = files.length - 1
+  // const MAX = 3
+  // 生成一个不重复的标签Map
+  const tagInfoListMap = new Map()
+  // url正则
   const urlReg = /(?<=Url:\s)(\S*)/
 
-  // const url = content.match(urlReg)
-
-  // console.dir({
-  //   functionName,
-  //   questionId,
-  //   translatedTitle,
-  //   topicTags,
-  //   difficulty,
-  // })
-
+  // 起始位置
   let index = 0
-  const MAX = files.length - 1
-  // const MAX = 5
 
-  const title = '# 题目 \n ---- \n'
-  // 标签
-  let tagInfoItems = '## 标签列表 \n '
-  // 题目列表
-  let topicInfoItems = '---- \n ## 题目列表 \n '
-  // leetcode 标签链接
-  const leetcodeTagBaseUrl = 'https://leetcode.cn/tag/'
-
-  // github 题目代码链接
-  const githubTopicBaseUrl =
-    'https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/'
-
-  // 生成一个不重复的标签列表
-  const tagInfoListMap = new Map()
   let timer = setInterval(async () => {
     if (index == MAX) {
       clearInterval(timer)
-      tagInfoListMap.forEach((val, key) => {
-        tagInfoItems += `- [${key}](${leetcodeTagBaseUrl}${val}/problemset) \n`
-      })
 
-      const markdownContent = title + tagInfoItems + topicInfoItems
-      F.touch(targetDir, 'analyse.md', markdownContent)
+      // 添加标签
+      tagInfoListMap.forEach((val, key) => {
+        // tagInfoItems += `- [${key}](${leetcodeTagBaseUrl}${val}/problemset) \n`
+        topicInfo.tags.push({ slug: val, cnName: key })
+      })
+      log(chalk.green('批量任务完成'))
+      genFile(topicInfo)
     }
     const functionContent = F.read(files[index])
     // console.log('functionContent', functionContent)
@@ -72,9 +98,9 @@ const targetDir = path.resolve('./Iteration/Codes/Leetcode')
       let { data } = await LC.getQuestionInfo(url[0])
 
       const { translatedTitle, topicTags, metaData, questionId, difficulty } = data.question
-      const functionName = JSON.parse(metaData).name
+      // const functionName = JSON.parse(metaData).name
 
-      // 生成标签map
+      // 生成不重复的标签map
       topicTags.map((el) => {
         // tagInfoListSet.add(el.translatedName)
         if (!tagInfoListMap.has(el.translatedName)) {
@@ -82,20 +108,88 @@ const targetDir = path.resolve('./Iteration/Codes/Leetcode')
         }
       })
 
-      // 生成题目列表
-      topicInfoItems += `${index}. [${questionId}: ${translatedTitle}](${
-        url[0]
-      }) 函数名称: [${functionName}](${githubTopicBaseUrl}/${functionName}.ts) 标签: 【${topicTags
-        .map((el) => el.translatedName)
-        .join('  ')} 】 \n`
+      topicInfo.topics.push(genTopicInfo(data.question))
+
       index++
     } else {
       console.log(`${files[index]}文件有问题`)
       index++
     }
   }, 1000)
+}
 
-  // console.log('translatedTitle', translatedTitle)
+// 先生成json文件，再根据json文件生成md
+const genFile = (newJSON) => {
+  F.touch(targetDir, 'analyse.json', JSON.stringify(newJSON))
 
-  // console.log(files)
+  const title = '# 题目 \n ---- \n'
+
+  let tagInfoItems = '## 标签列表 \n '
+
+  let topicInfoItems = '----  \n ## 题目列表 \n '
+
+  let topicTableHead = `|序号|题目ID|题目|方法名称|难度|标签|\n|----|----|----|----|----|----|\n`
+
+  let topicTableBody =
+    newJSON.topics
+      .map(
+        (item, index) =>
+          `|${index}|${item.id}|[${item.cnName}](${leetcodeTopicBaseUrl}/${item.functionName}) | [${
+            item.functionName
+          }](${githubTopicBaseUrl}/${item.functionName}.ts)|${
+            difficultyOpts[item.difficulty]
+          } | ${item.tags.map((el) => el.translatedName).join('  ')} |`
+      )
+      .join('\n') + '\n' // 最后要换行
+
+  // 生成标签列表
+  tagInfoItems +=
+    newJSON.tags
+      .map((item) => `- [${item.cnName}](${leetcodeTagBaseUrl}/${item.slug})`)
+      .join('\n') + '\n'
+
+  const markdownContent = title + tagInfoItems + topicInfoItems + topicTableHead + topicTableBody
+
+  // 生成md文件
+  F.touch(targetDir, 'README.md', markdownContent)
+  log(chalk.green('-------记录已更新------'))
+}
+
+;(async () => {
+  const LC = new Leetcode()
+
+  // 如果指定了一个题目
+  if (argUrl) {
+    log(chalk.green(`开始获取${argUrl}的题目信息`))
+    let { data } = await LC.getQuestionInfo(argUrl)
+    const { translatedTitle, topicTags, metaData, questionId, difficulty } = data.question
+    // const functionName = JSON.parse(metaData).name
+
+    const oldInfo = F.read(`${targetDir}/analyse.json`)
+
+    if (oldInfo) {
+      const oldJSON = JSON.parse(oldInfo)
+
+      oldJSON.topics.push(genTopicInfo(data.question))
+
+      const newTags = topicTags.map((el) => {
+        return {
+          slug: el.slug,
+          cnName: el.translatedName,
+        }
+      })
+
+      oldJSON.tags = oldJSON.tags.concat(newTags)
+
+      const newLogs = {
+        tags: uniqBy(oldJSON.tags, 'slug'),
+        topics: uniqBy(oldJSON.topics, 'id'),
+      }
+
+      genFile(newLogs)
+    }
+  } else {
+    log(chalk.green('开始批量生成任务.....'))
+    batchTask(LC)
+  }
 })()

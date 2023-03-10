@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 21:59:59
+ * Last Modified: 2023-03-10 23:30:45
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -110,10 +110,12 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
 
   const _targetDir = path.resolve(BASE_DIR, 'Leetcode')
 
-  const isExit = F.isExit(`${_targetDir}/${functionName}`)
+  const isExit = F.isExit(`${_targetDir}/${functionName}.ts`)
+  log(chalk.green(`方法已存在，将创建新的方法名称...`))
 
   // 如果方法已存在同名的加个_plus
   const fileName = isExit ? functionName + '_plus' : functionName
+
   F.touch(`${_targetDir}`, `${fileName}.ts`, functionContent)
   F.touch(`${_targetDir}/tests`, `${fileName}.test.ts`, jestContent)
 

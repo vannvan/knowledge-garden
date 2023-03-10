@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 22:09:18
+ * Last Modified: 2023-03-10 23:34:11
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -44,7 +44,7 @@ class Analyse {
 
   async do(url) {
     if (url) {
-      log(chalk.green(`开始获取${url}的题目信息`))
+      log(chalk.cyan(`开始获取${url}的题目信息...`))
       const { data } = await this.LC.getQuestionInfo(url)
       const oldInfo = F.read(`${targetDir}/analyse.json`)
 
@@ -109,6 +109,7 @@ class Analyse {
 
     // 生成md文件
     F.touch(targetDir, 'README.md', markdownContent)
+
     log(chalk.green('-------记录已更新------'))
   }
 
@@ -188,8 +189,8 @@ class Analyse {
       // console.log('functionContent', functionContent)
       const url = functionContent.match(urlReg)
       if (url && url.length) {
-        console.log('目标链接', url[0])
-        let { data } = await this.LC.getQuestionInfo(url[0])
+        log(chalk.white(`目标链接${url[0]}`))
+        const { data } = await this.LC.getQuestionInfo(url[0])
 
         const topicTags = this.genTagsInfo(data.question)
 
@@ -201,10 +202,9 @@ class Analyse {
         })
 
         topicInfo.topics.push(this.genTopicInfo(data.question))
-
         index++
       } else {
-        console.log(`${files[index]}文件有问题`)
+        log(chalk.red(`${files[index]}文件注释信息有误`))
         errorLog.push(files[index])
         index++
       }

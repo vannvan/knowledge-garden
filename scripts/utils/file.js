@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 22:01:18
+ * Last Modified: 2023-03-10 23:29:47
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -34,6 +34,15 @@ class File {
     fs.writeFile(`${_fileName}`, content, (error) => {
       if (error) return console.log(`${_fileName}写入文件失败,原因是` + error.message)
       // log(chalk.green(`${_fileName}创建成功`))
+    })
+  }
+
+  rm(fullPathName) {
+    fs.unlink(fullPathName, (error) => {
+      if (error) {
+        log(chalk.red(`删除${fullPathName}失败`))
+        process.exit(0)
+      }
     })
   }
 

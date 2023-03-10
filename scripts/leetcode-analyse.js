@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 20:58:55
+ * Last Modified: 2023-03-10 21:07:10
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -36,6 +36,8 @@ const githubTopicBaseUrl =
   'https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode'
 
 const argUrl = process.argv[2]
+
+const DURATION = 500
 
 /**
  * 生成题目信息
@@ -115,21 +117,26 @@ const batchTask = async (LC) => {
       console.log(`${files[index]}文件有问题`)
       index++
     }
-  }, 1000)
+  }, DURATION)
 }
 
 // 先生成json文件，再根据json文件生成md
 const genFile = (newJSON) => {
   F.touch(targetDir, 'analyse.json', JSON.stringify(newJSON))
 
-  const title = '# 题目 \n ---- \n'
+  const title = '# 做题分析 \n ---- \n'
 
-  let tagInfoItems = '## 标签列表 \n '
+  let tagInfoItems = '## 标签列表 \n'
 
   let topicInfoItems = '----  \n ## 题目列表 \n '
 
   let topicTableHead = `|序号|题目ID|题目|方法名称|难度|标签|\n|----|----|----|----|----|----|\n`
+  // 生成标签列表
+  tagInfoItems +=
+    newJSON.tags.map((item) => `[${item.cnName}](${leetcodeTagBaseUrl}/${item.slug})`).join('\t') +
+    '\n \n'
 
+  // 生成题目列表
   let topicTableBody =
     newJSON.topics
       .map(
@@ -141,12 +148,6 @@ const genFile = (newJSON) => {
           } | ${item.tags.map((el) => el.translatedName).join('  ')} |`
       )
       .join('\n') + '\n' // 最后要换行
-
-  // 生成标签列表
-  tagInfoItems +=
-    newJSON.tags
-      .map((item) => `- [${item.cnName}](${leetcodeTagBaseUrl}/${item.slug})`)
-      .join('\n') + '\n'
 
   const markdownContent = title + tagInfoItems + topicInfoItems + topicTableHead + topicTableBody
 

@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-05 16:25:59
+ * Last Modified: 2023-03-10 17:16:22
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -16,6 +16,7 @@ const { exec, exit } = require('shelljs')
 const fs = require('fs')
 const log = console.log
 const chalk = require('chalk')
+const path = require('path')
 
 class File {
   mkdir(absolutePath) {
@@ -44,6 +45,41 @@ class File {
   read(fileAbsolutePath) {
     const _file = fs.readFileSync(fileAbsolutePath, 'utf-8')
     return _file ? _file.toString() : ''
+  }
+
+  async readDirectory(pathName, filterCallback) {
+    if (!this.isExit(pathName)) {
+      log(chalk.red('路径无效'))
+      return
+    }
+
+    return new Promise((resolve) => {
+      const list = []
+      const each = (pathName) => {
+        fs.readdirSync(pathName).forEach((item, index) => {
+          let stat = fs.lstatSync(path.join(pathName, item))
+          if (stat.isDirectory()) {
+            each(path.join(pathName, item))
+          } else if (stat.isFile()) {
+            // console.log('item', item, 'pathName', pathName)
+            // list.push(item)
+            const fullPathName = pathName + '/' + item
+            if (
+              filterCallback &&
+              typeof filterCallback == 'function' &&
+              filterCallback(fullPathName)
+            ) {
+              list.push(fullPathName)
+            }
+            // console.log('fullPathName', fullPathName)
+          }
+        })
+      }
+
+      // return list
+      each(pathName)
+      resolve(list)
+    })
   }
 }
 

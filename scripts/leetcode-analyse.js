@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 22:08:17
+ * Last Modified: 2023-03-10 22:09:18
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -101,7 +101,7 @@ class Analyse {
               item.functionName
             }) | [${item.functionName}](${githubTopicBaseUrl}/${item.functionName}.ts)|${
               difficultyOpts[item.difficulty]
-            } | ${item.tags.map((el) => el.translatedName).join('  ')} |`
+            } | ${item.tags.map((el) => el.cnName).join('  ')} |`
         )
         .join('\n') + '\n' // 最后要换行
 

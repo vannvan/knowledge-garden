@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 23:34:11
+ * Last Modified: 2023-03-11 11:55:05
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -53,9 +53,11 @@ class Analyse {
 
         _oldJSON.topics.push(this.genTopicInfo(data.question))
 
-        const newTags = this.genTagsInfo(data.question)
+        _oldJSON.tags.push(this.genTagsInfo(data.question))
+        // const newTags = this.genTagsInfo(data.question)
 
-        _oldJSON.tags = _oldJSON.tags.concat(newTags)
+        // _oldJSON.tags = _oldJSON.tags.concat(newTags)
+
         const newLogs = {
           tags: uniqBy(_oldJSON.tags, 'slug'),
           topics: uniqBy(_oldJSON.topics, 'id'),
@@ -77,42 +79,64 @@ class Analyse {
    * @param {*} configJson
    */
   genFile(configJson) {
-    F.touch(targetDir, 'analyse.json', JSON.stringify(configJson))
-
     const title = '# 做题分析 \n ---- \n'
 
-    let tagInfoItems = '## 标签列表 \n'
+    const tagTitle = '## 标签列表 \n'
 
-    let topicInfoItems = '----  \n ## 题目列表 \n '
+    const topicInfoItems = '----  \n ## 题目列表 \n '
 
-    let topicTableHead = `|序号|题目ID|题目|方法名称|难度|标签|\n|----|----|----|----|----|----|\n`
+    const tableTitleOption = {
+      num: '序号',
+      id: '题目ID',
+      cnTitle: '题目',
+      functionName: '方法名称',
+      difficulty: '难度',
+      tag: '标签',
+    }
+
+    const topicRow =
+      '|' + new Array(Object.keys(tableTitleOption).length).fill('----').join('|') + '|\n'
+    const topicTableHead = '|' + Object.values(tableTitleOption).join('|') + '|\n' + topicRow
+
     // 生成标签列表
-    tagInfoItems +=
+    const tagInfoItems =
       configJson.tags
         .map((item) => `[${item.cnName}](${leetcodeTagBaseUrl}/${item.slug})`)
         .join('\t') + '\n \n'
 
     // 生成题目列表
     let topicTableBody =
-      configJson.topics
-        .map(
-          (item, index) =>
-            `|${index}|${item.id}|[${item.cnName}](${leetcodeTopicBaseUrl}/${
-              item.functionName
-            }) | [${item.functionName}](${githubTopicBaseUrl}/${item.functionName}.ts)|${
-              difficultyOpts[item.difficulty]
-            } | ${item.tags.map((el) => el.cnName).join('  ')} |`
-        )
-        .join('\n') + '\n' // 最后要换行
+      configJson.topics.map((item, index) => this.genTopicItem(index, item)).join('\n') + '\n' // 最后要换行
 
-    const markdownContent = title + tagInfoItems + topicInfoItems + topicTableHead + topicTableBody
-
+    const markdownContent =
+      title + tagTitle + tagInfoItems + topicInfoItems + topicTableHead + topicTableBody
     // 生成md文件
     F.touch(targetDir, 'README.md', markdownContent)
+
+    // 生成json文件
+    F.touch(targetDir, 'analyse.json', JSON.stringify(configJson))
 
     log(chalk.green('-------记录已更新------'))
   }
 
+  /**
+   * 生成题目行
+   * @param {*} index
+   * @param {*} info
+   * @returns
+   */
+  genTopicItem(index, info) {
+    const itemInfo = {
+      num: index,
+      id: info.id,
+      cnTitle: `[${info.cnName}](${leetcodeTopicBaseUrl}/${info.functionName})`, // 指向lc连接
+      functionName: `[${info.functionName}](${githubTopicBaseUrl}/${info.functionName}.ts)`, // 指向github连接
+      difficulty: `${difficultyOpts[info.difficulty]}`,
+      tags: `${info.tags.map((el) => el.cnName).join('  ')}`,
+    }
+
+    return '|' + Object.values(itemInfo).join('|') + '|'
+  }
   /**
    * 根据lc返回数据生成题目信息
    * @param {*} info
@@ -123,14 +147,14 @@ class Analyse {
     return {
       id: questionId,
       cnName: translatedTitle,
-      functionName: functionName,
+      functionName,
       tags: topicTags.map((el) => {
         return {
           slug: el.slug,
           cnName: el.translatedName,
         }
       }),
-      difficulty: difficulty,
+      difficulty,
     }
   }
 

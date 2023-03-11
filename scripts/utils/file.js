@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 23:29:47
+ * Last Modified: 2023-03-11 11:53:26
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -19,6 +19,10 @@ const chalk = require('chalk')
 const path = require('path')
 
 class File {
+  /**
+   * 创建文件夹
+   * @param {*} absolutePath
+   */
   mkdir(absolutePath) {
     const isExit = fs.existsSync(absolutePath)
     if (isExit) {
@@ -28,6 +32,12 @@ class File {
     }
   }
 
+  /**
+   * 创建文件
+   * @param {*} absolutePath  绝对路径
+   * @param {*} fileName 文件名称
+   * @param {*} content 文件内容
+   */
   touch(absolutePath, fileName, content) {
     this.mkdir(absolutePath)
     const _fileName = `${absolutePath}/${fileName}`
@@ -37,6 +47,10 @@ class File {
     })
   }
 
+  /**
+   * 删除文件
+   * @param {*} fullPathName 目标文件全路径
+   */
   rm(fullPathName) {
     fs.unlink(fullPathName, (error) => {
       if (error) {
@@ -46,16 +60,31 @@ class File {
     })
   }
 
-  // 文件是否已存在，需要完整路径
+  /**
+   * 文件是否已存在
+   * @param {*} fullPath 完整路径
+   * @returns
+   */
   isExit(fullPath) {
     return fs.existsSync(fullPath)
   }
 
+  /**
+   * 获取文件内容
+   * @param {*} fileAbsolutePath 完整路径
+   * @returns
+   */
   read(fileAbsolutePath) {
     const _file = fs.readFileSync(fileAbsolutePath, 'utf-8')
     return _file ? _file.toString() : ''
   }
 
+  /**
+   * 异步递归遍历目标目录下的文件
+   * @param {*} pathName 目标路径
+   * @param {*} filterCallback // 过滤函数
+   * @returns
+   */
   async readDirectory(pathName, filterCallback) {
     if (!this.isExit(pathName)) {
       log(chalk.red('路径无效'))
@@ -70,8 +99,6 @@ class File {
           if (stat.isDirectory()) {
             each(path.join(pathName, item))
           } else if (stat.isFile()) {
-            // console.log('item', item, 'pathName', pathName)
-            // list.push(item)
             const fullPathName = pathName + '/' + item
             if (
               filterCallback &&
@@ -80,12 +107,10 @@ class File {
             ) {
               list.push(fullPathName)
             }
-            // console.log('fullPathName', fullPathName)
           }
         })
       }
 
-      // return list
       each(pathName)
       resolve(list)
     })

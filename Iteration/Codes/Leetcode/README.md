@@ -68,3 +68,4 @@
 |57|768|[划分字母区间](https://leetcode.cn/problems/partitionLabels)|[partitionLabels](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/partitionLabels.ts)|中等|贪心  哈希表  双指针  字符串|
 |58|56|[合并区间](https://leetcode.cn/problems/merge)|[merge](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/merge.ts)|中等|数组  排序|
 |59|738|[单调递增的数字](https://leetcode.cn/problems/monotoneIncreasingDigits)|[monotoneIncreasingDigits](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/monotoneIncreasingDigits.ts)|中等|贪心  数学|
+|60|409|[最长回文串](https://leetcode.cn/problems/longestPalindrome)|[longestPalindrome](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/longestPalindrome.ts)|简单|贪心  哈希表  字符串|

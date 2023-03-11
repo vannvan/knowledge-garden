@@ -62,3 +62,4 @@
 |52|890|[柠檬水找零](https://leetcode.cn/problems/lemonadeChange)|[lemonadeChange](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/lemonadeChange.ts)|简单|贪心  数组|
 |53|406|[根据身高重建队列](https://leetcode.cn/problems/reconstructQueue)|[reconstructQueue](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/reconstructQueue.ts)|中等|贪心  树状数组  线段树  数组  排序|
 |54|435|[无重叠区间](https://leetcode.cn/problems/eraseOverlapIntervals)|[eraseOverlapIntervals](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/eraseOverlapIntervals.ts)|中等|贪心  数组  动态规划  排序|
+|55|452|[用最少数量的箭引爆气球](https://leetcode.cn/problems/findMinArrowShots)|[findMinArrowShots](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findMinArrowShots.ts)|中等|贪心  数组  排序|

@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-11 16:26:11
+ * Last Modified: 2023-03-11 20:29:52
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -76,7 +76,7 @@ class Analyse {
    * @param {*} configJson
    */
   genFile(configJson) {
-    const title = '# 做题分析 \n ---- \n'
+    const title = '# 做题分析 \n ---- \n [leetcode做题分析](https://leetcode.cn/progress/) \n'
 
     const tagTitle = '## 标签列表 \n'
 

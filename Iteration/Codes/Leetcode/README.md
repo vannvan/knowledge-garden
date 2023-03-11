@@ -64,3 +64,4 @@
 |54|435|[无重叠区间](https://leetcode.cn/problems/eraseOverlapIntervals)|[eraseOverlapIntervals](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/eraseOverlapIntervals.ts)|中等|贪心  数组  动态规划  排序|
 |55|452|[用最少数量的箭引爆气球](https://leetcode.cn/problems/findMinArrowShots)|[findMinArrowShots](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findMinArrowShots.ts)|中等|贪心  数组  排序|
 |56|55|[跳跃游戏](https://leetcode.cn/problems/canJump)|[canJump](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/canJump.ts)|中等|贪心  数组  动态规划|
+|57|768|[划分字母区间](https://leetcode.cn/problems/partitionLabels)|[partitionLabels](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/partitionLabels.ts)|中等|贪心  哈希表  双指针  字符串|

@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-11 18:30:03
+ * Last Modified: 2023-03-11 18:38:11
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -22,7 +22,7 @@ function canJump1(nums: number[]): boolean {
     // 当前索引i+当前可以跳的步数num[i] 就是当前位置可以跳的最远的位置
     furthest = Math.max(furthest, i + nums[i])
     if (furthest <= i) {
-      // 跳不动了
+      // 碰到0跳不动了
       return false
     }
   }

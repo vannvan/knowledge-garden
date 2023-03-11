@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 23:45:42
+ * Last Modified: 2023-03-11 14:44:46
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -90,31 +90,31 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
 
   let testExampleCases = `\t expect(${functionName}())`
 
-  // 测试用例
-  if (jsonExampleTestcases) {
-    testExampleCases = JSON.parse(jsonExampleTestcases)
-      .map((el) => {
-        const params = el.replace(/\n/, ',')
-        return `expect(${functionName}(${params}))`
-      })
-      .join('\n')
-  }
-
-  jestContent +=
-    `import ${functionName} from '../${functionName}' \n` +
-    `describe('${translatedTitle} 测试', () => { \n` +
-    `\tit('${functionName} function', () => { \n` +
-    `${testExampleCases} \n` +
-    `\t}) \n` +
-    `})\n`
-
   const _targetDir = path.resolve(BASE_DIR, 'Leetcode')
 
   const isExit = F.isExit(`${_targetDir}/${functionName}.ts`)
   isExit && log(chalk.green(`方法已存在，将创建新的方法名称...`))
 
-  // 如果方法已存在同名的加个_plus
-  const fileName = isExit ? functionName + '_plus' : functionName
+  // 如果方法已存在同名的加个_II
+  const fileName = isExit ? functionName + '_II' : functionName
+
+  // 测试用例
+  if (jsonExampleTestcases) {
+    testExampleCases = JSON.parse(jsonExampleTestcases)
+      .map((el) => {
+        const params = el.replace(/\n/, ',')
+        return `expect(${_functionName}(${params}))`
+      })
+      .join('\n')
+  }
+
+  jestContent +=
+    `import ${functionName} from '../${fileName}' \n` +
+    `describe('${translatedTitle} 测试', () => { \n` +
+    `\tit('${functionName} function', () => { \n` +
+    `${testExampleCases} \n` +
+    `\t}) \n` +
+    `})\n`
 
   F.touch(`${_targetDir}`, `${fileName}.ts`, functionContent)
   F.touch(`${_targetDir}/tests`, `${fileName}.test.ts`, jestContent)
@@ -122,7 +122,7 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
   setTimeout(() => {
     // 代码格式化
     exec(
-      `npx prettier --write ${_targetDir}/${functionName}.ts  ${_targetDir}/tests/${functionName}.test.ts`
+      `npx prettier --write ${_targetDir}/${fileName}.ts  ${_targetDir}/tests/${fileName}.test.ts`
     )
     // 更新纪录
     const An = new Analyse()

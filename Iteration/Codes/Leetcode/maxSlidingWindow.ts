@@ -6,13 +6,14 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-04 21:41:44
+ * Last Modified: 2023-03-11 13:41:42
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
 function maxSlidingWindow(nums: number[], k: number): number[] {
+  // 单调队列
   class Queue {
     items: number[]
     constructor() {

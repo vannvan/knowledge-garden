@@ -24,17 +24,17 @@ const maxProfit = (prices: number[]): number => {
   //   }
   // }
   // return max
-  let minprice = Number.MAX_SAFE_INTEGER
-  let maxprofit = 0
+  let minprice = Number.MAX_SAFE_INTEGER;
+  let maxprofit = 0;
   for (let i = 0; i < prices.length; i++) {
     if (prices[i] < minprice) {
-      minprice = prices[i] // 假设这一天就是最低值
+      minprice = prices[i]; // 假设这一天就是最低值
     } else if (prices[i] - minprice > maxprofit) {
-      maxprofit = prices[i] - minprice
+      maxprofit = prices[i] - minprice;
     }
   }
 
-  return maxprofit
-}
+  return maxprofit;
+};
 
-export default maxProfit
+export default maxProfit;

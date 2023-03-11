@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-09 23:41:41
+ * Last Modified: 2023-03-11 16:15:13
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -39,7 +39,12 @@ function candy1(ratings: number[]): number {
   return arr.reduce((prev, curr) => prev + curr)
 }
 
-function candy(ratings: number[]): number {
+/**
+ * 有效解
+ * @param ratings
+ * @returns
+ */
+function candy2(ratings: number[]): number {
   const n = ratings.length
 
   let res: number = 1 // 以最少的开始计数，第一个同学就是1个了，因此下面i从1开始
@@ -66,4 +71,31 @@ function candy(ratings: number[]): number {
 
   return res
 }
+
+/**
+ * 有效解
+ * @param ratings
+ * @returns
+ */
+function candy(ratings: number[]): number {
+  const solution: number[] = new Array(ratings.length).fill(1)
+  // 从前往后
+  for (let i = 1; i < ratings.length; i++) {
+    // 当前孩子评分高于前一个孩子，当前孩子就比前一个孩子多一个糖果
+    if (ratings[i] > ratings[i - 1]) {
+      solution[i] = solution[i - 1] + 1
+    }
+  }
+
+  // 从后往前
+  for (let i = ratings.length - 1; i >= 0; i--) {
+    // 当前孩子评分高于后一个孩子
+    if (ratings[i] > ratings[i + 1]) {
+      solution[i] = Math.max(solution[i], solution[i + 1] + 1)
+    }
+  }
+
+  return solution.reduce((prev, curr) => prev + curr)
+}
+
 export default candy

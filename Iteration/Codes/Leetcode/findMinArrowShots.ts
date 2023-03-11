@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-11 18:07:27
+ * Last Modified: 2023-03-11 18:09:52
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -23,7 +23,7 @@ function findMinArrowShots(points: number[][]): number {
   let lastEnd = points[0][1]
   for (let i = 0; i < points.length; i++) {
     let start = points[i][0]
-
+    // 如果前后不相交，就要再射一箭
     if (start > lastEnd) {
       count++
       lastEnd = points[i][1]

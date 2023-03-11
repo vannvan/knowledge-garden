@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-11 11:55:05
+ * Last Modified: 2023-03-11 16:26:11
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -53,10 +53,7 @@ class Analyse {
 
         _oldJSON.topics.push(this.genTopicInfo(data.question))
 
-        _oldJSON.tags.push(this.genTagsInfo(data.question))
-        // const newTags = this.genTagsInfo(data.question)
-
-        // _oldJSON.tags = _oldJSON.tags.concat(newTags)
+        _oldJSON.tags = _oldJSON.tags.concat([...this.genTagsInfo(data.question)])
 
         const newLogs = {
           tags: uniqBy(_oldJSON.tags, 'slug'),
@@ -224,8 +221,7 @@ class Analyse {
             tagInfoListMap.set(el.cnName, el.slug)
           }
         })
-
-        topicInfo.topics.push(this.genTopicInfo(data.question))
+        topicInfo.topics = topicInfo.topics.concat([...this.genTopicInfo(data.question)])
         index++
       } else {
         log(chalk.red(`${files[index]}文件注释信息有误`))

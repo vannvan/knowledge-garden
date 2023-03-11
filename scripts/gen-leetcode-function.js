@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-11 14:44:46
+ * Last Modified: 2023-03-11 14:45:39
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -103,7 +103,7 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
     testExampleCases = JSON.parse(jsonExampleTestcases)
       .map((el) => {
         const params = el.replace(/\n/, ',')
-        return `expect(${_functionName}(${params}))`
+        return `expect(${functionName}(${params}))`
       })
       .join('\n')
   }

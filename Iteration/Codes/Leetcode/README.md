@@ -79,3 +79,4 @@
 |68|1018|[三角形的最大周长](https://leetcode.cn/problems/largestPerimeter)|[largestPerimeter](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/largestPerimeter.ts)|简单|贪心  数组  数学  排序|
 |69|1329|[玩筹码](https://leetcode.cn/problems/minCostToMoveChips)|[minCostToMoveChips](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minCostToMoveChips.ts)|简单|贪心  数组  数学|
 |70|2199|[两栋颜色不同且距离最远的房子](https://leetcode.cn/problems/maxDistance)|[maxDistance](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxDistance.ts)|简单|贪心  数组|
+|71|876|[一手顺子](https://leetcode.cn/problems/isNStraightHand)|[isNStraightHand](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isNStraightHand.ts)|中等|贪心  数组  哈希表  排序|

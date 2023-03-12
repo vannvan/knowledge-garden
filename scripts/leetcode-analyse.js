@@ -4,49 +4,32 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 22:36:39
+ * Last Modified: 2023-03-12 23:05:47
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
-const path = require('path')
 const F = require('./utils/file')
 const Leetcode = require('./utils/leetcode')
 const log = console.log
 const chalk = require('chalk')
 const { uniqBy } = require('lodash')
-
-const difficultyOpts = {
-  Easy: '简单',
-  Medium: '中等',
-  Hard: '困难',
-}
-
-// 调接口间隔
-const DURATION = 500
-
-// lc做题目录
-const targetDir = path.resolve('./Iteration/Codes/Leetcode')
-
-// leetcode 标签链接
-const leetcodeTagBaseUrl = 'https://leetcode.cn/tag'
-
-const leetcodeTopicBaseUrl = 'https://leetcode.cn/problems'
-
-// github 题目代码链接
-const githubTopicBaseUrl =
-  'https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode'
+const CONFIG = require('./config')
 
 class Analyse {
   constructor() {
     this.LC = new Leetcode()
   }
 
+  /**
+   * 执行分析程序
+   * @param {*} url lc链接
+   */
   async do(url) {
-    if (url) {
+    if (url && /leetcode/.test(url)) {
       log(chalk.cyan(`开始获取${url}的题目信息...`))
       const { data } = await this.LC.getQuestionInfo(url)
-      const oldInfo = F.read(`${targetDir}/analyse.json`)
+      const oldInfo = F.read(`${CONFIG.LC_TOPIC_DIR}/analyse.json`)
 
       if (oldInfo) {
         const _oldJSON = JSON.parse(oldInfo)
@@ -99,7 +82,7 @@ class Analyse {
     const tagInfoItems =
       configJson.tags
         .sort((a, b) => a.slug - b.slug) // 可以根据首字母排序
-        .map((item) => `[${item.cnName}](${leetcodeTagBaseUrl}/${item.slug})`)
+        .map((item) => `[${item.cnName}](${CONFIG.LC_TAG_BASE_URL}/${item.slug})`)
         .join('\t') + '\n \n'
 
     // 生成题目列表
@@ -112,10 +95,10 @@ class Analyse {
     const markdownContent =
       title + tagTitle + tagInfoItems + topicInfoItems + topicTableHead + topicTableBody
     // 生成md文件
-    F.touch(targetDir, 'README.md', markdownContent)
+    F.touch(CONFIG.LC_TOPIC_DIR, 'README.md', markdownContent)
 
     // 生成json文件
-    F.touch(targetDir, 'analyse.json', JSON.stringify(configJson))
+    F.touch(CONFIG.LC_TOPIC_DIR, 'analyse.json', JSON.stringify(configJson))
 
     log(chalk.green('-------记录已更新------'))
   }
@@ -130,9 +113,9 @@ class Analyse {
     const itemInfo = {
       num: index,
       id: info.id,
-      cnTitle: `[${info.cnName}](${leetcodeTopicBaseUrl}/${info.titleSlug})`, // 指向lc连接,titleSlug才是lc连接识别的
-      functionName: `[${info.functionName}](${githubTopicBaseUrl}/${info.functionName}.ts)`, // 指向github连接
-      difficulty: `${difficultyOpts[info.difficulty]}`,
+      cnTitle: `[${info.cnName}](${CONFIG.LC_TOPIC_BASE_URL}/${info.titleSlug})`, // 指向lc连接,titleSlug才是lc连接识别的
+      functionName: `[${info.functionName}](${CONFIG.GITHUB_TOPIC_BASE_URL}/${info.functionName}.ts)`, // 指向github连接
+      difficulty: `${CONFIG.LC_TOPIC_DIFFICULTY_OPTS[info.difficulty]}`,
       tags: `${info.tags.map((el) => el.cnName).join('  ')}`,
     }
 
@@ -178,7 +161,10 @@ class Analyse {
    */
   async batchTask() {
     // 文件列表
-    const files = await F.readDirectory(targetDir, (name) => !/test/.test(name) && /ts$/.test(name))
+    const files = await F.readDirectory(
+      CONFIG.LC_TOPIC_DIR,
+      (name) => !/test/.test(name) && /ts$/.test(name)
+    )
 
     // 题目信息
     const topicInfo = {
@@ -203,13 +189,12 @@ class Analyse {
         clearInterval(timer)
         // 添加标签
         tagInfoListMap.forEach((val, key) => {
-          // tagInfoItems += `- [${key}](${leetcodeTagBaseUrl}${val}/problemset) \n`
           topicInfo.tags.push({ slug: val, cnName: key })
         })
         log(chalk.green('批量任务完成'))
         this.genFile(topicInfo)
         // 生成一个有问题文件记录
-        F.touch(targetDir, 'error.log', JSON.stringify(errorLog.join('\n')))
+        F.touch(CONFIG.LC_TOPIC_DIR, 'error.log', JSON.stringify(errorLog.join('\n')))
       }
       const functionContent = F.read(files[index])
       // console.log('functionContent', functionContent)
@@ -233,7 +218,7 @@ class Analyse {
         errorLog.push(files[index])
         index++
       }
-    }, DURATION)
+    }, CONFIG.LC_REQUEST_DURATION)
   }
 }
 

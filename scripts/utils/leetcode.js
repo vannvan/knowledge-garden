@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 17:55:36
+ * Last Modified: 2023-03-12 23:07:51
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -13,13 +13,20 @@
 const log = console.log
 const chalk = require('chalk')
 const axios = require('axios')
-
+/**
+ * lc 接口
+ */
 class Leetcode {
   constructor() {
     this.baseQuery =
       'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    titleSlug\n     translatedTitle\n    translatedContent\n    isPaidOnly\n    difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n      topicTags {\n      name\n      slug\n      translatedName\n      __typename\n    }\n    codeSnippets {\n      lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n     solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    sampleTestCase\n  jsonExampleTestcases\n  metaData\n       }\n}'
   }
 
+  /**
+   * 获取lc题目信息
+   * @param {*} leetcodeQuestionUrl
+   * @returns
+   */
   async getQuestionInfo(leetcodeQuestionUrl) {
     const urlArr = leetcodeQuestionUrl.split('/').filter(Boolean)
 

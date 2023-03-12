@@ -5,23 +5,22 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 14:56:37
+ * Last Modified: 2023-03-12 23:07:34
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
 const chalk = require('chalk')
-const https = require('https')
 const path = require('path')
 const dayjs = require('dayjs')
 const log = console.log
-const F = require('./utils/file')
+const { exec } = require('child_process')
 
 const Leetcode = require('./utils/leetcode')
 const Analyse = require('./leetcode-analyse')
-
-const { exec } = require('child_process')
+const F = require('./utils/file')
+const CONFIG = require('./config')
 
 // 首字母大写
 function titleCase(str) {
@@ -29,10 +28,14 @@ function titleCase(str) {
   return newStr
 }
 
-// leetcode链接
+/**
+ * lc题目连接
+ */
 const LEETCODE_URL = process.argv[2]
 
-// 自定义函数后缀
+/**
+ * 自定义函数后缀
+ */
 const functionSuffix = process.argv[3] ? titleCase(process.argv[3]) : ''
 
 if (!LEETCODE_URL) {
@@ -40,16 +43,15 @@ if (!LEETCODE_URL) {
   process.exit(0)
 }
 
-const BASE_DIR = path.resolve('./Iteration/Codes')
-
 ;(async () => {
-  let LC = new Leetcode()
+  const LC = new Leetcode()
 
   const { data } = await LC.getQuestionInfo(LEETCODE_URL)
 
   const { translatedTitle, topicTags, codeSnippets, metaData, jsonExampleTestcases, questionId } =
     data.question
 
+  // ts 代码
   const tsCode = codeSnippets.find((item) => item.lang == 'TypeScript')
 
   // 测试用例
@@ -58,11 +60,7 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
   // 函数名称
   const functionName = JSON.parse(metaData).name + functionSuffix
 
-  // 函数模版路径
-  const functionTemplatePath = path.resolve('./scripts/template/leetcodeFunction.ts')
-
-  // 函数测试路径
-  const functionJestTemplatePath = path.resolve('./scripts/template/tests/leetcodeFunction.test.ts')
+  // 模版内字符串匹配替换
   const REG_MAP = {
     CREATETIME: dayjs().format('YYYY-MM-DD HH:mm:ss'), // 创建时间
     FUNCTION_NAME: functionName, // 函数名称
@@ -73,9 +71,12 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
 
   const regex = new RegExp(Object.keys(REG_MAP).join('|'), 'g')
 
-  let functionContent = F.read(functionTemplatePath).replace(regex, (matched) => REG_MAP[matched])
+  let functionContent = F.read(CONFIG.LC_FUNCTION_TEMPLATE).replace(
+    regex,
+    (matched) => REG_MAP[matched]
+  )
 
-  let jestContent = F.read(functionJestTemplatePath).replace(regex, (matched) => REG_MAP[matched])
+  let jestContent = F.read(CONFIG.LC_JEST_TEMPLATE).replace(regex, (matched) => REG_MAP[matched])
 
   // 匹配大括号内容
   const bracketReg = /(?<=\{)(\n+|\s+)(?=\})/g // 匹配中间的换行符或空白符
@@ -90,9 +91,7 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
 
   let testExampleCases = `\t expect(${functionName}())`
 
-  const _targetDir = path.resolve(BASE_DIR, 'Leetcode')
-
-  const isExit = F.isExit(`${_targetDir}/${functionName}.ts`)
+  const isExit = F.isExit(`${CONFIG.LC_TOPIC_DIR}/${functionName}.ts`)
   isExit && log(chalk.green(`方法已存在，将创建新的方法名称...`))
 
   // 如果方法已存在同名的加个_II
@@ -116,21 +115,21 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
     `\t}) \n` +
     `})\n`
 
-  F.touch(`${_targetDir}`, `${fileName}.ts`, functionContent)
-  F.touch(`${_targetDir}/tests`, `${fileName}.test.ts`, jestContent)
+  F.touch(`${CONFIG.LC_TOPIC_DIR}`, `${fileName}.ts`, functionContent)
+  F.touch(`${CONFIG.LC_TOPIC_DIR}/tests`, `${fileName}.test.ts`, jestContent)
 
   setTimeout(() => {
     // 代码格式化
     exec(
-      `npx prettier --write ${_targetDir}/${fileName}.ts  ${_targetDir}/tests/${fileName}.test.ts`
+      `npx prettier --write ${CONFIG.LC_TOPIC_DIR}/${fileName}.ts  ${CONFIG.LC_TOPIC_DIR}/tests/${fileName}.test.ts`
     )
     // 更新纪录
     const An = new Analyse()
     An.do(LEETCODE_URL)
 
     // 打开文件
-    exec(`code ${_targetDir}/${fileName}.ts`)
-    exec(`code ${_targetDir}/tests/${fileName}.test.ts`)
+    exec(`code ${CONFIG.LC_TOPIC_DIR}/${fileName}.ts`)
+    exec(`code ${CONFIG.LC_TOPIC_DIR}/tests/${fileName}.test.ts`)
 
     log(chalk.green(`【${translatedTitle} 】方法已生成，开始做题吧！加油！！！`))
   }, 100)

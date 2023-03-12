@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-11 20:29:52
+ * Last Modified: 2023-03-12 22:31:26
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -126,7 +126,7 @@ class Analyse {
     const itemInfo = {
       num: index,
       id: info.id,
-      cnTitle: `[${info.cnName}](${leetcodeTopicBaseUrl}/${info.functionName})`, // 指向lc连接
+      cnTitle: `[${info.cnName}](${leetcodeTopicBaseUrl}/${info.titleSlug})`, // 指向lc连接,titleSlug才是lc连接识别的
       functionName: `[${info.functionName}](${githubTopicBaseUrl}/${info.functionName}.ts)`, // 指向github连接
       difficulty: `${difficultyOpts[info.difficulty]}`,
       tags: `${info.tags.map((el) => el.cnName).join('  ')}`,
@@ -139,12 +139,13 @@ class Analyse {
    * @param {*} info
    */
   genTopicInfo(info) {
-    const { translatedTitle, topicTags, metaData, questionId, difficulty } = info
+    const { translatedTitle, topicTags, metaData, questionId, difficulty, titleSlug } = info
     const functionName = JSON.parse(metaData).name
     return {
       id: questionId,
       cnName: translatedTitle,
       functionName,
+      titleSlug,
       tags: topicTags.map((el) => {
         return {
           slug: el.slug,
@@ -221,7 +222,7 @@ class Analyse {
             tagInfoListMap.set(el.cnName, el.slug)
           }
         })
-        topicInfo.topics = topicInfo.topics.concat([...this.genTopicInfo(data.question)])
+        topicInfo.topics.push(this.genTopicInfo(data.question))
         index++
       } else {
         log(chalk.red(`${files[index]}文件注释信息有误`))

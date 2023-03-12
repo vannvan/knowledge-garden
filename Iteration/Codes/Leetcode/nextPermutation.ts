@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-08 16:20:02
+ * Last Modified: 2023-03-12 17:10:40
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -18,6 +18,6 @@
 function nextPermutation(nums: number[]): void {
   // Think for yourself for 5 minutes...
   // step1 从后往前找第一个将要产生递减
-  //
+  // TODO
 }
 export default nextPermutation

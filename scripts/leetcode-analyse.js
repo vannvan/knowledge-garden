@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 22:31:26
+ * Last Modified: 2023-03-12 22:36:39
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -98,12 +98,16 @@ class Analyse {
     // 生成标签列表
     const tagInfoItems =
       configJson.tags
+        .sort((a, b) => a.slug - b.slug) // 可以根据首字母排序
         .map((item) => `[${item.cnName}](${leetcodeTagBaseUrl}/${item.slug})`)
         .join('\t') + '\n \n'
 
     // 生成题目列表
     let topicTableBody =
-      configJson.topics.map((item, index) => this.genTopicItem(index, item)).join('\n') + '\n' // 最后要换行
+      configJson.topics
+        .sort((a, b) => a.functionName - b.functionContent) // 可以根据首字母排序
+        .map((item, index) => this.genTopicItem(index, item))
+        .join('\n') + '\n' // 最后要换行
 
     const markdownContent =
       title + tagTitle + tagInfoItems + topicInfoItems + topicTableHead + topicTableBody

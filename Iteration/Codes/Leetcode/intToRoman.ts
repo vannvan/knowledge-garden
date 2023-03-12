@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 13:56:47
+ * Last Modified: 2023-03-12 14:25:53
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -43,6 +43,7 @@ function intToRoman(num: number): string {
 
   // q1. 先根据最大位取值
   // q2. 从左到右的每一位，需要选尽可能大的符号
+  // q3. 要生成 1 4 5 9的自负字符组合
 
   const roman: string[] = []
 
@@ -56,4 +57,5 @@ function intToRoman(num: number): string {
 
   return roman.join('')
 }
+
 export default intToRoman

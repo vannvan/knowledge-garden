@@ -73,3 +73,4 @@
 |62|12|[整数转罗马数字](https://leetcode.cn/problems/intToRoman)|[intToRoman](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/intToRoman.ts)|中等|哈希表  数学  字符串|
 |63|605|[种花问题](https://leetcode.cn/problems/canPlaceFlowers)|[canPlaceFlowers](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/canPlaceFlowers.ts)|简单|贪心  数组|
 |64|402|[移掉 K 位数字](https://leetcode.cn/problems/removeKdigits)|[removeKdigits](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/removeKdigits.ts)|中等|栈  贪心  字符串  单调栈|
+|65|680|[验证回文串 II](https://leetcode.cn/problems/validPalindrome)|[validPalindrome](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/validPalindrome.ts)|简单|贪心  双指针  字符串|

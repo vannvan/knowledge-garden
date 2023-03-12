@@ -82,3 +82,4 @@
 |71|876|[一手顺子](https://leetcode.cn/problems/isNStraightHand)|[isNStraightHand](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isNStraightHand.ts)|中等|贪心  数组  哈希表  排序|
 |72|985|[令牌放置](https://leetcode.cn/problems/bagOfTokensScore)|[bagOfTokensScore](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/bagOfTokensScore.ts)|中等|贪心  数组  双指针  排序|
 |73|1369|[交换字符使得字符串相同](https://leetcode.cn/problems/minimumSwap)|[minimumSwap](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minimumSwap.ts)|中等|贪心  数学  字符串|
+|74|1388|[可被三整除的最大和](https://leetcode.cn/problems/maxSumDivThree)|[maxSumDivThree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxSumDivThree.ts)|中等|贪心  数组  动态规划|

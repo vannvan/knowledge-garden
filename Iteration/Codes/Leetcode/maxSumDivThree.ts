@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 21:48:29
+ * Last Modified: 2023-03-12 22:15:28
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -63,9 +63,11 @@ function maxSumDivThree(nums: number[]): number {
   if (sum % 3 == 0) {
     return sum
   } else if (sum % 3 === 1) {
-    sum = Math.max(sum - arr1[0], (sum - arr2[0] - arr2[1]) | 0)
+    // 为1: 找到sum减去余数为1的最小值或者两个余数为2的最小值（比较）
+    sum = Math.max(sum - arr1[0] || 0, sum - arr2[0] - arr2[1] || 0)
   } else {
-    sum = Math.max(sum - arr2[0], (sum - arr1[0] - arr1[1]) | 0)
+    // 为2: 找到sum减去余数为2的最小值或者两个余数为1的最小值（比较）
+    sum = Math.max(sum - arr2[0] || 0, sum - arr1[0] - arr1[1] || 0)
   }
 
   return sum

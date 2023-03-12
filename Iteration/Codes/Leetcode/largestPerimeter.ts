@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 17:23:58
+ * Last Modified: 2023-03-12 17:27:07
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -15,7 +15,7 @@
 function largestPerimeter(nums: number[]): number {
   // Think for yourself for 5 minutes...
   // q1. 考虑三条边需要满足能够构成三角形
-  // q2. 要最大周长，先给排个序
+  // q2. 要最大周长，先给排个序,如果较大的数字已构成了三角形，就不用继续往后走了
   nums.sort((a, b) => b - a)
 
   let max: number = 0
@@ -34,9 +34,11 @@ function largestPerimeter(nums: number[]): number {
     return false
   }
 
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; ) {
     if (isValid(nums[i], nums[i + 1], nums[i + 2])) {
-      max = Math.max(max, nums[i] + nums[i + 1] + nums[i + 2])
+      return nums[i] + nums[i + 1] + nums[i + 2]
+    } else {
+      i++
     }
   }
 

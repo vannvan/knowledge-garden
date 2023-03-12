@@ -77,3 +77,5 @@
 |66|778|[重构字符串](https://leetcode.cn/problems/reorganizeString)|[reorganizeString](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/reorganizeString.ts)|中等|贪心  哈希表  字符串  计数  排序  堆（优先队列）|
 |67|561|[数组拆分](https://leetcode.cn/problems/arrayPairSum)|[arrayPairSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/arrayPairSum.ts)|简单|贪心  数组  计数排序  排序|
 |68|1018|[三角形的最大周长](https://leetcode.cn/problems/largestPerimeter)|[largestPerimeter](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/largestPerimeter.ts)|简单|贪心  数组  数学  排序|
+|69|1329|[玩筹码](https://leetcode.cn/problems/minCostToMoveChips)|[minCostToMoveChips](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minCostToMoveChips.ts)|简单|贪心  数组  数学|
+|70|2199|[两栋颜色不同且距离最远的房子](https://leetcode.cn/problems/maxDistance)|[maxDistance](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxDistance.ts)|简单|贪心  数组|

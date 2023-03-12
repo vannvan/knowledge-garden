@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 16:28:45
+ * Last Modified: 2023-03-12 16:38:06
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -33,7 +33,6 @@ function validPalindrome1(s: string): boolean {
     left++
     right--
   }
-  console.log('p', p)
   return p >= 0
 }
 

@@ -7,46 +7,46 @@
  * @Last Modified time: 2019-08-02 09:45:21
  */
 
-function dateToStr(datetime) {
-  var dateTime = new Date(datetime);
-  var year = dateTime.getFullYear();
-  var month = dateTime.getMonth() + 1; //js从0开始取
-  var date = dateTime.getDate();
-  var hour = dateTime.getHours();
-  var minutes = dateTime.getMinutes();
-  var second = dateTime.getSeconds();
-  month = month < 10 ? '0' + month : month;
-  date = date < 10 ? '0' + date : date;
-  hour = hour < 10 ? '0' + hour : hour;
-  minutes = minutes < 10 ? '0' + minutes : minutes;
-  second = second < 10 ? '0' + second : second;
-  return year + "/" + month + "/" + date + " " + hour + ":" + minutes + ":" + second;
-}
-const  name = process.argv[2] || dateToStr(new Date());
+const dayjs = require('dayjs')
+const shell = require('shelljs')
+const exec = shell.exec
+const echo = shell.echo
+const chalk = require('chalk')
+const log = console.log
 
-const shell = require("shelljs");
-const  exec = shell.exec;
-const  echo = shell.echo;
+const exec2 = require('child_process').exec
 
-exec('git pull -p')
+const diffCommand = 'git diff --name-only'
 
-setTimeout(() => {
-  if (exec('git add .').code !== 0) {
-    echo('Error: Git add failed');
-    exit(1);
+// TODO
+// exec2(diffCommand, 'utf8', (err, stdout, stderr) => {
+//   if (err) {
+//     console.log('err:', err)
+//     console.log('stderr:', stderr)
+//   } else {
+//     const fileArr = stdout.split('\n')
+
+//     log(chalk.green('fileArr', fileArr))
+//   }
+// })
+
+exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
+  if (err) {
+    log(chalk.red(err))
+  } else {
+    const commitMessage = dayjs().format('YYYY-MM-DD HH:mm:ss')
+    if (exec('git add .').code !== 0) {
+      log(chalk.red('Error: Git add failed'))
+      exit(1)
+    }
+    if (exec(`git commit -am "${commitMessage}"`).code !== 0) {
+      log(chalk('Error: Git commit failed'))
+      exit(1)
+    }
+    if (exec('git push').code !== 0) {
+      log(chalk('Error: Git push failed'))
+      exit(1)
+    }
+    log(chalk.green('提交成功！'))
   }
-  if (exec(`git commit -am "${name}"`).code !== 0) {
-    echo('Error: Git commit failed');
-    exit(1);
-  }
-  if (exec('git push').code !== 0) {
-    echo('Error: Git push failed');
-    exit(1);
-  }
-  // exec(`echo git success ${name}`);
-  
-  //绿色字体
-  echo('-e', "\033[0;32m git success \033[0m" + `${name}`);
-}, 1000);
-
-
+})

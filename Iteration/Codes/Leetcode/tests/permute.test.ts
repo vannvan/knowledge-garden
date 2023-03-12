@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-06 22:14:44
+ * Last Modified: 2023-03-12 14:05:24
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -13,7 +13,7 @@
 import permute from '../permute'
 describe('全排列 测试', () => {
   it('permute function', () => {
-    permute([1, 2, 3])
+    // permute([1, 2, 3])
     // return
     expect(permute([1, 2, 3])).toEqual(
       expect.arrayContaining([

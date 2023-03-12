@@ -6,14 +6,14 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-09 22:45:55
+ * Last Modified: 2023-03-12 14:21:53
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
 // 不对
-function longestConsecutive(nums: number[]): number {
+function longestConsecutive1(nums: number[]): number {
   // Think for yourself for 5 minutes...
 
   if (nums.length == 0) return 0
@@ -40,7 +40,7 @@ function longestConsecutive(nums: number[]): number {
   return count
 }
 
-function longestConsecutive1(nums: number[]): number {
+function longestConsecutive(nums: number[]): number {
   let set = new Set(nums)
 
   let max = 0

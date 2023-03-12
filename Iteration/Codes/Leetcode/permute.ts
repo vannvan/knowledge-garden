@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-06 22:17:27
+ * Last Modified: 2023-03-12 14:07:33
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -22,7 +22,7 @@ function permute(nums: number[]): number[][] {
 
   const backTrack = (nums: number[]) => {
     // 满足条件添加到结果集
-    console.log('track', track)
+    // console.log('track', track)
 
     if (track.length === nums.length) {
       res.push([...track])
@@ -30,10 +30,11 @@ function permute(nums: number[]): number[][] {
 
     for (let i = 0; i < nums.length; i++) {
       // 如果track中已经选择过，就要跳过
-      console.log(`此时${nums[i]}在used中的位置${i},${used[i] ? '不放' : '放进去'}`, 'used', used)
+      // console.log(`此时${nums[i]}在used中的位置${i},${used[i] ? '不放' : '放进去'}`, 'used', used)
       if (used[i]) continue
       // 或者，但是会影响复杂度
       // if(track.includes(nums[i])) continue
+      used[i] = true
       track.push(nums[i])
       backTrack(nums)
       track.pop()

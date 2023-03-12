@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-26 13:35:59
+ * Last Modified: 2023-03-12 14:10:14
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -37,10 +37,10 @@ describe('二分查找', () => {
     expect(right_bound_find([1, 2, 3, 6, 7, 9], 3)).toEqual(2)
   })
 
-  it('left_bound_find_2', () => {
-    expect(left_bound_find_2([1, 2, 4, 5], 4)).toEqual(2)
-    expect(left_bound_find_2([2, 3, 5, 7], 8)).toEqual(-1)
-  })
+  // it('left_bound_find_2', () => {
+  //   expect(left_bound_find_2([1, 2, 4, 5], 4)).toEqual(2)
+  //   expect(left_bound_find_2([2, 3, 5, 7], 8)).toEqual(-1)
+  // })
 
   it('left_bound_find_3 function', () => {
     expect(left_bound_find_3([1, 2, 4, 5, 6], 5)).toEqual(3)

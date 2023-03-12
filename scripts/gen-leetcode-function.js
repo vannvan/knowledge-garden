@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-11 14:45:39
+ * Last Modified: 2023-03-12 14:56:37
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -127,6 +127,11 @@ const BASE_DIR = path.resolve('./Iteration/Codes')
     // 更新纪录
     const An = new Analyse()
     An.do(LEETCODE_URL)
+
+    // 打开文件
+    exec(`code ${_targetDir}/${fileName}.ts`)
+    exec(`code ${_targetDir}/tests/${fileName}.test.ts`)
+
     log(chalk.green(`【${translatedTitle} 】方法已生成，开始做题吧！加油！！！`))
   }, 100)
 })()

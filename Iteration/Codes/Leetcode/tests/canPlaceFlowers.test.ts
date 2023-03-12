@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 14:37:05
+ * Last Modified: 2023-03-12 14:48:08
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -18,6 +18,5 @@ describe('种花问题 测试', () => {
     expect(canPlaceFlowers([0, 0, 0, 1, 1], 1)).toEqual(true)
     expect(canPlaceFlowers([0, 0, 0, 1, 1], 2)).toEqual(false)
     expect(canPlaceFlowers([0, 0, 0, 1, 1, 0, 0], 2)).toEqual(true)
-    // expect(canPlaceFlowers([0, 0, 0, 1, 1, 0, 0], 2)).toEqual(false)
   })
 })

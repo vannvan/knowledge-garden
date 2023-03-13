@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 23:05:47
+ * Last Modified: 2023-03-13 09:29:06
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -90,7 +90,7 @@ class Analyse {
       configJson.topics
         .sort((a, b) => a.functionName - b.functionContent) // 可以根据首字母排序
         .map((item, index) => this.genTopicItem(index, item))
-        .join('\n') + '\n' // 最后要换行
+        .join('\n') + '\n' // 最后要换行cls
 
     const markdownContent =
       title + tagTitle + tagInfoItems + topicInfoItems + topicTableHead + topicTableBody

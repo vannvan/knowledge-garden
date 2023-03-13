@@ -86,3 +86,4 @@
 |75|29|[两数相除](https://leetcode.cn/problems/divide-two-integers)|[divide](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/divide.ts)|中等|位运算  数学|
 |76|242|[有效的字母异位词](https://leetcode.cn/problems/valid-anagram)|[isAnagram](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isAnagram.ts)|简单|哈希表  字符串  排序|
 |77|349|[两个数组的交集](https://leetcode.cn/problems/intersection-of-two-arrays)|[intersection](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/intersection.ts)|简单|数组  哈希表  双指针  二分查找  排序|
+|78|202|[快乐数](https://leetcode.cn/problems/happy-number)|[isHappy](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isHappy.ts)|简单|哈希表  数学  双指针|

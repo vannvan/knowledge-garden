@@ -88,3 +88,4 @@
 |77|349|[两个数组的交集](https://leetcode.cn/problems/intersection-of-two-arrays)|[intersection](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/intersection.ts)|简单|数组  哈希表  双指针  二分查找  排序|
 |78|202|[快乐数](https://leetcode.cn/problems/happy-number)|[isHappy](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isHappy.ts)|简单|哈希表  数学  双指针|
 |79|454|[四数相加 II](https://leetcode.cn/problems/4sum-ii)|[fourSumCount](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/fourSumCount.ts)|中等|数组  哈希表|
+|80|383|[赎金信](https://leetcode.cn/problems/ransom-note)|[canConstruct](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/canConstruct.ts)|简单|哈希表  字符串  计数|

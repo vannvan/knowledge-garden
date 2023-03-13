@@ -93,3 +93,5 @@
 |82|18|[四数之和](https://leetcode.cn/problems/4sum)|[fourSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/fourSum.ts)|中等|数组  双指针  排序|
 |83|1|[两数之和](https://leetcode.cn/problems/two-sum)|[twoSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/twoSum.ts)|简单|数组  哈希表|
 |84|567|[字符串的排列](https://leetcode.cn/problems/permutation-in-string)|[checkInclusion](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/checkInclusion.ts)|中等|哈希表  双指针  字符串  滑动窗口|
+|85|438|[找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string)|[findAnagrams](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findAnagrams.ts)|中等|哈希表  字符串  滑动窗口|
+|86|76|[最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring)|[minWindow](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minWindow.ts)|困难|哈希表  字符串  滑动窗口|

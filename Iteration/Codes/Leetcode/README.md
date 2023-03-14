@@ -97,3 +97,4 @@
 |86|1013|[斐波那契数](https://leetcode.cn/problems/fibonacci-number)|[fib](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/fib.ts)|简单|递归  记忆化搜索  数学  动态规划|
 |87|747|[使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs)|[minCostClimbingStairs](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minCostClimbingStairs.ts)|简单|数组  动态规划|
 |88|62|[不同路径](https://leetcode.cn/problems/unique-paths)|[uniquePaths](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/uniquePaths.ts)|中等|数学  动态规划  组合数学|
+|89|63|[不同路径 II](https://leetcode.cn/problems/unique-paths-ii)|[uniquePathsWithObstacles](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/uniquePathsWithObstacles.ts)|中等|数组  动态规划  矩阵|

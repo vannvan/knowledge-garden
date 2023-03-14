@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-13 09:29:06
+ * Last Modified: 2023-03-14 19:47:03
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -13,7 +13,7 @@ const F = require('./utils/file')
 const Leetcode = require('./utils/leetcode')
 const log = console.log
 const chalk = require('chalk')
-const { uniqBy } = require('lodash')
+const { uniqBy, uniq } = require('lodash')
 const CONFIG = require('./config')
 
 class Analyse {
@@ -87,7 +87,7 @@ class Analyse {
 
     // 生成题目列表
     let topicTableBody =
-      configJson.topics
+      uniqBy(configJson.topics, 'id')
         .sort((a, b) => a.functionName - b.functionContent) // 可以根据首字母排序
         .map((item, index) => this.genTopicItem(index, item))
         .join('\n') + '\n' // 最后要换行cls

@@ -84,14 +84,4 @@
 |73|347|[前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements)|[topKFrequent](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/topKFrequent.ts)|中等|数组  哈希表  分治  桶排序  计数  快速选择  排序  堆（优先队列）|
 |74|680|[验证回文串 II](https://leetcode.cn/problems/valid-palindrome-ii)|[validPalindrome](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/validPalindrome.ts)|简单|贪心  双指针  字符串|
 |75|29|[两数相除](https://leetcode.cn/problems/divide-two-integers)|[divide](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/divide.ts)|中等|位运算  数学|
-|76|242|[有效的字母异位词](https://leetcode.cn/problems/valid-anagram)|[isAnagram](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isAnagram.ts)|简单|哈希表  字符串  排序|
-|77|349|[两个数组的交集](https://leetcode.cn/problems/intersection-of-two-arrays)|[intersection](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/intersection.ts)|简单|数组  哈希表  双指针  二分查找  排序|
-|78|202|[快乐数](https://leetcode.cn/problems/happy-number)|[isHappy](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isHappy.ts)|简单|哈希表  数学  双指针|
-|79|454|[四数相加 II](https://leetcode.cn/problems/4sum-ii)|[fourSumCount](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/fourSumCount.ts)|中等|数组  哈希表|
-|80|383|[赎金信](https://leetcode.cn/problems/ransom-note)|[canConstruct](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/canConstruct.ts)|简单|哈希表  字符串  计数|
-|81|15|[三数之和](https://leetcode.cn/problems/3sum)|[threeSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/threeSum.ts)|中等|数组  双指针  排序|
-|82|18|[四数之和](https://leetcode.cn/problems/4sum)|[fourSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/fourSum.ts)|中等|数组  双指针  排序|
-|83|1|[两数之和](https://leetcode.cn/problems/two-sum)|[twoSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/twoSum.ts)|简单|数组  哈希表|
-|84|567|[字符串的排列](https://leetcode.cn/problems/permutation-in-string)|[checkInclusion](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/checkInclusion.ts)|中等|哈希表  双指针  字符串  滑动窗口|
-|85|438|[找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string)|[findAnagrams](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findAnagrams.ts)|中等|哈希表  字符串  滑动窗口|
-|86|76|[最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring)|[minWindow](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minWindow.ts)|困难|哈希表  字符串  滑动窗口|
+|76|76|[最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring)|[minWindow](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minWindow.ts)|困难|哈希表  字符串  滑动窗口|

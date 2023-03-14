@@ -37,15 +37,15 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
     const commitMessage = dayjs().format('YYYY-MM-DD HH:mm:ss')
     if (exec('git add .').code !== 0) {
       log(chalk.red('Error: Git add failed'))
-      exit(1)
+      process.exit(1)
     }
     if (exec(`git commit -am "${commitMessage}"`).code !== 0) {
       log(chalk('Error: Git commit failed'))
-      exit(1)
+      process.exit(1)
     }
     if (exec('git push').code !== 0) {
       log(chalk('Error: Git push failed'))
-      exit(1)
+      process.exit(1)
     }
     log(chalk.green('提交成功！'))
   }

@@ -99,3 +99,4 @@
 |88|62|[不同路径](https://leetcode.cn/problems/unique-paths)|[uniquePaths](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/uniquePaths.ts)|中等|数学  动态规划  组合数学|
 |89|63|[不同路径 II](https://leetcode.cn/problems/unique-paths-ii)|[uniquePathsWithObstacles](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/uniquePathsWithObstacles.ts)|中等|数组  动态规划  矩阵|
 |90|343|[整数拆分](https://leetcode.cn/problems/integer-break)|[integerBreak](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/integerBreak.ts)|中等|数学  动态规划|
+|91|2366|[装满石头的背包的最大数量](https://leetcode.cn/problems/maximum-bags-with-full-capacity-of-rocks)|[maximumBags](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maximumBags.ts)|中等|贪心  数组  排序|

@@ -102,3 +102,4 @@
 |91|2366|[装满石头的背包的最大数量](https://leetcode.cn/problems/maximum-bags-with-full-capacity-of-rocks)|[maximumBags](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maximumBags.ts)|中等|贪心  数组  排序|
 |92|416|[分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum)|[canPartition](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/canPartition.ts)|中等|数组  动态规划|
 |93|300|[最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence)|[lengthOfLIS](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/lengthOfLIS.ts)|中等|数组  二分查找  动态规划|
+|94|75|[颜色分类](https://leetcode.cn/problems/sort-colors)|[sortColors](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/sortColors.ts)|中等|数组  双指针  排序|

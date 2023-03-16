@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 23:07:34
+ * Last Modified: 2023-03-16 19:50:44
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -14,6 +14,7 @@
 const chalk = require('chalk')
 const path = require('path')
 const dayjs = require('dayjs')
+const { trim } = require('lodash')
 const log = console.log
 const { exec } = require('child_process')
 
@@ -95,7 +96,7 @@ if (!LEETCODE_URL) {
   isExit && log(chalk.green(`方法已存在，将创建新的方法名称...`))
 
   // 如果方法已存在同名的加个_II
-  const fileName = isExit ? functionName + '_II' : functionName
+  const fileName = trim(isExit ? functionName + '_II' : functionName)
 
   // 测试用例
   if (jsonExampleTestcases) {

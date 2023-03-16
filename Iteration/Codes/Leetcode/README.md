@@ -1,10 +1,10 @@
 # 做题分析 
-----
+ ---- 
  [leetcode做题分析](https://leetcode.cn/progress/) 
 ## 标签列表 
 [贪心](https://leetcode.cn/tag/greedy)	[数组](https://leetcode.cn/tag/array)	[计数排序](https://leetcode.cn/tag/counting-sort)	[排序](https://leetcode.cn/tag/sorting)	[双指针](https://leetcode.cn/tag/two-pointers)	[哈希表](https://leetcode.cn/tag/hash-table)	[字符串](https://leetcode.cn/tag/string)	[计数](https://leetcode.cn/tag/counting)	[动态规划](https://leetcode.cn/tag/dynamic-programming)	[滑动窗口](https://leetcode.cn/tag/sliding-window)	[回溯](https://leetcode.cn/tag/backtracking)	[数学](https://leetcode.cn/tag/math)	[矩阵](https://leetcode.cn/tag/matrix)	[位运算](https://leetcode.cn/tag/bit-manipulation)	[递归](https://leetcode.cn/tag/recursion)	[记忆化搜索](https://leetcode.cn/tag/memoization)	[二分查找](https://leetcode.cn/tag/binary-search)	[栈](https://leetcode.cn/tag/stack)	[字典树](https://leetcode.cn/tag/trie)	[并查集](https://leetcode.cn/tag/union-find)	[队列](https://leetcode.cn/tag/queue)	[单调队列](https://leetcode.cn/tag/monotonic-queue)	[堆（优先队列）](https://leetcode.cn/tag/heap-priority-queue)	[分治](https://leetcode.cn/tag/divide-and-conquer)	[广度优先搜索](https://leetcode.cn/tag/breadth-first-search)	[树状数组](https://leetcode.cn/tag/binary-indexed-tree)	[线段树](https://leetcode.cn/tag/segment-tree)	[单调栈](https://leetcode.cn/tag/monotonic-stack)	[字符串匹配](https://leetcode.cn/tag/string-matching)	[组合数学](https://leetcode.cn/tag/combinatorics)
-
-----
+ 
+----  
  ## 题目列表 
  |序号|题目ID|题目|方法名称|难度|标签|
 |----|----|----|----|----|----|
@@ -104,4 +104,5 @@
 |93|300|[最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence)|[lengthOfLIS](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/lengthOfLIS.ts)|中等|数组  二分查找  动态规划|
 |94|75|[颜色分类](https://leetcode.cn/problems/sort-colors)|[sortColors](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/sortColors.ts)|中等|数组  双指针  排序|
 |95|136|[只出现一次的数字](https://leetcode.cn/problems/single-number)|[singleNumber](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/singleNumber.ts)|简单|位运算  数组|
-|96|1130|[最后一块石头的重量 II](https://leetcode.cn/problems/last-stone-weight-ii)|[lastStoneWeightII](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/lastStoneWeightII.ts)|中等|数组  动态规划|
+|96|1448|[6 和 9 组成的最大数字](https://leetcode.cn/problems/maximum-69-number)|[maximum69Number ](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maximum69Number .ts)|简单|贪心  数学|
+|97|1277|[形成三的最大倍数](https://leetcode.cn/problems/largest-multiple-of-three)|[largestMultipleOfThree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/largestMultipleOfThree.ts)|困难|贪心  数组  动态规划|

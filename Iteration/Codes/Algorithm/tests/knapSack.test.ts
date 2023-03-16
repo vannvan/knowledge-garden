@@ -4,13 +4,13 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-16 11:28:30
+ * Last Modified: 2023-03-16 17:12:02
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-import { knapSack, weightBagProblem } from '../knapSack'
+import { knapSack, weightBagProblem, weightBagProblemNormal } from '../knapSack'
 
 describe('背包问题', () => {
   it('knapSack function', () => {
@@ -19,5 +19,9 @@ describe('背包问题', () => {
 
   it('weightBagProblem function', () => {
     expect(weightBagProblem([1, 3, 4, 5], [15, 20, 30, 55], 6)).toEqual(70)
+  })
+
+  it('weightBagProblemNormal function', () => {
+    expect(weightBagProblemNormal([1, 3, 4, 5], [15, 20, 30, 55], 6)).toEqual(70)
   })
 })

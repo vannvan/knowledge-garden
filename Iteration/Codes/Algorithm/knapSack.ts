@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-16 11:37:31
+ * Last Modified: 2023-03-16 17:11:38
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -99,5 +99,38 @@ function weightBagProblem(weights: number[], values: number[], size: number) {
   }
   return dp[size]
 }
+/**
+ * 未优化
+ * @param weight
+ * @param value
+ * @param size
+ * @returns
+ */
+function weightBagProblemNormal(weight, value, size) {
+  // 定义 dp 数组
+  const len = weight.length,
+    dp = Array(len)
+      .fill([])
+      .map(() => Array(size + 1).fill(0))
 
-export { knapSack, weightBagProblem }
+  // 初始化
+  for (let j = weight[0]; j <= size; j++) {
+    dp[0][j] = value[0]
+  }
+
+  // weight 数组的长度len 就是物品个数
+  for (let i = 1; i < len; i++) {
+    // 遍历物品
+    for (let j = 0; j <= size; j++) {
+      // 遍历背包容量
+      if (j < weight[i]) dp[i][j] = dp[i - 1][j]
+      else dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])
+    }
+  }
+
+  console.table(dp)
+
+  return dp[len - 1][size]
+}
+
+export { knapSack, weightBagProblem, weightBagProblemNormal }

@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-08 11:22:58
+ * Last Modified: 2023-03-16 14:44:55
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -21,8 +21,6 @@ describe('单词搜索 测试', () => {
       ],
       'ABCCED'
     )
-
-    return
 
     expect(
       exist(

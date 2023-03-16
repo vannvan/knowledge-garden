@@ -104,3 +104,4 @@
 |93|300|[最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence)|[lengthOfLIS](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/lengthOfLIS.ts)|中等|数组  二分查找  动态规划|
 |94|75|[颜色分类](https://leetcode.cn/problems/sort-colors)|[sortColors](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/sortColors.ts)|中等|数组  双指针  排序|
 |95|136|[只出现一次的数字](https://leetcode.cn/problems/single-number)|[singleNumber](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/singleNumber.ts)|简单|位运算  数组|
+|96|1130|[最后一块石头的重量 II](https://leetcode.cn/problems/last-stone-weight-ii)|[lastStoneWeightII](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/lastStoneWeightII.ts)|中等|数组  动态规划|

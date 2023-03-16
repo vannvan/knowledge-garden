@@ -106,3 +106,4 @@
 |95|136|[只出现一次的数字](https://leetcode.cn/problems/single-number)|[singleNumber](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/singleNumber.ts)|简单|位运算  数组|
 |96|1448|[6 和 9 组成的最大数字](https://leetcode.cn/problems/maximum-69-number)|[maximum69Number ](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maximum69Number .ts)|简单|贪心  数学|
 |97|1277|[形成三的最大倍数](https://leetcode.cn/problems/largest-multiple-of-three)|[largestMultipleOfThree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/largestMultipleOfThree.ts)|困难|贪心  数组  动态规划|
+|98|1519|[非递增顺序的最小子序列](https://leetcode.cn/problems/minimum-subsequence-in-non-increasing-order)|[minSubsequence](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minSubsequence.ts)|简单|贪心  数组  排序|

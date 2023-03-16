@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-16 15:10:12
+ * Last Modified: 2023-03-16 15:11:40
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -36,7 +36,7 @@ function lastStoneWeightII(stones: number[]): number {
   }
 
   // console.log(dp)
-  // sum - dp[target] 是一堆 dp[target]是另一堆
+  // sum - dp[target] 是一堆     dp[target]是另一堆
   // 剩下的最小石头重量就是 (sum - dp[target]) - dp[target]
   return sum - dp[target] - dp[target]
 }

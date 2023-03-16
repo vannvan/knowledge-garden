@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-08 23:30:54
+ * Last Modified: 2023-03-16 16:25:48
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -78,4 +78,28 @@ function findTargetSumWays(nums: number[], target: number): number {
   return count
 }
 
-export default findTargetSumWays
+/**
+ * 动态规划
+ * @param nums
+ * @param target
+ */
+function findTargetSumWaysByDP(nums: number[], target: number): number {
+  const sum: number = nums.reduce((prev, curr) => prev + curr)
+
+  // x = (target + sum) / 2
+  if (Math.abs(target) > sum) return 0 // 此时没有答案
+  if ((target + sum) % 2 == 1) return 0 // 此时没有方案
+
+  const bagSize = (target + sum) / 2
+
+  const dp: number[] = Array(bagSize + 1).fill(0)
+  dp[0] = 1
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = bagSize; j >= nums[i]; j--) {
+      dp[j] += dp[j - nums[i]]
+    }
+  }
+  return dp[bagSize]
+}
+
+export { findTargetSumWays, findTargetSumWaysByDP }

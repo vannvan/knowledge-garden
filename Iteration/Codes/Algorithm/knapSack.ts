@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-16 11:23:18
+ * Last Modified: 2023-03-16 11:29:13
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -81,4 +81,22 @@ const knapSack = (weights: number[], values: number[], capacity: number, n: numb
   return KW[n][capacity]
 }
 
-export default knapSack
+/**
+ * 只限制格数算最大价值的01背包
+ * @param weights 重量
+ * @param values 价值
+ * @param size 个数
+ * @returns
+ */
+function weightBagProblem(weights: number[], values: number[], size: number) {
+  const len = weights.length,
+    dp = Array(size + 1).fill(0)
+  for (let i = 1; i <= len; i++) {
+    for (let j = size; j >= weights[i - 1]; j--) {
+      dp[j] = Math.max(dp[j], values[i - 1] + dp[j - weights[i - 1]])
+    }
+  }
+  return dp[size]
+}
+
+export { knapSack, weightBagProblem }

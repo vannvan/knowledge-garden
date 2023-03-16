@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-15 21:25:29
+ * Last Modified: 2023-03-16 11:09:43
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -27,9 +27,43 @@ function canPartition(nums: number[]): boolean {
   const dp: number[] = new Array(bagSize + 1).fill(0)
   for (let i = 0; i < goodsNum; i++) {
     for (let j = bagSize; j >= nums[i]; j--) {
-      dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i])
+      const w = j - nums[i] // 容量为j-nums[i]时，不放num[i]的最大值
+      dp[j] = Math.max(dp[j], dp[w] + nums[i])
     }
   }
   return dp[bagSize] === bagSize
 }
+
+function canPartition2(nums: number[]): boolean {
+  const sum: number = nums.reduce((prev, curr) => prev + curr)
+
+  if (sum % 2 === 1) return false
+
+  const bagSize: number = sum / 2
+  const weightArr: number[] = nums
+  const valueArr: number[] = nums
+
+  const goodsNum: number = weightArr.length
+
+  const dp: number[][] = new Array(goodsNum).fill(0).map((_) => new Array(bagSize + 1).fill(0))
+
+  for (let i = weightArr[0]; i <= bagSize; i++) {
+    dp[0][i] = valueArr[0]
+  }
+
+  for (let i = 1; i < goodsNum; i++) {
+    for (let j = 0; j <= bagSize; j++) {
+      // 当目前j背包容量不够
+      if (j < weightArr[i]) {
+        dp[i][j] = dp[i - 1][j]
+      } else {
+        const w = j - weightArr[i] // 容量为j - weightArr[i]的时候不放物品i的最大价值
+        dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][w] + valueArr[i])
+      }
+    }
+  }
+
+  return dp[goodsNum - 1][bagSize] === bagSize
+}
+
 export default canPartition

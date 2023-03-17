@@ -109,3 +109,4 @@
 |98|1519|[非递增顺序的最小子序列](https://leetcode.cn/problems/minimum-subsequence-in-non-increasing-order)|[minSubsequence](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minSubsequence.ts)|简单|贪心  数组  排序|
 |99|1304|[最长快乐字符串](https://leetcode.cn/problems/longest-happy-string)|[longestDiverseString](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/longestDiverseString.ts)|中等|贪心  字符串  堆（优先队列）|
 |100|1529|[改变一个整数能得到的最大差值](https://leetcode.cn/problems/max-difference-you-can-get-from-changing-an-integer)|[maxDiff](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxDiff.ts)|中等|贪心  数学|
+|101|165|[比较版本号](https://leetcode.cn/problems/compare-version-numbers)|[compareVersion](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/compareVersion.ts)|中等|双指针  字符串|

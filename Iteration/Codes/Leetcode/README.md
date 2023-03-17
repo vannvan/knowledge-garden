@@ -110,3 +110,4 @@
 |99|1304|[最长快乐字符串](https://leetcode.cn/problems/longest-happy-string)|[longestDiverseString](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/longestDiverseString.ts)|中等|贪心  字符串  堆（优先队列）|
 |100|1529|[改变一个整数能得到的最大差值](https://leetcode.cn/problems/max-difference-you-can-get-from-changing-an-integer)|[maxDiff](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxDiff.ts)|中等|贪心  数学|
 |101|165|[比较版本号](https://leetcode.cn/problems/compare-version-numbers)|[compareVersion](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/compareVersion.ts)|中等|双指针  字符串|
+|102|166|[分数到小数](https://leetcode.cn/problems/fraction-to-recurring-decimal)|[fractionToDecimal](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/fractionToDecimal.ts)|中等|哈希表  数学  字符串|

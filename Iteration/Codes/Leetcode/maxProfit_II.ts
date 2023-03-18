@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-18 14:29:58
+ * Last Modified: 2023-03-18 14:40:37
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -27,6 +27,7 @@ function maxProfit(prices: number[]): number {
   // dp[i][4] = max(dp[i - 1][4], dp[i - 1][3] + prices[i]);
 
   const n: number = prices.length
+  if (n === 0) return 0
   const dp: number[][] = Array(n).fill([0, 0])
   dp[0] = [0, -prices[0], 0, -prices[0], 0]
 

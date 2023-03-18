@@ -121,3 +121,4 @@
 |110|309|[最佳买卖股票时机含冷冻期](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown)|[maxProfit](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxProfit.ts)|中等|数组  动态规划|
 |111|674|[最长连续递增序列](https://leetcode.cn/problems/longest-continuous-increasing-subsequence)|[findLengthOfLCIS](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findLengthOfLCIS.ts)|简单|数组|
 |112|718|[最长重复子数组](https://leetcode.cn/problems/maximum-length-of-repeated-subarray)|[findLength](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findLength.ts)|中等|数组  二分查找  动态规划  滑动窗口  哈希函数  滚动哈希|
+|113|1250|[最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence)|[longestCommonSubsequence](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/longestCommonSubsequence.ts)|中等|字符串  动态规划|

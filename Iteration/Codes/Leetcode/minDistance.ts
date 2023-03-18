@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-18 21:38:12
+ * Last Modified: 2023-03-18 22:01:03
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -20,7 +20,9 @@ function minDistance(word1: string, word2: string): number {
   // 当word1[i-1] 和 word2[j-1]不想等的时候 分三种删除方式,取最小值
   // a. 删除word1[i-1]  -> dp[i-1][j]+1
   // b. 删除word2[j-1] -> dp[i][j-1]+1
-  // c. 两个都删除 -> dp[i-1][j-1] + 2 因为 dp[i][j - 1] + 1 = dp[i - 1][j - 1] + 2 因此这种可以去除
+  // c. 两个都删除 -> dp[i-1][j-1] + 2
+  // 针对第三种情况 相当于在b的基础上多删了一个i-1，而dp[i][j-1]本来就不考虑words[j-1]了，多删i-1和b是同样的效果
+  // 因此  dp[i-1][j-1] + 2和前面两种是等价的，可以不写
 
   const [m, n] = [word1.length, word2.length]
 

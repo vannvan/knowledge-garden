@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-18 17:20:35
+ * Last Modified: 2023-03-18 17:23:23
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -102,7 +102,7 @@ class Analyse {
     F.touch(CONFIG.LC_TOPIC_DIR, 'analyse.json', JSON.stringify(configJson))
 
     log(chalk.green('-------记录已更新------'))
-    log(chalk.cyan(`目前是第${configJson.topicInfo.length}道题`))
+    log(chalk.cyan(`目前是第${configJson.topics.length}道题`))
     log(chalk.green('-------再接再厉哦------'))
   }
 

@@ -124,3 +124,4 @@
 |113|62|[不同路径](https://leetcode.cn/problems/unique-paths)|[uniquePaths](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/uniquePaths.ts)|中等|数学  动态规划  组合数学|
 |114|63|[不同路径 II](https://leetcode.cn/problems/unique-paths-ii)|[uniquePathsWithObstacles](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/uniquePathsWithObstacles.ts)|中等|数组  动态规划  矩阵|
 |115|680|[验证回文串 II](https://leetcode.cn/problems/valid-palindrome-ii)|[validPalindrome](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/validPalindrome.ts)|简单|贪心  双指针  字符串|
+|116|1105|[不相交的线](https://leetcode.cn/problems/uncrossed-lines)|[maxUncrossedLines](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode//Users/vannvan/Documents/vannvan@github/archives/Iteration/Codes/Leetcode/maxUncrossedLines_II.ts)|中等|数组  动态规划|

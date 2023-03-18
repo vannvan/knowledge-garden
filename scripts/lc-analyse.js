@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 22:01:52
+ * Last Modified: 2023-03-18 17:12:40
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -14,6 +14,8 @@ const Analyse = require('./leetcode-analyse')
 
 const An = new Analyse()
 
-const argUrl = process.argv[2]
-
-An.do(argUrl)
+// const argUrl = process.argv[2]
+;(async () => {
+  An.do()
+  // An.getFileListInfo()
+})()

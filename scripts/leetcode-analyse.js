@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-14 19:47:03
+ * Last Modified: 2023-03-18 17:20:35
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -23,10 +23,11 @@ class Analyse {
 
   /**
    * 执行分析程序
+   * url, localFileName 只从生成lc题目的之后执行具体的url操作，否则本地文件名称无法传入
    * @param {*} url lc链接
    */
-  async do(url) {
-    if (url && /leetcode/.test(url)) {
+  async do(url, localFileName) {
+    if (url && /leetcode/.test(url) && localFileName) {
       log(chalk.cyan(`开始获取${url}的题目信息...`))
       const { data } = await this.LC.getQuestionInfo(url)
       const oldInfo = F.read(`${CONFIG.LC_TOPIC_DIR}/analyse.json`)
@@ -34,7 +35,7 @@ class Analyse {
       if (oldInfo) {
         const _oldJSON = JSON.parse(oldInfo)
 
-        _oldJSON.topics.push(this.genTopicInfo(data.question))
+        _oldJSON.topics.push(this.genTopicInfo({ ...data.question, localFileName }))
 
         _oldJSON.tags = _oldJSON.tags.concat([...this.genTagsInfo(data.question)])
 
@@ -101,6 +102,8 @@ class Analyse {
     F.touch(CONFIG.LC_TOPIC_DIR, 'analyse.json', JSON.stringify(configJson))
 
     log(chalk.green('-------记录已更新------'))
+    log(chalk.cyan(`目前是第${configJson.topicInfo.length}道题`))
+    log(chalk.green('-------再接再厉哦------'))
   }
 
   /**
@@ -114,7 +117,7 @@ class Analyse {
       num: index,
       id: info.id,
       cnTitle: `[${info.cnName}](${CONFIG.LC_TOPIC_BASE_URL}/${info.titleSlug})`, // 指向lc连接,titleSlug才是lc连接识别的
-      functionName: `[${info.functionName}](${CONFIG.GITHUB_TOPIC_BASE_URL}/${info.functionName}.ts)`, // 指向github连接
+      functionName: `[${info.functionName}](${CONFIG.GITHUB_TOPIC_BASE_URL}/${info.localFileName})`, // 指向github连接
       difficulty: `${CONFIG.LC_TOPIC_DIFFICULTY_OPTS[info.difficulty]}`,
       tags: `${info.tags.map((el) => el.cnName).join('  ')}`,
     }
@@ -126,7 +129,15 @@ class Analyse {
    * @param {*} info
    */
   genTopicInfo(info) {
-    const { translatedTitle, topicTags, metaData, questionId, difficulty, titleSlug } = info
+    const {
+      translatedTitle,
+      topicTags,
+      metaData,
+      questionId,
+      difficulty,
+      titleSlug,
+      localFileName,
+    } = info
     const functionName = JSON.parse(metaData).name
     return {
       id: questionId,
@@ -139,6 +150,7 @@ class Analyse {
           cnName: el.translatedName,
         }
       }),
+      localFileName,
       difficulty,
     }
   }
@@ -156,6 +168,33 @@ class Analyse {
       }
     })
   }
+
+  /**
+   * 获取文件列表
+   */
+  async getFileListInfo() {
+    const files = await F.readDirectory(
+      CONFIG.LC_TOPIC_DIR,
+      (name) => !/test/.test(name) && /ts$/.test(name)
+    )
+
+    console.log(files)
+  }
+
+  /**
+   * 获取本地文件地址
+   * @param {*} fullpathName
+   * @returns
+   */
+  getLocalFileName(fullpathName) {
+    if (fullpathName) {
+      let index = fullpathName.lastIndexOf('/')
+      return fullpathName.substring(index + 1)
+    } else {
+      return ''
+    }
+  }
+
   /**
    * 批量任务
    */
@@ -203,6 +242,7 @@ class Analyse {
         log(chalk.white(`目标链接${url[0]}`))
         const { data } = await this.LC.getQuestionInfo(url[0])
 
+        // 标签
         const topicTags = this.genTagsInfo(data.question)
 
         // 生成不重复的标签map
@@ -211,7 +251,14 @@ class Analyse {
             tagInfoListMap.set(el.cnName, el.slug)
           }
         })
-        topicInfo.topics.push(this.genTopicInfo(data.question))
+        // 添加题目本地文件地址，因为本地文件名称和lc不一定完全一致
+        const localFileName = this.getLocalFileName(files[index])
+        topicInfo.topics.push(
+          this.genTopicInfo({
+            ...data.question,
+            localFileName,
+          })
+        )
         index++
       } else {
         log(chalk.red(`${files[index]}文件注释信息有误`))

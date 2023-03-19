@@ -6,13 +6,13 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-19 15:29:27
+ * Last Modified: 2023-03-19 17:36:34
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-function dailyTemperatures(temperatures: number[]): number[] {
+function dailyTemperatures1(temperatures: number[]): number[] {
   // Think for yourself for 5 minutes...
   // [73, 74, 75, 71, 69, 72, 76, 73]
   // q1. 下一个高温在几天之后 即i之后的相对于i升温
@@ -46,6 +46,25 @@ function dailyTemperatures(temperatures: number[]): number[] {
       stack.push(i)
     }
   }
+  return result
+}
+
+function dailyTemperatures(temperatures: number[]): number[] {
+  const n: number = temperatures.length
+  const T: number[] = temperatures
+
+  const stack: number[] = []
+
+  const result: number[] = Array(n).fill(0)
+
+  for (let i = n - 1; i >= 0; i--) {
+    while (stack.length && T[stack[stack.length - 1]] <= T[i]) {
+      stack.pop()
+    }
+    result[i] = !stack.length ? 0 : stack[stack.length - 1] - i
+    stack.push(i)
+  }
+
   return result
 }
 export default dailyTemperatures

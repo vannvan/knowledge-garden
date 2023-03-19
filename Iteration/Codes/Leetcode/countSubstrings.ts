@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-19 13:08:05
+ * Last Modified: 2023-03-19 13:13:36
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -21,6 +21,7 @@ function countSubstrings(s: string): number {
   // c. i和j相差大于1 [c,a,b,a,c] 就缩小区间 s[i+1]和s[j-1]是否相等
   // 遍历顺序的确定，如果按照从上到下，从左到右，考虑对于情况c而言 dp[i][j] = s[i+1]和s[j-1] .. 此时要求的结果在当前位置的左下方
   // 显然需要采用从下往上，从左往右的顺序遍历才可以
+  // 针对每一个字符，需要以这个字符为基准，逐渐递进和其他字符去做比较 ，因此内层j的起始点是每一轮的i
   const n: number = s.length
 
   const dp: boolean[][] = Array.from(Array(n), () => Array(n).fill(false))

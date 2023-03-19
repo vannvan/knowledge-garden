@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-19 19:00:03
+ * Last Modified: 2023-03-19 22:01:48
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -53,7 +53,7 @@ function trap1(height: number[]): number {
  * @param height
  * @returns
  */
-function trap(height: number[]): number {
+function trap2(height: number[]): number {
   const n: number = height.length
   if (n <= 2) return 0
 
@@ -81,4 +81,39 @@ function trap(height: number[]): number {
 
   return sum
 }
+
+/**
+ * 单调栈
+ * @param height
+ */
+function trap(height: number[]): number {
+  let sum: number = 0
+
+  const stack: number[] = []
+  stack[0] = 0
+  for (let i = 1; i < height.length; i++) {
+    // 栈不为空，且当前元素（右墙）比栈顶（右墙的左侧）大：说明形成凹槽了
+    while (stack.length && height[i] > height[stack[stack.length - 1]]) {
+      // 凹槽处弹出，尝试结算此低洼处能积攒的雨水
+      const bottom = stack[stack.length - 1]
+      stack.pop()
+
+      let bottomHeight = height[bottom] // 凹槽处的高度
+      let rightHeight = height[i] // 凹槽右边的高度
+      let leftHeight = height[stack[stack.length - 1]] // 凹槽左边的高度
+
+      if (stack.length) {
+        // 能积攒的水=(右墙位置-左墙位置-1) * (min(右墙高度, 左墙高度)-凹槽处高度)
+        let height = Math.min(rightHeight, leftHeight) - bottomHeight
+        let width = i - stack[stack.length - 1] - 1 // 注意减一，只求中间宽度
+        sum += height * width
+      }
+    }
+
+    stack.push(i)
+  }
+
+  return sum
+}
+
 export default trap

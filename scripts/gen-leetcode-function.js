@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-18 17:11:58
+ * Last Modified: 2023-03-21 22:34:27
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -126,7 +126,7 @@ if (!LEETCODE_URL) {
     )
     // 更新纪录
     const An = new Analyse()
-    An.do(LEETCODE_URL, `${CONFIG.LC_TOPIC_DIR}/${fileName}.ts`)
+    An.do(LEETCODE_URL, `${fileName}.ts`)
 
     // 打开文件
     exec(`code ${CONFIG.LC_TOPIC_DIR}/${fileName}.ts`)

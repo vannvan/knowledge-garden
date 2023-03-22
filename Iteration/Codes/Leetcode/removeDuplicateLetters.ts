@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-21 23:31:22
+ * Last Modified: 2023-03-22 11:59:45
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -31,14 +31,14 @@ function removeDuplicateLetters(s: string): string {
     count[c]--
     // 当栈里面有当前这个字符，就绕过
     if (inStack[c]) continue
-    // console.log('此时栈里的元素为:', stack)
+    console.log('此时栈里的元素为:', stack, c)
     while (stack.length && stack[stack.length - 1] > c) {
       // 若之后不存在栈顶元素了，则停止 pop,因为这时候count对应的这个字符都用完了,栈里面不存在重复元素
       if (count[stack[stack.length - 1]] == 0) {
         // console.log('剩下的元素:', stack)
         break
       }
-      // console.log('此时将要弹出的元素:', stack[stack.length - 1])
+      console.log('此时将要弹出的元素:', stack[stack.length - 1])
       inStack[stack.pop() as any] = false // 出栈了打上标记
     }
     // 若之后不存在栈顶元素了，则停止 pop);

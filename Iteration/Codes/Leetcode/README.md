@@ -145,3 +145,4 @@
 |134|100169|[栈的最小值](https://leetcode.cn/problems/min-stack-lcci)|[undefined](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/undefined.ts)|简单|栈  设计|
 |135|316|[去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters)|[removeDuplicateLetters](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/removeDuplicateLetters.ts)|中等|栈  贪心  字符串  单调栈|
 |136|1482|[有多少小于当前数字的数字](https://leetcode.cn/problems/how-many-numbers-are-smaller-than-the-current-number)|[smallerNumbersThanCurrent](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/smallerNumbersThanCurrent.ts)|简单|数组  哈希表  计数  排序|
+|137|978|[有效的山脉数组](https://leetcode.cn/problems/valid-mountain-array)|[validMountainArray](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/validMountainArray.ts)|简单|数组|

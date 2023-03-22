@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-22 23:37:31
+ * Last Modified: 2023-03-22 23:40:50
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -57,6 +57,7 @@ function pivotIndex(nums: number[]): number {
   const sum: number = nums.reduce((a, b) => a + b)
   let leftSum: number = 0
   for (let i = 0; i < length; i++) {
+    // rightSum 含义是剩余数字的和
     const rightSum: number = sum - leftSum - nums[i]
     if (leftSum === rightSum) return i
     leftSum += nums[i]

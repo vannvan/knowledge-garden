@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-22 23:34:05
+ * Last Modified: 2023-03-22 23:37:31
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -32,7 +32,8 @@ function pivotIndex1(nums: number[]): number {
   return -1
 }
 
-function pivotIndex(nums: number[]): number {
+// 正确
+function pivotIndex2(nums: number[]): number {
   const total = nums.reduce((a, b) => a + b, 0)
   let sum = 0
 
@@ -50,4 +51,16 @@ function pivotIndex(nums: number[]): number {
   return -1
 }
 
+// 容易理解的版本
+function pivotIndex(nums: number[]): number {
+  const length: number = nums.length
+  const sum: number = nums.reduce((a, b) => a + b)
+  let leftSum: number = 0
+  for (let i = 0; i < length; i++) {
+    const rightSum: number = sum - leftSum - nums[i]
+    if (leftSum === rightSum) return i
+    leftSum += nums[i]
+  }
+  return -1
+}
 export default pivotIndex

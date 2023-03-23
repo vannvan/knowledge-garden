@@ -153,3 +153,4 @@
 |142|958|[按奇偶排序数组 II](https://leetcode.cn/problems/sort-array-by-parity-ii)|[sortArrayByParityII](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/sortArrayByParityII.ts)|简单|数组  双指针  排序|
 |143|205|[同构字符串](https://leetcode.cn/problems/isomorphic-strings)|[isIsomorphic](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isIsomorphic.ts)|简单|哈希表  字符串|
 |144|1044|[查找共用字符](https://leetcode.cn/problems/find-common-characters)|[commonChars](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/commonChars.ts)|简单|数组  哈希表  字符串|
+|145|961|[长按键入](https://leetcode.cn/problems/long-pressed-name)|[isLongPressedName](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isLongPressedName.ts)|简单|双指针  字符串|

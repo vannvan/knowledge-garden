@@ -149,3 +149,4 @@
 |138|1319|[独一无二的出现次数](https://leetcode.cn/problems/unique-number-of-occurrences)|[uniqueOccurrences](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/uniqueOccurrences.ts)|简单|数组  哈希表|
 |139|189|[轮转数组](https://leetcode.cn/problems/rotate-array)|[rotate](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/rotate.ts)|中等|数组  数学  双指针|
 |140|724|[寻找数组的中心下标](https://leetcode.cn/problems/find-pivot-index)|[pivotIndex](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/pivotIndex.ts)|简单|数组  前缀和|
+|141|34|[在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array)|[searchRange](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/searchRange.ts)|中等|数组  二分查找|

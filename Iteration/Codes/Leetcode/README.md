@@ -154,3 +154,4 @@
 |143|205|[同构字符串](https://leetcode.cn/problems/isomorphic-strings)|[isIsomorphic](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isIsomorphic.ts)|简单|哈希表  字符串|
 |144|1044|[查找共用字符](https://leetcode.cn/problems/find-common-characters)|[commonChars](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/commonChars.ts)|简单|数组  哈希表  字符串|
 |145|961|[长按键入](https://leetcode.cn/problems/long-pressed-name)|[isLongPressedName](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isLongPressedName.ts)|简单|双指针  字符串|
+|146|187|[重复的DNA序列](https://leetcode.cn/problems/repeated-dna-sequences)|[findRepeatedDnaSequences](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findRepeatedDnaSequences.ts)|中等|位运算  哈希表  字符串  滑动窗口  哈希函数  滚动哈希|

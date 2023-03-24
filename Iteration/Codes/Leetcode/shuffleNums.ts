@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-24 18:43:15
+ * Last Modified: 2023-03-24 18:55:06
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -19,7 +19,6 @@ class Solution {
   constructor(nums: number[]) {
     this.nums = nums
     this.n = nums.length
-    this.rand = Math.random()
   }
 
   reset(): number[] {
@@ -27,13 +26,12 @@ class Solution {
   }
 
   shuffle(): number[] {
-    const copy = this.nums.slice() // 拷贝一份原数组
-    for (var i = 0; i < this.n; i++) {
-      // 生成一个 [i, n-1] 区间内的随机整数
-      var r = i + Math.floor(this.rand * (this.n - i))
-      var temp = copy[i]
-      copy[i] = copy[r]
-      copy[r] = temp
+    const copy = this.nums.slice()
+    for (let i = 0; i < this.n; ++i) {
+      const j = Math.floor(Math.random() * (this.n - i)) + i
+      const temp = copy[i]
+      copy[i] = copy[j]
+      copy[j] = temp
     }
 
     return copy

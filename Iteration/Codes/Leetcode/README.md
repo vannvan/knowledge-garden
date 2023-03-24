@@ -158,3 +158,4 @@
 |147|384|[打乱数组](https://leetcode.cn/problems/shuffle-an-array)|[undefined](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/undefined.ts)|中等|数组  数学  随机化|
 |148|67|[二进制求和](https://leetcode.cn/problems/add-binary)|[addBinary](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/addBinary.ts)|简单|位运算  数学  字符串  模拟|
 |149|137|[只出现一次的数字 II](https://leetcode.cn/problems/single-number-ii)|[singleNumber](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/singleNumberIi.ts)|中等|位运算  数组|
+|150|191|[位1的个数](https://leetcode.cn/problems/number-of-1-bits)|[hammingWeight](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/hammingWeight.ts)|简单|位运算  分治|

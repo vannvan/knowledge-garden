@@ -156,3 +156,4 @@
 |145|961|[长按键入](https://leetcode.cn/problems/long-pressed-name)|[isLongPressedName](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isLongPressedName.ts)|简单|双指针  字符串|
 |146|187|[重复的DNA序列](https://leetcode.cn/problems/repeated-dna-sequences)|[findRepeatedDnaSequences](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findRepeatedDnaSequences.ts)|中等|位运算  哈希表  字符串  滑动窗口  哈希函数  滚动哈希|
 |147|384|[打乱数组](https://leetcode.cn/problems/shuffle-an-array)|[undefined](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/undefined.ts)|中等|数组  数学  随机化|
+|148|67|[二进制求和](https://leetcode.cn/problems/add-binary)|[addBinary](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/addBinary.ts)|简单|位运算  数学  字符串  模拟|

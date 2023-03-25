@@ -202,3 +202,8 @@ Error: Git commit failed
  create mode 100644 Iteration/Codes/Leetcode/tests/trailingZeroes.test.ts
  create mode 100644 Iteration/Codes/Leetcode/trailingZeroes.ts
 提交成功！
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Error: Git commit failed

@@ -168,3 +168,4 @@
 |157|389|[找不同](https://leetcode.cn/problems/find-the-difference)|[findTheDifference](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findTheDifference.ts)|简单|位运算  哈希表  字符串  排序|
 |158|367|[有效的完全平方数](https://leetcode.cn/problems/valid-perfect-square)|[isPerfectSquare](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isPerfectSquare.ts)|简单|数学  二分查找|
 |159|441|[排列硬币](https://leetcode.cn/problems/arranging-coins)|[arrangeCoins](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/arrangeCoins.ts)|简单|数学  二分查找|
+|160|453|[最小操作次数使数组元素相等](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements)|[minMoves](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minMoves.ts)|中等|数组  数学|

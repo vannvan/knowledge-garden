@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-24 23:37:04
+ * Last Modified: 2023-03-24 23:44:27
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -14,7 +14,6 @@
 import hammingWeight from '../hammingWeight'
 describe('位1的个数 测试', () => {
   it('hammingWeight function', () => {
-    //@ts-ignore
     expect(hammingWeight(00000000000000000000000000001011)).toEqual(3)
     // @ts-nocheck
     // expect(hammingWeight(00000000000000000000000010000000)).toEqual(1)

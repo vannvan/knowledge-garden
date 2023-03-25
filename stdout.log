@@ -197,3 +197,8 @@ Error: Git commit failed
 [master dfaedd2] 2023-03-25 12:52:18
  2 files changed, 9 insertions(+)
 提交成功！
+[master 92da88c] 2023-03-25 16:29:04
+ 6 files changed, 60 insertions(+), 1 deletion(-)
+ create mode 100644 Iteration/Codes/Leetcode/tests/trailingZeroes.test.ts
+ create mode 100644 Iteration/Codes/Leetcode/trailingZeroes.ts
+提交成功！

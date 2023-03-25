@@ -165,3 +165,4 @@
 |154|6|[N 字形变换](https://leetcode.cn/problems/zigzag-conversion)|[convert](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/convert.ts)|中等|字符串|
 |155|150|[逆波兰表达式求值](https://leetcode.cn/problems/evaluate-reverse-polish-notation)|[evalRPN](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/evalRPN.ts)|中等|栈  数组  数学|
 |156|149|[直线上最多的点数](https://leetcode.cn/problems/max-points-on-a-line)|[maxPoints](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxPoints.ts)|困难|几何  数组  哈希表  数学|
+|157|389|[找不同](https://leetcode.cn/problems/find-the-difference)|[findTheDifference](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findTheDifference.ts)|简单|位运算  哈希表  字符串  排序|

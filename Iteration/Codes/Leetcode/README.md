@@ -162,3 +162,4 @@
 |151|172|[阶乘后的零](https://leetcode.cn/problems/factorial-trailing-zeroes)|[trailingZeroes](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/trailingZeroes.ts)|中等|数学|
 |152|204|[计数质数](https://leetcode.cn/problems/count-primes)|[countPrimes](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/countPrimes.ts)|中等|数组  数学  枚举  数论|
 |153|372|[超级次方](https://leetcode.cn/problems/super-pow)|[superPow](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/superPow.ts)|中等|数学  分治|
+|154|6|[N 字形变换](https://leetcode.cn/problems/zigzag-conversion)|[convert](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/convert.ts)|中等|字符串|

@@ -169,3 +169,4 @@
 |158|367|[有效的完全平方数](https://leetcode.cn/problems/valid-perfect-square)|[isPerfectSquare](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isPerfectSquare.ts)|简单|数学  二分查找|
 |159|441|[排列硬币](https://leetcode.cn/problems/arranging-coins)|[arrangeCoins](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/arrangeCoins.ts)|简单|数学  二分查找|
 |160|453|[最小操作次数使数组元素相等](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements)|[minMoves](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minMoves.ts)|中等|数组  数学|
+|161|16|[最接近的三数之和](https://leetcode.cn/problems/3sum-closest)|[threeSumClosest](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/threeSumClosest.ts)|中等|数组  双指针  排序|

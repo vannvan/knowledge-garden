@@ -171,3 +171,4 @@
 |160|453|[最小操作次数使数组元素相等](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements)|[minMoves](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minMoves.ts)|中等|数组  数学|
 |161|16|[最接近的三数之和](https://leetcode.cn/problems/3sum-closest)|[threeSumClosest](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/threeSumClosest.ts)|中等|数组  双指针  排序|
 |162|89|[格雷编码](https://leetcode.cn/problems/gray-code)|[grayCode](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/grayCode.ts)|中等|位运算  数学  回溯|
+|163|169|[多数元素](https://leetcode.cn/problems/majority-element)|[majorityElement](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/majorityElement.ts)|简单|数组  哈希表  分治  计数  排序|

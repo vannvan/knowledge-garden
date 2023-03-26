@@ -18,6 +18,7 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "jest": "jest",
     "gents": "node scripts/gen-ts-jest-script.js",
     "lc": "node scripts/gen-leetcode-function",

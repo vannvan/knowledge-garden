@@ -340,3 +340,7 @@ remote:      https://github.com/vannvan/archives/security/dependabot
 remote: 
 To github.com:vannvan/archives.git
    c494752..97889be  master -> master
+remote: fatal error in commit_refs        
+To github.com:vannvan/archives.git
+ ! [remote rejected] master -> master (failure)
+error: failed to push some refs to 'github.com:vannvan/archives.git'

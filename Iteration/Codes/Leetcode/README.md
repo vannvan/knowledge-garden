@@ -175,3 +175,4 @@
 |164|215|[数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array)|[findKthLargest](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findKthLargest.ts)|中等|数组  分治  快速选择  排序  堆（优先队列）|
 |165|557|[反转字符串中的单词 III](https://leetcode.cn/problems/reverse-words-in-a-string-iii)|[reverseWords](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/reverseWords_II.ts)|简单|双指针  字符串|
 |166|1056|[在 D 天内送达包裹的能力](https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days)|[shipWithinDays](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/shipWithinDays.ts)|中等|数组  二分查找|
+|167|907|[爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas)|[minEatingSpeed](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minEatingSpeed.ts)|中等|数组  二分查找|

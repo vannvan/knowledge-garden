@@ -178,3 +178,4 @@
 |167|907|[爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas)|[minEatingSpeed](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minEatingSpeed.ts)|中等|数组  二分查找|
 |168|1605|[制作 m 束花所需的最少天数](https://leetcode.cn/problems/minimum-number-of-days-to-make-m-bouquets)|[minDays](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minDays.ts)|中等|数组  二分查找|
 |169|901|[优势洗牌](https://leetcode.cn/problems/advantage-shuffle)|[advantageCount](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/advantageCount.ts)|中等|贪心  数组  双指针  排序|
+|170|380|[O(1) 时间插入、删除和获取随机元素](https://leetcode.cn/problems/insert-delete-getrandom-o1)|[undefined](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/undefined.ts)|中等|设计  数组  哈希表  数学  随机化|

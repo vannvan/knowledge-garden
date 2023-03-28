@@ -389,3 +389,9 @@ To github.com:vannvan/archives.git
 fatal: will not add file alias 'React/react-router传参方法.md' ('react/react-router传参方法.md' already exists in index)
 fatal: will not add file alias 'React/react-router传参方法.md' ('react/react-router传参方法.md' already exists in index)
 fatal: will not add file alias 'React/react-router传参方法.md' ('react/react-router传参方法.md' already exists in index)
+remote: 
+remote: GitHub found 3 vulnerabilities on vannvan/archives's default branch (2 high, 1 moderate). To find out more, visit:        
+remote:      https://github.com/vannvan/archives/security/dependabot        
+remote: 
+To github.com:vannvan/archives.git
+   b732c37..592720c  master -> master

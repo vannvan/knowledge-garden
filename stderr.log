@@ -386,3 +386,6 @@ remote:      https://github.com/vannvan/archives/security/dependabot
 remote: 
 To github.com:vannvan/archives.git
    a73e63c..87d885f  master -> master
+fatal: will not add file alias 'React/react-router传参方法.md' ('react/react-router传参方法.md' already exists in index)
+fatal: will not add file alias 'React/react-router传参方法.md' ('react/react-router传参方法.md' already exists in index)
+fatal: will not add file alias 'React/react-router传参方法.md' ('react/react-router传参方法.md' already exists in index)

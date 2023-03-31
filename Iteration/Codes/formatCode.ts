@@ -4,30 +4,17 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-31 21:29:11
+ * Last Modified: 2023-03-31 21:50:19
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-/**
- * 迭代法,模拟前序遍历
- */
-function invertTree(root: TreeNode | null): TreeNode | null {
-  if (!root) return null
-  const swap = (root: TreeNode, left: TreeNode, right: TreeNode) => {
-    let tmp = left
-    root.left = right
-    root.right = tmp
-  }
+function countNodes(root: TreeNode | null): number {
+  if (!root) return 0
+  let count = 0
 
-  const stack = [root]
-  while (stack.length) {
-    const node = stack.pop()
-    node.left && stack.push(node.left)
-    node.right && stack.push(node.right)
-    swap(node, node.left, node.right)
+  const dfs = (node: TreeNode) => {
+    //
   }
-
-  return root
 }

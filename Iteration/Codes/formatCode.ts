@@ -4,17 +4,18 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-31 21:50:19
+ * Last Modified: 2023-03-31 23:42:31
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-function countNodes(root: TreeNode | null): number {
-  if (!root) return 0
-  let count = 0
+function minDepth(root: TreeNode | null): number {
+  if (root === null) return 0
+  let leftDepth = minDepth(root.left)
+  let rightDepth = minDepth(root.right)
 
-  const dfs = (node: TreeNode) => {
-    //
-  }
+  return root.left == null || root.right == null
+    ? leftDepth + rightDepth + 1
+    : Math.min(leftDepth, rightDepth) + 1
 }

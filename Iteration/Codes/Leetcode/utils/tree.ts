@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-31 22:46:39
+ * Last Modified: 2023-03-31 22:59:01
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -25,15 +25,13 @@
 // 节点对象
 
 class TreeNode {
-  // root: this
-  left: TreeNode
-  right: TreeNode
-  val: number | undefined
-  constructor(data: any) {
-    // this.root = this
-    this.val = data
-    this.left = null
-    this.right = null
+  val: number
+  left: TreeNode | null
+  right: TreeNode | null
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val === undefined ? 0 : val
+    this.left = left === undefined ? null : left
+    this.right = right === undefined ? null : right
   }
 }
 

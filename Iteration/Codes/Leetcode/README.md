@@ -1,10 +1,10 @@
 # 做题分析 
- ---- 
+----
  [leetcode做题分析](https://leetcode.cn/progress/) 
 ## 标签列表 
 [贪心](https://leetcode.cn/tag/greedy)	[数组](https://leetcode.cn/tag/array)	[计数排序](https://leetcode.cn/tag/counting-sort)	[排序](https://leetcode.cn/tag/sorting)	[双指针](https://leetcode.cn/tag/two-pointers)	[哈希表](https://leetcode.cn/tag/hash-table)	[字符串](https://leetcode.cn/tag/string)	[计数](https://leetcode.cn/tag/counting)	[动态规划](https://leetcode.cn/tag/dynamic-programming)	[滑动窗口](https://leetcode.cn/tag/sliding-window)	[记忆化搜索](https://leetcode.cn/tag/memoization)	[数学](https://leetcode.cn/tag/math)	[回溯](https://leetcode.cn/tag/backtracking)	[矩阵](https://leetcode.cn/tag/matrix)	[递归](https://leetcode.cn/tag/recursion)	[二分查找](https://leetcode.cn/tag/binary-search)	[哈希函数](https://leetcode.cn/tag/hash-function)	[滚动哈希](https://leetcode.cn/tag/rolling-hash)	[位运算](https://leetcode.cn/tag/bit-manipulation)	[栈](https://leetcode.cn/tag/stack)	[字典树](https://leetcode.cn/tag/trie)	[并查集](https://leetcode.cn/tag/union-find)	[堆（优先队列）](https://leetcode.cn/tag/heap-priority-queue)	[队列](https://leetcode.cn/tag/queue)	[单调队列](https://leetcode.cn/tag/monotonic-queue)	[分治](https://leetcode.cn/tag/divide-and-conquer)	[广度优先搜索](https://leetcode.cn/tag/breadth-first-search)	[树状数组](https://leetcode.cn/tag/binary-indexed-tree)	[线段树](https://leetcode.cn/tag/segment-tree)	[单调栈](https://leetcode.cn/tag/monotonic-stack)	[字符串匹配](https://leetcode.cn/tag/string-matching)	[桶排序](https://leetcode.cn/tag/bucket-sort)	[快速选择](https://leetcode.cn/tag/quickselect)	[组合数学](https://leetcode.cn/tag/combinatorics)	[模拟](https://leetcode.cn/tag/simulation)	[设计](https://leetcode.cn/tag/design)	[前缀和](https://leetcode.cn/tag/prefix-sum)	[随机化](https://leetcode.cn/tag/randomized)	[枚举](https://leetcode.cn/tag/enumeration)	[数论](https://leetcode.cn/tag/number-theory)	[几何](https://leetcode.cn/tag/geometry)
- 
-----  
+
+----
  ## 题目列表 
  |序号|题目ID|题目|方法名称|难度|标签|
 |----|----|----|----|----|----|

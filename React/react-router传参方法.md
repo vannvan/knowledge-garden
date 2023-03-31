@@ -45,3 +45,9 @@ this.props.history.push({pathname:"/web/departManange?tenantId" + row.tenantId})
 ```
 
 优缺点同params
+
+
+
+
+
+[react-router v6 新老版本对比](https://blog.csdn.net/wanjun_007/article/details/126997853)

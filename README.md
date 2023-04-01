@@ -32,15 +32,16 @@
 
 ## 个人站点推荐
 
-- 前端导航站点  
-  [adoerww-nav](https://wwnav.netlify.app/)
-
+- [adoerww-nav-前端导航站点(可fork数据自己部署) ](https://wwnav.netlify.app/)
+  
   [![ppK4HsS.png](https://s1.ax1x.com/2023/03/11/ppK4HsS.png)](https://imgse.com/i/ppK4HsS)
-
-- vue-cli3.0强化版，模块封装、常用依赖预装、命令行工具、axios、vuex、mixins、derective配置一应俱全  
-  [wwvue-cli](https://github.com/vannvan/wwvue-cli)
-
+  
+- [wwvue-cli(vue-cli3.0强化版)](https://github.com/vannvan/wwvue-cli)
+  
 - [qiankun微服务真实实践方案，开箱即用](https://github.com/vannvan/umi-qiankun-explore)
+
+- [奇淫工具合集](https://github.com/vannvan/adoerww)
+- [奇淫技巧合集](https://github.com/vannvan/web-explore-demo)
 
 - [一起学习-语雀](https://www.yuque.com/vannvan/)
 

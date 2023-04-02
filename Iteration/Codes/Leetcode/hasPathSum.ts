@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-02 18:31:17
+ * Last Modified: 2023-04-02 18:32:32
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -26,7 +26,13 @@
  * }
  */
 
-function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
+/**
+ * 常规递归
+ * @param root
+ * @param targetSum
+ * @returns
+ */
+function hasPathSum1(root: TreeNode | null, targetSum: number): boolean {
   // Think for yourself for 5 minutes...
   let count = 0
   const traverse = (node: TreeNode, sum: number) => {
@@ -45,5 +51,17 @@ function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
   traverse(root, 0)
 
   return count > 0
+}
+
+/**
+ * 精简
+ * @param root
+ * @param targetSum
+ * @returns
+ */
+function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
+  if (root == null) return false
+  if (root.left == null && root.right == null && root.val === targetSum) return true
+  return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val)
 }
 export default hasPathSum

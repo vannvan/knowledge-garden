@@ -187,3 +187,5 @@
 |176|257|[二叉树的所有路径](https://leetcode.cn/problems/binary-tree-paths)|[binaryTreePaths](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/binaryTreePaths.ts)|简单|树  深度优先搜索  字符串  回溯  二叉树|
 |177|100|[相同的树](https://leetcode.cn/problems/same-tree)|[isSameTree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isSameTree.ts)|简单|树  深度优先搜索  广度优先搜索  二叉树|
 |178|572|[另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree)|[isSubtree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isSubtree.ts)|简单|树  深度优先搜索  二叉树  字符串匹配  哈希函数|
+|179|226|[翻转二叉树](https://leetcode.cn/problems/invert-binary-tree)|[invertTree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/invertTree.ts)|简单|树  深度优先搜索  广度优先搜索  二叉树|
+|180|617|[合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees)|[mergeTrees](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/mergeTrees.ts)|简单|树  深度优先搜索  广度优先搜索  二叉树|

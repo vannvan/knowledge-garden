@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-31 22:59:01
+ * Last Modified: 2023-04-02 21:26:58
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -186,6 +186,39 @@ class CBTInserter {
       this.arr[parentIndex].right = node
     }
     return this.arr[parentIndex].val
+  }
+
+  /**
+   * 层序遍历
+   * @param root
+   * @returns
+   */
+  levelOrder(root: TreeNode) {
+    //二叉树的层序遍历
+    let ans: number[] = []
+    const queue: TreeNode[] = []
+
+    queue.push(root)
+
+    if (root === null) {
+      return ans
+    }
+    while (queue.length !== 0) {
+      // 记录当前层级节点数,下面queue长度是会变的，因此要在这里存一份
+      const length = queue.length
+      // 存放每一层的节点
+      const curLevel = []
+      for (let i = 0; i < length; i++) {
+        const node = queue.shift()
+        curLevel.push(node.val)
+        // 存放当前层下一层的节点
+        node.left && queue.push(node.left)
+        node.right && queue.push(node.right)
+      }
+      //把每一层的结果放到结果数组
+      ans = ans.concat(curLevel)
+    }
+    return ans
   }
 
   get_root(): TreeNode | null {

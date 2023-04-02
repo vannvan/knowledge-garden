@@ -40,8 +40,9 @@
   
 - [qiankun微服务真实实践方案，开箱即用](https://github.com/vannvan/umi-qiankun-explore)
 
-- [奇淫工具合集](https://github.com/vannvan/adoerww)
-- [奇淫技巧合集](https://github.com/vannvan/web-explore-demo)
+- [web工具合集](https://github.com/vannvan/adoerww)
+
+- [web技巧合集](https://github.com/vannvan/web-explore-demo)
 
 - [一起学习-语雀](https://www.yuque.com/vannvan/)
 

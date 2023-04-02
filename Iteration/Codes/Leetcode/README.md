@@ -196,3 +196,4 @@
 |185|113|[路径总和 II](https://leetcode.cn/problems/path-sum-ii)|[pathSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/pathSum.ts)|中等|树  深度优先搜索  回溯  二叉树|
 |186|106|[从中序与后序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal)|[buildTree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/buildTree.ts)|中等|树  数组  哈希表  分治  二叉树|
 |187|102|[二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal)|[levelOrder](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/levelOrder.ts)|中等|树  广度优先搜索  二叉树|
+|188|105|[从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal)|[buildTree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/buildTree_II.ts)|中等|树  数组  哈希表  分治  二叉树|

@@ -199,3 +199,5 @@
 |188|105|[从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal)|[buildTree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/buildTree_II.ts)|中等|树  数组  哈希表  分治  二叉树|
 |189|654|[最大二叉树](https://leetcode.cn/problems/maximum-binary-tree)|[constructMaximumBinaryTree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/constructMaximumBinaryTree.ts)|中等|栈  树  数组  分治  二叉树  单调栈|
 |190|783|[二叉搜索树中的搜索](https://leetcode.cn/problems/search-in-a-binary-search-tree)|[searchBST](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/searchBST.ts)|简单|树  二叉搜索树  二叉树|
+|191|98|[验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree)|[isValidBST](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isValidBST.ts)|中等|树  深度优先搜索  二叉搜索树  二叉树|
+|192|530|[二叉搜索树的最小绝对差](https://leetcode.cn/problems/minimum-absolute-difference-in-bst)|[getMinimumDifference](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/getMinimumDifference.ts)|简单|树  深度优先搜索  广度优先搜索  二叉搜索树  二叉树|

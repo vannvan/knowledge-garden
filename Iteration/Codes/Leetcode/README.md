@@ -203,3 +203,4 @@
 |192|530|[二叉搜索树的最小绝对差](https://leetcode.cn/problems/minimum-absolute-difference-in-bst)|[getMinimumDifference](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/getMinimumDifference.ts)|简单|树  深度优先搜索  广度优先搜索  二叉搜索树  二叉树|
 |193|501|[二叉搜索树中的众数](https://leetcode.cn/problems/find-mode-in-binary-search-tree)|[findMode](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findMode.ts)|简单|树  深度优先搜索  二叉搜索树  二叉树|
 |194|236|[二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree)|[lowestCommonAncestor](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/lowestCommonAncestor.ts)|中等|树  深度优先搜索  二叉树|
+|195|235|[二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree)|[lowestCommonAncestor](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/lowestCommonAncestor_II.ts)|中等|树  深度优先搜索  二叉搜索树  二叉树|

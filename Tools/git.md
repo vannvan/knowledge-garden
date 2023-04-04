@@ -1,3 +1,5 @@
+## 场景
+
 ### 场景1
 
 使用git进行合作时，有时会建立很多的分支，当分支两两合并完，想将代码移到主分支上时，如果采用merge的方式，往往会有很多冲突。
@@ -87,7 +89,7 @@
 git fetch --all && git reset --hard origin/master && git pull
 ```
 
-### git基本命令合集
+## git基本命令合集
 
 git常用命令：
 
@@ -118,7 +120,7 @@ git reset --hard HEAD //撤销本地修改
 echo $HOME //查看git config的HOME路径
 export $HOME=/c/gitconfig //配置git config的HOME路径
 
-### 团队协作git操作流程：
+## 团队协作git操作流程：
 
 克隆一个全新的项目，完成新功能并且提交：
 git clone XXX //克隆代码库
@@ -145,9 +147,7 @@ git checkout test
 git stash pop
 continue new feature's development
 
-## 一篇文章 ->深入理解学习Git工作流
-
-https://www.cnblogs.com/xirongliu/p/4584653.html
+## 常用操作
 
 ### git配置项目用户作者信息
 
@@ -348,3 +348,14 @@ pick是rebase时的指令，具体我们还可以使用如下指令：
 > git log --graph --pretty=oneline --abbrev-commit
 
 [git回退单个文件或文件夹版本](https://blog.51cto.com/u_15077552/4724642)
+
+
+
+## 资料
+
+[gitignore文件详解](https://blog.csdn.net/qq_41437512/article/details/128570511)
+
+[一篇文章 ->深入理解学习Git工作流](https://www.cnblogs.com/xirongliu/p/4584653.html)
+
+## 
+

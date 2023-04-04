@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-02 13:57:19
+ * Last Modified: 2023-04-04 23:54:10
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -26,7 +26,7 @@
  * }
  */
 
-function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+function isSameTree1(p: TreeNode | null, q: TreeNode | null): boolean {
   // Think for yourself for 5 minutes...
 
   const compare = (left: TreeNode, right: TreeNode): boolean => {
@@ -51,4 +51,11 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
 
   return compare(p, q)
 }
+
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+  if (!p && !q) return true
+  else if (!p || !q) return false
+  return p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+}
+
 export default isSameTree

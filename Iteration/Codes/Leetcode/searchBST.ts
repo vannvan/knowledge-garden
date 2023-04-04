@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-03 21:22:47
+ * Last Modified: 2023-04-04 22:07:48
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -46,6 +46,26 @@ function searchBST1(root: TreeNode | null, val: number): TreeNode | null {
 
   traversal(root)
   return target
+}
+
+/**
+ * 递归优化
+ * @param root
+ * @param val
+ */
+function searchBST2(root: TreeNode | null, val: number): TreeNode | null {
+  if (root === null) {
+    return null
+  }
+  // 去左子树搜索
+  if (root.val > val) {
+    return searchBST(root.left, val)
+  }
+  // 去右子树搜索
+  if (root.val < val) {
+    return searchBST(root.right, val)
+  }
+  return root
 }
 
 /**

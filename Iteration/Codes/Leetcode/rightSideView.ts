@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-05 00:05:44
+ * Last Modified: 2023-04-05 00:06:48
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -26,6 +26,11 @@
  * }
  */
 
+/**
+ * 根右左遍历，并记录深度，来判断是否是该深度第一次访问的节点
+ * @param root
+ * @returns
+ */
 function rightSideView(root: TreeNode | null): number[] {
   // Think for yourself for 5 minutes...
   const ans = []

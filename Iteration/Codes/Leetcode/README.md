@@ -216,3 +216,5 @@
 |205|21|[合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists)|[mergeTwoLists](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/mergeTwoLists.ts)|简单|递归  链表|
 |206|19|[删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list)|[removeNthFromEnd](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/removeNthFromEnd.ts)|中等|链表  双指针|
 |207|908|[链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list)|[middleNode](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/middleNode.ts)|简单|链表  双指针|
+|208|142|[环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii)|[detectCycle](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/detectCycle.ts)|中等|哈希表  链表  双指针|
+|209|141|[环形链表](https://leetcode.cn/problems/linked-list-cycle)|[hasCycle](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/hasCycle.ts)|简单|哈希表  链表  双指针|

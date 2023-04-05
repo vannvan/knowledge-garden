@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-05 17:51:35
+ * Last Modified: 2023-04-05 18:12:48
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -54,4 +54,22 @@ function detectCycle(head: ListNode | null): ListNode | null {
   }
   return slow
 }
+
+/**
+ * hash法
+ * @param head
+ * @returns
+ */
+function detectCycle1(head: ListNode | null): ListNode | null {
+  const visited = new Set()
+  while (head !== null) {
+    if (visited.has(head)) {
+      return head
+    }
+    visited.add(head)
+    head = head.next
+  }
+  return null
+}
+
 export default detectCycle

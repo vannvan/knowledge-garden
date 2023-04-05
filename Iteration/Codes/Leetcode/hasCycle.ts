@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-05 17:48:26
+ * Last Modified: 2023-04-05 18:08:32
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -24,7 +24,12 @@
  * }
  */
 
-function hasCycle(head: ListNode | null): boolean {
+/**
+ * 快慢指针
+ * @param head
+ * @returns
+ */
+function hasCycle1(head: ListNode | null): boolean {
   // Think for yourself for 5 minutes...
   let slow = head
   let fast = head
@@ -40,4 +45,30 @@ function hasCycle(head: ListNode | null): boolean {
   }
   return false
 }
+
+/**
+ * hash法
+ * @param head
+ */
+function hasCycle2(head: ListNode | null): boolean {
+  let map = new Map()
+  while (head) {
+    if (map.has(head)) return true
+    map.set(head, true) // 存的是节点的地址引用，而不是节点值
+    head = head.next
+  }
+  return false
+}
+
+function hasCycle(head: ListNode | null): boolean {
+  let i = 0
+  let size = 100000
+  let node = head
+  while (++i <= size) {
+    if (!node) return false
+    node = node.next
+  }
+  return true
+}
+
 export default hasCycle

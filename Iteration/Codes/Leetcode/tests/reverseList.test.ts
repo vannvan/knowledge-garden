@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-05 14:45:39
+ * Last Modified: 2023-04-06 22:25:11
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -19,6 +19,7 @@ describe('反转链表 测试', () => {
 
     const target = new ListNode()
     ;[5, 4, 3, 2, 1].map((val) => target.add(val))
+    reverseList(list.head)
 
     expect(reverseList(list.head)).toEqual(target.head)
   })

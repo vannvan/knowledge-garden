@@ -6,11 +6,13 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-06 22:19:42
+ * Last Modified: 2023-04-06 23:46:29
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
+
+import { ListNode } from './utils/list'
 
 /**
  * Definition for singly-linked list.
@@ -48,7 +50,7 @@ function reverseList2(head: ListNode | null): ListNode | null {
 
   return reverse(null, head)
 }
-const reverseList = function (head) {
+const reverseList3 = function (head) {
   // console.log('head0', head.val, head.next)
   if (head === null || head.next === null) {
     return head
@@ -60,5 +62,27 @@ const reverseList = function (head) {
   head.next.next = head // head为1时，head.next.next = head 即2.next->1 此时 1<->2 他俩成环了
   head.next = null // head 因此要将1.next置为null 此时只有1<-2了
   return last
+}
+
+/**
+ * 头插法
+ * @param head
+ */
+const reverseList = (head: ListNode) => {
+  let newhead = null
+  let tmp = null
+  if (head == null || head.next === null) {
+    return head
+  }
+
+  while (head != null) {
+    tmp = head
+    head = head.next
+
+    tmp.next = newhead
+    newhead = tmp
+  }
+
+  return newhead
 }
 export default reverseList

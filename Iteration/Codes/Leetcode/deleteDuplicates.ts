@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-07 22:32:04
+ * Last Modified: 2023-04-07 22:38:26
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -26,6 +26,7 @@
 
 function deleteDuplicates(head: ListNode | null): ListNode | null {
   // Think for yourself for 5 minutes...
+  if (head === null) return null
   let slow = head
   let fast = head
   while (fast !== null) {
@@ -40,9 +41,7 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
 }
 
 function deleteDuplicates1(head: ListNode | null): ListNode | null {
-  if (!head) {
-    return head
-  }
+  if (head === null) return null
 
   let cur = head
   while (cur.next) {

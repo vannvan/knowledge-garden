@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-08 20:45:35
+ * Last Modified: 2023-04-08 20:50:22
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -71,7 +71,7 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 
   let x = 0
   let y = n - 1
-  while (x < m && y < n) {
+  while (x < m && y >= 0) {
     if (matrix[x][y] === target) {
       return true
     }

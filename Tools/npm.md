@@ -254,3 +254,8 @@ console.log(process.env.npm_package_version); // 1.2.5
 > $ 解除项目与模块的link，在项目目录下，npm unlink 模块名
 > $ 解除模块全局的link，在模块目录下，npm unlink 模块名
 
+
+
+## 资料
+
+[如何开发一个基于node.js的CLI工具](https://blog.csdn.net/yidragon88xx/article/details/127065954)

@@ -224,3 +224,5 @@
 |213|83|[删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list)|[deleteDuplicates](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/deleteDuplicates.ts)|简单|链表|
 |214|48|[旋转图像](https://leetcode.cn/problems/rotate-image)|[rotate](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/rotate_II.ts)|中等|数组  数学  矩阵|
 |215|240|[搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii)|[searchMatrix](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/searchMatrix.ts)|中等|数组  二分查找  分治  矩阵|
+|216|139|[单词拆分](https://leetcode.cn/problems/word-break)|[wordBreak](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/wordBreak.ts)|中等|字典树  记忆化搜索  数组  哈希表  字符串  动态规划|
+|217|387|[字符串中的第一个唯一字符](https://leetcode.cn/problems/first-unique-character-in-a-string)|[firstUniqChar](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/firstUniqChar.ts)|简单|队列  哈希表  字符串  计数|

@@ -230,3 +230,4 @@
 |219|2|[两数相加](https://leetcode.cn/problems/add-two-numbers)|[addTwoNumbers](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/addTwoNumbers.ts)|中等|递归  链表  数学|
 |220|33|[搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array)|[search](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/search.ts)|中等|数组  二分查找|
 |221|49|[字母异位词分组](https://leetcode.cn/problems/group-anagrams)|[groupAnagrams](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/groupAnagrams.ts)|中等|数组  哈希表  字符串  排序|
+|222|96|[不同的二叉搜索树](https://leetcode.cn/problems/unique-binary-search-trees)|[numTrees](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/numTrees.ts)|中等|树  二叉搜索树  数学  动态规划  二叉树|

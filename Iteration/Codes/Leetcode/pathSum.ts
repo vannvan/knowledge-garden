@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-02 19:09:16
+ * Last Modified: 2023-04-11 22:56:52
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -32,7 +32,7 @@
  * @param targetSum
  * @returns
  */
-function pathSum1(root: TreeNode | null, targetSum: number): number[][] {
+function pathSum0(root: TreeNode | null, targetSum: number): number[][] {
   // Think for yourself for 5 minutes...
 
   const ans: number[][] = []

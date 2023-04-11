@@ -235,3 +235,4 @@
 |224|234|[回文链表](https://leetcode.cn/problems/palindrome-linked-list)|[isPalindrome](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isPalindrome_II.ts)|简单|栈  递归  链表  双指针|
 |225|238|[除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self)|[productExceptSelf](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/productExceptSelf.ts)|中等|数组  前缀和|
 |226|287|[寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number)|[findDuplicate](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findDuplicate.ts)|中等|位运算  数组  双指针  二分查找|
+|227|338|[比特位计数](https://leetcode.cn/problems/counting-bits)|[countBits](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/countBits.ts)|简单|位运算  动态规划|

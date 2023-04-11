@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-05 18:12:48
+ * Last Modified: 2023-04-11 22:30:13
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -23,6 +23,23 @@
  *     }
  * }
  */
+
+/**
+ * hash法
+ * @param head
+ * @returns
+ */
+function detectCycle1(head: ListNode | null): ListNode | null {
+  const visited = new Set()
+  while (head !== null) {
+    if (visited.has(head)) {
+      return head
+    }
+    visited.add(head)
+    head = head.next
+  }
+  return null
+}
 
 function detectCycle(head: ListNode | null): ListNode | null {
   // Think for yourself for 5 minutes...
@@ -55,19 +72,27 @@ function detectCycle(head: ListNode | null): ListNode | null {
   return slow
 }
 
-/**
- * hash法
- * @param head
- * @returns
- */
-function detectCycle1(head: ListNode | null): ListNode | null {
-  const visited = new Set()
-  while (head !== null) {
-    if (visited.has(head)) {
-      return head
+function detectCycle2(head: ListNode | null): ListNode | null {
+  // Think for yourself for 5 minutes...
+  // Think for yourself for 5 minutes...
+  let slow = head
+  let fast = head
+
+  // fast每次前进两步，slow每次前进一步
+  while (fast !== null && fast.next != null) {
+    slow = slow.next
+    fast = fast.next.next
+    // 如果两个指针相遇，说明有环
+    if (slow === fast) {
+      // 重新指向头节点
+      slow = head
+
+      while (slow != fast) {
+        fast = fast.next
+        slow = slow.next
+      }
+      return slow
     }
-    visited.add(head)
-    head = head.next
   }
   return null
 }

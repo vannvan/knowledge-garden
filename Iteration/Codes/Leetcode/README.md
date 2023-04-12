@@ -237,3 +237,4 @@
 |226|287|[寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number)|[findDuplicate](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findDuplicate.ts)|中等|位运算  数组  双指针  二分查找|
 |227|338|[比特位计数](https://leetcode.cn/problems/counting-bits)|[countBits](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/countBits.ts)|简单|位运算  动态规划|
 |228|437|[路径总和 III](https://leetcode.cn/problems/path-sum-iii)|[pathSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/pathSum_II.ts)|中等|树  深度优先搜索  二叉树|
+|229|448|[找到所有数组中消失的数字](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array)|[findDisappearedNumbers](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findDisappearedNumbers.ts)|简单|数组  哈希表|

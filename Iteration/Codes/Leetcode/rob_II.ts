@@ -1,40 +1,48 @@
 /*
- * Description: 213：打家劫舍 II
- * Url: https://leetcode.cn/problems/house-robber-ii/
- * Tags: 数组  动态规划
- * Created: 2023-03-17 22:32:36
+ * Description: 337：打家劫舍 III
+ * Url: https://leetcode.cn/problems/house-robber-iii/
+ * Tags: 树  深度优先搜索  动态规划  二叉树
+ * Created: 2023-04-13 23:13:47
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-17 22:49:52
+ * Last Modified: 2023-04-13 23:22:28
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-function rob(nums: number[]): number {
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function rob(root: TreeNode | null): number {
   // Think for yourself for 5 minutes...
-  // q1. 因为房屋是一圈，对于首尾可能存在影响常规的按顺序递推结果的情况，需要把去头和去尾的情况分别算出来，比较两者的大小
-  if (nums.length === 1) return nums[0]
-  if (nums.length === 0) return 0
-
-  const robRange = (nums: number[], start: number, end: number) => {
-    if (end == start) return nums[start]
-    const dp: number[] = Array(nums.length).fill(0)
-
-    dp[start] = nums[start]
-    dp[start + 1] = Math.max(nums[start], nums[start + 1])
-
-    for (let i = start + 2; i <= end; i++) {
-      dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i])
-    }
-
-    return dp[end]
+  // q1. 0下标表示不偷 1下标表示偷
+  const postOrder = (node: TreeNode) => {
+    if (!node) return [0, 0]
+    const left = postOrder(node.left)
+    const right = postOrder(node.right)
+    // 不偷当前节点，左右子节点都可以偷或不偷，取最大值
+    const DoNot = Math.max(left[0], left[1]) + Math.max(right[0], right[1])
+    // 偷当前节点，左右子节点只能不偷
+    const Do = node.val + left[0] + right[0]
+    // [不偷，偷]
+    return [DoNot, Do]
   }
 
-  const result1 = robRange(nums, 0, nums.length - 2) // 去尾
-  const result2 = robRange(nums, 1, nums.length - 1) // 去头
+  const res: number[] = postOrder(root)
 
-  return Math.max(result1, result2)
+  return Math.max(...res)
 }
 export default rob

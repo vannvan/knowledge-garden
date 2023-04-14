@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-13 23:22:28
+ * Last Modified: 2023-04-14 19:06:19
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -25,6 +25,18 @@
  *     }
  * }
  */
+
+function rob1(root: TreeNode | null): number {
+  if (root === null) return 0
+  if (root.left === null && root.right === null) return root.val
+  // 偷父节点
+  let val1 = root.val
+  if (root.left) val1 += rob1(root.left.left) + rob1(root.left.right)
+  if (root.right) val1 += rob1(root.right.left) + rob1(root.right.right)
+  // 不偷父节点
+  let val2 = rob1(root.left) + rob1(root.right)
+  return Math.max(val1, val2)
+}
 
 function rob(root: TreeNode | null): number {
   // Think for yourself for 5 minutes...

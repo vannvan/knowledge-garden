@@ -242,3 +242,4 @@
 |231|621|[任务调度器](https://leetcode.cn/problems/task-scheduler)|[leastInterval](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/leastInterval.ts)|中等|贪心  数组  哈希表  计数  排序  堆（优先队列）|
 |232|337|[打家劫舍 III](https://leetcode.cn/problems/house-robber-iii)|[rob](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/rob_II.ts)|中等|树  深度优先搜索  动态规划  二叉树|
 |233|58|[最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word)|[lengthOfLastWord](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/lengthOfLastWord.ts)|简单|字符串|
+|234|1933|[字符串中不同整数的数目](https://leetcode.cn/problems/number-of-different-integers-in-a-string)|[numDifferentIntegers](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/numDifferentIntegers.ts)|简单|哈希表  字符串|

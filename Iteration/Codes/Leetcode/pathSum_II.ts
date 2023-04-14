@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-11 23:15:52
+ * Last Modified: 2023-04-14 22:18:35
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -48,5 +48,4 @@ function pathSum(root: TreeNode | null, targetSum: number): number {
   return count
 }
 
-//
 export default pathSum

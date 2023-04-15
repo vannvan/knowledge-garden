@@ -245,3 +245,4 @@
 |234|1933|[字符串中不同整数的数目](https://leetcode.cn/problems/number-of-different-integers-in-a-string)|[numDifferentIntegers](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/numDifferentIntegers.ts)|简单|哈希表  字符串|
 |235|124|[二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum)|[maxPathSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxPathSum.ts)|困难|树  深度优先搜索  动态规划  二叉树|
 |236|687|[最长同值路径](https://leetcode.cn/problems/longest-univalue-path)|[longestUnivaluePath](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/longestUnivaluePath.ts)|中等|树  深度优先搜索  二叉树|
+|237|1987|[长度为三且各字符不同的子字符串](https://leetcode.cn/problems/substrings-of-size-three-with-distinct-characters)|[countGoodSubstrings](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/countGoodSubstrings.ts)|简单|哈希表  字符串  计数  滑动窗口|

@@ -246,3 +246,4 @@
 |235|124|[二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum)|[maxPathSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxPathSum.ts)|困难|树  深度优先搜索  动态规划  二叉树|
 |236|687|[最长同值路径](https://leetcode.cn/problems/longest-univalue-path)|[longestUnivaluePath](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/longestUnivaluePath.ts)|中等|树  深度优先搜索  二叉树|
 |237|1987|[长度为三且各字符不同的子字符串](https://leetcode.cn/problems/substrings-of-size-three-with-distinct-characters)|[countGoodSubstrings](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/countGoodSubstrings.ts)|简单|哈希表  字符串  计数  滑动窗口|
+|238|940|[水果成篮](https://leetcode.cn/problems/fruit-into-baskets)|[totalFruit](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/totalFruit.ts)|中等|数组  哈希表  滑动窗口|

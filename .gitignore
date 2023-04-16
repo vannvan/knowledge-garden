@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 /dist
-pnpm-lock.yaml
+/pnpm-lock.yaml
 
 # local env files
 .env.local

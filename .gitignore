@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+pnpm-lock.yaml
 
 # local env files
 .env.local
@@ -23,3 +24,4 @@ stdout.log
 *.njsproj
 *.sln
 *.sw?
+.local

@@ -249,3 +249,4 @@
 |238|940|[水果成篮](https://leetcode.cn/problems/fruit-into-baskets)|[totalFruit](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/totalFruit.ts)|中等|数组  哈希表  滑动窗口|
 |239|148|[排序链表](https://leetcode.cn/problems/sort-list)|[sortList](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/sortList.ts)|中等|链表  双指针  分治  排序  归并排序|
 |240|745|[寻找比目标字母大的最小字母](https://leetcode.cn/problems/find-smallest-letter-greater-than-target)|[nextGreatestLetter](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/nextGreatestLetter.ts)|简单|数组  二分查找|
+|241|1476|[统计有序矩阵中的负数](https://leetcode.cn/problems/count-negative-numbers-in-a-sorted-matrix)|[countNegatives](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/countNegatives.ts)|简单|数组  二分查找  矩阵|

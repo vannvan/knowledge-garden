@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-05 16:52:10
+ * Last Modified: 2023-04-06 19:36:56
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -37,6 +37,7 @@ function findFromEnd(head: ListNode, k: number) {
   for (let i = 0; i < k; i++) {
     p1 = p1.next
   }
+  console.log('p1', p1)
 
   let p2 = head
   // 当p1走到尾部的时候，p2就到了n-k+1的位置
@@ -45,20 +46,22 @@ function findFromEnd(head: ListNode, k: number) {
     p1 = p1.next
   }
 
+  console.log('p2', p2)
   return p2
 }
 
-function removeNthFromEnd1(head: ListNode | null, n: number): ListNode | null {
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
   // Think for yourself for 5 minutes...
   let dummy = new ListNode(-1)
   dummy.next = head
   const x = findFromEnd(dummy, n + 1)
+  console.log('x->>', x.val)
   // 删掉倒数第 n 个节点
   x.next = x.next.next
   return dummy.next
 }
 
-function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+function removeNthFromEnd1(head: ListNode | null, n: number): ListNode | null {
   let dummy = new ListNode(-1)
   dummy.next = head
 

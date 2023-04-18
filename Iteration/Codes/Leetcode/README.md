@@ -253,3 +253,4 @@
 |242|436|[寻找右区间](https://leetcode.cn/problems/find-right-interval)|[findRightInterval](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findRightInterval.ts)|中等|数组  二分查找  排序|
 |243|74|[搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix)|[searchMatrix](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/searchMatrix_II.ts)|中等|数组  二分查找  矩阵|
 |244|1646|[第 k 个缺失的正整数](https://leetcode.cn/problems/kth-missing-positive-number)|[findKthPositive](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findKthPositive.ts)|简单|数组  二分查找|
+|245|200|[岛屿数量](https://leetcode.cn/problems/number-of-islands)|[numIslands](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/numIslands.ts)|中等|深度优先搜索  广度优先搜索  并查集  数组  矩阵|

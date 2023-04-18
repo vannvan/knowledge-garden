@@ -252,3 +252,4 @@
 |241|1476|[统计有序矩阵中的负数](https://leetcode.cn/problems/count-negative-numbers-in-a-sorted-matrix)|[countNegatives](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/countNegatives.ts)|简单|数组  二分查找  矩阵|
 |242|436|[寻找右区间](https://leetcode.cn/problems/find-right-interval)|[findRightInterval](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findRightInterval.ts)|中等|数组  二分查找  排序|
 |243|74|[搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix)|[searchMatrix](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/searchMatrix_II.ts)|中等|数组  二分查找  矩阵|
+|244|1646|[第 k 个缺失的正整数](https://leetcode.cn/problems/kth-missing-positive-number)|[findKthPositive](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findKthPositive.ts)|简单|数组  二分查找|

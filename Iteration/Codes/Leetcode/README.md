@@ -255,3 +255,4 @@
 |244|1646|[第 k 个缺失的正整数](https://leetcode.cn/problems/kth-missing-positive-number)|[findKthPositive](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findKthPositive.ts)|简单|数组  二分查找|
 |245|200|[岛屿数量](https://leetcode.cn/problems/number-of-islands)|[numIslands](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/numIslands.ts)|中等|深度优先搜索  广度优先搜索  并查集  数组  矩阵|
 |246|695|[岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island)|[maxAreaOfIsland](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maxAreaOfIsland.ts)|中等|深度优先搜索  广度优先搜索  并查集  数组  矩阵|
+|247|130|[被围绕的区域](https://leetcode.cn/problems/surrounded-regions)|[solve](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/solve.ts)|中等|深度优先搜索  广度优先搜索  并查集  数组  矩阵|

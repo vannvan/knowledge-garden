@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-21 22:34:27
+ * Last Modified: 2023-04-22 00:03:41
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -88,16 +88,27 @@ if (!LEETCODE_URL) {
   let nameReg = new RegExp(JSON.parse(metaData).name)
   replacedCode = replacedCode.replace(nameReg, functionName)
 
+  // 函数体
   functionContent += '\n  ' + replacedCode + '\n ' + `export default ${functionName}`
 
+  // 测试方法
   let testExampleCases = `\t expect(${functionName}())`
 
   const isExit = F.isExit(`${CONFIG.LC_TOPIC_DIR}/${functionName}.ts`)
   isExit && log(chalk.green(`方法已存在，将创建新的方法名称...`))
 
-  // 如果方法已存在同名的加个_II
-  const fileName = trim(isExit ? functionName + '_II' : functionName)
+  // 如果相同方法名已存在，统计该方法名称出现的次数，生成新的文件名称
+  const genSymbolFunctionName = async () => {
+    let files = await F.readDirectory(`${CONFIG.LC_TOPIC_DIR}`, (name) => !/tests/.test(name))
+    const count = files.filter((item) => new RegExp(functionName).test(item)).length
+    const symbol = Array(count + 1)
+      .fill('I')
+      .join('')
+    log(chalk.green(`新方法名称为${functionName + '_' + symbol}`))
+    return functionName + '_' + symbol
+  }
 
+  const fileName = trim(isExit ? await genSymbolFunctionName() : functionName)
   // 测试用例
   if (jsonExampleTestcases) {
     testExampleCases = JSON.parse(jsonExampleTestcases)

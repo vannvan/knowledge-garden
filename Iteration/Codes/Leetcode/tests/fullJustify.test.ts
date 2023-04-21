@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-20 23:31:46
+ * Last Modified: 2023-04-21 23:29:05
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -16,7 +16,6 @@ describe('文本左右对齐 测试', () => {
     expect(
       fullJustify(['This', 'is', 'an', 'example', 'of', 'text', 'justification.'], 16)
     ).toEqual(['This    is    an', 'example  of text', 'justification.  '])
-    return
     expect(fullJustify(['What', 'must', 'be', 'acknowledgment', 'shall', 'be'], 16)).toEqual([
       'What   must   be',
       'acknowledgment  ',

@@ -258,3 +258,4 @@
 |247|130|[被围绕的区域](https://leetcode.cn/problems/surrounded-regions)|[solve](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/solve.ts)|中等|深度优先搜索  广度优先搜索  并查集  数组  矩阵|
 |248|61|[旋转链表](https://leetcode.cn/problems/rotate-list)|[rotateRight](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/rotateRight.ts)|中等|链表  双指针|
 |249|68|[文本左右对齐](https://leetcode.cn/problems/text-justification)|[fullJustify](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/fullJustify.ts)|困难|数组  字符串  模拟|
+|250|167|[两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted)|[twoSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/twoSum_II.ts)|中等|数组  双指针  二分查找|

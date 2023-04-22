@@ -260,3 +260,4 @@
 |249|68|[文本左右对齐](https://leetcode.cn/problems/text-justification)|[fullJustify](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/fullJustify.ts)|困难|数组  字符串  模拟|
 |250|167|[两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted)|[twoSum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/twoSum_II.ts)|中等|数组  双指针  二分查找|
 |251|36|[有效的数独](https://leetcode.cn/problems/valid-sudoku)|[isValidSudoku](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isValidSudoku.ts)|中等|数组  哈希表  矩阵|
+|252|73|[矩阵置零](https://leetcode.cn/problems/set-matrix-zeroes)|[setZeroes](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/setZeroes.ts)|中等|数组  哈希表  矩阵|

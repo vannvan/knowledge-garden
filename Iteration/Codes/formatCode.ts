@@ -4,24 +4,21 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-21 23:06:31
+ * Last Modified: 2023-04-23 23:06:17
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
-function removeDuplicates(s: string): string {
-  let stack = []
-  let p = 0
-  while (p < s.length) {
-    // 栈顶是和当前元素相邻的元素
-    let top = stack[stack.length - 1]
-    // 如果相等就干掉
-    if (s[p] === top) {
-      stack.pop()
-    } else {
-      stack.push(s[p])
+var animals = [
+  { species: 'Lion', name: 'King' },
+  { species: 'Whale', name: 'Fail' },
+]
+
+for (var i = 0; i < animals.length; i++) {
+  ;(function (i) {
+    this.print = function () {
+      console.log('#' + i + ' ' + this.species + ': ' + this.name)
     }
-    p++
-  }
-  return stack.join('')
+    this.print()
+  }).call(animals[i], i)
 }

@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-05 16:37:04
+ * Last Modified: 2023-04-24 20:17:05
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -16,4 +16,5 @@ describe('最长公共前缀 测试', () => {
     expect(longestCommonPrefix(['flower', 'flow', 'flight'])).toEqual('fl')
     expect(longestCommonPrefix(['dog', 'racecar', 'car'])).toEqual('')
   })
+  expect(longestCommonPrefix(['aaa', 'aa', 'aaa'])).toEqual('aa')
 })

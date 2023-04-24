@@ -263,3 +263,4 @@
 |252|73|[矩阵置零](https://leetcode.cn/problems/set-matrix-zeroes)|[setZeroes](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/setZeroes.ts)|中等|数组  哈希表  矩阵|
 |253|162|[寻找峰值](https://leetcode.cn/problems/find-peak-element)|[findPeakElement](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findPeakElement.ts)|中等|数组  二分查找|
 |254|209|[长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum)|[minSubArrayLen](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/minSubArrayLen.ts)|中等|数组  二分查找  前缀和  滑动窗口|
+|255|289|[生命游戏](https://leetcode.cn/problems/game-of-life)|[gameOfLife](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/gameOfLife.ts)|中等|数组  矩阵  模拟|

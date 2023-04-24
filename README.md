@@ -28,11 +28,9 @@
 
 - ...
 
-
-
 ## 个人站点推荐
 
-- [adoerww-nav-前端导航站点(可fork数据自己部署) ](https://wwnav.netlify.app/)
+- [adoerww-nav-前端导航站点(可fork数据自己部署)](https://wwnav.netlify.app/)
   
   [![ppK4HsS.png](https://s1.ax1x.com/2023/03/11/ppK4HsS.png)](https://imgse.com/i/ppK4HsS)
   
@@ -47,7 +45,6 @@
 - [一起学习-语雀](https://www.yuque.com/vannvan/)
 
 - [一起学算法](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/README.md)
-
-
+- [前端基建方案及案例集](https://github.com/vannvan/front-end-infrastructure)
 
 不断迭代中，如果有帮助欢迎点个激励的⭐️

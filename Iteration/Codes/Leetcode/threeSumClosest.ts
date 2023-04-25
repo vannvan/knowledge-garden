@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-26 19:05:08
+ * Last Modified: 2023-04-25 18:40:44
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -24,13 +24,15 @@ function threeSumClosest(nums: number[], target: number): number {
     let left = i + 1
     let right = n - 1
     while (left < right) {
-      const a = nums[left] + nums[right] + nums[i]
-      if (Math.abs(target - a) < Math.abs(target - ans)) {
-        ans = a
+      const sum = nums[i] + nums[left] + nums[right]
+      if (Math.abs(target - sum) < Math.abs(target - ans)) {
+        ans = sum
       }
-      if (a > target) right-- // 向左收缩
-      else if (a < target) left++ // 向右收缩
-      else return ans
+      if (sum > target) {
+        right-- // 向左逼近
+      } else if (sum < target) {
+        left++ // 向右逼近
+      } else return ans
     }
   }
   return ans

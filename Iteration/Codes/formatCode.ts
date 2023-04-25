@@ -4,21 +4,50 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-23 23:06:17
+ * Last Modified: 2023-04-25 18:14:00
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
-var animals = [
-  { species: 'Lion', name: 'King' },
-  { species: 'Whale', name: 'Fail' },
-]
+function threeSum(nums: number[]): number[][] {
+  nums.sort((a, b) => a - b)
+  let length = nums.length
+  let left: number = 0
+  let right: number = length - 1
+  const ans: number[][] = []
 
-for (var i = 0; i < animals.length; i++) {
-  ;(function (i) {
-    this.print = function () {
-      console.log('#' + i + ' ' + this.species + ': ' + this.name)
+  for (let i = 0; i < length; i++) {
+    //nums经过排序后，只要nums[i]>0, 此后的nums[i] + nums[left] + nums[right]均大于0,可以提前终止循环。
+    if (nums[i] > 0) continue
+
+    if (i > 0 && nums[i] === nums[i - 1]) {
+      continue
     }
-    this.print()
-  }).call(animals[i], i)
+
+    left = i + 1
+    right = length - 1
+    while (left < right) {
+      let total: number = nums[i] + nums[left] + nums[right]
+      // 当找到一组匹配的之后，[left,right]区间缩小
+      if (total === 0) {
+        ans.push([nums[i], nums[left], nums[right]])
+        left++
+        right--
+        // 当left左侧和left的值相等时，不会对结果有贡献
+        while (nums[left] === nums[left - 1]) {
+          left++
+        }
+        // 当right右侧的heleft的值相等时，不会对结果有贡献
+        while (nums[right] === nums[right + 1]) {
+          right--
+        }
+      } else if (total > 0) {
+        right--
+      } else {
+        left++
+      }
+    }
+  }
+
+  return ans
 }

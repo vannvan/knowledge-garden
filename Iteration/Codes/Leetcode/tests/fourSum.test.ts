@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-13 21:41:07
+ * Last Modified: 2023-04-25 18:57:52
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -33,5 +33,11 @@ describe('四数之和 测试', () => {
       ])
     )
     expect(fourSum([2, 2, 2, 2, 2], 8)).toEqual([[2, 2, 2, 2]])
+    expect(fourSum([-2, -1, -1, 1, 1, 2, 2], 0)).toEqual(
+      expect.arrayContaining([
+        [-2, -1, 1, 2],
+        [-1, -1, 1, 1],
+      ])
+    )
   })
 })

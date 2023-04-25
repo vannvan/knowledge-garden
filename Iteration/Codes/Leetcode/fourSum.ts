@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-13 21:50:16
+ * Last Modified: 2023-04-25 18:55:18
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -19,51 +19,53 @@ function fourSum(nums: number[], target: number): number[][] {
   // q2. a、b、c 和 d 互不相同
   // q nums[a] + nums[b] + nums[c] + nums[d] == target
 
-  const resArr: number[][] = []
+  const ans: number[][] = []
 
   nums.sort((a, b) => a - b)
 
   const n: number = nums.length
   for (let k = 0; k < n; k++) {
+    // 1. 不会对结果有贡献
     if (nums[k] > target && nums[k] >= 0) {
       break
     }
+    // 2. 去重
     if (k > 0 && nums[k] == nums[k - 1]) {
       continue
     }
 
-    for (let i = k + 1; i < n; i++) {
-      if (nums[k] + nums[i] > target && nums[k] + nums[i] >= 0) {
+    for (let next = k + 1; next < n; next++) {
+      // 3. 不会对结果有贡献
+      if (nums[k] + nums[next] > target && nums[k] + nums[next] >= 0) {
         break
       }
-
-      if (i > k + 1 && nums[i] == nums[i - 1]) {
+      // 4. 还是去重
+      if (next > k + 1 && nums[next] == nums[next - 1]) {
         continue
       }
 
-      let left = i + 1
+      let left = next + 1
       let right = n - 1
 
       while (right > left) {
-        let total: number = nums[k] + nums[i] + nums[left] + nums[right]
-        if (total > target) {
-          right--
-        } else if (total < target) {
-          left++
-        } else {
-          resArr.push([nums[k], nums[i], nums[left], nums[right]])
+        let total: number = nums[k] + nums[next] + nums[left] + nums[right]
+        if (total === target) {
+          ans.push([nums[k], nums[next], nums[left], nums[right]])
 
           while (right > left && nums[right] === nums[right - 1]) right--
           while (right > left && nums[left] === nums[left + 1]) left++
-
           right--
+          left++
+        } else if (total > target) {
+          right--
+        } else if (total < target) {
           left++
         }
       }
     }
   }
 
-  return resArr
+  return ans
 }
 
 /**

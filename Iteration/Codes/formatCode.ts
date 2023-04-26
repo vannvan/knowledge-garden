@@ -4,50 +4,34 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-25 18:14:00
+ * Last Modified: 2023-04-26 23:52:55
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
-function threeSum(nums: number[]): number[][] {
-  nums.sort((a, b) => a - b)
-  let length = nums.length
-  let left: number = 0
-  let right: number = length - 1
-  const ans: number[][] = []
+function searchInsert(nums: number[], target: number): number {
+  let left = 0
+  let right = nums.length - 1
+  //特殊判断
+  if (nums[nums.length - 1] < target) {
+    return nums.length
+  }
 
-  for (let i = 0; i < length; i++) {
-    //nums经过排序后，只要nums[i]>0, 此后的nums[i] + nums[left] + nums[right]均大于0,可以提前终止循环。
-    if (nums[i] > 0) continue
-
-    if (i > 0 && nums[i] === nums[i - 1]) {
-      continue
-    }
-
-    left = i + 1
-    right = length - 1
-    while (left < right) {
-      let total: number = nums[i] + nums[left] + nums[right]
-      // 当找到一组匹配的之后，[left,right]区间缩小
-      if (total === 0) {
-        ans.push([nums[i], nums[left], nums[right]])
-        left++
-        right--
-        // 当left左侧和left的值相等时，不会对结果有贡献
-        while (nums[left] === nums[left - 1]) {
-          left++
-        }
-        // 当right右侧的heleft的值相等时，不会对结果有贡献
-        while (nums[right] === nums[right + 1]) {
-          right--
-        }
-      } else if (total > 0) {
-        right--
-      } else {
-        left++
-      }
+  while (left < right) {
+    const mid = Math.floor((right - left) / 2) + left
+    let cur = nums[mid]
+    // 此段不行，需要细品
+    // if (cur > target) {
+    //   right = mid - 1 // [left,mid-1]
+    // } else {
+    //   left = mid + 1 // [mid+1,right]
+    // }
+    if (cur < target) {
+      left = mid + 1 // [mid+1,right]
+    } else {
+      right = mid // [left,mid]
     }
   }
 
-  return ans
+  return left
 }

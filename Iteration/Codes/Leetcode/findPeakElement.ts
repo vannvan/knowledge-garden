@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-25 17:19:18
+ * Last Modified: 2023-04-26 11:48:35
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -43,16 +43,16 @@ function findPeakElement(nums: number[]): number {
   // Think for yourself for 5 minutes...
   let left = 0
   let right = nums.length - 2
-  while (left < right) {
+  while (left <= right) {
     console.log('此次循环区间', [left, right])
     const mid = Math.floor(left + (right - left) / 2)
-    if (nums[mid] < nums[mid + 1]) {
-      left = mid + 1
+    if (nums[mid] > nums[mid + 1]) {
+      right = mid - 1
     } else {
-      right = mid + 1
+      left = mid + 1
     }
-    console.log('此次循环结束', [left, right])
   }
+  console.log(left, left)
   return left
 }
 

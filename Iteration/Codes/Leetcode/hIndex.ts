@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-27 23:56:28
+ * Last Modified: 2023-04-28 00:11:23
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -20,7 +20,7 @@ const findMax = (nums: number[]) => {
   return max
 }
 
-function hIndex(citations: number[]): number {
+function hIndex1(citations: number[]): number {
   // Think for yourself for 5 minutes...
   let max = findMax(citations)
   const counts = Array(max).fill(0)
@@ -34,5 +34,16 @@ function hIndex(citations: number[]): number {
       return i
     }
   }
+}
+
+function hIndex(citations: number[]): number {
+  citations.sort((a, b) => a - b)
+  let h = 0
+  let i = citations.length - 1
+  while (i >= 0 && citations[i] > h) {
+    h++
+    i--
+  }
+  return h
 }
 export default hIndex

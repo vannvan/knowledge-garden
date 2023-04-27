@@ -1204,7 +1204,7 @@ function myNew (fn, ...args) {
 <meta http-equiv ="Content-Security-Policy" content="upgrade-insecure-requests">
 ```
 
-### neta相关属性
+### meta相关属性
 
 ```html
 <!DOCTYPE html> <!--H5标准声明，使用 HTML5 doctype，不区分大小写-->

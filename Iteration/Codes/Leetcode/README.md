@@ -267,3 +267,4 @@
 |256|69|[x 的平方根 ](https://leetcode.cn/problems/sqrtx)|[mySqrt](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/mySqrt.ts)|简单|数学  二分查找|
 |257|50|[Pow(x, n)](https://leetcode.cn/problems/powx-n)|[myPow](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/myPow.ts)|中等|递归  数学|
 |258|153|[寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array)|[findMin](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findMin.ts)|中等|数组  二分查找|
+|259|274|[H 指数](https://leetcode.cn/problems/h-index)|[hIndex](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/hIndex.ts)|中等|数组  计数排序  排序|

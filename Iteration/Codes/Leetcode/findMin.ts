@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-26 00:07:47
+ * Last Modified: 2023-04-29 22:34:34
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -19,11 +19,16 @@ function findMin(nums: number[]): number {
   let right = nums.length - 1
   while (left < right) {
     let mid = left + Math.floor((right - left) / 2)
-    if (nums[mid] < nums[right]) {
-      // if(min>=nums[left])
-      right = mid
-    } else {
+    // if (nums[mid] < nums[right]) {
+    //   // if(min>=nums[left])
+    //   right = mid
+    // } else {
+    //   left = mid + 1
+    // }
+    if (nums[mid] > nums[right]) {
       left = mid + 1
+    } else {
+      right = mid
     }
   }
 

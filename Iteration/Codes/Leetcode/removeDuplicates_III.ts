@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-05-01 00:04:42
+ * Last Modified: 2023-05-01 00:23:58
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -21,18 +21,19 @@ function removeDuplicates(nums: number[]): number {
   let slow = 2
   let fast = 2
   while (fast < nums.length) {
-    // if (nums[slow - 2] !== nums[fast]) {
-    //   nums[slow] = nums[fast]
-    //   slow++
-    // }
-    // console.log(`前->当前fast ${nums[fast]},fast-2 ${nums[fast - 2]} 当前slow ${slow}`)
-    if (nums[fast - 2] !== nums[fast]) {
-      console.log(`当前fast下标${fast},元素为${nums[fast]}`)
+    if (nums[slow - 2] !== nums[fast]) {
       nums[slow] = nums[fast]
       slow++
-    } else {
-      console.log(`绕过的下标${fast},元素为${nums[fast]},此时数组元素${nums}`)
     }
+    // console.log(`前->当前fast ${nums[fast]},fast-2 ${nums[fast - 2]} 当前slow ${slow}`)
+    // 行不通
+    // if (nums[fast - 2] !== nums[fast]) {
+    //   console.log(`当前fast下标${fast},元素为${nums[fast]}`)
+    //   nums[slow] = nums[fast]
+    //   slow++
+    // } else {
+    //   console.log(`绕过的下标${fast},元素为${nums[fast]},此时数组元素${nums}`)
+    // }
 
     console.log('nus', nums.slice(0, slow))
     fast++

@@ -274,3 +274,4 @@
 |263|154|[寻找旋转排序数组中的最小值 II](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii)|[findMin](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/findMin_III.ts)|困难|数组  二分查找|
 |264|71|[简化路径](https://leetcode.cn/problems/simplify-path)|[simplifyPath](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/simplifyPath.ts)|中等|栈  字符串|
 |265|80|[删除有序数组中的重复项 II](https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii)|[removeDuplicates](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/removeDuplicates_III.ts)|中等|数组  双指针|
+|266|224|[基本计算器](https://leetcode.cn/problems/basic-calculator)|[calculate](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/calculate.ts)|困难|栈  递归  数学  字符串|

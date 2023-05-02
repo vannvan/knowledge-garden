@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-05-01 23:36:46
+ * Last Modified: 2023-05-02 00:09:38
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -23,6 +23,11 @@ class Node {
   }
 }
 const cachedNode = new Map()
+/**
+ * hash+回溯
+ * @param head
+ * @returns
+ */
 function copyRandomList(head: Node | null): Node | null {
   // Think for yourself for 5 minutes...
   if (head === null) {
@@ -38,6 +43,11 @@ function copyRandomList(head: Node | null): Node | null {
   return cachedNode.get(head)
 }
 
+/**
+ *分身法
+ * @param head
+ * @returns
+ */
 function copyRandomList1(head: Node | null): Node | null {
   if (head === null) {
     return null
@@ -76,4 +86,28 @@ function copyRandomList1(head: Node | null): Node | null {
   return dummy.next
 }
 
+/**
+ * 两步hash
+ * @param head
+ * @returns
+ */
+function copyRandomList3(head: Node | null): Node | null {
+  if (!head) return head
+
+  let cur = head
+  const map = new Map()
+  // 第一次遍历，生成一个具有val属性的链表；
+  while (cur) {
+    map.set(cur, new Node(cur.val))
+    cur = cur.next
+  }
+  //第二次遍历，根据map映射关系，将random和next指针指向对应的节点或者null;
+  cur = head
+  while (cur) {
+    map.get(cur).next = map.get(cur.next) || null
+    map.get(cur).random = map.get(cur.random) || null
+    cur = cur.next
+  }
+  return map.get(head)
+}
 export default copyRandomList

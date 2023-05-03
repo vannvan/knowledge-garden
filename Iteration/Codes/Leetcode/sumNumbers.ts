@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-05-02 21:59:03
+ * Last Modified: 2023-05-03 22:31:35
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -30,13 +30,18 @@ function sumNumbers(root: TreeNode | null): number {
   // Think for yourself for 5 minutes...
   // q1. 找到所有路径
 
-  const paths = []
+  // const paths = []
+
+  let sum = 0
 
   const backTrack = (node: TreeNode, path: string) => {
     // 到达了叶子节点
     if (node.left === null && node.right === null && node.val !== null) {
       path += '' + node.val
-      paths.push(path)
+      // paths.push(path)
+
+      sum += Number(path)
+
       return
     }
     path += node.val
@@ -46,10 +51,10 @@ function sumNumbers(root: TreeNode | null): number {
   if (root === null) return 0
   backTrack(root, '')
 
-  let sum = 0
-  for (const val of paths) {
-    sum += Number(val)
-  }
+  // let sum = 0
+  // for (const val of paths) {
+  //   sum += Number(val)
+  // }
 
   return sum
 }

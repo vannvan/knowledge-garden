@@ -278,3 +278,4 @@
 |267|138|[复制带随机指针的链表](https://leetcode.cn/problems/copy-list-with-random-pointer)|[copyRandomList](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/copyRandomList.ts)|中等|哈希表  链表|
 |268|129|[求根节点到叶节点数字之和](https://leetcode.cn/problems/sum-root-to-leaf-numbers)|[sumNumbers](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/sumNumbers.ts)|中等|树  深度优先搜索  二叉树|
 |269|103|[二叉树的锯齿形层序遍历](https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal)|[zigzagLevelOrder](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/zigzagLevelOrder.ts)|中等|树  广度优先搜索  二叉树|
+|270|230|[二叉搜索树中第K小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst)|[kthSmallest](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/kthSmallest.ts)|中等|树  深度优先搜索  二叉搜索树  二叉树|

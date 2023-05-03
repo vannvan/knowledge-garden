@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-02-19 13:19:27
+ * Last Modified: 2023-05-03 22:40:05
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -240,4 +240,6 @@ datas.forEach((value) => {
 
 // console.dir(s)
 
-bst.dfs()
+// bst.dfs()
+console.log(bst.preOrder())
+console.log(bst.inOrder())

@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-05-03 22:51:58
+ * Last Modified: 2023-05-03 23:46:20
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -44,17 +44,18 @@ function kthSmallest1(root: TreeNode | null, k: number): number {
 function kthSmallest(root: TreeNode | null, k: number): number {
   const stack = []
   if (root) stack.push(root)
-  while (stack.length) {
-    const node = stack.pop()
-    if (!node) {
-      if (k === 0) return stack.pop().val
-      k--
-      continue
+  let curNode = root
+  while (curNode || stack.length) {
+    if (curNode) {
+      stack.push(curNode)
+      curNode = curNode.left
+    } else {
+      curNode = stack.pop()
+      --k
+      if (k === 0) break
+      curNode = curNode.right
     }
-    if (node.right) stack.push(node.right) // 右
-    stack.push(node) // 中
-    stack.push(null)
-    if (node.left) stack.push(node.left) // 左
   }
+  return curNode.val
 }
 export default kthSmallest

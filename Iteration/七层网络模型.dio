@@ -1,0 +1,46 @@
+<mxfile host="65bd71144e">
+    <diagram id="htqOmq-r2HkgxU-PrAn5" name="Page-1">
+        <mxGraphModel dx="813" dy="632" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#dcdca8" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="应用层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="60" width="116" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="表示层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="120" width="116" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="会话层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="180" width="116" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="传输层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="240" width="116" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="网络层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="300" width="116" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="数据链路层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="360" width="116" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="物理层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="420" width="116" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="HTTP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="60" width="120" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="TCP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="240" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Internet" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="300" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="4G&lt;br&gt;5G&lt;br&gt;Wi-FI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="360" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=none;strokeColor=#F0371A;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="50" width="380" height="180" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -6,13 +6,18 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-05-04 23:59:28
+ * Last Modified: 2023-05-05 22:06:52
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-function minimumTotal(triangle: number[][]): number {
+/**
+ * 无优化版
+ * @param triangle
+ * @returns
+ */
+function minimumTotal1(triangle: number[][]): number {
   // Think for yourself for 5 minutes...
   // q1. 相邻的节点 下标与上一层相等或上一层下标+1
   // q2. 当前层取了最小值，下一层取值只能和当前层下标 相同 或 +1
@@ -45,5 +50,23 @@ function minimumTotal(triangle: number[][]): number {
     minTotal = Math.min(minTotal, dp[n - 1][i])
   }
   return minTotal
+}
+
+function minimumTotal(triangle: number[][]): number {
+  const n = triangle.length
+  const bottom = triangle[n - 1]
+  const dp = Array(n)
+
+  for (let i = 0; i < n; i++) {
+    dp[i] = bottom[i]
+  }
+
+  for (let i = n - 2; i >= 0; i--) {
+    for (let j = 0; j < triangle[i].length; j++) {
+      dp[j] = Math.min(dp[j], dp[j + 1]) + triangle[i][j]
+    }
+  }
+
+  return dp[0]
 }
 export default minimumTotal

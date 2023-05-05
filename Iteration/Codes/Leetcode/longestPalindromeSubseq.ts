@@ -6,12 +6,17 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-19 13:31:43
+ * Last Modified: 2023-05-05 22:53:17
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
+/**
+ * 动态规划
+ * @param s
+ * @returns
+ */
 function longestPalindromeSubseq(s: string): number {
   // Think for yourself for 5 minutes...
   // dp[i][j] 表示[i,j]区间最长回文子序列的长度
@@ -39,4 +44,21 @@ function longestPalindromeSubseq(s: string): number {
 
   return dp[0][n - 1]
 }
-export default longestPalindromeSubseq
+
+/**
+ * 递归
+ * @param s
+ */
+function longestPalindromeSubseq1(s: string): number {
+  const n = s.length
+  const dfs = (i: number, j: number) => {
+    if (i > j) return 0
+    if (i === j) return 1
+    if (s[i] === s[j]) return dfs(i + 1, j - 1) + 2
+
+    return Math.max(dfs(i + 1, j), dfs(i, j - 1))
+  }
+
+  return dfs(0, n - 1)
+}
+export { longestPalindromeSubseq, longestPalindromeSubseq1 }

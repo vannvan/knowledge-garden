@@ -42,7 +42,7 @@
 
 - [web技巧合集](https://github.com/vannvan/web-explore-demo)
 
-- [vannvan的私密花园-语雀](https://www.yuque.com/vannvan/)
+- [vannvan的秘密花园-语雀](https://www.yuque.com/vannvan/)
 
 - [语雀知识库导出工具](https://github.com/vannvan/yuque-tools)
 

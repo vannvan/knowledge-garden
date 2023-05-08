@@ -284,3 +284,4 @@
 |273|97|[交错字符串](https://leetcode.cn/problems/interleaving-string)|[isInterleave](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/isInterleave.ts)|中等|字符串  动态规划|
 |274|221|[最大正方形](https://leetcode.cn/problems/maximal-square)|[maximalSquare](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/maximalSquare.ts)|中等|数组  动态规划  矩阵|
 |275|540|[有序数组中的单一元素](https://leetcode.cn/problems/single-element-in-a-sorted-array)|[singleNonDuplicate](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/singleNonDuplicate.ts)|中等|数组  二分查找|
+|276|275|[H 指数 II](https://leetcode.cn/problems/h-index-ii)|[hIndex](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/hIndex_II.ts)|中等|数组  二分查找|

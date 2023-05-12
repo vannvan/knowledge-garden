@@ -288,3 +288,4 @@
 |277|146|[LRU 缓存](https://leetcode.cn/problems/lru-cache)|[undefined](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/undefined.ts)|中等|设计  哈希表  链表  双向链表|
 |278|133|[克隆图](https://leetcode.cn/problems/clone-graph)|[cloneGraph](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/cloneGraph.ts)|中等|深度优先搜索  广度优先搜索  图  哈希表|
 |279|207|[课程表](https://leetcode.cn/problems/course-schedule)|[canFinish](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/canFinish.ts)|中等|深度优先搜索  广度优先搜索  图  拓扑排序|
+|280|882|[山脉数组的峰顶索引](https://leetcode.cn/problems/peak-index-in-a-mountain-array)|[peakIndexInMountainArray](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/peakIndexInMountainArray.ts)|中等|数组  二分查找|

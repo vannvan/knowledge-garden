@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-05-13 23:38:29
+ * Last Modified: 2023-05-14 19:39:54
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -31,4 +31,56 @@ function replaceWords(dictionary: string[], sentence: string): string {
 
   return words.join(' ')
 }
-export default replaceWords
+
+class Trie {
+  tree: {
+    isEnd?: boolean
+  }
+  constructor() {
+    this.tree = {}
+  }
+
+  insert(word: string) {
+    let node = this.tree
+    for (const ch of word) {
+      if (!node[ch]) {
+        node[ch] = {}
+      }
+      node = node[ch]
+    }
+    node.isEnd = true
+  }
+
+  findRoot(word: string) {
+    let root = ''
+    let cur = this.tree
+    for (let i = 0; i < word.length; i++) {
+      const c = word[i]
+      if (cur.isEnd) {
+        return root
+      }
+      if (cur && !cur[c] && !cur.isEnd) {
+        return word
+      }
+      root += c
+      cur = cur[c]
+    }
+    return root
+  }
+}
+
+function replaceWordsByTrie(dictionary: string[], sentence: string): string {
+  const trie = new Trie()
+  for (const word of dictionary) {
+    trie.insert(word)
+  }
+  const words = sentence.split(' ')
+  let s = ''
+  for (let i = 0; i < words.length; i++) {
+    // words[i] = trie.findRoot(words[i])
+    s += (i === 0 ? '' : ' ') + trie.findRoot(words[i])
+  }
+  return s
+}
+
+export { replaceWords, replaceWordsByTrie }

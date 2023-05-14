@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-22 00:03:41
+ * Last Modified: 2023-05-14 00:36:46
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -58,8 +58,13 @@ if (!LEETCODE_URL) {
   // 测试用例
   // console.log('测试用例', jsonExampleTestcases)
 
-  // 函数名称
-  const functionName = JSON.parse(metaData).name + functionSuffix
+  const _metaData = JSON.parse(metaData)
+
+  // 函数/类名称
+  const functionName = (_metaData.name || _metaData.classname) + functionSuffix
+
+  // 是否是类方法
+  const isClass = _metaData.classname
 
   // 模版内字符串匹配替换
   const REG_MAP = {
@@ -81,12 +86,17 @@ if (!LEETCODE_URL) {
 
   // 匹配大括号内容
   const bracketReg = /(?<=\{)(\n+|\s+)(?=\})/g // 匹配中间的换行符或空白符
-
-  let replacedCode = tsCode.code.replace(bracketReg, '\n // Think for yourself for 5 minutes... \n')
-
-  // 再将原函数名称替换为新的函数名称,因为可能有自定义后缀
-  let nameReg = new RegExp(JSON.parse(metaData).name)
-  replacedCode = replacedCode.replace(nameReg, functionName)
+  // 类方法就不要这一行注释了
+  let replacedCode = tsCode.code.replace(
+    bracketReg,
+    isClass ? '\n // \n' : '\n // Think for yourself for 5 minutes... \n'
+  )
+  // 类方法不能使用
+  if (!isClass) {
+    // 再将原函数名称替换为新的函数名称,因为可能有自定义后缀
+    let nameReg = new RegExp(JSON.parse(metaData).name)
+    replacedCode = replacedCode.replace(nameReg, functionName)
+  }
 
   // 函数体
   functionContent += '\n  ' + replacedCode + '\n ' + `export default ${functionName}`
@@ -123,7 +133,7 @@ if (!LEETCODE_URL) {
     `import ${functionName} from '../${fileName}' \n` +
     `describe('${translatedTitle} 测试', () => { \n` +
     `\tit('${functionName} function', () => { \n` +
-    `${testExampleCases} \n` +
+    `${isClass ? '//' : testExampleCases} \n` + // 类方法不能使用
     `\t}) \n` +
     `})\n`
 

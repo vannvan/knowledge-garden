@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-12 23:05:33
+ * Last Modified: 2023-05-14 00:27:38
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -14,13 +14,15 @@ const dir = path.resolve(__dirname)
 
 module.exports = {
   /**
-   * lc题目模版
+   * lc题目模版,函数类型
    */
   LC_FUNCTION_TEMPLATE: path.resolve('./scripts/template/leetcodeFunction.ts'),
+
   /**
-   * lc测试脚本模版
+   * lc测试脚本模版,函数类型
    */
   LC_JEST_TEMPLATE: path.resolve('./scripts/template/tests/leetcodeFunction.test.ts'),
+
   /**
    * lc做题目录
    */

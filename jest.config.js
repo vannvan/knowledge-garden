@@ -2,5 +2,5 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  roots: ['./Iteration/Codes'],
+  roots: ['./Iteration/Codes/Leetcode/'],
 }

@@ -250,12 +250,21 @@ let strLength: number = (someValue as string).length;
 #### in关键字
 
 ```ts
-interface Person {
-  name: string;
-  age: number;
+interface A {
+  x: number;
 }
-const sem: Person = { name: "semlinker", age: 30 };
-type Sem = typeof sem; // type Sem = Person
+
+interface B {
+  y: string;
+}
+
+function doStuff(q: A | B) {
+  if ('x' in q) {
+    // q: A
+  } else {
+    // q: B
+  }
+}
 ```
 
 #### typeof 关键字

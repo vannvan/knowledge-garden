@@ -1,52 +1,64 @@
 #!/usr/bin/env node
+import dayjs from 'dayjs'
 
-/*
- * @Author: wanwan
- * @Date:   2019-07-15 18:16:58
- * @Last Modified by:   vannvan
- * @Last Modified time: 2019-08-02 09:45:21
- */
-
-const dayjs = require('dayjs')
-const shell = require('shelljs')
-const exec = shell.exec
-const echo = shell.echo
-const chalk = require('chalk')
-const log = console.log
-
-const exec2 = require('child_process').exec
+import { exec as exec2 } from 'child_process'
 
 const diffCommand = 'git diff --name-only'
 
-// TODO
-// exec2(diffCommand, 'utf8', (err, stdout, stderr) => {
-//   if (err) {
-//     console.log('err:', err)
-//     console.log('stderr:', stderr)
-//   } else {
-//     const fileArr = stdout.split('\n')
+import chalk from 'chalk'
 
-//     log(chalk.green('fileArr', fileArr))
-//   }
-// })
+const log = console.log
+
+/**
+ * 打印日志
+ */
+const Log = {
+  error: (text) => log(chalk.red(text)),
+  info: (text) => log(chalk.white(text)),
+  success: (text) => log(chalk.green(text)),
+  warn: (text) => log(chalk.yellow(text)),
+}
+
+const commitMessage = dayjs().format('YYYY-MM-DD HH:mm:ss')
+
+const cmd = ['git add .', `git commit -am "${commitMessage}"`, 'git push']
 
 exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
   if (err) {
-    log(chalk.red(err))
+    Log.error(err)
   } else {
-    const commitMessage = dayjs().format('YYYY-MM-DD HH:mm:ss')
-    if (exec('git add .').code !== 0) {
-      log(chalk.red('Error: Git add failed'))
-      process.exit(1)
-    }
-    if (exec(`git commit -am "${commitMessage}"`).code !== 0) {
-      log(chalk('Error: Git commit failed'))
-      process.exit(1)
-    }
-    if (exec('git push').code !== 0) {
-      log(chalk('Error: Git push failed'))
-      process.exit(1)
-    }
-    log(chalk.green('提交成功！'))
+    //   const commitMessage = dayjs().format('YYYY-MM-DD HH:mm:ss')
+    //   if (exec2('git add .').code !== 0) {
+    //     Log.error('Error: Git add failed')
+    //     process.exit(1)
+    //   }
+    //   if (exec2(`git commit -am "${commitMessage}"`).code !== 0) {
+    //     Log.error('Error: Git commit failed')
+    //     process.exit(1)
+    //   }
+    //   if (exec2('git push').code !== 0) {
+    //     Log.error('Error: Git push failed')
+    //     process.exit(1)
+    //   }
+    //   Log.success('提交成功！')
+    // }
+    Log.success('同步远程成功')
+    const task = cmd.map((item) => {
+      return new Promise((resolve, reject) => {
+        exec2(item, 'utf-8', function (err, sto) {
+          if (err) {
+            Log.error(err)
+            reject(err)
+          } else {
+            resolve(`[${item}] success`)
+          }
+        })
+      })
+    })
+    Promise.allSettled(task).then((results) => {
+      results.map((item) => {
+        Log.info(item.status)
+      })
+    })
   }
 })

@@ -27,7 +27,7 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
   if (err) {
     Log.error(err)
   } else {
-    Log.success('同步远程成功')
+    Log.success('【sync origin success】')
     const task = cmd.map((item, index) => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -44,7 +44,7 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
     })
     Promise.all(task).then((results) => {
       results.map((item) => {
-        Log.info(item)
+        Log.success(item)
       })
     })
   }

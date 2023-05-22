@@ -36,7 +36,7 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
               Log.error(err)
               reject(err)
             } else {
-              resolve(`[${item}] success`)
+              resolve(`【${item}】 success`)
             }
           })
         }, index * 500)
@@ -44,9 +44,7 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
     })
     Promise.all(task).then((results) => {
       results.map((item) => {
-        // Log.info(item)
-        console.log(item)
-        // Log.info(item.value)
+        Log.info(item)
       })
     })
   }

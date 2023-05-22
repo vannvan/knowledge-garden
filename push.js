@@ -42,10 +42,11 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
         }, index * 500)
       })
     })
-    Promise.allSettled(task).then((results) => {
+    Promise.all(task).then((results) => {
       results.map((item) => {
         // Log.info(item)
-        console.log(item.value)
+        console.log(item)
+        // Log.info(item.value)
       })
     })
   }

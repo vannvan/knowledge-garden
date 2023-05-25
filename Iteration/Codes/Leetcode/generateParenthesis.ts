@@ -6,13 +6,13 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-08 22:08:28
+ * Last Modified: 2023-05-25 22:40:08
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
-function generateParenthesis(n: number): string[] {
+function generateParenthesis1(n: number): string[] {
   // Think for yourself for 5 minutes...
 
   // q1. 所有的有效的括号
@@ -49,4 +49,31 @@ function generateParenthesis(n: number): string[] {
 
   return res
 }
+
+function generateParenthesis(n: number): string[] {
+  const ans: string[] = []
+
+  const path: string[] = []
+
+  const dfs = (i: number, open: number) => {
+    if (i == n * 2) {
+      ans.push(path.join(''))
+      return
+    }
+
+    if (open < n) {
+      path[i] = '('
+      dfs(i + 1, open + 1)
+    }
+    if (i - open < open) {
+      path[i] = ')'
+      dfs(i + 1, open)
+    }
+  }
+
+  dfs(0, 0)
+
+  return ans
+}
+
 export default generateParenthesis

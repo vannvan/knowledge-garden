@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-17 22:27:25
+ * Last Modified: 2023-05-26 22:12:16
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -32,4 +32,21 @@ function rob(nums: number[]): number {
 
   return dp[nums.length - 1]
 }
+
+function rob1(nums: number[]): number {
+  const n = nums.length
+  const memo = Array(n).fill(-1)
+  const dfs = (i: number) => {
+    if (i < 0) {
+      return 0
+    }
+    if (memo[i] !== -1) return memo[i]
+    const res = Math.max(dfs(i - 1), dfs(i - 2) + nums[i])
+    memo[i] = res
+    return res
+  }
+
+  return dfs(n - 1)
+}
+
 export default rob

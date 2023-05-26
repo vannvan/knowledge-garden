@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-05-18 23:46:29
+ * Last Modified: 2023-05-26 21:43:28
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -19,17 +19,18 @@ function subsets(nums: number[]): number[][] {
 
   const stack: number[] = []
 
-  const backTrack = (startIndex: number, path: string) => {
+  const backTrack = (startIndex: number) => {
     res.push([...stack])
-    path += '_'
     for (let i = startIndex; i < nums.length; i++) {
       stack.push(nums[i])
-      backTrack(i + 1, path + '_')
+      console.log('  递归之前', stack)
+      backTrack(i + 1)
+      console.log('递归之后', stack)
       stack.pop()
     }
   }
 
-  backTrack(0, '_')
+  backTrack(0)
   return res
 }
 export default subsets

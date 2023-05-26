@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "target": "ESNext"
-  },
-  "include": ["./Iteration/Codes/Leetcode"],
-  "exclude": ["./Iteration/Codes/TSFunction"]
-}

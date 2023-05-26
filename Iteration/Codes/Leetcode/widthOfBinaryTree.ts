@@ -6,11 +6,13 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-05-17 22:29:57
+ * Last Modified: 2023-05-26 22:25:06
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
+
+import { TreeNode } from './utils/tree'
 
 /**
  * Definition for a binary tree node.

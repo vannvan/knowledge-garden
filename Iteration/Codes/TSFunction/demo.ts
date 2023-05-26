@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-05-20 18:40:07
+ * Last Modified: 2023-05-26 22:24:45
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -44,4 +44,4 @@ const getUserInfo = <T>() => {
   return '' as T
 }
 
-const res = getUserInfo<IResponse<number, boolean>>()
+// const res = getUserInfo<IResponse<number, boolean>>()

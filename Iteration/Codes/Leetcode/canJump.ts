@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-11 18:38:11
+ * Last Modified: 2023-05-29 21:35:22
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -40,6 +40,21 @@ function canJump(nums: number[]): boolean {
     }
   }
   return false
+}
+
+function canJump2(nums: number[]): boolean {
+  // Think for yourself for 5 minutes...
+
+  let cur = nums[0]
+  let i = 1
+  for (; cur != 0 && i < nums.length; i++) {
+    cur--
+    if (cur < nums[i]) {
+      cur = nums[i]
+    }
+  }
+
+  return i == nums.length
 }
 
 export default canJump

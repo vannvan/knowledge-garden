@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-03-10 16:50:22
+ * Last Modified: 2023-05-29 22:25:56
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -65,6 +65,29 @@ function findContentChildren(g: number[], s: number[]): number {
   }
 
   return count
+}
+
+/**
+ * 先满足小胃口
+ * @param g
+ * @param s
+ * @returns
+ */
+function findContentChildren2(g: number[], s: number[]): number {
+  s.sort((a, b) => a - b)
+  g.sort((a, b) => a - b)
+
+  let child = 0
+  let cookie = 0
+  while (child < g.length && cookie < s.length) {
+    // 当用当前饼干可以满足当前孩子的需求，可以满足的孩子数量+1
+    if (g[child] <= s[cookie]) {
+      child++
+    }
+    cookie++
+  }
+
+  return child
 }
 
 export default findContentChildren

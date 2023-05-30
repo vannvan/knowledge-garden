@@ -6,7 +6,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-05 13:44:18
+ * Last Modified: 2023-05-30 21:07:27
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -45,6 +45,30 @@ function removeElements1(head: ListNode | null, val: number): ListNode | null {
   return head
 }
 
+/**
+ * 更清晰的递归
+ * @param head
+ * @param val
+ * @returns
+ */
+function removeElements3(head: ListNode | null, val: number): ListNode | null {
+  // if(head === null) return head
+  // head.next = removeElements(head.next,val)
+  // return head.val === val ? head.next:head
+
+  const remove = (node: ListNode, val: number) => {
+    if (node === null) return node
+
+    node.next = remove(node.next, val)
+    if (node.val === val) {
+      return node.next
+    } else {
+      return node
+    }
+  }
+  return remove(head, val)
+}
+
 /*
  * 递归
  */
@@ -54,6 +78,29 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
   }
   head.next = removeElements(head.next, val)
   return head.val === val ? head.next : head
+}
+
+/**
+ * 借助虚拟头节点
+ * @param head
+ * @param val
+ * @returns
+ */
+function removeElements2(head: ListNode | null, val: number): ListNode | null {
+  // 移除前后节点的关系
+  const dummy = new ListNode(-1)
+  dummy.next = head
+  let curr = dummy
+  let pre = dummy
+  while (curr) {
+    if (curr.val === val) {
+      pre.next = curr.next
+    } else {
+      pre = curr
+    }
+    curr = curr.next
+  }
+  return dummy.next
 }
 
 export default removeElements

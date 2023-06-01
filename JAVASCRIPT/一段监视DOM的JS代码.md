@@ -1,3 +1,10 @@
+---
+title: 一段监视DOM的JS代码
+tags: [Import-e851]
+created: '2021-09-09T09:52:06.306Z'
+modified: '2023-05-30T06:23:17.952Z'
+---
+
 ```js
 (function SpyOn() {
 
@@ -94,4 +101,3 @@
 
 })();
 ```
-

@@ -1,35 +1,41 @@
-function rotateRight(head: ListNode | null, k: number): ListNode | null {
-  if (head === null || head.next === null) return head
-
-  // let len = 0
-  // let cur = head
-  // while (cur) {
-  //   len++
-  //   if (!cur.next) break
-  //   cur = cur.next
-  // }
-  let len: number = 1
-  let cur: ListNode = head
-  while (cur.next) {
-    cur = cur.next
-    len++
+function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+  const dummy = new ListNode(-1)
+  let p = dummy
+  while (list1 && list2) {
+    // 先用小的
+    if (list1.val < list2.val) {
+      p.next = list1
+      list1 = list1.next
+    } else {
+      p.next = list2
+      list2 = list2.next
+    }
+    p = p.next
   }
 
-  // 计算实际要进行旋转的所在点
-  let step: number = len - (k % len)
-
-  // 等于没翻，直接返回
-  if (step === len) return head
-
-  cur.next = head
-
-  while (step) {
-    cur = cur.next
-    step--
+  // 还没有用完的情况
+  if (list1) {
+    p.next = list1
   }
-  // 摘出后半段
-  const rest = cur.next
-  // 掐断前半段原来的关系
-  cur.next = null
-  return rest
+
+  if (list2) {
+    p.next = list2
+  }
+
+  return dummy.next
+}
+function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+  const merge = (p1: ListNode, p2: ListNode) => {
+    if (p1 === null) return p2
+    if (p2 === null) return p1
+    if (p1.val < p2.val) {
+      p1.next = merge(p1.next, p2)
+      return p1
+    } else {
+      p2.next = merge(p1, p2.next)
+      return p2
+    }
+  }
+
+  return merge(list1, list2)
 }

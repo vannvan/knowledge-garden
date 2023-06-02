@@ -1,11 +1,14 @@
 #!/usr/bin/env node
-import dayjs from 'dayjs'
+// import dayjs from 'dayjs'
+const dayjs = require('dayjs')
 
-import { exec as exec2 } from 'child_process'
+// import { exec as exec2 } from 'child_process'
+const { exec: exec2 } = require('child_process')
 
 const diffCommand = 'git diff --name-only'
 
-import chalk from 'chalk'
+// import chalk from 'chalk'
+const chalk = require('chalk')
 
 const log = console.log
 

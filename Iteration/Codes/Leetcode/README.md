@@ -296,3 +296,4 @@
 |285|662|[二叉树最大宽度](https://leetcode.cn/problems/maximum-width-of-binary-tree)|[widthOfBinaryTree](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/widthOfBinaryTree.ts)|中等|树  深度优先搜索  广度优先搜索  二叉树|
 |286|560|[和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k)|[subarraySum](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/subarraySum.ts)|中等|数组  哈希表  前缀和|
 |287|394|[字符串解码](https://leetcode.cn/problems/decode-string)|[decodeString](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/decodeString.ts)|中等|栈  递归  字符串|
+|288|57|[插入区间](https://leetcode.cn/problems/insert-interval)|[insert](https://github.com/vannvan/archives/blob/master/Iteration/Codes/Leetcode/insert.ts)|中等|数组|

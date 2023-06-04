@@ -12,7 +12,7 @@
     "url": "git+https://github.com/vannvan/archives.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "vannvan",
   "main": "dist-info.js",
   "scripts": {
     "gents": "node scripts/gen-ts-jest-script.js",

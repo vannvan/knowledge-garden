@@ -5,7 +5,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-06-04 21:39:05
+ * Last Modified: 2023-06-04 22:19:15
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -20,7 +20,6 @@ describe('无重复字符的最长子串 测试', () => {
 
   it('lengthOfLongestSubstring2 function', () => {
     expect(lengthOfLongestSubstring2('abcabcbb')).toEqual(3)
-    return
     expect(lengthOfLongestSubstring2('bbbbb')).toEqual(1)
     expect(lengthOfLongestSubstring2('pwwkew')).toEqual(3)
   })

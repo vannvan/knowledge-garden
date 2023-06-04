@@ -1,28 +1,27 @@
-<h1 align="left"><img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="30px">欢迎来到我的知识库！</h1>
-
-## 知识体系
-
-![](https://p.ipic.vip/mqrojc.png)
+<h1 align="left"><img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="30px">欢迎来到vannvan知识库！</h1>
 
 ## 特别说明
 
-一级目录是偏个人化的知识笔记，`Iteration`是更完善的自我重构之后的知识体系
+本知识库始建于2019年，起初偏向于个人随手风格的个人手记，相当于个人的“第二大脑”，几年间通过这种方式减少了很多写代码时要依赖“百度一下”的情况；  
+
+由于前期的知识库像一个杂货铺（检索复杂、缺乏条理等原因），于2023年开始“自我技术重构”计划，重新整理更加健全完备的知识库，同时兼具分享的作用，希望帮到需要一个完备知识体系的朋友。
+
+<!-- ## 知识体系 -->
+
+<!-- ![](https://p.ipic.vip/mqrojc.png) -->
 
 ## 知识资源推荐
 
-- [30-seconds-of-css](https://30-seconds.github.io/30-seconds-of-css/)  
+<!-- - [30-seconds-of-css](https://30-seconds.github.io/30-seconds-of-css/)   -->
+- [ECMA权威规范](https://tc39.es/ecma262/#sec-intro )
 
-- [30-secondsof-code-JS英文](https://30secondsofcode.org/)  
+- [网道](https://wangdoc.com/javascript/types/)
 
-- [CSS修改png图片颜色](https://www.jianshu.com/p/f2cc9c93dd9b)  
+- [30-secondsof-code-JS](https://30secondsofcode.org/)  
 
 - [javascript-questions](https://github.com/lydiahallie/javascript-questions)
 
-- [30-seconds-of-code中文](https://www.html.cn/30-seconds-of-code/#arraytohtmllist)
-
 - [JS编码风格参考Airbnb](https://lin-123.github.io/javascript/)  
-
-- [史上最全前端学习路线](https://www.cnblogs.com/onesea/p/13055617.html)
 
 - [浏览器的工作原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
 

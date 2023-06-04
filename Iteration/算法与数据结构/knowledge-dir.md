@@ -1,8 +1,0 @@
-
-## 笔记
-- [基础知识](https://www.yuque.com/vannvan/cgsqcn/vh7v1ihxmexcft9o)  
-- [栈](https://www.yuque.com/vannvan/cgsqcn/ol12srilzxugvftz)  
-- [排序](https://www.yuque.com/vannvan/cgsqcn/ny0rqdwqq0oln9an)
-- [队列](https://www.yuque.com/vannvan/cgsqcn/maa5pugn4nny2c8r)
-- [双端队列](https://www.yuque.com/vannvan/cgsqcn/ep1yswc2wmbnqbvp)
-- [链表](https://www.yuque.com/vannvan/cgsqcn/wlbwo8d4tqmvg8lg)

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>组件</title>
+  </head>
+  <body>
+    组件的本质
+    <div id="root"></div>
+    <script>
+      const MyComponent = function () {
+        return {
+          tag: 'div',
+          props: {
+            onClick: () => {
+              console.log('hello world')
+            },
+          },
+          children: 'click me',
+        }
+      }
+
+      const ObjectComponet = {
+        render() {
+          return {
+            tag: 'div',
+            props: {
+              onClick: () => {
+                console.log('我是个对象组件')
+              },
+            },
+            children: '我是个对象组件',
+          }
+        },
+      }
+
+      const vnode = {
+        tag: ObjectComponet,
+      }
+
+      const mountElement = (vnode, contaniner) => {
+        // 使用vnode.tag作为标签名称创建DOM元素
+        const el = document.createElement(vnode.tag)
+        // 遍历props
+        for (const key in vnode.props) {
+          if (/^on/.test(key)) {
+            el.addEventListener(key.substring(2).toLowerCase(), vnode.props[key])
+          }
+        }
+        // 处理children
+        if (typeof vnode.children === 'string') {
+          el.appendChild(document.createTextNode(vnode.children))
+        } else if (Array.isArray(vnode.children)) {
+          // 递归调用renderer函数渲染子节点，使用当前元素el作为挂载节点
+          vnode.children.forEach((child) => renderer(child, el))
+        }
+
+        contaniner.appendChild(el)
+      }
+
+      const mountComponent = (vnode, contaniner) => {
+        // 调用组件函数
+        if (typeof vnode.tag === 'function') {
+          const subtree = vnode.tag()
+          // 递归调用renderer渲染subtree
+          renderer(subtree, contaniner)
+        } else {
+          const subtree = vnode.tag.render()
+          renderer(subtree, contaniner)
+        }
+      }
+
+      const renderer = (vnode, contaniner) => {
+        if (typeof vnode.tag === 'string') {
+          mountElement(vnode, contaniner)
+        } else if (['function', 'object'].includes(typeof vnode.tag)) {
+          mountComponent(vnode, contaniner)
+        }
+      }
+
+      renderer(vnode, document.getElementById('root'))
+    </script>
+  </body>
+</html>

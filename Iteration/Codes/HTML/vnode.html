@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const vnode = {
+        tag: 'div',
+        props: {
+          onClick: () => {
+            console.log('hello world')
+          },
+        },
+        // children: 'click me',
+        children: [
+          {
+            tag: 'span',
+            children: 'spanChild',
+          },
+          {
+            tag: 'div',
+            children: 'divChild',
+          },
+        ],
+      }
+
+      const renderer = (vnode, contaniner) => {
+        // 使用vnode.tag作为标签名称创建DOM元素
+        const el = document.createElement(vnode.tag)
+        // 遍历props
+        for (const key in vnode.props) {
+          if (/^on/.test(key)) {
+            el.addEventListener(key.substring(2).toLowerCase(), vnode.props[key])
+          }
+        }
+        // 处理children
+        if (typeof vnode.children === 'string') {
+          el.appendChild(document.createTextNode(vnode.children))
+        } else if (Array.isArray(vnode.children)) {
+          // 递归调用renderer函数渲染子节点，使用当前元素el作为挂载节点
+          vnode.children.forEach((child) => renderer(child, el))
+        }
+
+        contaniner.appendChild(el)
+      }
+
+      renderer(vnode, document.getElementById('root'))
+    </script>
+  </body>
+</html>

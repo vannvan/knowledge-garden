@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 存储副作用函数的桶
+      const bucket = new WeakMap()
+      let activeEffect
+
+      function reactive(obj) {
+        return new Proxy(obj, {
+          get(target, key, receiver) {
+            if (!activeEffect) return target[key]
+            let depsMap = bucket.get(target)
+            if (!depsMap) {
+              bucket.set(target, (depsMap = new Map()))
+            }
+
+            let deps = depsMap.get(key)
+            if (!deps) {
+              depsMap.set(key, (deps = new Set()))
+            }
+            deps.add(activeEffect)
+            // 如果是想要访问原始对象
+            if (key === 'raw') {
+              return target
+            }
+
+            return Reflect.get(target, key, receiver)
+          },
+
+          set(target, key, newVal) {
+            // 设置属性值
+            target[key] = newVal
+
+            const depsMap = bucket.get(target)
+            if (!depsMap) return
+
+            const effects = depsMap.get(key)
+
+            effects && effects.forEach((fn) => fn())
+
+            return true
+          },
+        })
+      }
+
+      // 副作用函数
+      function effect(fn) {
+        activeEffect = fn
+        fn()
+      }
+
+      // 原始数据
+      const obj = {}
+
+      const proto = { bar: 1 }
+
+      const child = reactive(obj)
+
+      const parent = reactive(proto)
+
+      Object.setPrototypeOf(child, parent)
+
+      effect(() => {
+        // console.log(child.raw == obj)
+        console.log(parent.raw)
+      })
+
+      // child.bar = 2
+    </script>
+  </body>
+</html>

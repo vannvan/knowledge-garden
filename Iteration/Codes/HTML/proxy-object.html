@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>代理对象读取操作</title>
+  </head>
+  <body>
+    <script>
+      const target = {
+        a: 1,
+        b: 2,
+        c: 3,
+      }
+      const handler = {
+        get(target, key, receiver) {
+          console.log('经过代理的get访问')
+          const res = Reflect.get(target, key, receiver)
+          if (typeof res === 'object' && res !== null) {
+            return new Proxy(res, handler)
+          }
+          return res
+        },
+        has(target, key) {
+          console.log('经过代理的in访问')
+          return Reflect.has(target, key)
+        },
+        ownKeys(target) {
+          console.log('经过代理的ownKeys访问')
+          return Reflect.ownKeys(target)
+        },
+        deleteProperty(target, key) {
+          const hadKey = Object.prototype.hasOwnProperty.call(target, key)
+          const res = Reflect.deleteProperty(target, key)
+          return res
+        },
+
+        set(target, key, newVal, receiver) {
+          // 先取旧值
+          const oldVal = Reflect.get(key)
+
+          const res = Reflect.set(target, key, newVal, receiver)
+          if (res !== oldVal) {
+            // 再去触发副作用
+          }
+        },
+      }
+
+      const proxy = new Proxy(target, handler)
+
+      console.log(proxy.a)
+
+      'a' in proxy
+
+      for (let key in proxy) {
+        console.log('key', key)
+      }
+
+      delete proxy.a
+
+      for (let key in proxy) {
+        console.log('key', key)
+      }
+    </script>
+  </body>
+</html>

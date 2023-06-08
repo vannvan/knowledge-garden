@@ -32,7 +32,6 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
   } else {
     Log.success('【sync origin success】')
     spinner.color = 'yellow'
-    spinner.text = 'start commit'
     const task = cmd.map((item, index) => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -54,6 +53,7 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
         if (/push/.test(item)) {
           spinner.text = 'task executed successfully!'
           spinner.color = 'green'
+          process.exit(1)
         }
       })
     })

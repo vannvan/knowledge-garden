@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>响应式数据</title>
+  </head>
+  <body>
+    <script>
+      const bucket = new Set()
+
+      // 原始数据
+      const data = {
+        text: 'hello world',
+      }
+
+      const obj = new Proxy(data, {
+        get(target, key) {
+          bucket.add(effect)
+          return target[key]
+        },
+
+        set(target, key, newVal) {
+          // 设置属性值
+          target[key] = newVal
+          // 把副作用函数从桶中取出来并执行
+          bucket.forEach((fn) => fn())
+          return true
+        },
+      })
+
+      // 副作用函数
+      function effect() {
+        document.body.innerText = obj.text
+      }
+
+      effect()
+
+      setTimeout(() => {
+        obj.text = 'hello vue3'
+      }, 3000)
+
+      console.log(bucket)
+    </script>
+  </body>
+</html>

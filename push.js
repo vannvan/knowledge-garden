@@ -1,16 +1,16 @@
 #!/usr/bin/env node
-// import dayjs from 'dayjs'
 const dayjs = require('dayjs')
 
-// import { exec as exec2 } from 'child_process'
 const { exec: exec2 } = require('child_process')
+const ora = require('ora')
 
 const diffCommand = 'git diff --name-only'
 
-// import chalk from 'chalk'
 const chalk = require('chalk')
 
 const log = console.log
+
+const spinner = ora('start task').start()
 
 /**
  * 打印日志
@@ -31,6 +31,8 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
     Log.error(err)
   } else {
     Log.success('【sync origin success】')
+    spinner.color = 'yellow'
+    spinner.text = 'start commit'
     const task = cmd.map((item, index) => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -45,9 +47,14 @@ exec2('git pull -p', 'utf8', (err, stdout, stderr) => {
         }, index * 500)
       })
     })
+
     Promise.all(task).then((results) => {
       results.map((item) => {
-        Log.success(item)
+        // Log.success(item)
+        if (/push/.test(item)) {
+          spinner.text = 'task executed successfully!'
+          spinner.color = 'green'
+        }
       })
     })
   }

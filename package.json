@@ -27,7 +27,7 @@
     "dayjs": "^1.11.7",
     "inquirer": "^8.2.0",
     "lodash": "^4.17.21",
-    "ora": "5",
+    "ora": "^5.4.1",
     "prettier": "^2.8.4",
     "readme-md-generator": "^1.0.0",
     "shelljs": "^0.8.5"

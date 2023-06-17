@@ -4,15 +4,16 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-06-17 17:26:20
+ * Last Modified: 2023-06-17 18:06:22
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
 import { spawn } from 'child_process'
-import { readdirSync, lstatSync, cp } from 'fs'
+import { readdirSync, lstatSync, cp, writeFileSync } from 'fs'
 import path from 'path'
+import dayjs from 'dayjs'
 
 class SyncYuque {
   ytoolExtendArgs: string[]
@@ -60,14 +61,36 @@ class SyncYuque {
         console.log('复制成功')
       }
     })
+
+    const list: string[] = await this.readDirectory(sourceDir)
+
+    const docList = list.map((item) => {
+      return item.split('/').at(-1)
+    })
+
+    const baseUrl =
+      'https://github.com/vannvan/knowledge-garden/blob/master/Iteration/%E6%8A%80%E6%9C%AF%E6%9C%88%E6%8A%A5/'
+
+    let content = `# vannvan的技术月报 \n## 月报目录\n`
+
+    content += docList
+      .sort((a: any, b: any) => b.replace(/\D/g, '') - a.replace(/\D/g, ''))
+      .map((item) => {
+        return `- [${item}](${baseUrl}${item})`
+      })
+      .join('\n')
+
+    content += `\n## 最近更新时间 \n ${dayjs().format('YYYY-MM-DD HH:mm:ss')}`
+
+    writeFileSync(`${targetDir}/README.md`, content)
   }
 
   /**
-   * 暂时先不要
+   * 获取文件列表
    * @param pathName
    * @returns
    */
-  readDirectory(pathName: any) {
+  readDirectory(pathName: any): Promise<string[]> {
     return new Promise((resolve) => {
       const list: string[] = []
       const each = (pathName) => {

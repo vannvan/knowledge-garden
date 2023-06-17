@@ -16,7 +16,6 @@
   "main": "dist-info.js",
   "scripts": {
     "gents": "node scripts/gen-ts-jest-script.js",
-    "preinstall": "npx only-allow pnpm",
     "jest": "jest",
     "la": "node scripts/lc-analyse",
     "lc": "node scripts/gen-leetcode-function",

@@ -15,7 +15,7 @@ env:
   YUQUE_USERNAME: ${{secrets.YUQUE_USERNAME}}
   YUQUE_PASSWORD: ${{secrets.YUQUE_PASSWORD}}
 jobs:
-  build:
+  sync_doc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
 
-      - run: npm i
+      - run: pnpm i
       - run: echo "$hello"
       - run: npm run sync-yuque "$YUQUE_USERNAME" "$YUQUE_PASSWORD"
 

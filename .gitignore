@@ -25,3 +25,6 @@ stdout.log
 *.sln
 *.sw?
 .local
+
+
+docs

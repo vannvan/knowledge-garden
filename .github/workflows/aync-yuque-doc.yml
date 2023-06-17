@@ -1,0 +1,43 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Everyday Task
+
+on:
+  push:
+    branches: ['main']
+  schedule:
+    - cron: '50 15 * * *'
+    # - cron: '10 23 ? * 1'
+env:
+  hello: 同步语雀文档开始
+  # COOKIE: ${{ secrets.COOKIE }}
+  YUQUE_USERNAME: ${{secrets.YUQUE_USERNAME}}
+  YUQUE_PASSWORD: ${{secrets.YUQUE_PASSWORD}}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - run: npm i
+      - run: echo "$hello"
+      - run: npm run sync-yuque "$YUQUE_USERNAME" "$YUQUE_PASSWORD"
+
+      - name: Commit
+        if: success()
+        run: |
+          git config --global user.email 862670198@qq.com
+          git config --global user.name vannvan
+          git add .
+          git commit -m "`date`"
+          git pull --rebase
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

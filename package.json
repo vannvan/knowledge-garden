@@ -19,9 +19,11 @@
     "preinstall": "npx only-allow pnpm",
     "jest": "jest",
     "la": "node scripts/lc-analyse",
-    "lc": "node scripts/gen-leetcode-function"
+    "lc": "node scripts/gen-leetcode-function",
+    "sync-yuque": "ts-node-esm -T scripts/sync-yuque-doc-task.ts"
   },
   "dependencies": {
+    "@types/node": "^20.3.1",
     "axios": "^1.3.4",
     "chalk": "4",
     "dayjs": "^1.11.7",
@@ -30,7 +32,9 @@
     "ora": "^5.4.1",
     "prettier": "^2.8.4",
     "readme-md-generator": "^1.0.0",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "ts-node": "^10.9.1",
+    "yuque-tools": "^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",

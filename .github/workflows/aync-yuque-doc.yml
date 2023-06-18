@@ -4,8 +4,8 @@
 name: Everyday Task
 
 on:
-  push:
-    # branches: ['master']
+  # push:
+  # branches: ['master']
   schedule:
     - cron: '50 15 * * *'
     # - cron: '10 23 ? * 1'

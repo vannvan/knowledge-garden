@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-04-15 13:10:02
+ * Last Modified: 2023-06-18 21:21:14
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -13,17 +13,26 @@
 import { bubbleSort, insertSort, mergeSort, selectSort, quickSort } from '../sort'
 
 describe('排序算法 测试', () => {
-  it('sort function', () => {
-    const nums = [5, 9, 3, 1, 2, 8, 4, 6, 7]
-    const target = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const nums = [5, 9, 3, 1, 2, 8, 4, 6, 7]
+  const target = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  it('冒泡排序', () => {
     expect(bubbleSort(nums)).toEqual(target)
+  })
 
+  it('选择排序', () => {
     expect(selectSort(nums)).toEqual(target)
+  })
 
+  it('插入排序', () => {
     expect(insertSort(nums)).toEqual(target)
+  })
 
+  it('归并排序', () => {
     expect(mergeSort(nums)).toEqual(target)
+  })
 
+  it('快速排序', () => {
     expect(quickSort(nums)).toEqual(target)
   })
 })

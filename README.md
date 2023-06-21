@@ -42,7 +42,7 @@
 
 - [企业级CLI工具链](https://github.com/vannvan/sukit-cli)
 
-- [快速掌握Vue.js组件库搭箭方法](https://github.com/vannvan/ww-ui)
+- [快速掌握Vue.js组件库搭建方法](https://github.com/vannvan/ww-ui)
   
 - [qiankun微服务实践方案，开箱即用](https://github.com/vannvan/umi-qiankun-explore)
 

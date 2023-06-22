@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-06-17 18:06:22
+ * Last Modified: 2023-06-22 19:58:45
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -55,7 +55,7 @@ class SyncYuque {
   async handleDocument() {
     console.log('开始处理文件程序')
     const sourceDir = path.resolve('docs/技术迭代/技术月报')
-    const targetDir = path.resolve('Iteration/技术月报')
+    const targetDir = path.resolve('Iteration/技术月刊')
     cp(sourceDir, targetDir, { recursive: true }, (err) => {
       if (!err) {
         console.log('复制成功')
@@ -71,7 +71,7 @@ class SyncYuque {
     const baseUrl =
       'https://github.com/vannvan/knowledge-garden/blob/master/Iteration/%E6%8A%80%E6%9C%AF%E6%9C%88%E6%8A%A5/'
 
-    let content = `# vannvan的技术月报 \n## 月报目录\n`
+    let content = `# vannvan的技术月报 \n## 月刊目录\n`
 
     content += docList
       .sort((a: any, b: any) => b.replace(/\D/g, '') - a.replace(/\D/g, ''))

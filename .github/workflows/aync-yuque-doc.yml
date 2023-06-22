@@ -34,7 +34,7 @@ jobs:
           git config --global user.email 862670198@qq.com
           git config --global user.name vannvan
           git add .
-          git commit -m "`date`"
+          git commit -m "同步语雀文档:`date`"
           git pull --rebase
 
       - name: Push changes

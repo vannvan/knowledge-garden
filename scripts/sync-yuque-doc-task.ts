@@ -4,14 +4,14 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-06-22 19:58:45
+ * Last Modified: 2023-06-23 21:55:39
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
 import { spawn } from 'child_process'
-import { readdirSync, lstatSync, cp, writeFileSync } from 'fs'
+import { readdirSync, lstatSync, cp, writeFileSync, cpSync } from 'fs'
 import path from 'path'
 import dayjs from 'dayjs'
 
@@ -23,6 +23,7 @@ class SyncYuque {
 
   start() {
     const args = process.argv
+    this.handleDocument()
 
     if (args.length < 2) {
       console.log('参数无效,任务退出')
@@ -56,22 +57,21 @@ class SyncYuque {
     console.log('开始处理文件程序')
     const sourceDir = path.resolve('docs/技术迭代/技术月报')
     const targetDir = path.resolve('Iteration/技术月刊')
-    cp(sourceDir, targetDir, { recursive: true }, (err) => {
-      if (!err) {
-        console.log('复制成功')
-      }
-    })
 
-    const list: string[] = await this.readDirectory(sourceDir)
+    cpSync(sourceDir, targetDir, { recursive: true })
 
-    const docList = list.map((item) => {
-      return item.split('/').at(-1)
-    })
+    const list: string[] = await this.readDirectory(targetDir)
+
+    const docList = list
+      .filter((item) => !/README/.test(item))
+      .map((item) => {
+        return item.split('/').at(-1)
+      })
 
     const baseUrl =
       'https://github.com/vannvan/knowledge-garden/blob/master/Iteration/%E6%8A%80%E6%9C%AF%E6%9C%88%E6%8A%A5/'
 
-    let content = `# vannvan的技术月报 \n## 月刊目录\n`
+    let content = `# vannvan的技术月刊 \n## 月刊目录\n`
 
     content += docList
       .sort((a: any, b: any) => b.replace(/\D/g, '') - a.replace(/\D/g, ''))
@@ -83,6 +83,7 @@ class SyncYuque {
     content += `\n## 最近更新时间 \n ${dayjs().format('YYYY-MM-DD HH:mm:ss')}`
 
     writeFileSync(`${targetDir}/README.md`, content)
+    console.log('目录更新成功')
   }
 
   /**

@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-06-23 21:55:39
+ * Last Modified: 2023-06-24 00:05:30
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -18,12 +18,11 @@ import dayjs from 'dayjs'
 class SyncYuque {
   ytoolExtendArgs: string[]
   constructor() {
-    this.ytoolExtendArgs = ['技术迭代', 'skip']
+    this.ytoolExtendArgs = ['技术迭代', 'skip', 'lb']
   }
 
   start() {
     const args = process.argv
-    this.handleDocument()
 
     if (args.length < 2) {
       console.log('参数无效,任务退出')

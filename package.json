@@ -33,7 +33,7 @@
     "readme-md-generator": "^1.0.0",
     "shelljs": "^0.8.5",
     "ts-node": "^10.9.1",
-    "yuque-tools": "^1.0.0"
+    "yuque-tools": "^1.0.1"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",

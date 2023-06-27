@@ -4,21 +4,26 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-06-24 00:05:30
+ * Last Modified: 2023-06-27 19:49:54
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
  */
 
 import { spawn } from 'child_process'
-import { readdirSync, lstatSync, cp, writeFileSync, cpSync } from 'fs'
-import path from 'path'
 import dayjs from 'dayjs'
+import { cpSync, lstatSync, readdirSync, writeFileSync } from 'fs'
+import path from 'path'
 
 class SyncYuque {
   ytoolExtendArgs: string[]
+  monthlyBaseUrl: string
+  vannvan: string
   constructor() {
     this.ytoolExtendArgs = ['技术迭代', 'skip', 'lb']
+    this.vannvan = 'https://github.com/vannvan'
+    this.monthlyBaseUrl =
+      this.vannvan + '/knowledge-garden/tree/master/Iteration/%E6%8A%80%E6%9C%AF%E6%9C%88%E5%88%8A'
   }
 
   start() {
@@ -67,8 +72,7 @@ class SyncYuque {
         return item.split('/').at(-1)
       })
 
-    const baseUrl =
-      'https://github.com/vannvan/knowledge-garden/blob/master/Iteration/%E6%8A%80%E6%9C%AF%E6%9C%88%E6%8A%A5/'
+    const baseUrl = this.monthlyBaseUrl
 
     let content = `# vannvan的技术月刊 \n## 月刊目录\n`
 

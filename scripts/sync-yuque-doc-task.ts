@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-06-27 19:49:54
+ * Last Modified: 2023-07-01 00:23:40
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -79,7 +79,7 @@ class SyncYuque {
     content += docList
       .sort((a: any, b: any) => b.replace(/\D/g, '') - a.replace(/\D/g, ''))
       .map((item) => {
-        return `- [${item}](${baseUrl}${item})`
+        return `- [${item}](${baseUrl}/${item})`
       })
       .join('\n')
 

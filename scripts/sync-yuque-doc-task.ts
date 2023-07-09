@@ -20,7 +20,7 @@ class SyncYuque {
   monthlyBaseUrl: string
   vannvan: string
   constructor() {
-    this.ytoolExtendArgs = ['技术迭代', 'skip', 'lb']
+    this.ytoolExtendArgs = ['技术迭代/技术月报', 'skip', 'lb']
     this.vannvan = 'https://github.com/vannvan'
     this.monthlyBaseUrl =
       this.vannvan + '/knowledge-garden/tree/master/Iteration/%E6%8A%80%E6%9C%AF%E6%9C%88%E5%88%8A'

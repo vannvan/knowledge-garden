@@ -1,4 +1,4 @@
-<h1 align="left"><img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="30px">欢迎来到vannvan知识花园！</h1>
+<h1 align="left">vannvan知识花园</h1>
 
 ## 来访的朋友惠鉴
 

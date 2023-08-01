@@ -49,14 +49,12 @@
 - 可以减少嵌套，降低特定性。
 - 可以帮助我们创建出可扩展的样式表。
 
-**OOCSS**，也就是 “Object Oriented CSS（面向对象的CSS）”，是一种写 CSS 的方法，其思想就是鼓励你把样式表看作“对象”的集合：创建可重用性、可重复性的代码段让你可以在整个网站中多次使用。
-参考资料：
+**OOCSS**，也就是 “Object Oriented CSS（面向对象的CSS）”，是一种写 CSS 的方法，其思想就是鼓励你把样式表看作“对象”的集合：创建可重用性、可重复性的代码段让你可以在整个网站中多次使用。<br />参考资料：
 
 - Nicole Sullivan 的 [OOCSS wiki](https://github.com/stubbornella/oocss/wiki)
 - Smashing Magazine 的 [Introduction to OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
 ### **ID 选择器**
-在 CSS 中，虽然可以通过 ID 选择元素，但大家通常都会把这种方式列为反面教材。ID 选择器给你的规则声明带来了不必要的高[优先级](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)，而且 ID 选择器是不可重用的。
-想要了解关于这个主题的更多内容，参见 [CSS Wizardry 的文章](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/)，文章中有关于如何处理优先级的内容。
+在 CSS 中，虽然可以通过 ID 选择元素，但大家通常都会把这种方式列为反面教材。ID 选择器给你的规则声明带来了不必要的高[优先级](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)，而且 ID 选择器是不可重用的。<br />想要了解关于这个主题的更多内容，参见 [CSS Wizardry 的文章](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/)，文章中有关于如何处理优先级的内容。
 ### **边框**
 在定义无边框样式时，使用 0 代替 none。
 ## **Sass**
@@ -84,15 +82,13 @@ _如果有必要_用到嵌套选择器，把它们放到最后，在规则声明
 ### **扩展指令**
 应避免使用 @extend 指令，因为它并不直观，而且具有潜在风险，特别是用在嵌套选择器的时候。即便是在顶层占位符选择器使用扩展，如果选择器的顺序最终会改变，也可能会导致问题。（比如，如果它们存在于其他文件，而加载顺序发生了变化）。其实，使用 @extend 所获得的大部分优化效果，gzip 压缩已经帮助你做到了，因此你只需要通过 mixin 让样式表更符合 DRY 原则就足够了。
 ### **嵌套选择器**
-**请不要让嵌套选择器的深度超过 3 层！**
-当遇到以上情况的时候，你也许是这样写 CSS 的：
+**请不要让嵌套选择器的深度超过 3 层！**<br />当遇到以上情况的时候，你也许是这样写 CSS 的：
 
 - 与 HTML 强耦合的（也是脆弱的）_—或者—_
 - 过于具体（强大）_—或者—_
 - 没有重用
 
-再说一遍: **永远不要嵌套 ID 选择器！**
-如果你始终坚持要使用 ID 选择器（劝你三思），那也不应该嵌套它们。如果你正打算这么做，你需要先重新检查你的标签，或者指明原因。如果你想要写出风格良好的 HTML 和 CSS，你是**不**应该这样做的。
+再说一遍: **永远不要嵌套 ID 选择器！**<br />如果你始终坚持要使用 ID 选择器（劝你三思），那也不应该嵌套它们。如果你正打算这么做，你需要先重新检查你的标签，或者指明原因。如果你想要写出风格良好的 HTML 和 CSS，你是**不**应该这样做的。
 ## Less
 ### **代码组织**
 
@@ -102,14 +98,11 @@ _如果有必要_用到嵌套选择器，把它们放到最后，在规则声明
 ### **@import 语句**
 @import 语句引用的文件_必须_（MUST）写在一对引号内，.less 后缀_不得_（MUST NOT）省略（与引入 CSS 文件时的路径格式一致）。引号使用 ' 和 " 均可，但在同一项目内_必须_（MUST）统一。
 ### **变量**
-Less 的变量值总是以同一作用域下最后一个同名变量为准，务必注意后面的设定会覆盖所有之前的设定。
-变量命名_必须_（MUST）采用 @foo-bar 形式，_不得_（MUST NOT）使用 @fooBar 形式。
+Less 的变量值总是以同一作用域下最后一个同名变量为准，务必注意后面的设定会覆盖所有之前的设定。<br />变量命名_必须_（MUST）采用 @foo-bar 形式，_不得_（MUST NOT）使用 @fooBar 形式。
 ### **继承**
 使用继承时，如果在声明块内书写 :extend 语句，_必须_（MUST）写在开头：
 ### **混入（Mixin）**
-在定义 mixin 时，如果 mixin 名称不是一个需要使用的 className，_必须_（MUST）加上括号，否则即使不被调用也会输出到 CSS 中。
-如果混入的是本身不输出内容的 mixin，_必须_（MUST）在 mixin 后添加括号（即使不传参数），以区分这是否是一个 className（修改以后是否会影响 HTML）。
-Mixin 的参数分隔符使用 , 和 ; 均可，但在同一项目中_必须_（MUST）保持统一。
+在定义 mixin 时，如果 mixin 名称不是一个需要使用的 className，_必须_（MUST）加上括号，否则即使不被调用也会输出到 CSS 中。<br />如果混入的是本身不输出内容的 mixin，_必须_（MUST）在 mixin 后添加括号（即使不传参数），以区分这是否是一个 className（修改以后是否会影响 HTML）。<br />Mixin 的参数分隔符使用 , 和 ; 均可，但在同一项目中_必须_（MUST）保持统一。
 ## 资源参考
 
 - [https://github.com/airbnb/css](https://github.com/airbnb/css)

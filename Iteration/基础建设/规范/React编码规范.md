@@ -14,8 +14,7 @@
 
 - 组件文件名
 
-如果是组件文件，则使用 PascalCase，如 MyComponent.js
-如果组件是一个目录，则组件主入口命名为 index，如 index.js
+如果是组件文件，则使用 PascalCase，如 MyComponent.js<br />如果组件是一个目录，则组件主入口命名为 index，如 index.js
 
 - 引用命名
 
@@ -61,8 +60,7 @@ JSX 属性要使用单引号，与其他普通 JS 保持一致
 
 - 为所有的非必需属性定义使用 defaultProps 明确的默认值
 
-使用ts定义接口
-不再使用以下这种方法
+使用ts定义接口<br />不再使用以下这种方法
 ### **Refs**
 类组件，避免使用字符串引用，请使用回调函数作为引用，eslint: [react/no-string-refs](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
 ### **圆括号**

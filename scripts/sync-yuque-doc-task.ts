@@ -4,7 +4,7 @@
  * Author: van
  * Email : adoerww@gamil.com
  * -----
- * Last Modified: 2023-07-01 00:23:40
+ * Last Modified: 2023-08-02 17:18:12
  * Modified By: van
  * -----
  * Copyright (c) 2023 https://github.com/vannvan
@@ -36,6 +36,8 @@ class SyncYuque {
     console.log('开始执行 ytool任务')
 
     const [, , userName, password] = args
+
+    // 本地的逻辑
 
     const child = spawn('npx', ['ytool', 'pull', userName, password, ...this.ytoolExtendArgs], {
       shell: true,
